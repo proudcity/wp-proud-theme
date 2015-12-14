@@ -1,7 +1,7 @@
 <?php
 
-use Roots\Proud\Setup;
-use Roots\Proud\Wrapper;
+use Proud\Theme\Setup;
+use Proud\Theme\Wrapper;
 
 ?>
 
@@ -33,6 +33,7 @@ use Roots\Proud\Wrapper;
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');
+      do_action('proud_settings');
       wp_footer();
     ?>
   </body>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Proud\Titles;
+namespace Proud\Theme\Titles;
 
 /**
  * Page titles

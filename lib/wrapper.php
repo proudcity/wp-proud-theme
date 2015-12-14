@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Proud\Wrapper;
+namespace Proud\Theme\Wrapper;
 
 /**
  * Theme wrapper

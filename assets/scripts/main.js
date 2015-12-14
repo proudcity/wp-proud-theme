@@ -14,7 +14,7 @@
 
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
-  var Proud = {
+  var ProudTheme = {
     // All pages
     'common': {
       init: function() {
@@ -46,7 +46,7 @@
   var UTIL = {
     fire: function(func, funcname, args) {
       var fire;
-      var namespace = Proud;
+      var namespace = ProudTheme;
       funcname = (funcname === undefined) ? 'init' : funcname;
       fire = func !== '';
       fire = fire && namespace[func];

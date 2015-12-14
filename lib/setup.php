@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Proud\Setup;
+namespace Proud\Theme\Setup;
 
-use Roots\Proud\Assets;
+use Proud\Theme\Assets;
 
 /**
  * Theme setup

@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Proud\Customizer;
+namespace Proud\Theme\Customizer;
 
-use Roots\Proud\Assets;
+use Proud\Theme\Assets;
 
 /**
  * Add postMesproud support

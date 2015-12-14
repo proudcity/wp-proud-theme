@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Proud\Assets;
+namespace Proud\Theme\Assets;
 
 /**
  * Get paths for assets

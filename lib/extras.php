@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Proud\Extras;
+namespace Proud\Theme\Extras;
 
-use Roots\Proud\Setup;
+use Proud\Theme\Setup;
 
 /**
  * Add <body> classes
