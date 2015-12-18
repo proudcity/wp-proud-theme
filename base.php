@@ -33,6 +33,7 @@ use Proud\Theme\Wrapper;
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');
+      do_action('proud_footer');
       do_action('proud_settings');
       wp_footer();
     ?>
