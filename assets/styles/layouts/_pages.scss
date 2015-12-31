@@ -1,0 +1,20 @@
+
+
+// full width pages
+.full-width-container {
+  .jsn-bootstrap3 {
+    & > .row:not(.wr_fullwidth) {
+      // Container widths
+      //
+      @media (min-width: $screen-sm-min) {
+        width: $container-sm - ($grid-gutter-width/2);
+      }
+      @media (min-width: $screen-md-min) {
+        width: $container-md - ($grid-gutter-width/2);
+      }
+      @media (min-width: $screen-lg-min) {
+        width: $container-lg - ($grid-gutter-width/2);
+      }
+    }
+  }
+}
