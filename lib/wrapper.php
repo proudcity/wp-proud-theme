@@ -9,6 +9,11 @@ namespace Proud\Theme\Wrapper;
  * @link http://scribu.net/wordpress/theme-wrappers.html
  */
 
+function container_class() {
+  global $proudcore;
+  return $proudcore::$layout->post_is_full_width() ? 'full-width-container' : 'container';
+}
+
 function template_path() {
   return ProudWrapping::$main_template;
 }
