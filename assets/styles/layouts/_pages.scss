@@ -4,6 +4,10 @@
 .full-width-container {
   .jsn-bootstrap3 {
     & > .row:not(.wr_fullwidth) {
+      margin-right: auto;
+      margin-left: auto;
+      @include clearfix;
+      
       // Container widths
       //
       @media (min-width: $screen-sm-min) {
