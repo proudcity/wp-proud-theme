@@ -1,8 +1,23 @@
 
+// Hiding WR pagebuilder artifacts
+.main > p {
+  margin-bottom: 0;
+}
 
 // full width pages
 .full-width-container {
   .jsn-bootstrap3 {
+
+    // Full width
+    .wr_fullwidth {
+      padding-left: 0!important;
+      padding-right: 0!important;
+      margin-left: -($grid-gutter-width/2)!important;
+      margin-right: -($grid-gutter-width/2)!important;
+      width: auto!important;
+      min-width: 100%;
+    }
+
     & > .row:not(.wr_fullwidth) {
       margin-right: auto;
       margin-left: auto;
