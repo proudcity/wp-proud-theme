@@ -3,6 +3,14 @@
 namespace Proud\Theme\Titles;
 
 /**
+ * Page title hidden?
+ */
+function titleHidden() {
+  global $proudcore;
+  return $proudcore::$layout->title_is_hidden();
+}
+
+/**
  * Page titles
  */
 function title() {
