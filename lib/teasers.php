@@ -3,7 +3,8 @@
 namespace Proud\Theme\Teaser;
 
 if ( !class_exists( 'TeaserOptions' ) ) {
-  // Sets up options for listing
+
+  // Sets up options for listing on pages
   class TeaserOptions {
 
     private static $fields = [];
@@ -103,7 +104,12 @@ if ( !class_exists( 'TeaserOptions' ) ) {
 
 if ( !class_exists( 'ContentTeaser' ) ) {
 
-  // A teaser list object
+  // Prints out a teaser list from the args on creation
+  // args format: 
+  // 'post_type' => 'post',
+  // 'posts_per_page' => 5,
+  // 'update_post_term_cache' => false, // don't retrieve post terms
+  // 'update_post_meta_cache' => false, // don't retrieve post meta
   class ContentTeaser {
     
     private $display_type;
