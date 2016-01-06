@@ -11,6 +11,9 @@ use Proud\Theme\Teaser;
 
     <?php while ( have_posts() ) : the_post(); ?>
         <?php 
+        
+            // Header
+            get_template_part('templates/page', 'header');
 
             $meta = get_post_meta( get_the_ID() );
             // Call Teaser list
