@@ -15,6 +15,7 @@ $proud_includes = [
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
+  'lib/teasers.php',   // Content Teasers
   'lib/customizer.php' // Theme customizer
 ];
 
