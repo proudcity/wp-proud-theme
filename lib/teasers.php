@@ -129,6 +129,9 @@ if ( !class_exists( 'ContentTeaser' ) ) {
         case 'mini':
           echo '<ul class="title-list list-unstyled">';
           break;
+
+        case 'cards':
+          echo '<div class="card-columns card-columns-xs-1 card-columns-sm-2 card-columns-md-3 card-columns-equalize">';
       }
     }
 
@@ -137,17 +140,17 @@ if ( !class_exists( 'ContentTeaser' ) ) {
       switch( $this->display_type ) {
         case 'list':
           ?>
-          <div class="teaser">
-            <div <?php post_class(); ?>>
-              <div class="row">
-                <div class="col-md-3 pull-right">
-                  <?php the_post_thumbnail(); ?>
-                </div>
-                <div class="col-md-9 pull-left">
-                  <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
-                  <p class="muted"><?php echo get_the_date(); ?></p>
-                  <?php the_excerpt(); ?>
-                </div>
+          <div <?php post_class( "teaser" ); ?>>
+            <div class="row">
+              <?php if( has_post_thumbnail() ): ?>
+              <div class="col-md-3 pull-right">
+                <?php the_post_thumbnail(); ?>
+              </div>
+              <?php endif; ?>
+              <div class="col-md-9 pull-left">
+                <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
+                <p class="muted"><?php echo get_the_date(); ?></p>
+                <?php the_excerpt(); ?>
               </div>
             </div>
           </div>
@@ -156,14 +159,28 @@ if ( !class_exists( 'ContentTeaser' ) ) {
 
         case 'mini':
           ?>
-          <li class="teaser-mini">
-            <div <?php post_class(); ?>>
-              <?php the_title( sprintf( '<h5 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h5>' ); ?>
-              <p class="muted"><?php echo get_the_date(); ?></p>
-            </div>
+          <li <?php post_class( "teaser-mini" ); ?>>
+            <?php the_title( sprintf( '<h5 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h5>' ); ?>
+            <p class="muted"><?php echo get_the_date(); ?></p>
           </li>
           <?php
           break;
+
+        case 'cards':
+          ?>
+          <div <?php post_class( "card-wrap" ); ?>>
+            <div class="card">
+              <?php if( has_post_thumbnail() ): ?>
+              <div class="card-img-top text-center">
+                <?php the_post_thumbnail(); ?>
+              </div>
+              <?php endif; ?>
+              <div class="card-block">
+                <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+              </div>
+            </div>
+          </div>
+          <?php
       } 
     }
 
@@ -175,6 +192,10 @@ if ( !class_exists( 'ContentTeaser' ) ) {
 
         case 'mini':
           echo "</ul>";
+          break;
+
+        case 'cards':
+          echo "</div>";
           break;
       }
     }
