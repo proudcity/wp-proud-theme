@@ -1,0 +1,47 @@
+// @todo: this is in proud_admin, and should be included from there
+$admin-bar-height: 47px;
+
+#wpadminbar {
+  height: $admin-bar-height !important;
+
+  #wp-admin-bar-wp-logo {
+    background: url(http://proudcity.com/images/logo-icon-white.png) 0 0 no-repeat !important;
+    background-size: $admin-bar-height $admin-bar-height !important;
+    margin-left: 10px; // @todo: var
+
+    a {
+      height: $admin-bar-height - 2px;
+      width: $admin-bar-height - 2px;
+    }
+
+    .ab-icon:before {
+      content: none !important;
+    }
+
+    .ab-item {
+      background: none;
+    }
+
+    .ab-sub-wrapper {
+      display: none;
+    }
+  }
+
+  #wp-admin-bar-customize,
+  #wp-admin-bar-updates,
+  #wp-admin-bar-comments,
+  #wp-admin-bar-site-name {
+    display: none;
+  }
+
+  .ab-item {
+    margin-top: 5px !important; // @todo: var/math
+  }
+
+}
+
+
+body.proud-navbar-active.admin-bar .navbar-external, 
+body.proud-navbar-active.admin-menu .navbar-external {
+  top: $admin-bar-height !important;
+}
