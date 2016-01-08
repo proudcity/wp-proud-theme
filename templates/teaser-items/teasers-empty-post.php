@@ -1,0 +1,1 @@
+<p>No news items could be found.</p>

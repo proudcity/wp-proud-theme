@@ -28,6 +28,17 @@ function body_class($classes) {
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
 
 /**
+ * Convert current-menu-item to active
+ */
+function convert_nav_class($classes, $item){
+     if( in_array('current-menu-item', $classes) ){
+             $classes[] = 'active ';
+     }
+     return $classes;
+}
+add_filter('nav_menu_css_class' , __NAMESPACE__ . '\\convert_nav_class' , 10 , 2);
+
+/**
  * Clean up the_excerpt()
  */
 function excerpt_more() {

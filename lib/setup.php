@@ -87,10 +87,10 @@ function widgets_init() {
   register_sidebar([
     'name'          => __('Footer', 'proud'),
     'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_widget' => '<div class="col-sm-6 col-md-3 %1$s %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="pane-tile">',
+    'after_title'   => '</h4>'
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
