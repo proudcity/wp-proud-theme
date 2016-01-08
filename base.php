@@ -19,15 +19,31 @@ use Proud\Theme\Wrapper;
       get_template_part('templates/header');
     ?>
     <div class="wrap <?php echo Wrapper\container_class(); ?>" role="document">
+      
+      <?php if (Setup\page_agency_info(true)) : ?>
+        <div class="page-header">
+          <h2><?php echo Wrapper\agency_title(); ?></h2>
+        </div><!-- /.sidebar -->
+      <?php endif; ?>
+
       <div class="content row">
-        <main class="main">
-          <?php include Wrapper\template_path(); ?>
-        </main><!-- /.main -->
-        <?php if (Setup\display_sidebar()) : ?>
+        
+        <?php if (Setup\page_agency_info()) : ?>
           <aside class="sidebar">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
+
+        <?php if (Setup\page_agency_info(true)) : ?>
+          <aside class="sidebar">
+            <?php include Wrapper\sidebar_agency_path(); ?>
+          </aside><!-- /.sidebar -->
+        <?php endif; ?>
+
+        <main class="main">
+          <?php include Wrapper\template_path(); ?>
+        </main><!-- /.main -->
+
       </div><!-- /.content -->
     </div><!-- /.wrap -->
     <?php

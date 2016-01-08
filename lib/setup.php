@@ -57,8 +57,17 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
  */
 function widgets_init() {
   register_sidebar([
-    'name'          => __('Primary', 'proud'),
+    'name'          => __('Standard sidebar', 'proud'),
     'id'            => 'sidebar-primary',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Agency sidebar', 'proud'),
+    'id'            => 'sidebar-agency',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -87,19 +96,58 @@ function widgets_init() {
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
 /**
- * Determine which pages should NOT display the sidebar
+ * Determine information about Agencies, subpages
  */
-function display_sidebar() {
-  static $display;
+function page_agency_info( $agency = false ) {
+  /*static $display;
 
-  isset($display) || $display = !in_array(true, [
+  if (isset($display)) {
+    return apply_filters('proud/display_sidebar', $display);
+  }*/
+
+  
+  if (is_page()) {
+    
+    global $pageInfo;
+    global $wpdb;
+    if (empty($pageInfo)) {
+      // @todo: make this more elegant / cached
+      // @todo: this should be in proud core (in some kind of hook_init)
+      $row = $wpdb->get_row( $wpdb->prepare( '
+        SELECT post_id, slug FROM wp_postmeta pm
+        LEFT JOIN wp_term_relationships r ON pm.post_id = r.object_id
+        LEFT JOIN wp_terms t ON r.term_taxonomy_id = t.term_id
+        WHERE pm.meta_key = %s
+        AND pm.meta_value = %d;', 
+      '_menu_item_object_id', get_the_ID() ) );
+
+      $pageInfo['menu'] = $row->slug;
+
+      if ( 'primary-links' === $row->slug ) {
+        $pageInfo['parent'] = get_post_meta ( 41, '_menu_item_menu_item_parent', true );
+      }
+      else {
+        $pageInfo['agency'] = $wpdb->get_var( $wpdb->prepare( '
+          SELECT post_id FROM wp_postmeta WHERE meta_key = %s AND meta_value = %s',
+        'agency_menu', $pageInfo['menu'] ) );
+      }
+    }
+    if ($agency === -1) {
+      $display = !empty($pageInfo['agency']) || $pageInfo['parent'] > 0;
+    }
+    else {
+      $display = $agency === !empty($pageInfo['agency']);
+    }
+  }
+
+  /*isset($display) || $display = !in_array(true, [
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_front_page(),
     is_page_template('template-custom.php'),
-    is_page(),
-  ]);
+    //is_page(),
+  ]);*/
 
   return apply_filters('proud/display_sidebar', $display);
 }

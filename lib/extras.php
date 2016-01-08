@@ -19,7 +19,7 @@ function body_class($classes) {
   $classes[] = 'proud-navbar-active';
 
   // Add class if sidebar is active
-  if (Setup\display_sidebar()) {
+  if (Setup\page_agency_info(-1)) {
     $classes[] = 'sidebar-primary';
   }
 
