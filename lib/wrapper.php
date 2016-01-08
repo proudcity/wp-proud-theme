@@ -22,6 +22,17 @@ function sidebar_path() {
   return new ProudWrapping('templates/sidebar.php');
 }
 
+function sidebar_agency_path() {
+  return new ProudWrapping('templates/sidebar-agency.php');
+}
+
+function agency_title() {
+  global $pageInfo;
+  $url = get_permalink( $pageInfo['agency'] );
+  $title = get_the_title( $pageInfo['agency'] );
+  return "<a href='$url' title='$title'>$title</a>";
+}
+
 class ProudWrapping {
   // Stores the full path to the main template file
   public static $main_template;
