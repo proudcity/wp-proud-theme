@@ -57,7 +57,7 @@ foreach ($events as $EM_Event){
 </div></div>
 
 <!-- addtocalendar code @todo: better embed -->
-<link href="http://addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
+<link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">(function () {
   if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
   if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;

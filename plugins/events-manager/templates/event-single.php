@@ -90,7 +90,7 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
 
 
 <!-- addtocalendar code @todo: better embed -->
-<link href="http://addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
+<link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
 
 <!-- 2. Include script -->
 <script type="text/javascript">(function () {
