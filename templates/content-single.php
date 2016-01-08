@@ -1,13 +1,17 @@
-<?php while (have_posts()) : the_post(); ?>
+<?php use Proud\Theme\Titles; ?>
+
+<?php while ( have_posts() ) : the_post(); ?>
   <article <?php post_class(); ?>>
+    <?php if( !Titles\titleHidden() ) : ?>
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php get_template_part('templates/entry-meta'); ?>
       <p class="muted"><?php echo get_the_date(); ?></p>
       <hr />
     </header>
+    <?php endif; ?>
     <div class="entry-content">
-      <?php if( has_post_thumbnail() ): ?>
+      <?php if( has_post_thumbnail() && !Titles\titleHidden() ): ?>
       <p>
         <?php the_post_thumbnail(); ?>
       </p>
