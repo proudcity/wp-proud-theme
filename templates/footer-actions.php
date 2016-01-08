@@ -4,4 +4,4 @@
       <?php dynamic_sidebar( 'footer-actions' ); ?>
     </ul>
   </div>
-</footer>
+</nav>
