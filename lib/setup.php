@@ -66,6 +66,16 @@ function widgets_init() {
   ]);
 
   register_sidebar([
+    'name'          => __('Footer Actions', 'proud'),
+    'id'            => 'footer-actions',
+    'before_widget' => '<li class="dropdown %1$s %2$s">',
+    'after_widget'  => '</li>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>',
+    'description'   => __('Widgets placed in this are displayed in a nav bar', 'proud')
+  ]);
+
+  register_sidebar([
     'name'          => __('Footer', 'proud'),
     'id'            => 'sidebar-footer',
     'before_widget' => '<section class="widget %1$s %2$s">',
