@@ -56,3 +56,12 @@ function asset_path($filename) {
     return $dist_path . $directory . $file;
   }
 }
+
+/**
+ * Add external assets
+ */
+function add_external_assets() {
+  wp_enqueue_style('external-fonts', '//fonts.googleapis.com/css?family=Lato:400,900,700,300');
+}
+
+add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_external_assets' );
