@@ -9,9 +9,8 @@
  */
 $args = !empty($args) ? $args:array(); /* @var $args array */
 ?>
-<div class="em-search-wrapper">
-<div class="card">
-	<form action="<?php echo !empty($args['search_url']) ? esc_url($args['search_url']) : EM_URI; ?>" method="post" class="em-events-search-form em-search-form filters filters-horizontal form-inline card-block">
+<div class="col-md-3 padding-md-right"><div class="em-search-wrapper"><div class="views-exposed-form">
+	<form action="<?php echo !empty($args['search_url']) ? esc_url($args['search_url']) : EM_URI; ?>" method="post" class="em-events-search-form em-search-form filters filters-horizontal">
 		<input type="hidden" name="action" value="<?php echo esc_attr($args['search_action']); ?>" />
 		<?php if( $args['show_main'] ): //show the 'main' search form ?>
 		<div class="em-search-main">
@@ -61,6 +60,5 @@ $args = !empty($args) ? $args:array(); /* @var $args array */
 		    <?php if( !empty($args['near_unit']) ) : ?><input name="near_unit" type="hidden" value="<?php echo $args['near_unit']; ?>" /><?php endif; ?>
 		<?php endif; ?>
 	</form>
-</div>
 <?php if( !empty($args['ajax']) ): ?><div class='em-search-ajax'></div><?php endif; ?>
-</div>
+</div></div></div>

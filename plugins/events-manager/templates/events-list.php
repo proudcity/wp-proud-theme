@@ -13,6 +13,9 @@ $args = apply_filters('em_content_events_args', $args);
 $events = EM_Events::get($args);
 //d($events);
 //echo EM_Events::output( $args );
+?>
+<div class="col-md-9"><div class="teaser-list">
+<?php
 foreach ($events as $EM_Event){
 
   $datebox_format = 'F \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
@@ -29,7 +32,7 @@ foreach ($events as $EM_Event){
     </div>
     <div class="col-sm-10 col-xs-9">
       <h4><a href="<?php echo get_permalink($EM_Event->post_id) ?>">June 9 City Council Meeting</a></h4>
-      <p><p>
+      <p></p>
       <?php if ($EM_Event->bookings) { ?>
         <a href="#register" class="btn btn-xs btn-default"><i class="fa fa-calendar-check-o"></i> Register</a>
       <?php } //endif ?>
@@ -51,7 +54,7 @@ foreach ($events as $EM_Event){
     </div>
   </div>
 <?php } //foreach ?>
-
+</div></div>
 
 <!-- addtocalendar code @todo: better embed -->
 <link href="http://addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
