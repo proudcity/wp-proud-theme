@@ -5,8 +5,8 @@ $admin-bar-height: 47px;
   height: $admin-bar-height !important;
 
   #wp-admin-bar-wp-logo {
-    background: url(http://proudcity.com/images/logo-icon-white.png) 0 0 no-repeat !important;
-    background-size: $admin-bar-height $admin-bar-height !important;
+    background: url(//my.proudcity.com/images/IconWhite.png) 0 5px no-repeat !important;
+    background-size: $admin-bar-height - 10px $admin-bar-height - 10px !important;
     margin-left: 10px; // @todo: var
 
     a {
