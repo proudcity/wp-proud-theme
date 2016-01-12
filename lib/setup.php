@@ -108,36 +108,15 @@ function page_agency_info( $agency = false ) {
 
   
   if (is_page()) {
-    
+    // $pageInfo is set in wp-proud-core on init
     global $pageInfo;
-    global $wpdb;
-    if (empty($pageInfo)) {
-      // @todo: make this more elegant / cached
-      // @todo: this should be in proud core (in some kind of hook_init)
-      $row = $wpdb->get_row( $wpdb->prepare( '
-        SELECT post_id, slug FROM wp_postmeta pm
-        LEFT JOIN wp_term_relationships r ON pm.post_id = r.object_id
-        LEFT JOIN wp_terms t ON r.term_taxonomy_id = t.term_id
-        WHERE pm.meta_key = %s
-        AND pm.meta_value = %d;', 
-      '_menu_item_object_id', get_the_ID() ) );
-
-      $pageInfo['menu'] = $row->slug;
-
-      if ( 'primary-links' === $row->slug ) {
-        $pageInfo['parent'] = get_post_meta ( 41, '_menu_item_menu_item_parent', true );
+    if (!empty($pageInfo)) {
+      if ($agency === -1) {
+        $display = !empty($pageInfo['agency']) || $pageInfo['parent'] > 0;
       }
       else {
-        $pageInfo['agency'] = $wpdb->get_var( $wpdb->prepare( '
-          SELECT post_id FROM wp_postmeta WHERE meta_key = %s AND meta_value = %s',
-        'agency_menu', $pageInfo['menu'] ) );
+        $display = $agency === !empty($pageInfo['agency']);
       }
-    }
-    if ($agency === -1) {
-      $display = !empty($pageInfo['agency']) || $pageInfo['parent'] > 0;
-    }
-    else {
-      $display = $agency === !empty($pageInfo['agency']);
     }
   }
 
