@@ -1,0 +1,28 @@
+ul.nav.nav-stacked {
+  margin-bottom: 1em;
+  border-bottom: 1px solid $gray-lighter;
+
+  li {
+    margin-top: 0;
+
+    a {
+      border: 1px solid $gray-lighter;
+      border-bottom: none;
+      border-radius: 0;
+    }
+  }  
+}
+
+.widget-agency-contact,
+.widget-agency-hours,
+.widget-agency-social {
+  font-size: .95em;
+  color: $gray-darker;
+
+  // @todo: change these to actually be h6s
+  // @todo: get margin values from variables;
+  h2 {
+    @include h6;
+    margin-bottom: $padding-base-vertical;
+  }
+}

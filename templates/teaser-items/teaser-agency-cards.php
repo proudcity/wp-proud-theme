@@ -20,7 +20,7 @@ if ( !function_exists('get_agency_permalink') ) {
   <div class="card">
     <?php if( has_post_thumbnail() ): ?>
     <div class="card-img-top text-center">
-      <a href="esc_url( get_agency_permalink() ) )"><?php the_post_thumbnail('card-thumb'); ?></a>
+      <a href="<?php echo esc_url( get_agency_permalink() ) ?>"><?php the_post_thumbnail('card-thumb'); ?></a>
     </div>
     <?php endif; ?>
     <div class="card-block">
