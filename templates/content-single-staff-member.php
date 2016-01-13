@@ -6,7 +6,7 @@
   $phone    = $custom["_staff_member_phone"][0];
   $bio      = $custom["_staff_member_bio"][0];
   $fb_url   = $custom["_staff_member_fb"][0];
-  $tw_url   = 'http://www.twitter.com/' . $custom["_staff_member_tw"][0];
+  $tw_url   = $custom["_staff_member_tw"][0] ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
 
 ?>
   <article <?php post_class(); ?>>
