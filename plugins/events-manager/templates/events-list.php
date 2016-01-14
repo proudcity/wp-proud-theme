@@ -31,7 +31,7 @@ foreach ($events as $EM_Event){
       <div class="date-box"><?php echo date_i18n($datebox_format, $EM_Event->start) ?></div>
     </div>
     <div class="col-sm-10 col-xs-9">
-      <h4><a href="<?php echo get_permalink($EM_Event->post_id) ?>">June 9 City Council Meeting</a></h4>
+      <h4><a href="<?php echo get_permalink($EM_Event->post_id) ?>"><?php echo $EM_Event->post_title ?></a></h4>
       <p></p>
       <?php if ($EM_Event->bookings) { ?>
         <a href="#register" class="btn btn-xs btn-default"><i class="fa fa-calendar-check-o"></i> Register</a>
