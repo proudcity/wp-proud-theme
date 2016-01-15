@@ -28,8 +28,8 @@ function sidebar_agency_path() {
 
 function agency_title() {
   global $pageInfo;
-  $url = get_permalink( $pageInfo['agency'] );
-  $title = get_the_title( $pageInfo['agency'] );
+  $url = get_permalink( $pageInfo['parent_post'] );
+  $title = get_the_title( $pageInfo['parent_post'] );
   return "<a href='$url' title='$title'>$title</a>";
 }
 

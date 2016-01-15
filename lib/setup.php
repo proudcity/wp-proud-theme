@@ -99,7 +99,7 @@ add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 /**
  * Determine information about Agencies, subpages
  */
-function page_agency_info( $agency = false ) {
+function page_parent_info( $req = false ) {
   /*static $display;
 
   if (isset($display)) {
@@ -111,11 +111,14 @@ function page_agency_info( $agency = false ) {
     // $pageInfo is set in wp-proud-core on init
     global $pageInfo;
     if (!empty($pageInfo)) {
-      if ($agency === -1) {
-        $display = !empty($pageInfo['agency']) || $pageInfo['parent'] > 0;
+      if ($req === false) {
+        $display = !empty($pageInfo['parent_post']) || $pageInfo['parent_link'] > 0;
       }
-      else {
-        $display = $agency === !empty($pageInfo['agency']);
+      elseif ($req === 'agency') {
+        $display = !empty($pageInfo['parent_post']) && $pageInfo['parent_post_type'] === 'agency';
+      }
+      elseif ($req === 'noagency') {
+        $display = $pageInfo['parent_link'] && $pageInfo['parent_post_type'] !== 'agency';
       }
     }
   }

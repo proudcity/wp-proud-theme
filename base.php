@@ -20,7 +20,7 @@ use Proud\Theme\Wrapper;
     ?>
     <div class="wrap <?php echo Wrapper\container_class(); ?>" role="document">
       
-      <?php if (Setup\page_agency_info(true)) : ?>
+      <?php if (Setup\page_parent_info()) : ?>
         <div class="page-header">
           <h2><?php echo Wrapper\agency_title(); ?></h2>
         </div><!-- /.sidebar -->
@@ -28,13 +28,13 @@ use Proud\Theme\Wrapper;
 
       <div class="content row">
         
-        <?php if (Setup\page_agency_info()) : ?>
+        <?php if (Setup\page_parent_info('noagency')) : ?>
           <aside class="sidebar">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
 
-        <?php if (Setup\page_agency_info(true)) : ?>
+        <?php if (Setup\page_parent_info('agency')) : ?>
           <aside class="sidebar">
             <?php include Wrapper\sidebar_agency_path(); ?>
           </aside><!-- /.sidebar -->
