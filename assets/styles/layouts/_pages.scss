@@ -1,5 +1,9 @@
 
-// Hiding WR pagebuilder artifacts
+.main {
+  min-height: 500px;
+}
+
+// Hiding WR pagebuilder artifacts (arrgh)
 .main > p {
   margin-bottom: 0;
 }
