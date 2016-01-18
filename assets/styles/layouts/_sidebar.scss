@@ -1,4 +1,5 @@
-ul.nav.nav-stacked {
+ul.nav.nav-stacked.submenu,
+.nav.nav-stacked.submenu ul {
   margin-bottom: 1em;
   border-bottom: 1px solid $gray-lighter;
 
