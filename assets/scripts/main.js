@@ -22,6 +22,7 @@
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
+        $('.jsn-bootstrap3 + p:empty').remove();
       }
     },
     // Home page

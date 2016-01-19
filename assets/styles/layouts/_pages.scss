@@ -34,5 +34,11 @@
         width: $container-lg - ($grid-gutter-width/2);
       }
     }
+
+    &:last-child {
+      & > .row:not(.wr_fullwidth) {
+        padding-bottom: $line-height-computed*2!important;
+      }
+    }
   }
 }
