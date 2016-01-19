@@ -45,6 +45,7 @@ $admin-bar-height: 47px;
 body.proud-navbar-active.admin-bar .navbar-external, 
 body.proud-navbar-active.admin-menu .navbar-external {
   top: $admin-bar-height !important;
+  bottom: auto;
 }
 
 // Responsive
