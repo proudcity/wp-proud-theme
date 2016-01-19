@@ -1,0 +1,11 @@
+
+// Overrides for wr-pagebuilder front end styles
+
+// Hiding WR pagebuilder artifacts (arrgh)
+.main > p {
+  margin-bottom: 0;
+}
+
+.jsn-bootstrap3 > .row > div > p {
+  display: none;
+}

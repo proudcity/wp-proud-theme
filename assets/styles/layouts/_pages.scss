@@ -3,15 +3,6 @@
   min-height: 500px;
 }
 
-// Hiding WR pagebuilder artifacts (arrgh)
-.main > p {
-  margin-bottom: 0;
-}
-
-.jsn-bootstrap3 > .row > div > p {
-  display: none;
-}
-
 // full width pages
 .full-width-container {
   .jsn-bootstrap3 {
