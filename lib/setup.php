@@ -131,8 +131,10 @@ function page_parent_info( $req = false ) {
     is_page_template('template-custom.php'),
     //is_page(),
   ]);*/
-
-  return apply_filters('proud/display_sidebar', $display);
+  
+  if(!empty( $display ) ) {
+    return apply_filters('proud/display_sidebar', $display);
+  }
 }
 
 /**
