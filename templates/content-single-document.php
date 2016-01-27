@@ -22,7 +22,7 @@ $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
   <div class="col-md-9">
     <?php echo the_content() ?>
     <?php if ($meta->filetype == 'pdf'): ?>
-      <iframe src="http://docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
+      <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" style="width:100%; height:600px;" frameborder="0"></iframe>
     <?php endif; ?>
   </div>
 </div>
