@@ -1,7 +1,3 @@
-<?php
-$src = get_post_meta( get_the_ID(), 'document', true );
-$meta = json_decode(get_post_meta(get_the_ID(), 'document_meta', true ));
-?>
 <a href="/documents" class="btn btn-default btn-sm pull-right"><i class="fa fa-arrow-left"></i> Back to documents</a>
 <h1 class="entry-title"><?php the_title(); ?></h1>
 <div class="row">
