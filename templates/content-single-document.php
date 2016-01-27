@@ -20,6 +20,9 @@ $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
     <p><a href="<?php echo $src; ?>" class="btn btn-primary btn-lg"><i class="fa fa-download"></i> Download</a></p>
   </div>
   <div class="col-md-9">
-    <iframe src="http://docs.google.com/gview?url=<?php echo urlencode($src); ?>&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
+    <?php echo the_content() ?>
+    <?php if ($meta->filetype == 'pdf'): ?>
+      <iframe src="http://docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
+    <?php endif; ?>
   </div>
 </div>
