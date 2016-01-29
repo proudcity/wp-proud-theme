@@ -1,4 +1,5 @@
 // Grid system
+// We're doing this w bootstrap classes
 .main {
   @include make-sm-column($main-sm-columns);
   .sidebar-primary & {
@@ -7,4 +8,32 @@
 }
 .sidebar {
   @include make-sm-column($sidebar-sm-columns);
+}
+
+
+// Mobile only
+// -------------------------
+@include respond($xs-only) {
+  .sidebar {
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    transition: left .5s ease-in-out;
+
+    .offcanvas-active & {
+      left: 0;
+    }
+  }
+
+  .main {
+    transition: left .1s ease-in-out;
+
+    .offcanvas-active & {
+      left: 100%;
+    }
+  }
+
+  .offcanvas-active .content {
+    overflow: hidden;
+  }
 }

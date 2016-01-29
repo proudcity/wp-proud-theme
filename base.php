@@ -22,6 +22,7 @@ use Proud\Theme\Wrapper;
       
       <?php if (Setup\page_parent_info()) : ?>
         <div class="page-header">
+          <a id="offcanvas-toggle" href="#" class="btn btn-primary visible-xs pull-right"><i class="fa fa-bars"></i></a>
           <h2><?php echo Wrapper\agency_title(); ?></h2>
         </div><!-- /.sidebar -->
       <?php endif; ?>

@@ -1,6 +1,7 @@
 <?php
 $id = get_the_ID();
 $src = get_post_meta( $id, 'document', true );
+$filename = get_post_meta( $id, 'document_filename', true );
 $meta = json_decode(get_post_meta( $id, 'document_meta', true ));
 $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
 ?>
@@ -13,12 +14,12 @@ $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
     <div class="col-md-7">
       <h4 class="entry-title" style="margin-top:0;">
         <?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?>
-        <small><?php foreach ($terms as $term): ?><a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></small>
+        <?php foreach ($terms as $term): ?><a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?>
       </h4>
-      <div class="muted"><?php echo get_the_date(); ?></div>
+      <div class="text-muted text-small"><?php echo get_the_date(); ?></div>
     </div>
-    <div class="col-md-3">
-      <a href="<?php echo $src; ?>" class="btn btn-primary"><i class="fa fa-download"></i> Download</a>
+    <div class="col-md-3 text-md-right">
+      <a href="<?php echo $src; ?>" class="btn btn-primary" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
     </div>
 
   </div>

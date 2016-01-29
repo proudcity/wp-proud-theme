@@ -17,8 +17,28 @@
   var ProudTheme = {
     // All pages
     'common': {
-      init: function() {
-        // JavaScript to be fired on all pages
+      init: function() { // JavaScript to be fired on all pages
+
+        // Agency/subpage off-canvas
+        $('#offcanvas-toggle').on('click', function(e) {
+          $('body').toggleClass('offcanvas-active');
+          $(this).toggleClass('active');
+          e.preventDefault();
+        })
+
+        // Poor man's scrollspy for header
+        var userHasScrolled = false;
+        window.onscroll = function (e){
+          if (!userHasScrolled) {
+            userHasScrolled = true;
+            $('body').addClass('scrolled');
+          }
+          else if(typeof pageYOffset!= 'undefined' && pageYOffset == 0){
+            $('body').removeClass('scrolled');
+            userHasScrolled = false;
+          }
+        }
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
