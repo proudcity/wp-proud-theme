@@ -51,7 +51,7 @@ function proud_customize_register( $wp_customize ) {
 
   // Controls
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_topnav', array(
-    'label'        => __( 'Main color', 'proud' ),
+    'label'        => __( 'Top bar color', 'proud' ),
     'section'    => 'colors',
     'settings'   => 'color_topnav',
   ) ) );
