@@ -47,7 +47,10 @@ body.admin-bar {
 
 
 body.proud-navbar-active {
-  padding-bottom: $admin-bar-height - 10px;
+  
+  .page-footer {
+    padding-bottom: $admin-bar-height - 10px;
+  }
 
   &.admin-bar .navbar-external, 
   &.admin-menu .navbar-external {

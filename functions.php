@@ -68,7 +68,7 @@ function proud_customize_register( $wp_customize ) {
     'label'    => __( 'Logo', 'proud' ),
     'section'  => 'title_tagline',
     'settings' => 'proud_logo',
-    'description' => __( 'The logo appears in the header and footer and should have a transparent background.', 'proud' ),
+    'description' => __( 'The logo appears in the header and footer and should have a transparent back', 'proud' ),
   ) ) );
 }
 add_action( 'customize_register', 'proud_customize_register' );
