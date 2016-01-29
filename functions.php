@@ -131,6 +131,7 @@ function proud_customize_css()
         <!-- proud custom theme settings -->
         <style type="text/css">
             .navbar-default,
+            .menu-box,
             .nav-contain .nav-pills li a,
             .agency-icon {
               background-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
