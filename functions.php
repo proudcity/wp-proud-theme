@@ -32,34 +32,43 @@ unset($file, $filepath);
 
 function proud_customize_register( $wp_customize ) {
   // Settings
-  $wp_customize->add_setting( 'color_main' , array(
+  $wp_customize->add_setting( 'color_topnav' , array(
     'default'     => '#000000',
     'transport'   => 'refresh',
   ) );
-  $wp_customize->add_setting( 'color_secondary' , array(
-    'default'     => '#000000',
+  $wp_customize->add_setting( 'color_link' , array(
+    'default'     => '#0071bc',
     'transport'   => 'refresh',
   ) );
   $wp_customize->add_setting( 'color_highlight' , array(
     'default'     => '#000000',
     'transport'   => 'refresh',
   ) );
+  $wp_customize->add_setting( 'color_footer' , array(
+    'default'     => '#333333',
+    'transport'   => 'refresh',
+  ) );
 
   // Controls
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_main', array(
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_topnav', array(
     'label'        => __( 'Main color', 'proud' ),
     'section'    => 'colors',
-    'settings'   => 'color_main',
+    'settings'   => 'color_topnav',
   ) ) );
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_secondary', array(
-    'label'        => __( 'Secondary color', 'proud' ),
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_link', array(
+    'label'        => __( 'Link color', 'proud' ),
     'section'    => 'colors',
-    'settings'   => 'color_secondary',
+    'settings'   => 'color_link',
   ) ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_highlight', array(
     'label'        => __( 'Highlight color', 'proud' ),
     'section'    => 'colors',
     'settings'   => 'color_highlight',
+  ) ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_footer', array(
+    'label'        => __( 'Footer color', 'proud' ),
+    'section'    => 'colors',
+    'settings'   => 'color_footer',
   ) ) );
 
   // Logo
@@ -124,37 +133,25 @@ function proud_customize_css()
             .navbar-default,
             .nav-contain .nav-pills li a,
             .agency-icon {
-              background-color: <?php echo get_theme_mod('color_main', '#000000'); ?> !important;
+              background-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
             }
 
             .navbar.navbar-default {
-              border-color: <?php echo get_theme_mod('color_main', '#000000'); ?> !important;
+              border-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
             }
 
-            .banner-wrap.blue-back:before,
-            .section-city .customize {
-              background-color: <?php echo get_theme_mod('color_secondary', '#000000'); ?> !important;
-            }
-
-            .nav-contain .nav-pills li.active a,
-            #banner .get-started .btn,
-            #map-wrapper .menu-ui a.active,
-            .agency-icon:hover {
+            .jumbotron:not(.jumbotron-image),
+            .footer-actions,
+            .nav-contain .nav-pills li.active a {
               background-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
             }
 
-            #banner .get-started .btn {
-              border-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
-            }
-
             a{
-              color: <?php echo get_theme_mod('color_highlight', '#000000'); ?>;
+              color: <?php echo get_theme_mod('color_link', '#0071bc'); ?>;
             }
-
-            #banner.city-banner h3,
-            #banner.city-banner h1,
-            .section-city .customize {
-              color: {{settings.header.searchColor}} !important;
+            
+            .page-footer {
+              background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
             }
          </style>
     <?php
