@@ -1,0 +1,36 @@
+// Expanding/contracting topnav
+@media (min-width: $grid-float-breakpoint) {
+  .navbar {
+    @include transition(padding 0.5s ease-out); 
+  }
+
+  body {
+    @include transition(padding-top 0.5s ease-out);
+  }
+
+  body:not(.scrolled) {
+    padding-top: $nav-height-short + $nav-big-padding*2 - 1px !important;
+
+    .navbar {
+      padding-top: $nav-big-padding;
+      padding-bottom: $nav-big-padding;
+
+      .nav-logo {
+        margin-top: -20px;
+        margin-bottom: -20px;
+        padding: 0 10px;
+
+        img.logo {
+          max-height: $nav-height-short + $nav-big-padding*2 - 20px;
+          max-width: 150px !important;
+        }
+      }
+    }
+  }
+
+  img.logo {
+    max-width: 0 !important;
+    max-height: $nav-height-short;
+    //@include transition(all 0.5s ease-out); 
+  }
+}
