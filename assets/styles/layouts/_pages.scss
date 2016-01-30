@@ -42,3 +42,14 @@
     }
   }
 }
+
+// Fix for agency subpages done in panels
+.wrap.container {
+  .panel-grid>.container {
+    width: auto !important;
+  }
+}
+
+.wrap {
+  min-height: 450px;
+}
