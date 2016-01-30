@@ -7,7 +7,7 @@
   $bio      = $custom["_staff_member_bio"][0];
   $fb_url   = $custom["_staff_member_fb"][0];
   $tw_url   = $custom["_staff_member_tw"][0] ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
-
+  $terms = wp_get_post_terms( $post->ID, 'staff-member-group', array("fields" => "all"));
 ?>
   <article <?php post_class(); ?>>
     <header>
@@ -43,12 +43,13 @@
 
       </div>
       <div class="col-md-8">
+        <span class="pull-right"><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></span>
         <h1 class="h2 margin-top-none margin-bottom-none"><?php the_title(); ?></h1>
         <?php if( $title ): ?>
-        <h4 class="margin-top-none"><?php echo $title ?></h4>
+          <h4 class="margin-top-none"><?php echo $title ?></h4>
         <?php endif; ?>
-        <?php if( $title ): ?>
-        <p><?php echo $bio ?></p>
+        <?php if( $bio ): ?>
+          <p><?php echo $bio ?></p>
         <?php endif; ?>
         <?php the_content(); ?>
       </div>

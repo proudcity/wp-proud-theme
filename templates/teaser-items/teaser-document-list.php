@@ -1,10 +1,3 @@
-<?php
-$id = get_the_ID();
-$src = get_post_meta( $id, 'document', true );
-$filename = get_post_meta( $id, 'document_filename', true );
-$meta = json_decode(get_post_meta( $id, 'document_meta', true ));
-$terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
-?>
 <div <?php post_class( "teaser" ); ?>>
   <div class="row">
     
