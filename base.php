@@ -18,6 +18,7 @@ use Proud\Theme\Wrapper;
       do_action('get_header');
       get_template_part('templates/header');
     ?>
+    <?php echo Wrapper\alert_bar(); ?>
     <div class="wrap <?php echo Wrapper\container_class(); ?>" role="document">
       
       <?php if (Setup\page_parent_info()) : ?>

@@ -37,6 +37,16 @@ function agency_title() {
   return "<a href='$url' title='$title'>$title</a>";
 }
 
+function alert_bar() {
+  if (get_option('alert_active')) {
+    // @todo: get this in a template
+    $html = do_shortcode( wp_kses(get_option('alert_message'), true) );
+    $severity = esc_attr(get_option('alert_severity'));
+    return '<div class="text-center alert alert-'. $severity .'">' . $html . '</div>';
+  }
+  return '';
+}
+
 class ProudWrapping {
   // Stores the full path to the main template file
   public static $main_template;

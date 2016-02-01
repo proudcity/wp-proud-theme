@@ -33,10 +33,10 @@
           <strong>Social Media</strong>
           <ul class="list-inline">
             <?php if( $fb_url ): ?>
-            <li><a target="_blank" href="<?php echo $fb_url ?>"><i class="fa fa-facebook"></i><span class="sr-only">Facebook</span></a></li>
+            <li><a target="_blank" href="<?php echo $fb_url ?>"><i class="fa fa-facebook-square fa-2x"></i><span class="sr-only">Facebook</span></a></li>
             <?php endif; ?>
             <?php if( $tw_url ): ?>
-            <li><a target="_blank" href="<?php echo $tw_url ?>"><i class="fa fa-twitter"></i><span class="sr-only">Twitter</span></a></li>
+            <li><a target="_blank" href="<?php echo $tw_url ?>"><i class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
             <?php endif; ?>
           </ul>
         <?php endif; ?>

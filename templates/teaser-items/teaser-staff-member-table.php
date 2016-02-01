@@ -12,4 +12,8 @@
   <td><?php if( !empty( $meta['_staff_member_email'][0] ) ): ?>
     <a href="<?php echo esc_url( 'mailto:' . $meta['_staff_member_email'][0] ) ?>"><i class="fa fa-fw fa-envelope-o"></i>Email</a>
   <?php endif; ?></td>
+  <td>
+    <?php if( !empty( $meta['_staff_member_fb'][0] ) ): ?><a href="<?php esc_url( $meta['_staff_member_fb'][0] ) ?>"><i class="fa fa-fw fa-facebook-square"></i></a><?php endif; ?>
+    <?php if( !empty( $meta['_staff_member_tw'][0] ) ): ?><a href="<?php esc_url( $meta['_staff_member_tw'][0] ) ?>"><i class="fa fa-fw fa-twitter-square"></i></a><?php endif; ?>
+  </td>
 </tr>
