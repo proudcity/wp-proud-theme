@@ -28,22 +28,23 @@
     </div>
     <div class="col-sm-10 col-xs-9">
       <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
-      <p></p>
-      <span class="addtocalendar">
-        <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
-        <var class="atc_event">
-          <var class="atc_date_start"><?php echo date_i18n($atc_format, $start) ?></var>
-          <var class="atc_date_end"><?php echo date_i18n($atc_format, $end) ?></var>
-          <var class="atc_timezone"><?php echo date_i18n('e', $start) ?></var>
-          <var class="atc_title"><?php echo $post->post_title ?></var>
-          <var class="atc_description"><?php //echo $post->post_content ?></var>
-          <var class="atc_location"><?php echo $location ? $location : '' ?></var>
-        </var>
-      </span>
-      <?php if ($location) { ?>
-        <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default"><i class="fa fa-map-marker"></i> Directions</a>
-      <?php } //endif ?>
-      <p><?php echo \Proud\Core\wp_trim_excerpt(); ?></p>
+      <p>
+        <span class="addtocalendar">
+          <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
+          <var class="atc_event">
+            <var class="atc_date_start"><?php echo date_i18n($atc_format, $start) ?></var>
+            <var class="atc_date_end"><?php echo date_i18n($atc_format, $end) ?></var>
+            <var class="atc_timezone"><?php echo date_i18n('e', $start) ?></var>
+            <var class="atc_title"><?php echo $post->post_title ?></var>
+            <var class="atc_description"><?php //echo $post->post_content ?></var>
+            <var class="atc_location"><?php echo $location ? $location : '' ?></var>
+          </var>
+        </span>
+        <?php if ($location) { ?>
+          <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default"><i class="fa fa-map-marker"></i> Directions</a>
+        <?php } //endif ?>
+      </p>
+      <p class="margin-bottom-none"><?php echo \Proud\Core\wp_trim_excerpt(); ?></p>
     </div>
   </div>
 </div>
