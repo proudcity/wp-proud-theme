@@ -9,6 +9,11 @@
   .nav {
     margin-bottom: 0;
   }
+
+  a:hover {
+    color: $white !important;
+    text-decoration: underline !important;
+  }
 }
 
 // For the proudbar
