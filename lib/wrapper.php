@@ -42,7 +42,7 @@ function alert_bar() {
     // @todo: get this in a template
     $html = do_shortcode( wp_kses(get_option('alert_message'), true) );
     $severity = esc_attr(get_option('alert_severity'));
-    return '<div class="text-center alert alert-'. $severity .'">' . $html . '</div>';
+    return '<div class="alert-banner text-center alert alert-'. $severity .'">' . $html . '</div>';
   }
   return '';
 }
