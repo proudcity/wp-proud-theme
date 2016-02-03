@@ -24,3 +24,21 @@
   }
 
 }
+
+.search-form {
+  border: none;
+  padding: 0;
+  
+  .form-control {
+    width: 80%;
+    float: left;
+  }
+
+  .form-control-search-icon {
+    display: none;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}
