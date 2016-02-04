@@ -40,7 +40,7 @@ function agency_title() {
 function alert_bar() {
   if (get_option('alert_active')) {
     // @todo: get this in a template
-    $html = do_shortcode( wp_kses(get_option('alert_message'), true) );
+    $html = do_shortcode( wp_kses_post( get_option('alert_message') ) );
     $severity = esc_attr(get_option('alert_severity'));
     return '<div class="alert-banner text-center alert alert-'. $severity .'">' . $html . '</div>';
   }

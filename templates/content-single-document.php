@@ -5,7 +5,7 @@ $filename = get_post_meta( $id, 'document_filename', true );
 $meta = json_decode(get_post_meta( $id, 'document_meta', true ));
 $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
 ?>
-<a href="/documents" class="btn btn-default btn-sm pull-md-right header-margin"><i class="fa fa-arrow-left"></i> Back to documents</a>
+<a href="/documents" onclick="history.go(-1);return false;" class="btn btn-default btn-sm pull-md-right header-margin"><i class="fa fa-arrow-left"></i> Back to documents</a>
 <h1 class="entry-title">
   <?php the_title(); ?>
   <?php foreach ($terms as $term): ?><a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?>
