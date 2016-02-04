@@ -14,16 +14,13 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  
-  // @TODO make into module
-  $classes[] = 'proud-navbar-active';
 
   // Add class if sidebar is active
   if (Setup\page_parent_info(false)) {
     $classes[] = 'sidebar-primary';
   }
 
-  return $classes;
+  return apply_filters( 'proud_body_class', $classes);
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
 
