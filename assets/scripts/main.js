@@ -39,6 +39,11 @@
           }
         }
 
+        // Allow footer-actions dropdowns
+        $('.footer-actions .dropdown-menu').click(function(e) {                   
+          e.stopPropagation();
+        });
+
         // Open external links in a new tab?
         if (Proud.settings.global.external_link_window) {
           $('a').each(function() {
