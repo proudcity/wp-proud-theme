@@ -10,6 +10,11 @@
   @include make-sm-column($sidebar-sm-columns);
 }
 
+// Fake container for full width pages
+.full-width-container {
+  overflow: hidden;
+}
+
 
 // Mobile only
 // -------------------------
