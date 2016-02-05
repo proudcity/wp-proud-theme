@@ -35,6 +35,14 @@
 
   .sidebar-primary {
 
+    .page-header {
+      @include clearfix();
+    }
+
+    #offcanvas-toggle {
+      margin-top: 13px;
+    }
+
     .wrap {
       overflow: hidden;
 
