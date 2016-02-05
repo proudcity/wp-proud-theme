@@ -42,11 +42,13 @@
       margin-top: -3px;
     }
 
+    label,
     h4 {
       color: $white;
       font-size: 1em;
       font-weight: normal;
       margin-right: 10px;
+      display: block;
 
       @media (min-width: $screen-md-min) {
         display: inline-block;
