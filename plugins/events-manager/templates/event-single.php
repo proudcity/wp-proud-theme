@@ -54,7 +54,7 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
 </div>
 <hr>
 <?php if( get_post_thumbnail_id($EM_Event) ): ?>
-  <div class="media">
+  <div class="media text-center">
     <?php echo get_the_post_thumbnail($EM_Event); ?>
     <?php $media = get_post(get_post_thumbnail_id($EM_Event)); ?>
     <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo $media->post_excerpt ?></span></div><?php endif; ?>
