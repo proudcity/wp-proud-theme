@@ -48,7 +48,7 @@
         if (Proud.settings.global.external_link_window) {
           $('a').each(function() {
              var a = new RegExp('/' + window.location.host + '/');
-             if(this.href && !a.test(this.href)) {
+             if( this.href && !a.test(this.href) && !$(this).hasClass('same-window') ) {
               $(this).click(function(event) {
                 event.preventDefault();
                 event.stopPropagation();
