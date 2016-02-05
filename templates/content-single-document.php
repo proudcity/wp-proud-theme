@@ -19,8 +19,8 @@ $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
       <li><?php echo $meta->size; ?></li>
     </ul>
     <?php if (!empty($src)): ?>
-      <div><a href="<?php echo $src; ?>" class="btn btn-primary btn-lg" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a></div>
-       <p class="text-small text-muted"><?php echo $filename; ?></p>
+      <p><a href="<?php echo $src; ?>" class="btn btn-primary btn-lg" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a></p>
+      <p class="text-small text-muted"><?php echo $filename; ?></p>
     <?php endif; ?>
   </div>
   <div class="col-md-9">

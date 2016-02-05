@@ -61,9 +61,10 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
   </div>
 <?php endif; ?>
 <?php echo $EM_Event->post_content ?>
-<hr>
+
 
 <?php if ($EM_Event->bookings) { ?>
+  <hr>
   <?php
   if( get_option('dbem_rsvp_enabled') ){
     if( !defined('EM_XSS_BOOKINGFORM_FILTER') && locate_template('plugins/events-manager/placeholders/bookingform.php') ){
@@ -81,6 +82,7 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
   <hr>
 <?php } //endif ?>
 
+<!--
 <span class="addtocalendar">
   <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
   <var class="atc_event">
@@ -93,7 +95,7 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
   </var>
 </span>
 <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i> Directions</a>
-
+-->
 
 <!-- addtocalendar code @todo: better embed -->
 <link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">

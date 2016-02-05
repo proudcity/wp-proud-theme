@@ -21,7 +21,7 @@
         <?php endif; ?>
         <?php the_content(); ?>
       </div>
-      <div class="text-left col-md-4">
+      <div class="text-left col-md-4 sidebar">
         <?php dynamic_sidebar('sidebar-news'); ?>
       </div>
     </div>
