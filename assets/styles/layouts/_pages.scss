@@ -3,6 +3,18 @@
   min-height: 500px;
 }
 
+html, body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+
 // full width pages
 .full-width-container {
   .jsn-bootstrap3 {
@@ -48,8 +60,4 @@
   .panel-grid>.container {
     width: auto !important;
   }
-}
-
-.wrap {
-  min-height: 450px;
 }
