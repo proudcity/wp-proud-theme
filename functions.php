@@ -123,10 +123,19 @@ function submenu_get_children_ids( $id, $items ) {
 }
 add_filter( 'wp_nav_menu_objects', 'submenu_limit', 10, 2 );
 
-
+function hexToRgb($hex) {
+  preg_match('/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $hex, $result);
+  return $result ? [
+      'r' => intval($result[1], 16),
+      'g' => intval($result[2], 16),
+      'b' => intval($result[3], 16)
+  ] : null;
+}
 
 function proud_customize_css()
 {
+  // See below, @TODO test for darkness
+  $header_rgb = hexToRgb( get_theme_mod('color_topnav', '#000000') );
     ?>
         <!-- proud custom theme settings -->
         <style type="text/css">
@@ -139,6 +148,10 @@ function proud_customize_css()
 
             .navbar.navbar-default {
               border-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
+            }
+
+            .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+              background-color: <?php //@TODO make this reactive to color lighness; ?>rgba(0,0,0,0.4);
             }
 
             .jumbotron:not(.jumbotron-image),
