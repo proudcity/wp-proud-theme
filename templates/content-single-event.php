@@ -7,7 +7,7 @@
       <div class="col-md-8">
         <?php the_content(); ?>
       </div>
-      <div class="col-md-4 sidebar">
+      <div class="col-md-4 right-sidebar">
         <?php dynamic_sidebar('sidebar-event'); ?>
       </div>
   </article>
