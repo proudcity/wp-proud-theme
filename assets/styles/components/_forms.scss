@@ -14,6 +14,11 @@
   @extend .btn-default;
 }
 
+.widget-proud-teaser-filters form {
+  @include card();
+  padding: 1.25rem;
+}
+
 #proud-teaser-filter-filter_keyword {
   label {
     display: none;
