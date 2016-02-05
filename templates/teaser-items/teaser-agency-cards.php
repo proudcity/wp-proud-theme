@@ -7,7 +7,7 @@
     </div>
     <?php endif; ?>
     <div class="card-block">
-      <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( Agency\get_agency_permalink() ) ), '</a></h3>' ); ?>
+      <?php the_title( sprintf( '<h3 class="entry-title margin-top-none"><a href="%s" rel="bookmark">', esc_url( Agency\get_agency_permalink() ) ), '</a></h3>' ); ?>
     </div>
   </div>
 </div>

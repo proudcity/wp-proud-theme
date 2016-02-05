@@ -3,6 +3,12 @@
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
     </header>
-    <?php the_content(); ?>
+    <div class="row">
+      <div class="col-md-8">
+        <?php the_content(); ?>
+      </div>
+      <div class="col-md-4">
+        <?php dynamic_sidebar('sidebar-event'); ?>
+      </div>
   </article>
 <?php endwhile; ?>

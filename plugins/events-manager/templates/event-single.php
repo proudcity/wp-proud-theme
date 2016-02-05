@@ -53,7 +53,13 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
   </div>
 </div>
 <hr>
-<p class="text-center"><?php echo get_the_post_thumbnail ( $EM_Event, array( 1600, 900 ) ) ?></p>
+<?php if( get_post_thumbnail_id($EM_Event) ): ?>
+  <div class="media">
+    <?php echo get_the_post_thumbnail($EM_Event); ?>
+    <?php $media = get_post(get_post_thumbnail_id($EM_Event)); ?>
+    <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo $media->post_excerpt ?></span></div><?php endif; ?>
+  </div>
+<?php endif; ?>
 <?php echo $EM_Event->post_content ?>
 <hr>
 

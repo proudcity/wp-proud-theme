@@ -57,26 +57,9 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
  * Register sidebars
  */
 function widgets_init() {
-  register_sidebar([
-    'name'          => __('Standard sidebar', 'proud'),
-    'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
 
   register_sidebar([
-    'name'          => __('Agency sidebar', 'proud'),
-    'id'            => 'sidebar-agency',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
-
-  register_sidebar([
-    'name'          => __('Footer Actions', 'proud'),
+    'name'          => __('Footer actions', 'proud'),
     'id'            => 'footer-actions',
     'before_widget' => '<li class="dropdown %1$s %2$s">',
     'after_widget'  => '</li>',
@@ -93,6 +76,58 @@ function widgets_init() {
     'before_title'  => '<h4 class="pane-tile">',
     'after_title'   => '</h4>'
   ]);
+
+  register_sidebar([
+    'name'          => __('Standard sidebar', 'proud'),
+    'id'            => 'sidebar-primary',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('News sidebar', 'proud'),
+    'id'            => 'sidebar-news',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  //@todo: if (is_plugin_active( 'wp-agency' )) {die();
+    register_sidebar([
+      'name'          => __('Agency sidebar', 'proud'),
+      'id'            => 'sidebar-agency',
+      'before_widget' => '<section class="widget %1$s %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h3>',
+      'after_title'   => '</h3>'
+    ]);
+  //}
+
+  //@todo: if (post_type_exists( 'event' )) {
+    register_sidebar([
+      'name'          => __('Event sidebar', 'proud'),
+      'id'            => 'sidebar-event',
+      'before_widget' => '<section class="widget %1$s %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h3>',
+      'after_title'   => '</h3>'
+    ]);
+  //}
+
+  //@todo: if (post_type_exists( 'job_listing' )) {
+    register_sidebar([
+      'name'          => __('Job sidebar', 'proud'),
+      'id'            => 'sidebar-job',
+      'before_widget' => '<section class="widget %1$s %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h3>',
+      'after_title'   => '</h3>'
+    ]);
+  //}
+  
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
