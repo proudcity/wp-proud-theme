@@ -1,7 +1,7 @@
 <div <?php post_class( "teaser" ); ?>>
   <?php 
     // Date formats
-    $datebox_format = 'F \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
+    $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
     $atc_format = 'Y-m-d H:i:s';
     $loc_id = !empty( $meta['_location_id'] ) ? $meta['_location_id'][0] : false;
     if( $loc_id ) {
@@ -23,10 +23,10 @@
     $end = !empty( $meta['_end_ts'] ) ? $meta['_end_ts'][0] : 0;
   ?>
   <div class="row">
-    <div class="col-xs-3 col-sm-2">
+    <div class="col-xs-3 col-md-2">
       <div class="date-box"><?php echo date_i18n($datebox_format, $start) ?></div>
     </div>
-    <div class="col-sm-10 col-xs-9">
+    <div class="col-xs-9 col-md-10">
       <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
       <p>
         <span class="addtocalendar">

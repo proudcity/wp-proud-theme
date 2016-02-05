@@ -15,6 +15,19 @@
   overflow: hidden;
 }
 
+// Content layout
+
+.right-sidebar {
+  > .widget {
+    // First widget in sidebar, get rid of header margin
+    &:first-child {
+      & > h3 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 
 // Mobile only
 // -------------------------
