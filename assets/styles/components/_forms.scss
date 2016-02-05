@@ -14,7 +14,7 @@
   @extend .btn-default;
 }
 
-.widget-proud-teaser-filters form {
+form.proud-teaser-filter {
   @include card();
   padding: 1.25rem;
 }
