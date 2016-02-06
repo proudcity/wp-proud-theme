@@ -1,3 +1,7 @@
+.sidebar {
+  
+}
+
 ul.nav.nav-stacked.submenu,
 .nav.nav-stacked.submenu ul {
   margin-bottom: 1em;
@@ -15,6 +19,7 @@ ul.nav.nav-stacked.submenu,
   }  
 }
 
+/*
 .widget-agency-contact,
 .widget-agency-hours,
 .widget-agency-social {
@@ -28,7 +33,13 @@ ul.nav.nav-stacked.submenu,
     margin-bottom: $padding-base-vertical;
   }
 }
+*/
 
 .widget-agency-social {
-  padding: 1em 0;
+  padding-top: 1em;
+
+  ul {
+    margin-bottom: 0;
+  }
 }
+
