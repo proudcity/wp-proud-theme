@@ -153,7 +153,7 @@ function page_parent_info( $req = false ) {
         $display = !empty($pageInfo['parent_post']) && $pageInfo['parent_post_type'] === 'agency';
       }
       elseif ($req === 'noagency') {
-        $display = $pageInfo['parent_link'] && $pageInfo['parent_post_type'] !== 'agency';
+        $display = !empty( $pageInfo['parent_link'] ) && $pageInfo['parent_post_type'] !== 'agency';
       }
     }
   }
