@@ -11,6 +11,18 @@
     width: 100%;
   }
 
+  // if gform in dropdown
+  ul.dropdown-menu {
+    .gform_wrapper {
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .gform_footer {
+      padding: 0;
+    }
+  }
+
   li.gform_widget {
     margin-left: 15px; // @todo: use variables to get this
     width: 100%;
