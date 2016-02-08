@@ -27,6 +27,7 @@
     margin-left: 15px; // @todo: use variables to get this
     width: 100%;
     color: $white;
+    max-width: auto;
 
     @media (min-width: $screen-md-min) {
       float: right;
