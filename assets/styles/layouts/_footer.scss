@@ -27,7 +27,11 @@
     margin-left: 15px; // @todo: use variables to get this
     width: 100%;
     color: $white;
-    max-width: auto;
+
+    .gform_wrapper {
+      padding-top: 7px !important;
+      max-width: 100%;
+    }
 
     @media (min-width: $screen-md-min) {
       float: right;
