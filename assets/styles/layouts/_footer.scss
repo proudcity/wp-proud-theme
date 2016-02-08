@@ -28,6 +28,11 @@
     width: 100%;
     color: $white;
 
+    .gform_wrapper {
+      padding-top: 7px !important;
+      max-width: 100%;
+    }
+
     @media (min-width: $screen-md-min) {
       float: right;
       padding-top: 1px; 
