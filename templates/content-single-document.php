@@ -4,6 +4,7 @@ $src = get_post_meta( $id, 'document', true );
 $filename = get_post_meta( $id, 'document_filename', true );
 $meta = json_decode(get_post_meta( $id, 'document_meta', true ));
 $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
+$show_preview = $meta->filetype == 'pdf' && ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) < 10 ) );
 ?>
 <a href="/documents" onclick="history.go(-1);return false;" class="btn btn-default btn-sm pull-md-right header-margin"><i class="fa fa-arrow-left"></i> Back to documents</a>
 <h1 class="entry-title">
@@ -25,7 +26,7 @@ $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
   </div>
   <div class="col-md-9">
     <?php echo the_content() ?>
-    <?php if ($meta->filetype == 'pdf'): ?>
+    <?php if ($show_preview): ?>
       <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" style="width:100%; height:600px;" frameborder="0"></iframe>
     <?php endif; ?>
   </div>
