@@ -136,6 +136,7 @@ function proud_customize_css()
 {
   // See below, @TODO test for darkness
   $header_rgb = hexToRgb( get_theme_mod('color_topnav', '#000000') );
+  $link_rgb = hexToRgb( get_theme_mod('color_link', '#0071bc') );
     ?>
         <!-- proud custom theme settings -->
         <style type="text/css">
@@ -158,6 +159,14 @@ function proud_customize_css()
             .footer-actions,
             .nav-contain .nav-pills li.active a {
               background-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
+            }
+            
+            .card .social-card-header .post-link a { 
+              background-color: rgba(<?php echo $link_rgb['r'] . ',' . $link_rgb['g'] . ','. $link_rgb['b'] ?>, 1);
+            }
+
+            .card .social-card-header .post-link a:hover { 
+              background-color: rgba(<?php echo $link_rgb['r'] . ',' . $link_rgb['g'] . ','. $link_rgb['b'] ?>, 0.8);
             }
 
             a{
