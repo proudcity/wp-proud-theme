@@ -43,3 +43,47 @@ ul.nav.nav-stacked.submenu,
   }
 }
 
+
+// Responsive pages with sidebar
+// -------------------------
+@include respond($xs-only) {
+
+  .sidebar-primary {
+
+    .page-header {
+      @include clearfix();
+    }
+
+    #offcanvas-toggle {
+      margin-top: 13px;
+    }
+
+    .wrap {
+      overflow: hidden;
+
+      > .content {
+        left: -100%;
+        @include clearfix;
+        @include transition (left .25s ease-in-out);
+        position: relative;
+        width: 200%;
+
+        &.row {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.offcanvas-active {
+      .wrap > .content {
+        left: 0;
+      }
+    }
+
+    .sidebar, .main {
+      float: left;
+      width: 50%;
+    }
+  }
+}
