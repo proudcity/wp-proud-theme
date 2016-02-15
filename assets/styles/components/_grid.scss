@@ -14,7 +14,8 @@
 .panel-grid {
   margin-bottom: 0!important;
 
-  > .container {
+  // Add padding to grids after title row
+  + .panel-grid > .container {
     padding-bottom: $page-section-spacing;
   }
 }
