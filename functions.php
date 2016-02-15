@@ -162,11 +162,11 @@ function proud_customize_css()
             }
             
             .card .social-card-header .post-link a { 
-              background-color: rgba(<?php echo $link_rgb['r'] . ',' . $link_rgb['g'] . ','. $link_rgb['b'] ?>, 1);
+              background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 1);
             }
 
             .card .social-card-header .post-link a:hover { 
-              background-color: rgba(<?php echo $link_rgb['r'] . ',' . $link_rgb['g'] . ','. $link_rgb['b'] ?>, 0.8);
+              background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 0.8);
             }
 
             a{
