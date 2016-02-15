@@ -1,0 +1,19 @@
+
+.job-type{
+  &.label {
+    font-size: 85%;
+  }
+  
+  &.full-time {
+    @include label-variant($label-primary-bg);
+  }
+  &.part-time {
+    @include label-variant($label-success-bg);
+  }
+  &.temporary {
+    @include label-variant($label-warning-bg);
+  }
+  &.internship {
+    @include label-variant($label-info-bg);
+  }
+}
