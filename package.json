@@ -42,6 +42,7 @@
     "gulp-less": "^3.0.3",
     "gulp-minify-css": "^1.2.0",
     "gulp-plumber": "^1.0.1",
+    "gulp-prompt": "^0.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^6.0.0",
     "gulp-sass": "^2.0.1",

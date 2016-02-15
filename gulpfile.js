@@ -20,6 +20,7 @@ var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 var git          = require('gulp-git');
+var prompt       = require('gulp-prompt');
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./assets/manifest.json');
@@ -178,6 +179,26 @@ gulp.task('gitpull', function(cb){
     cb();
   });
 });
+
+// // Run git pull
+// // remote is the remote repo
+// // branch is the remote branch to pull from
+// gulp.task('commit', function(cb){
+//   var message;
+//   gulp.src('./*', {buffer:false})
+//     .pipe(prompt.prompt({
+//           type: 'input',
+//           name: 'commit',
+//           message: 'Please enter commit message...'
+//       }, function(res){
+//           if(res.commit) {
+//             message = res.commit;
+//           }
+//       }))
+//   })
+//   .pipe(git.commit(message));
+
+// }
 
 
 // ### Styles

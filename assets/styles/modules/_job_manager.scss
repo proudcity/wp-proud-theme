@@ -1,9 +1,11 @@
 
 .job-type{
+  @include label-variant($gray);
+
   &.label {
     font-size: 85%;
   }
-  
+
   &.full-time {
     @include label-variant($label-primary-bg);
   }
