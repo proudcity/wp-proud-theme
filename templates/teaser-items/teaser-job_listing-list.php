@@ -1,10 +1,7 @@
 <div <?php post_class( "teaser" ); ?> itemscope itemtype="http://schema.org/JobPosting">
   <meta itemprop="title" content="<?php echo esc_attr( $post->post_title ); ?>" />
   <div class="row">
-    <div class="col-sm-2 pull-right">
-      <a href="<?php the_job_permalink(); ?>"><?php the_company_logo(); ?></a>
-    </div>
-    <div class="col-sm-10 pull-left">
+    <div class="col-xs-12 pull-left">
       <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
       <ul class="list-inline">
         <?php do_action( 'job_listing_meta_start' ); ?>
