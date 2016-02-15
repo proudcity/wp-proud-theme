@@ -5,7 +5,7 @@
       <a href="<?php the_job_permalink(); ?>"><?php the_company_logo(); ?></a>
     </div>
     <div class="col-sm-10 pull-left">
-      <?php the_title( sprintf( '<h4 class="entry-title margin-top-none"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
+      <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
       <ul class="list-inline">
         <?php do_action( 'job_listing_meta_start' ); ?>
         <li class="job"><span class="label job-type <?php echo get_the_job_type() ? sanitize_title( get_the_job_type()->slug ) : ''; ?>"><?php the_job_type(); ?></span></li>

@@ -14,6 +14,12 @@
        */
     ?>
 
+    <?php if ( is_position_filled() ) : ?>
+      <div class="alert alert-warning position-filled"><?php _e( 'This position has been filled', 'wp-job-manager' ); ?></div>
+    <?php elseif ( ! candidates_can_apply() && 'preview' !== $post->post_status ) : ?>
+      <div class="alert alert-warning listing-expired"><?php _e( 'Applications have closed', 'wp-job-manager' ); ?></div>
+    <?php endif; ?>
+
     <div class="job_description" itemprop="description">
       <?php echo apply_filters( 'the_job_description', get_the_content() ); ?>
     </div>

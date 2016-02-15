@@ -2,7 +2,7 @@
   <article <?php post_class(); ?>>
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php do_action( 'single_job_listing_start' ); ?>
+      <?php job_listing_meta_display() ?>
       <hr />
     </header>
     <div class="row">
