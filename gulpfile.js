@@ -173,32 +173,68 @@ var writeToManifest = function(directory) {
 // Run git pull
 // remote is the remote repo
 // branch is the remote branch to pull from
-gulp.task('gitpull', function(cb){
+gulp.task('git-pull-patterns', function(cb){
   git.pull('origin', 'master', { cwd: './bower_components/proudcity-patterns' }, function (err) {
     if (err) return cb(err);
     cb();
   });
 });
 
-// // Run git pull
-// // remote is the remote repo
-// // branch is the remote branch to pull from
-// gulp.task('commit', function(cb){
-//   var message;
-//   gulp.src('./*', {buffer:false})
-//     .pipe(prompt.prompt({
-//           type: 'input',
-//           name: 'commit',
-//           message: 'Please enter commit message...'
-//       }, function(res){
-//           if(res.commit) {
-//             message = res.commit;
-//           }
-//       }))
-//   })
-//   .pipe(git.commit(message));
+gulp.task('git-pull-main', function(cb){
+  git.pull('origin', 'master', { }, function (err) {
+    if (err) return cb(err);
+    cb();
+  });
+});
 
-// }
+gulp.task('git-pull', ['git-pull-patterns', 'git-pull-main'], function() {
+  //console.log('yeah');
+  //return gulp  
+});
+
+gulp.task('git-add-patterns', function(cb){
+  return gulp.src('./bower_components/proudcity-patterns/*')
+    .pipe(git.add({ cwd: './bower_components/proudcity-patterns' }, function (err) {
+      if (err) return cb(err);
+      cb();
+    }));
+});
+
+gulp.task('git-add-main', function(cb){
+  return gulp.src('.')
+    .pipe(git.add({}, function (err) {
+      if (err) return cb(err);
+      cb();
+    }));
+});
+
+// Run git pull
+// remote is the remote repo
+// branch is the remote branch to pull from
+gulp.task('commit', ['git-add-main', 'git-add-patterns'], function(){
+  // Patterns
+  function doPatternsCommit(message) {
+    return gulp.src('./bower_components/proudcity-patterns/*')
+      .pipe(git.commit(message, { cwd: './bower_components/proudcity-patterns' }))
+  }
+  // Normal
+  function doCommit(message) {
+    return gulp.src('.')
+      .pipe(git.commit(message))
+      .pipe(doPatternsCommit(message));
+  }
+  gulp.src('.', {buffer:false})
+    .pipe(prompt.prompt({
+        type: 'input',
+        name: 'commit',
+        message: 'Please enter commit message...'
+    }, function(res){
+        if(res.commit) {
+          return doCommit(res.commit);
+        }
+    }))
+    // 
+});
 
 
 // ### Styles
@@ -282,7 +318,7 @@ gulp.task('clean', require('del').bind(null, [path.dist]));
 // `manifest.config.devUrl`. When a modification is made to an asset, run the
 // build step for that asset and inject the changes into the page.
 // See: http://www.browsersync.io
-gulp.task('watch', ['gitpull'], function() {
+gulp.task('watch', ['git-pull-patterns'], function() {
   browserSync.init({
     files: ['{lib,templates}/**/*.php', '*.php'],
     proxy: config.devUrl,
@@ -301,7 +337,7 @@ gulp.task('watch', ['gitpull'], function() {
 // ### Build
 // `gulp build` - Run all the build tasks but don't clean up beforehand.
 // Generally you should be running `gulp` instead of `gulp build`.
-gulp.task('build', ['gitpull'], function(callback) {
+gulp.task('build', ['git-pull-patterns'], function(callback) {
   runSequence('styles',
               'scripts',
               ['fonts', 'images'],
