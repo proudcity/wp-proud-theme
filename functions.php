@@ -136,7 +136,7 @@ function proud_customize_css()
 {
   // See below, @TODO test for darkness
   $header_rgb = hexToRgb( get_theme_mod('color_topnav', '#000000') );
-  $link_rgb = hexToRgb( get_theme_mod('color_link', '#0071bc') );
+  $footer_rgb = hexToRgb( get_theme_mod('color_footer', '#333333') );
     ?>
         <!-- proud custom theme settings -->
         <style type="text/css">
@@ -176,6 +176,15 @@ function proud_customize_css()
             .page-footer {
               background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
             }
+/*
+            .page-footer input[type=email], 
+            .page-footer input[type=number], 
+            .page-footer input[type=password], 
+            .page-footer input[type=tel], 
+            .page-footer input[type=text], 
+            .page-footer input[type=url] {
+              background-color: rgba(<?php echo $footer_rgb['r'] . ',' . $footer_rgb['g'] . ','. $footer_rgb['b'] ?>, 0.75);;
+            }*/
          </style>
     <?php
 }

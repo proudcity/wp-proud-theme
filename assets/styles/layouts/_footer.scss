@@ -80,8 +80,6 @@
       display: none;
     }
   }
-
-
 }
 
 // For the proudbar
@@ -91,7 +89,29 @@
   h4 {
     margin-top: 0;
   }
+
+  .gform_wrapper {
+    .gform_footer {
+      padding: 0;
+    }
+
+    .gfield_required {
+      display: none;
+    }
+  }
 }
+
+// Footer logo
+
+@include respond($md-up) { 
+  .pane-page-logo {
+    img {
+      max-height: 100px;
+    }
+  }
+}
+
+
 
 // @todo: improve this.
 // See https://waffle.io/proudcity/wp-proudcity/cards/56b53102e50851680029551f
