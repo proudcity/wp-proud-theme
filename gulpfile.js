@@ -187,11 +187,6 @@ gulp.task('git-pull-main', function(cb){
   });
 });
 
-gulp.task('git-pull', ['git-pull-patterns', 'git-pull-main'], function() {
-  //console.log('yeah');
-  //return gulp  
-});
-
 gulp.task('git-add-patterns', function(cb){
   return gulp.src('./bower_components/proudcity-patterns/*')
     .pipe(git.add({ cwd: './bower_components/proudcity-patterns' }, function (err) {
@@ -236,6 +231,13 @@ gulp.task('commit', ['git-add-main', 'git-add-patterns'], function(){
     // 
 });
 
+gulp.task('git-push-patterns', function(cb){
+  git.push('origin', 'master', { cwd: './bower_components/proudcity-patterns' }, cb);
+});
+
+gulp.task('push', ['git-push-patterns'], function(cb){
+  git.push('origin', 'master', { }, cb);
+});
 
 // ### Styles
 // `gulp styles` - Compiles, combines, and optimizes Bower CSS and project CSS.

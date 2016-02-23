@@ -1,0 +1,11 @@
+
+.gfield_radio {
+  input {
+    height: auto;
+    margin-top: 0.4em!important;
+    
+    &[value="gf_other_choice"] {
+      margin-top: 15px!important;
+    }
+  } 
+}

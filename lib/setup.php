@@ -148,13 +148,13 @@ function page_parent_info( $req = false ) {
     global $pageInfo;
     if (!empty($pageInfo)) {
       if ($req === false) {
-        $display = (bool) !empty($pageInfo['parent_post']) || $pageInfo['parent_link'] > 0;
+        $display = (bool) !empty( $pageInfo['parent_post'] ) || ( !empty( $pageInfo['parent_link'] ) && $pageInfo['parent_link'] > 0 );
       }
       elseif ($req === 'agency') {
-        $display = (bool) !empty($pageInfo['parent_post']) && $pageInfo['parent_post_type'] === 'agency';
+        $display = (bool) !empty( $pageInfo['parent_post'] ) && $pageInfo['parent_post_type'] === 'agency';
       }
       elseif ($req === 'noagency') {
-        $display = (bool) $pageInfo['parent_link'] && $pageInfo['parent_post_type'] !== 'agency';
+        $display = (bool) !empty( $pageInfo['parent_link'] ) && $pageInfo['parent_link'] && $pageInfo['parent_post_type'] !== 'agency';
       }
     }
   }
