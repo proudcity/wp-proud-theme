@@ -177,8 +177,12 @@ function page_parent_info( $req = false ) {
  * Theme assets
  */
 function assets() {
+  global $wp_styles;
   wp_enqueue_style('proud-vendor/css', Assets\asset_path('styles/proud-vendor.css'), false, null);
   wp_enqueue_style('proud/css', Assets\asset_path('styles/proud.css'), false, null);
+  //IE9
+  wp_enqueue_style('proud/ie9-and-below', Assets\asset_path('styles/ie9-and-below.css'), ['proud/css']);
+  $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');

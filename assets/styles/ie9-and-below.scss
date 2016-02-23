@@ -1,0 +1,90 @@
+// Init styles
+// ---------------------------
+
+@import "loaders/load-local";
+
+$column-gap: 1.25rem;
+
+//
+// Card columns
+//
+.card-columns {
+  margin-left: -($column-gap/2);
+  margin-right: -($column-gap/2);
+  @include clearfix();
+
+  & > * {
+    padding-left: $column-gap/2;
+    padding-right: $column-gap/2;
+    float: left;
+    display: block;
+  }
+}
+
+// Makes columns work for mobile
+@include respond($xs-only) {
+  .card-columns-xs-2 {
+    & > * {
+      width: 50%;
+    }
+  }
+}
+
+@include respond($sm-up) {
+  
+  // 4 column
+  .card-columns-sm-2 {
+    & > * {
+      width: 50%;
+    }
+  }
+
+  // Normal 3 column
+  .card-columns-sm-3 {
+    & > * {
+      width: (100/3 * 1%);
+    }
+
+    // .card {
+    //   display: inline-block;
+    //   width: 100%; // Don't let them exceed the column width
+    // }
+  }
+  
+  // 4 column
+  .card-columns-sm-4 {
+    & > * {
+      width: (100/4 * 1%);
+    }
+  }
+}
+
+// go to 4 column on med
+@include respond($md-up) {
+  .card-columns-md-3 {
+    & > * {
+      width: (100/3 * 1%);
+    }
+  }
+
+  .card-columns-md-4 {
+    & > * {
+      width: (100/4 * 1%);
+    }
+  }
+}
+
+// go to 4 column on lg
+@include respond($lg-up) {
+  .card-columns-lg-3 {
+    & > * {
+      width: (100/3 * 1%);
+    }
+  }
+
+  .card-columns-lg-4 {
+    & > * {
+      width: (100/4 * 1%);
+    }
+  }
+}

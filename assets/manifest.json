@@ -22,6 +22,11 @@
         "styles/editor.scss"
       ]
     },
+    "ie9-and-below.css": {
+      "files": [
+        "styles/ie9-and-below.scss"
+      ]
+    },
     "customizer.js": {
       "files": [
         "scripts/customizer.js"
