@@ -1,5 +1,15 @@
+// Gravity forms in content
+.wrap {
+  .gform_wrapper ul li.gfield {
+    margin-bottom: 20px;
+  }
+}
 
 .gfield_radio {
+  li {
+    margin-bottom: 0.35em!important;
+  }
+
   input {
     height: auto;
     margin-top: 0.4em!important;
