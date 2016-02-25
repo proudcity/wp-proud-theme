@@ -11,19 +11,23 @@
  * 
  * $args - the args passed onto EM_Events::output() 
  */
-global $EM_Event;
+  global $EM_Event;
 
-$datebox_format = 'F \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
-$atc_format = 'Y-m-d H:i:s';
+  $datebox_format = 'F \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
+  $atc_format = 'Y-m-d H:i:s';
 
-$location = empty($EM_Event->location) ? false : $EM_Event->location->location_address . ', ' .
-  $EM_Event->location->location_town . ', ' .
-  $EM_Event->location->location_state . ' ' .
-  $EM_Event->location->postcode;
+  $location = empty($EM_Event->location) ? false : $EM_Event->location->location_address . ', ' .
+    $EM_Event->location->location_town . ', ' .
+    $EM_Event->location->location_state . ' ' .
+    $EM_Event->location->postcode;
+  //
+  /* @var $EM_Event EM_Event */
+  //echo $EM_Event->output_single();
+  $time = __("All day", 'proud-core');
+  if(!empty($EM_Event->start) && !empty( $EM_Event->event_start_time ) && $EM_Event->event_start_time != "00:00:00" ) {
+    $time = date_i18n( 'h:i a', $EM_Event->start );
+  }
 
-//d($EM_Event);
-/* @var $EM_Event EM_Event */
-//echo $EM_Event->output_single();
 ?>
 
 <div class="row">
@@ -31,25 +35,28 @@ $location = empty($EM_Event->location) ? false : $EM_Event->location->location_a
     <div class="date-box"><?php echo date_i18n($datebox_format, $EM_Event->start) ?></div>
   </div>
   <div class="col-sm-10 col-xs-9">
-      <p class="lead">
-        <?php echo $location ? $EM_Event->location->location_name . ', ' . $location : '' ?>
-      <p>
-      <?php if ($EM_Event->bookings) { ?>
-        <a href="#register" class="btn btn-sm btn-default"><i class="fa fa-calendar-check-o"></i> Register</a>
-      <?php } //endif ?>
-      <span class="addtocalendar">
-        <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
-        <var class="atc_event">
-          <var class="atc_date_start"><?php echo date_i18n($atc_format, $EM_Event->start) ?></var>
-          <var class="atc_date_end"><?php echo date_i18n($atc_format, $EM_Event->end) ?></var>
-          <var class="atc_timezone"><?php echo date_i18n('e', $EM_Event->start) ?></var>
-          <var class="atc_title"><?php echo $EM_Event->post_title ?></var>
-          <var class="atc_description"><?php echo $EM_Event->post_content ?></var>
-          <var class="atc_location"><?php echo $location ?></var>
-        </var>
-      </span>
-      <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i> Directions</a>
-    </p>
+      <h3 class="margin-top-none margin-bottom-none"><span class="start-time"><?php echo $time ?></span>
+        <?php if( !empty( $location ) ) :?>
+          <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $EM_Event->location->location_name  ?></span></h3>
+          <h6 class="margin-top-smaller"><?php echo $location ?></h6>
+      <?php endif; ?>
+      <ul class="list-inline">
+        <?php if ($EM_Event->bookings) { ?>
+        <li><a href="#register" class="btn btn-sm btn-default"><i class="fa fa-calendar-check-o"></i> Register</a></li>
+        <?php } //endif ?>
+        <li><span class="addtocalendar">
+          <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
+          <var class="atc_event">
+            <var class="atc_date_start"><?php echo date_i18n($atc_format, $EM_Event->start) ?></var>
+            <var class="atc_date_end"><?php echo date_i18n($atc_format, $EM_Event->end) ?></var>
+            <var class="atc_timezone"><?php echo date_i18n( 'e', $EM_Event->start ) ?></var>
+            <var class="atc_title"><?php echo $EM_Event->post_title ?></var>
+            <var class="atc_description"><?php echo $EM_Event->post_content ?></var>
+            <var class="atc_location"><?php echo $location ?></var>
+          </var>
+        </span></li>
+        <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
+      </p>
   </div>
 </div>
 <hr>

@@ -180,7 +180,7 @@ gulp.task('git-pull-patterns', function(cb){
   });
 });
 
-gulp.task('git-pull-main', function(cb){
+gulp.task('pull', ['git-pull-patterns'], function(cb){
   git.pull('origin', 'master', { }, function (err) {
     if (err) return cb(err);
     cb();
