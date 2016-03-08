@@ -171,6 +171,10 @@ function proud_customize_css()
               background-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
               border-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
             }
+
+            a.card-btn {
+              color: <?php echo get_theme_mod('color_highlight', '#000000'); ?>;
+            }
             
             .card .social-card-header .post-link a { 
               background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 1);
