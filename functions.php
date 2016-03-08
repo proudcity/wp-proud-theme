@@ -123,7 +123,7 @@ function submenu_get_children_ids( $id, $items ) {
 }
 add_filter( 'wp_nav_menu_objects', 'submenu_limit', 10, 2 );
 
-function hexToRgb($hex) {
+function hex_to_rgb( $hex ) {
   preg_match('/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $hex, $result);
   return $result ? [
       'r' => intval($result[1], 16),
@@ -132,11 +132,20 @@ function hexToRgb($hex) {
   ] : null;
 }
 
+function is_light_color( $hex, $rgb = [] ) { 
+  
+  if( !$rgb ) {
+    $rgb = hex_to_rgb( $hex );
+  }
+  $o = round( ( ( intval($rgb['r'] ) * 299 ) + ( intval( $rgb['g'] ) * 587 ) + ( intval( $rgb['b'] ) * 114 ) ) / 1000 );
+  return ( $o > 135 ) ? true : false;
+}
+
 function proud_customize_css()
 {
   // See below, @TODO test for darkness
-  $header_rgb = hexToRgb( get_theme_mod('color_topnav', '#000000') );
-  $footer_rgb = hexToRgb( get_theme_mod('color_footer', '#333333') );
+  $header_rgb = hex_to_rgb( get_theme_mod( 'color_topnav', '#000000' ) );
+
     ?>
         <!-- proud custom theme settings -->
         <style type="text/css">
@@ -152,7 +161,7 @@ function proud_customize_css()
             }
 
             .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-              background-color: <?php //@TODO make this reactive to color lighness; ?>rgba(0,0,0,0.4);
+              background-color: rgba(0,0,0,0.4);
             }
 
             .jumbotron:not(.jumbotron-image),

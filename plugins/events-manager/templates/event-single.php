@@ -81,7 +81,7 @@
     }
     ob_start();
     $template = em_locate_template('placeholders/bookingform.php', true, array('EM_Event'=>$EM_Event));
-    d($template);
+    // d($template);
     EM_Bookings::enqueue_js();
     echo ob_get_clean();
   }

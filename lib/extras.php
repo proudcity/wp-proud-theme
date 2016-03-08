@@ -20,6 +20,24 @@ function body_class($classes) {
     $classes[] = 'sidebar-primary';
   }
 
+  // Process colors for lightness
+
+  $header_light = is_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
+  $highlight_light = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
+  $footer_light = is_light_color( get_theme_mod( 'color_footer', '#333333' ) );
+
+  if($header_light) {
+    $classes[] = 'light-background-main';
+  }
+
+  if($highlight_light) {
+    $classes[] = 'light-background-highlight';
+  }
+
+  if($footer_light) {
+    $classes[] = 'light-background-footer';
+  }
+
   return apply_filters( 'proud_body_class', $classes);
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
