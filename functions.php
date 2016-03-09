@@ -191,15 +191,6 @@ function proud_customize_css()
             .page-footer {
               background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
             }
-/*
-            .page-footer input[type=email], 
-            .page-footer input[type=number], 
-            .page-footer input[type=password], 
-            .page-footer input[type=tel], 
-            .page-footer input[type=text], 
-            .page-footer input[type=url] {
-              background-color: rgba(<?php echo $footer_rgb['r'] . ',' . $footer_rgb['g'] . ','. $footer_rgb['b'] ?>, 0.75);;
-            }*/
          </style>
     <?php
 }
