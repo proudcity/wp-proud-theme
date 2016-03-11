@@ -20,3 +20,24 @@
     }
   } 
 }
+
+@include respond($sm-up) {
+  // Gravity forms in content
+  .wrap {
+    // restrict form width if full width
+    .main > div > .panel-grid > .panel-row-style > div > .widget-proud-gravity-form {
+      max-width: 80%;
+    }
+  }
+}
+
+
+@include respond($md-up) {
+  // Gravity forms in content
+  .wrap {
+    // restrict form width if full width
+    .main > div > .panel-grid > .panel-row-style > div > .widget-proud-gravity-form {
+      max-width: 70%;
+    }
+  }
+}
