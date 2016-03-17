@@ -1,11 +1,16 @@
-// Gravity forms in content
-.wrap {
-  .gform_wrapper ul li.gfield {
-    margin-bottom: 20px;
+
+$gform-container-margin: 20px;
+
+// Normal Form items
+
+.gform_wrapper .gform_body ul li.gfield {
+  margin-bottom: 0;
+
+  .ginput_container {
+    margin-bottom: $gform-container-margin;
   }
 }
 
-// Normal Form items
 .gform_wrapper .gform_body .top_label .gfield_label {
   margin-top: 0;
   margin-bottom: 0.25em;
@@ -44,16 +49,19 @@
 }
 
 // Complex form items
+
+.gform_wrapper .gform_body ul li.gfield {
+  .ginput_complex { 
+    margin-bottom: 0;
+  }
+}
+
 .ginput_complex { 
   > span {
+    margin-bottom: $gform-container-margin;
 
     &[class^="ginput_"] {
       display: block;
-    }
-
-    // Mirror spacing from normal items
-    & ~ span {
-      margin-top: 20px;
     }
 
     // Remove padding
