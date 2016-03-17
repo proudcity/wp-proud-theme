@@ -5,6 +5,18 @@
   }
 }
 
+// Normal Form items
+.gform_wrapper .gform_body .top_label .gfield_label {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.gform_wrapper {
+  .ginput_container input, .ginput_container select, .ginput_container textarea {
+    height: $input-height-base;
+  }
+}
+
 .gfield_radio {
   li {
     margin-bottom: 0.35em!important;
@@ -19,6 +31,48 @@
       margin-top: 15px!important;
     }
   } 
+}
+
+// gforms description list
+.gform_wrapper .gfield_description li {
+  margin-bottom: 0;
+}
+
+// table form items (lists)
+.gform_wrapper .gform_body table.gfield_list thead th {
+  font-weight: $regular-weight;
+}
+
+// Complex form items
+.ginput_complex { 
+  > span {
+
+    &[class^="ginput_"] {
+      display: block;
+    }
+
+    // Mirror spacing from normal items
+    & ~ span {
+      margin-top: 20px;
+    }
+
+    // Remove padding
+    [type="text"], select, textarea { 
+      & ~ label {
+        margin-bottom: 0;
+      }
+    } 
+  } 
+}
+
+// credit card info
+.gform_wrapper .gform_body .ginput_complex .ginput_cardinfo_right {
+
+  .ginput_card_security_code_icon {
+    position: absolute;
+    left: 50%;
+    margin-left: 6px;
+  }
 }
 
 @include respond($sm-up) {
