@@ -175,15 +175,15 @@ function proud_customize_css()
             a.card-btn {
               color: <?php echo get_theme_mod('color_highlight', '#000000'); ?>;
             }
+
+            .widget-proud-social-app .nav-pills>li>a {
+              color: <?php echo get_theme_mod('color_topnav', '#000000'); ?>;
+            }
             
-            .card .social-card-header .post-link a { 
+            .card .social-card-header, .card .social-card-header .post-link a { 
               background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 1);
             }
-
-            .card .social-card-header .post-link a:hover { 
-              background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 0.8);
-            }
-
+            
             a{
               color: <?php echo get_theme_mod('color_link', '#0071bc'); ?>;
             }

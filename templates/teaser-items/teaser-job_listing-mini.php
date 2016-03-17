@@ -1,5 +1,5 @@
 <li <?php post_class( "teaser-mini" ); ?>>
-  <?php the_title( sprintf( '<h5 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h5>' ); ?>
+  <<?php echo $header_tag; ?> class="entry-title"><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></<?php echo $header_tag; ?>>
   <ul class="list-inline">
     <?php do_action( 'job_listing_meta_start' ); ?>
     <li class="job"><span class="label job-type <?php echo get_the_job_type() ? sanitize_title( get_the_job_type()->slug ) : ''; ?>"><?php the_job_type(); ?></span></li>
