@@ -10,10 +10,9 @@
   $terms = wp_get_post_terms( $post->ID, 'staff-member-group', array("fields" => "all"));
 ?>
   <article <?php post_class(); ?>>
-    <header>
-      <h2 class="h1 entry-title">Contact Us</h1>
-      <hr />
-    </header>
+    <div class="page-header">
+      <h2><a href="/contact">Contact</a></h2>
+    </div>
     <div class="entry-content row">
       <div class="col-md-4 padding-md-left pull-right">
         <?php if( has_post_thumbnail() ): ?>
@@ -22,12 +21,12 @@
         </p>
         <?php endif; ?>
         <?php if( $email ): ?>
-        <strong>Email</strong>
-        <p><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
-        <?php endif; ?>
+          <strong>Email</strong>
+          <p><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
+          <?php endif; ?>
         <?php if( $phone ): ?>
-        <strong>Phone</strong>
-        <p><?php echo $phone ?></p>
+          <strong>Phone</strong>
+          <p><?php echo $phone ?></p>
         <?php endif; ?>
         <?php if( $fb_url || $tw_url ): ?>
           <strong>Social Media</strong>
@@ -39,17 +38,18 @@
             <li><a target="_blank" href="<?php echo $tw_url ?>"><i class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
             <?php endif; ?>
           </ul>
+          <?php if( $title ): ?>
+            <strong>Social Media</strong>
+            <p><?php echo $title ?></p>
+          <?php endif; ?>
+          <p><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
         <?php endif; ?>
 
       </div>
       <div class="col-md-8">
-        <span class="pull-right"><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></span>
-        <h1 class="h2 margin-top-none margin-bottom-none"><?php the_title(); ?></h1>
-        <?php if( $title ): ?>
-          <h4 class="margin-top-none"><?php echo $title ?></h4>
-        <?php endif; ?>
+        <h1 class=""><?php the_title(); ?></h1>
         <?php if( $bio ): ?>
-          <p><?php echo $bio ?></p>
+          <p><?php echo apply_filters('the_content', $bio); ?></p>
         <?php endif; ?>
         <?php the_content(); ?>
       </div>
