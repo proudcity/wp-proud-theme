@@ -17,25 +17,40 @@ $gform-container-margin: 20px;
 }
 
 .gform_wrapper {
-  .ginput_container input, .ginput_container select, .ginput_container textarea {
+  .ginput_container input[type="text"], .ginput_container select, .ginput_container textarea {
     height: $input-height-base;
   }
 }
 
-.gfield_radio {
+.gform_wrapper .gform_body .gfield_checkbox li {
+  margin-bottom: 0.35em;
+
+  input {
+    border-top: 0;
+    @include box-shadow(none);
+    height: auto;
+    margin-top: 0.4em;
+  }
+}
+
+.gform_wrapper .gform_body .gfield_radio {
   li {
-    margin-bottom: 0.35em!important;
+    margin-bottom: 0.35em;
   }
 
   input {
     height: auto;
-    margin-left: 0.15em!important;
-    margin-top: 0.4em!important;
+    margin-left: 0.15em;
+    margin-top: 0.4em;
     
     &[value="gf_other_choice"] {
-      margin-top: 15px!important;
+      margin-top: 15px;
     }
   } 
+}
+
+.gform_wrapper .gform_body .gform_page_footer .button.gform_previous_button {
+  margin-bottom: 0;
 }
 
 // gforms description list
