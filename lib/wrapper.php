@@ -37,6 +37,19 @@ function agency_title() {
   return "<a href='$url' title='$title'>$title</a>";
 }
 
+function proudscore_widget($class = '') {
+  ?>
+    <a class="btn btn-default btn-sm <?php print $class; ?>" href="#" onclick="
+      ga('send', { hitType: 'event', eventCategory: 'proudscore', eventAction: jQuery(this).hasClass('btn-primary') ? '-5' : '+5', eventLabel: window.location });
+      if (jQuery(this).hasClass('btn-primary')) { ga('send', { hitType: 'event', eventCategory: 'proudheart', eventAction: '+1', eventLabel: window.location }) };
+      jQuery(this).toggleClass('btn-primary');
+      return false;" 
+    title="This makes me proud">
+      <i class="fa fa-fw fa-heart"></i> Helpful
+    </a>
+  <?php
+}
+
 function alert_bar() {
   if (get_option('alert_active')) {
     // @todo: get this in a template

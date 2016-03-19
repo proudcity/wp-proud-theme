@@ -1,4 +1,6 @@
 <?php
+use Proud\Theme\Wrapper;
+
 $id = get_the_ID();
 $src = get_post_meta( $id, 'document', true );
 $filename = get_post_meta( $id, 'document_filename', true );
@@ -40,3 +42,5 @@ $show_preview = $meta->filetype == 'pdf' && ( strpos(strtoupper($meta->size), 'K
     <?php endif; ?>
   </div>
 </div>
+
+<?php echo Wrapper\proudscore_widget('pull-right'); ?>
