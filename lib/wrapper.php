@@ -40,8 +40,8 @@ function agency_title() {
 function proudscore_widget($class = '') {
   ?>
     <a class="btn btn-default btn-sm <?php print $class; ?>" href="#" onclick="
-      ga('send', { hitType: 'event', eventCategory: 'proudscore', eventAction: jQuery(this).hasClass('btn-primary') ? '-5' : '+5', eventLabel: window.location });
-      if (jQuery(this).hasClass('btn-primary')) { ga('send', { hitType: 'event', eventCategory: 'proudheart', eventAction: '+1', eventLabel: window.location }) };
+      ga('send', { hitType: 'event', eventCategory: 'Score', eventAction: jQuery(this).hasClass('btn-primary') ? '-5' : '+5', eventLabel: window.location });
+      if (jQuery(this).hasClass('btn-primary')) { ga('send', { hitType: 'event', eventCategory: 'Heart', eventAction: '+1', eventLabel: window.location }) };
       jQuery(this).toggleClass('btn-primary');
       return false;" 
     title="This makes me proud">
