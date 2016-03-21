@@ -43,4 +43,4 @@ $show_preview = $meta->filetype == 'pdf' && ( strpos(strtoupper($meta->size), 'K
   </div>
 </div>
 
-<?php echo Wrapper\proudscore_widget('pull-right'); ?>
+<?php echo Wrapper\proudscore_widget( array('class' => 'pull-right') ); ?>
