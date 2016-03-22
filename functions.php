@@ -165,7 +165,6 @@ function proud_customize_css()
             }
 
             .jumbotron:not(.jumbotron-image),
-            .footer-actions,
             .nav-contain .nav-pills li.active a,
             .btn-primary {
               background-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
