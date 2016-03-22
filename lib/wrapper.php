@@ -37,17 +37,6 @@ function agency_title() {
   return "<a href='$url' title='$title'>$title</a>";
 }
 
-//@todo: should this be in wp-proud-core/modules/proud-analytics?
-function proudscore_widget( $attrs = array('class' => '', 'title' => false) ) {
-  ?>
-    <a class="btn btn-default btn-sm proudscore-widget <?php if ($attrs['class']) { print $attrs['class']; } ?>" 
-      href="#" title="This makes me proud" 
-      <?php if($attrs['title']): ?>data-title="<?php print $attrs['title'] ?>"<?php endif; ?> >
-      <i class="fa fa-fw fa-heart"></i> Helpful
-    </a>
-  <?php
-}
-
 function alert_bar() {
   if (get_option('alert_active')) {
     // @todo: get this in a template
