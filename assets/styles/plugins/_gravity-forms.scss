@@ -53,9 +53,15 @@ $gform-container-margin: 20px;
   margin-bottom: 0;
 }
 
-// gforms description list
-.gform_wrapper .gfield_description li {
-  margin-bottom: 0;
+// gforms description margins
+.gform_wrapper .gfield_description {
+  margin-top: -25px;
+  margin-bottom: 25px;
+  font-size: .75em;
+
+  li {
+    margin-bottom: 0;
+  }
 }
 
 // table form items (lists)
@@ -64,7 +70,6 @@ $gform-container-margin: 20px;
 }
 
 // Complex form items
-
 .gform_wrapper .gform_body ul li.gfield {
   .ginput_complex { 
     margin-bottom: 0;
