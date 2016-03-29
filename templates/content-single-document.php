@@ -44,7 +44,9 @@ if ( !empty($form_id) ) {
     <?php if (!empty($src)): ?>
       <p>
         <a href="<?php echo $src; ?>" class="btn btn-primary" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
-        <a href="#" onclick="jQuery('#doc-preview').slideToggle();jQuery(this).toggleClass('active');" class="btn btn-default"><i class="fa fa-eye"></i> Preview</a>
+        <?php if ($show_preview === 2): ?>
+          <a href="#" onclick="jQuery('#doc-preview').slideToggle();jQuery(this).toggleClass('active');" class="btn btn-default"><i class="fa fa-eye"></i> Preview</a>
+        <?php endif; ?>
       </p>
 
     <?php endif; ?>
