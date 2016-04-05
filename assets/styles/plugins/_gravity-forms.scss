@@ -14,6 +14,12 @@ $gform-container-margin: 20px;
 .gform_wrapper .gform_body .top_label .gfield_label {
   margin-top: 0;
   margin-bottom: 0.25em;
+
+  // Description before input, remove margin
+  & + .gfield_description {
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 
 .gform_wrapper {
@@ -69,6 +75,15 @@ $gform-container-margin: 20px;
   font-weight: $regular-weight;
 }
 
+.gform_wrapper .gform_body table.gfield_list td {
+  vertical-align: top;
+}
+
+.gform_wrapper .gform_body table.gfield_list thead th,
+.gform_wrapper .gform_body table.gfield_list td {
+  padding-top: 0;
+}
+
 // Complex form items
 .gform_wrapper .gform_body ul li.gfield {
   .ginput_complex { 
@@ -93,6 +108,21 @@ $gform-container-margin: 20px;
   } 
 }
 
+// Time field
+
+.gform_wrapper .gform_body {
+  .gfield_time_hour, .gfield_time_minute {
+    input {
+      float: left;
+    }
+  }
+}
+
+.gform_wrapper .gform_body .gfield_time_hour i {
+  margin-right: 5px;
+  margin-left: -5px;
+}
+
 // credit card info
 .gform_wrapper .gform_body .ginput_complex .ginput_cardinfo_right {
 
@@ -101,6 +131,34 @@ $gform-container-margin: 20px;
     left: 50%;
     margin-left: 6px;
   }
+}
+
+// Errors
+
+.gform_wrapper.gform_validation_error div.validation_error {
+  padding: $alert-padding!important;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+.gform_wrapper li.gfield.gfield_error {
+  border: 0!important;
+  background: none!important;
+  padding: 0!important;
+
+  & > * {
+    margin-left: 0!important;
+  }
+}
+
+.gform_wrapper li.gfield.gfield_error .validation_message {
+  padding: $alert-padding!important;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
 
 @include respond($sm-up) {
