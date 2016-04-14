@@ -73,12 +73,21 @@ function proud_customize_register( $wp_customize ) {
 
   // Logo
   $wp_customize->add_setting( 'proud_logo' );
+  $wp_customize->add_setting( 'proud_logo_includes_title' );
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'proud_logo', array(
     'label'    => __( 'Logo', 'proud' ),
     'section'  => 'title_tagline',
     'settings' => 'proud_logo',
-    'description' => __( 'The logo appears in the header and footer and should have a transparent back', 'proud' ),
+    'description' => __( 'The logo appears in the header and footer and should have a transparent background. Check the box below if you would not like the site title to appear next to the logo.', 'proud' ),
   ) ) );
+  $wp_customize->add_control( 'proud_logo_includes_title', array(
+    'label'      => __( 'Logo includes site name', 'proud' ),
+    'section'    => 'title_tagline',
+    'settings'   => 'proud_logo_includes_title',
+    'type'       => 'checkbox',
+    'std'        => '1'
+  ) );
+
 }
 add_action( 'customize_register', 'proud_customize_register' );
 
