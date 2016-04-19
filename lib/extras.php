@@ -25,6 +25,7 @@ function body_class($classes) {
   $header_light = is_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
   $highlight_light = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
   $footer_light = is_light_color( get_theme_mod( 'color_footer', '#333333' ) );
+  $footer_actions_light = is_light_color( get_theme_mod( 'color_footer_actions', '#FFFFFF' ) );
 
   if($header_light) {
     $classes[] = 'light-background-main';
@@ -36,6 +37,10 @@ function body_class($classes) {
 
   if($footer_light) {
     $classes[] = 'light-background-footer';
+  }
+
+  if($footer_actions_light) {die();
+    $classes[] = 'light-background-footer-actions';
   }
 
   return apply_filters( 'proud_body_class', $classes);

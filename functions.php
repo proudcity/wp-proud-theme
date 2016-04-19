@@ -48,6 +48,10 @@ function proud_customize_register( $wp_customize ) {
     'default'     => '#333333',
     'transport'   => 'refresh',
   ) );
+  $wp_customize->add_setting( 'color_footer_actions' , array(
+    'default'     => '#FFFFFF',
+    'transport'   => 'refresh',
+  ) );
 
   // Controls
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_topnav', array(
@@ -64,6 +68,11 @@ function proud_customize_register( $wp_customize ) {
     'label'        => __( 'Highlight color', 'proud' ),
     'section'    => 'colors',
     'settings'   => 'color_highlight',
+  ) ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_footer_actions', array(
+    'label'        => __( 'Footer actions bar color', 'proud' ),
+    'section'    => 'colors',
+    'settings'   => 'color_footer_actions',
   ) ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_footer', array(
     'label'        => __( 'Footer color', 'proud' ),
@@ -196,6 +205,10 @@ function proud_customize_css()
               color: <?php echo get_theme_mod('color_link', '#0071bc'); ?>;
             }
             
+            .footer-actions {
+              background-color: <?php echo get_theme_mod('color_footer_actions', '#FFFFFF'); ?>;
+            }
+
             .page-footer {
               background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
             }

@@ -64,8 +64,9 @@
         }
 
         // Link admin_bar logo to proudcity.com
-        $('#wp-admin-bar-wp-logo .ab-item').attr('href', 'http://proudcity.com');
-        
+        if (Proud.settings.global.proudcity_dashboard) {
+          $('#wp-admin-bar-wp-logo .ab-item').attr( 'href', Proud.settings.global.proudcity_dashboard + '/stats/' + Proud.settings.global.proudcity_site_id );
+        }
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
