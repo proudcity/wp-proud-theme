@@ -28,14 +28,19 @@
 
         // Poor man's scrollspy for header
         var userHasScrolled = false;
+        // Calculate width of logo
+        var $navLogo = $('#logo-menu > .nav-logo');
+        var modWidth = parseInt($navLogo.css('width'), 10) - 12;
         window.onscroll = function (e){
-          if (!userHasScrolled) {
-            userHasScrolled = true;
-            $('body').addClass('scrolled');
-          }
-          else if(typeof pageYOffset!= 'undefined' && pageYOffset == 0){
+          if(typeof pageYOffset!= 'undefined' && pageYOffset <= 10){
             $('body').removeClass('scrolled');
             userHasScrolled = false;
+            $navLogo.css({"margin-left": 0});
+          }
+          else if(!userHasScrolled) {
+            userHasScrolled = true;
+            $('body').addClass('scrolled');
+            $navLogo.css({"margin-left": -(modWidth) + 'px'});
           }
         }
 
