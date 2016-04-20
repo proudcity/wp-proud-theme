@@ -5,8 +5,6 @@
     </header>
     <div class="row">
       <div class="col-md-8">
-        <?php d(get_post_meta( $post->ID ));
-        ?>
         <?php the_content(); ?>
       </div>
       <div class="col-md-4 right-sidebar">
