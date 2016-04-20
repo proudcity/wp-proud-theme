@@ -4,4 +4,5 @@
       <?php dynamic_sidebar('sidebar-footer'); ?>
     </div>
   </div>
+  <?php do_action('proud_footer_after') ?>
 </footer>

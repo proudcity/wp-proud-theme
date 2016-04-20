@@ -71,7 +71,7 @@ function widgets_init() {
   register_sidebar([
     'name'          => __('Footer', 'proud'),
     'id'            => 'sidebar-footer',
-    'before_widget' => '<div class="col-sm-6 col-md-3 %1$s %2$s">',
+    'before_widget' => '<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-both-half %1$s %2$s">',
     'after_widget'  => '</div>',
     'before_title'  => '<h4 class="pane-tile">',
     'after_title'   => '</h4>'

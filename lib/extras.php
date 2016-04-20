@@ -39,7 +39,7 @@ function body_class($classes) {
     $classes[] = 'light-background-footer';
   }
 
-  if($footer_actions_light) {die();
+  if($footer_actions_light) {
     $classes[] = 'light-background-footer-actions';
   }
 
