@@ -1,5 +1,6 @@
 <?php
-use Proud\Theme\Wrapper;
+use Proud\Theme\Wrapper,
+  Proud\Document;
 
 $id = get_the_ID();
 $src = get_post_meta( $id, 'document', true );
@@ -23,6 +24,7 @@ if ( !empty($form_id) ) {
 </div>
 
 <h1 class="entry-title">
+  <i class="fa fa-fw <?php echo Document\get_document_icon() ?>"></i>
   <?php the_title(); ?>
 </h1>
 
