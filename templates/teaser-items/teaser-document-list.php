@@ -1,7 +1,7 @@
 <?php 
 use Proud\Document;
 $icon = Document\get_document_icon();
-$title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'View/download form';
+$title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="View/download form"';
 ?>
 
 <div <?php post_class( "teaser" ); ?>>
