@@ -33,7 +33,7 @@ $gform-container-margin: 20px;
 
   input {
     border-top: 0;
-    @include box-shadow(none);
+    box-shadow: none;
     height: auto;
     margin-top: 0.4em;
   }
