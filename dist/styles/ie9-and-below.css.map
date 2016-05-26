@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"ie9-and-below.css","sourceRoot":"assets/styles/","sourcesContent":[]}
+{"version":3,"sources":["../assets/styles/ie9-and-below.scss"],"names":[],"mappings":"AAKA,IACE,YAAA","file":"ie9-and-below.css","sourcesContent":["// Init styles\n// ---------------------------\n\n@import \"loaders/load-local\";\n\n.ie {\n  font-weight: 999;\n}"],"sourceRoot":"assets/styles/"}
