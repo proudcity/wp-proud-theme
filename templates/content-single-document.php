@@ -9,8 +9,6 @@ $meta = json_decode(get_post_meta( $id, 'document_meta', true ));
 $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
 $filetype = Document\get_document_type();
 
-print_r($filetype);
-
 $show_preview = in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) < 10 ) );
 
 $form_id = get_post_meta( $id, 'form', true );
