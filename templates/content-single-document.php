@@ -22,7 +22,7 @@ if ( !empty($form_id) ) {
 
 ?>
 <div class="page-header">
-  <h2><a href="/documents" onclick="history.go(-1);return false;">Documents</a></h2>
+  <h2><a href="/documents" onclick="history.go(-1);return false;"><?php echo __('Documents and forms'); ?></a></h2>
 </div>
 
 <h1 class="entry-title">
