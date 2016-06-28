@@ -8,7 +8,7 @@
     <?php echo sprintf( '<a href="%s"><i class="fa fa-fw fa-envelope-o"></i>%s</a>', esc_url( 'mailto:' . $meta['email'][0] ) , __('Email', 'proud-agency') ); ?>
   <?php endif; ?></td>
   <td>
-    <?php if( !empty( $meta['social_facebook'][0] ) ): ?><a href="<?php esc_url( $meta['social_facebook'][0] ) ?>"><i class="fa fa-fw fa-facebook-square"></i></a><?php endif; ?>
-    <?php if( !empty( $meta['social_twitter'][0] ) ): ?><a href="<?php esc_url( $meta['social_twitter'][0] ) ?>"><i class="fa fa-fw fa-twitter-square"></i></a><?php endif; ?>
+    <?php if( !empty( $meta['social_facebook'][0] ) ): ?><a href="<?php echo esc_url( $meta['social_facebook'][0] ) ?>"><i class="fa fa-fw fa-facebook-square"></i></a><?php endif; ?>
+    <?php if( !empty( $meta['social_twitter'][0] ) ): ?><a href="<?php echo esc_url( $meta['social_twitter'][0] ) ?>"><i class="fa fa-fw fa-twitter-square"></i></a><?php endif; ?>
   </td>
 </tr>
