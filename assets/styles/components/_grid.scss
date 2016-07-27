@@ -20,6 +20,17 @@
   }
 }
 
+// Force additional padding
+.panel-row-multiple {
+  margin-left: -15px!important;
+  margin-right: -15px!important;
+
+  > .container {
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+  }
+}
+
 
 // Fake container for full width pages
 .full-width-container {
