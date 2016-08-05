@@ -67,7 +67,7 @@
     <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo $media->post_excerpt ?></span></div><?php endif; ?>
   </div>
 <?php endif; ?>
-<?php echo $EM_Event->post_content ?>
+<?php echo apply_filters('dbem_notes', $EM_Event->post_content); ?>
 
 
 <?php if ($EM_Event->bookings) { ?>
