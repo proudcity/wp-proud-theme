@@ -6,7 +6,7 @@
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php get_template_part('templates/entry-meta'); ?>
-      <p class="text-muted"><?php echo get_the_date(); ?></p>
+      <p class="text-muted"><?php echo __('Posted on ', 'wp-proud') . get_the_date(); ?></p>
       <hr />
     </header>
     <?php endif; ?>
