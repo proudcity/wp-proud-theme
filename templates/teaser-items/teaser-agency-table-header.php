@@ -4,7 +4,7 @@
     _x( 'Agency', 'post type singular name', 'wp-agency' ),   
     __( 'Person', 'proud-agency' ),   
     __( 'Phone', 'proud-teaser' ),    
-    __( 'Email', 'proud-teaser' ),    
+    __( 'Contact', 'proud-teaser' ),    
     empty($this->hide['social']) ? __( 'Social', 'proud-teaser' ) : ''
   ); 
   ?>
