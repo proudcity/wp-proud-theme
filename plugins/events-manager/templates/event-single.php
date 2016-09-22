@@ -18,8 +18,9 @@
 
   $location = empty($EM_Event->location) ? false : $EM_Event->location->location_address . ', ' .
     $EM_Event->location->location_town . ', ' .
-    $EM_Event->location->location_state . ' ' .
-    $EM_Event->location->postcode;
+    $EM_Event->location->location_state .
+    (isset($EM_Event->location->postcode) ?  ' ' . $EM_Event->location->postcode : '' );
+    
   //
   /* @var $EM_Event EM_Event */
   //echo $EM_Event->output_single();
