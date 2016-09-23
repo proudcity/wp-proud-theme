@@ -48,11 +48,10 @@
         $('.footer-actions .dropdown-menu').click(function(e) {                   
           e.stopPropagation();
         });
-
         // Open external links in a new tab?
         if (Proud.settings.global.external_link_window) {
           $('a').each(function() {
-             var a = new RegExp('/' + window.location.host + '/');
+             var a = new RegExp('/' + window.location.host + '|mailto\:|tel\:/');
              if( this.href && !a.test(this.href) && !$(this).hasClass('same-window') ) {
               $(this).click(function(event) {
                 event.preventDefault();
