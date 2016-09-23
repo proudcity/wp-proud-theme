@@ -141,20 +141,37 @@ function page_parent_info( $req = false ) {
     return apply_filters('proud/display_sidebar', $display);
   }*/
   $display = false;
-
   
-  if (is_page()) {
+  if ( is_page() ) {
     // $pageInfo is set in wp-proud-core on init
     global $pageInfo;
-    if (!empty($pageInfo)) {
-      if ($req === false) {
-        $display = (bool) !empty( $pageInfo['parent_post'] ) || ( !empty( $pageInfo['parent_link'] ) && $pageInfo['parent_link'] > 0 );
+    if ( !empty( $pageInfo ) ) {
+      if ( $req === false ) {
+        $display = (bool) !empty( $pageInfo['parent_post'] ) 
+                       || (  isset( $pageInfo['parent_link'] ) 
+                          && apply_filters( 'proud_submenu_parent_limit', $pageInfo['parent_link'] )
+                          );
       }
-      elseif ($req === 'agency') {
-        $display = (bool) !empty( $pageInfo['parent_post'] ) && !empty( $pageInfo['parent_post_type'] ) && $pageInfo['parent_post_type'] === 'agency';
+      // Parent header specific call
+      // There must be a parent item
+      elseif ( $req === 'title' ) {
+        $display = (bool) !empty( $pageInfo['parent_post'] );
       }
-      elseif ($req === 'noagency') {
-        $display = (bool) !empty( $pageInfo['parent_link'] ) && $pageInfo['parent_link'] && !empty( $pageInfo['parent_post_type'] ) && $pageInfo['parent_post_type'] !== 'agency';
+      // Sidebar specific call
+      // parent should MUST be agecy
+      elseif ( $req === 'agency' ) {
+        $display = (bool) !empty( $pageInfo['parent_post'] ) 
+                       && !empty( $pageInfo['parent_post_type'] ) 
+                       && $pageInfo['parent_post_type'] === 'agency';
+      }
+      // Sidebar specific call
+      // parent should NOT be agency
+      elseif ( $req === 'noagency' ) {
+        $display = (bool) isset( $pageInfo['parent_link'] ) 
+                       && apply_filters( 'proud_submenu_parent_limit', $pageInfo['parent_link'] )
+                       && (  empty( $pageInfo['parent_post_type'] ) 
+                          || $pageInfo['parent_post_type'] !== 'agency'
+                          );
       }
     }
   }
@@ -168,7 +185,7 @@ function page_parent_info( $req = false ) {
     //is_page(),
   ]);*/
   
-  if(!empty( $display ) ) {
+  if( $display ) {
     return apply_filters('proud/display_sidebar', $display);
   }
 }

@@ -13,9 +13,7 @@ use Proud\Theme\Setup;
 
 function container_class() {
   global $proudcore;
-  
   return $proudcore::$layout->post_is_full_width() && !Setup\page_parent_info() ? 'full-width-container' : 'container';
-
 }
 
 function template_path() {
@@ -30,7 +28,7 @@ function sidebar_agency_path() {
   return new ProudWrapping('templates/sidebar-agency.php');
 }
 
-function agency_title() {
+function parent_title() {
   global $pageInfo;
   $url = get_permalink( $pageInfo['parent_post'] );
   $title = get_the_title( $pageInfo['parent_post'] );

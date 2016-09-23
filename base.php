@@ -21,22 +21,22 @@ use Proud\Theme\Wrapper;
     <?php echo Wrapper\alert_bar(); ?>
     <div class="wrap <?php echo Wrapper\container_class(); ?>" role="document">
       
-      <?php if (Setup\page_parent_info()) : ?>
+      <?php if ( Setup\page_parent_info( 'title' ) ) : ?>
         <div class="page-header">
           <a id="offcanvas-toggle" href="#" class="btn btn-primary visible-xs pull-right"><i class="fa fa-bars"></i></a>
-          <h2><?php echo Wrapper\agency_title(); ?></h2>
+          <h2><?php echo Wrapper\parent_title(); ?></h2>
         </div><!-- /.sidebar -->
       <?php endif; ?>
 
       <div class="content row">
         
-        <?php if (Setup\page_parent_info('noagency')) : ?>
+        <?php if ( Setup\page_parent_info( 'noagency' ) ) : ?>
           <aside class="sidebar">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
 
-        <?php if (Setup\page_parent_info('agency')) : ?>
+        <?php if ( Setup\page_parent_info( 'agency') ) : ?>
           <aside class="sidebar">
             <?php include Wrapper\sidebar_agency_path(); ?>
           </aside><!-- /.sidebar -->
