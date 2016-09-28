@@ -163,19 +163,33 @@ function proud_customize_css()
 {
   // See below, @TODO test for darkness
   $header_rgb = hex_to_rgb( get_theme_mod( 'color_topnav', '#000000' ) );
+  // Set up navbar background, allow transparent alter
+  $navbar_background = get_theme_mod( 'color_topnav', '#000000' );
+  if( proud_navbar_transparent() ) {
+    $navbar_background_opaque = 'rgba(' . implode( ',', $header_rgb ) . ',1)';
+  }
 
     ?>
         <!-- proud custom theme settings -->
         <style type="text/css">
-            .navbar-default,
-            .menu-box,
+            .menu-box, .navbar-default {
+              background-color: <?php echo $navbar_background ?> !important;
+            }
+            .navbar.navbar-default {
+              border-color: <?php echo $navbar_background ?> !important;
+            }
+            <?php if( proud_navbar_transparent() ): ?>
+            #navbar-transparent-mask, .scrolled.proud-navbar-transparent .navbar-default, .search-active.proud-navbar-transparent .navbar-default, .active-311.proud-navbar-transparent .navbar-default,  .jumbotron-inverse .jumbotron-bg-mask  {
+              background-color: <?php echo $navbar_background_opaque ?> !important;
+            }
+            .scrolled .navbar.navbar-default {
+              border-color: <?php echo $navbar_background_opaque ?> !important;
+            }
+            <?php endif; ?>
+
             .nav-contain .nav-pills li a,
             .agency-icon {
               background-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
-            }
-
-            .navbar.navbar-default {
-              border-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
             }
 
             .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
