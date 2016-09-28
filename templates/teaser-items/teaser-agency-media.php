@@ -7,7 +7,7 @@
   <?php endif; ?>
   </div>
   <div class="media-body">
-    <?php the_title( sprintf( '<h2 class="entry-title media-heading"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+    <?php the_title( sprintf( '<h3 class="entry-title media-heading"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
     <?php if( !empty( $post->post_excerpt ) ): ?>
       <p><?php echo $post->post_excerpt ?></p>
     <?php endif; ?>
