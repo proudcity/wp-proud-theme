@@ -50,9 +50,14 @@
         });
         // Open external links in a new tab?
         if (Proud.settings.global.external_link_window) {
+          // @TODO move to core? 
+          // Save external link regex
+          Proud.settings.global.external_regex = new RegExp('/' + window.location.host + '|mailto\:|tel\:/');
           $('a').each(function() {
-             var a = new RegExp('/' + window.location.host + '|mailto\:|tel\:/');
-             if( this.href && !a.test(this.href) && !$(this).hasClass('same-window') ) {
+            if( this.href 
+             && !Proud.settings.global.external_regex.test(this.href) 
+             && !$(this).hasClass('same-window') 
+            ) {
               $(this).click(function(event) {
                 event.preventDefault();
                 event.stopPropagation();
