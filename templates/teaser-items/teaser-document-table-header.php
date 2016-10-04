@@ -2,9 +2,9 @@
   <?php
   echo sprintf( '<thead><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr></thead>',
     __( 'Name', 'proud-teaser' ),
-    __( 'Category', 'proud-teaser' ),
-    __( 'Date', 'proud-teaser' ),
-    __( 'Download', 'proud-teaser' )
+    empty($this->hide['category']) ? __( 'Category', 'proud-teaser' ) : '',
+    empty($this->hide['date']) ? __( 'Date', 'proud-teaser' ) : '',
+    empty($this->hide['download']) ? __( 'Download', 'proud-teaser' ) : ''
   );
   ?>
   <tbody>
