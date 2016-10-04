@@ -17,8 +17,10 @@
   <?php endif; ?></td>
 
   <td>
-    <?php if( !empty( $meta['social_facebook'][0] ) ): ?><a href="<?php echo esc_url( $meta['social_facebook'][0] ) ?>"><i class="fa fa-fw fa-facebook-square"></i></a><?php endif; ?>
-    <?php if( !empty( $meta['social_twitter'][0] ) ): ?><a href="<?php echo esc_url( $meta['social_twitter'][0] ) ?>"><i class="fa fa-fw fa-twitter-square"></i></a><?php endif; ?>
+    <?php if ( empty($this->hide['person']) ): ?>
+      <?php if( !empty( $meta['social_facebook'][0] ) ): ?><a href="<?php echo esc_url( $meta['social_facebook'][0] ) ?>"><i class="fa fa-fw fa-facebook-square"></i></a><?php endif; ?>
+      <?php if( !empty( $meta['social_twitter'][0] ) ): ?><a href="<?php echo esc_url( $meta['social_twitter'][0] ) ?>"><i class="fa fa-fw fa-twitter-square"></i></a><?php endif; ?>
+    <?php endif; ?>
   </td>
 
 </tr>
