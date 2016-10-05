@@ -185,15 +185,15 @@ function proud_customize_css()
             .scrolled .navbar.navbar-default {
               border-color: <?php echo $navbar_background_opaque ?> !important;
             }
+            <?php elseif($navbar_background == '#FFFFFF' || $navbar_background == '#ffffff'): ?> 
+            .navbar.navbar-external {
+              border-bottom: 1px solid #eeeeee !important;
+            }
             <?php endif; ?>
 
             .nav-contain .nav-pills li a,
             .agency-icon {
               background-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
-            }
-
-            .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-              background-color: rgba(0,0,0,0.4);
             }
 
             .jumbotron:not(.jumbotron-image),
