@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default accordion">
   <div class="panel-heading">
     <h4 class="panel-title">
       <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo the_id(); ?>">
