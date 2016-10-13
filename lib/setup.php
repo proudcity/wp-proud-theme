@@ -131,64 +131,6 @@ function widgets_init() {
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
-/**
- * Determine information about Agencies, subpages
- */
-function page_parent_info( $req = false ) {
-  /*static $display;
-
-  if (isset($display)) {
-    return apply_filters('proud/display_sidebar', $display);
-  }*/
-  $display = false;
-  
-  if ( is_page() ) {
-    // $pageInfo is set in wp-proud-core on init
-    global $pageInfo;
-    if ( !empty( $pageInfo ) ) {
-      if ( $req === false ) {
-        $display = (bool) !empty( $pageInfo['parent_post'] ) 
-                       || (  isset( $pageInfo['parent_link'] ) 
-                          && apply_filters( 'proud_submenu_parent_limit', $pageInfo['parent_link'] )
-                          );
-      }
-      // Parent header specific call
-      // There must be a parent item
-      elseif ( $req === 'title' ) {
-        $display = (bool) !empty( $pageInfo['parent_post'] );
-      }
-      // Sidebar specific call
-      // parent should MUST be agecy
-      elseif ( $req === 'agency' ) {
-        $display = (bool) !empty( $pageInfo['parent_post'] ) 
-                       && !empty( $pageInfo['parent_post_type'] ) 
-                       && $pageInfo['parent_post_type'] === 'agency';
-      }
-      // Sidebar specific call
-      // parent should NOT be agency
-      elseif ( $req === 'noagency' ) {
-        $display = (bool) isset( $pageInfo['parent_link'] ) 
-                       && apply_filters( 'proud_submenu_parent_limit', $pageInfo['parent_link'] )
-                       && (  empty( $pageInfo['parent_post_type'] ) 
-                          || $pageInfo['parent_post_type'] !== 'agency'
-                          );
-      }
-    }
-  }
-
-  /*isset($display) || $display = !in_array(true, [
-    // The sidebar will NOT be displayed if ANY of the following return true.
-    // @link https://codex.wordpress.org/Conditional_Tags
-    is_404(),
-    is_front_page(),
-    is_page_template('template-custom.php'),
-    //is_page(),
-  ]);*/
-  
-  if( $display ) {
-    return apply_filters('proud/display_sidebar', $display);
-  }
-}
 
 /**
  * Theme assets

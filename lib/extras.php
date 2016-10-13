@@ -15,8 +15,9 @@ function body_class($classes) {
     }
   }
 
+  global $proudcore; 
   // Add class if sidebar is active
-  if (Setup\page_parent_info(false)) {
+  if ( $proudcore::$layout->page_parent_info() ) {
     $classes[] = 'sidebar-primary';
   }
 

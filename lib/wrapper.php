@@ -13,7 +13,9 @@ use Proud\Theme\Setup;
 
 function container_class() {
   global $proudcore;
-  return $proudcore::$layout->post_is_full_width() && !Setup\page_parent_info() ? 'full-width-container' : 'container';
+  return ( $proudcore::$layout->post_is_full_width() && !$proudcore::$layout->page_parent_info() )
+      ? 'full-width-container' 
+      : 'container';
 }
 
 function template_path() {
