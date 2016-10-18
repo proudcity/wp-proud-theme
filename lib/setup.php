@@ -131,7 +131,6 @@ function widgets_init() {
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
-
 /**
  * Theme assets
  */
@@ -142,11 +141,11 @@ function assets() {
   //IE9
   wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'] );
   $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
-
   if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
     wp_enqueue_script( 'comment-reply' );
   }
-
+  // Icons
+  proud_theme_add_gov_icon_styles();
   // Add moderizer support
   wp_enqueue_script( 'proud/js/modernizr', 
     Assets\asset_path( 'scripts/modernizr.js' ),

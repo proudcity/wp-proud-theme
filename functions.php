@@ -107,6 +107,125 @@ function wp_nav_menu_attributes_filter($classes) {
 }
 add_filter('nav_menu_css_class', 'wp_nav_menu_attributes_filter', 100, 1);
 
+/**
+ * Enqueue Goverment font styles 
+ */
+function proud_theme_add_gov_icon_styles() {
+  // Enqueue our css
+  wp_register_style( 
+    'gov-icons/css', 
+    Proud\Theme\Assets\asset_path( 'fonts/govicons-master/css/govicons.min.css' ), 
+    array()
+  );
+  wp_enqueue_style( 'gov-icons/css' );
+}
+add_action( 'admin_enqueue_scripts', 'proud_theme_add_gov_icon_styles' );
+
+/** 
+ *  Adds additional goverment custom icons
+ */
+function proud_theme_icon_picker_options($options) {
+  $options['icons'] = [ 
+    'gi-statue-of-liberty',
+    'gi-liberty-bell',
+    'gi-users',
+    'gi-user-politician',
+    'gi-shield-o',
+    'gi-shield',
+    'gi-us-shield',
+    'gi-missile',
+    'gi-satellite',
+    'gi-drone',
+    'gi-security-camera',
+    'gi-textile',
+    'gi-leaf',
+    'gi-recycle',
+    'gi-comment',
+    'gi-comments',
+    'gi-lightbulb',
+    'gi-search',
+    'gi-tools',
+    'gi-book',
+    'gi-script',
+    'gi-clock-o',
+    'gi-code',
+    'gi-cloud-o',
+    'gi-cloud',
+    'gi-database',
+    'gi-pie-chart',
+    'gi-bar-chart',
+    'gi-line-chart',
+    'gi-briefcase',
+    'gi-medkit',
+    'gi-stethoscope',
+    'gi-heartbeat',
+    'gi-ship-front',
+    'gi-bus-front',
+    'gi-truck-front',
+    'gi-truck',
+    'gi-tank',
+    'gi-helicopter',
+    'gi-airplane',
+    'gi-jet',
+    'gi-gun',
+    'gi-ammo',
+    'gi-desktop',
+    'gi-mobile',
+    'gi-tablet',
+    'gi-times',
+    'gi-check',
+    'gi-check-square-o',
+    'gi-warning',
+    'gi-ribbon',
+    'gi-key',
+    'gi-folder',
+    'gi-folder-misc',
+    'gi-table',
+    'gi-tables',
+    'gi-unlock',
+    'gi-lock',
+    'gi-gear',
+    'gi-gears',
+    'gi-money',
+    'gi-usd',
+    'gi-vote',
+    'gi-us-tophat',
+    'gi-elephant',
+    'gi-donkey',
+    'gi-balance',
+    'gi-gavel',
+    'gi-handshake',
+    'gi-user-military',
+    'gi-user-suit',
+    'gi-user-student',
+    'gi-user',
+    'gi-presenter',
+    'gi-file-word-o',
+    'gi-file-excel-o',
+    'gi-file-contract-o',
+    'gi-file-text-o',
+    'gi-file-text',
+    'gi-file-o',
+    'gi-file',
+    'gi-id-card-o',
+    'gi-id-card',
+    'gi-dc-flag',
+    'gi-dc-map',
+    'gi-us-flag-wavy',
+    'gi-us-flag-straight',
+    'gi-us-map',
+    'gi-globe',
+    'gi-washington-monument',
+    'gi-capitol',
+    'gi-pentagon',
+    'gi-building',
+    'gi-540-fedapi',
+    'gi-540-logo',
+  ];
+  $options['icon-prefix'] = 'gi';
+  return $options;
+}
+add_filter( 'proud_form_icon_picker_options', 'proud_theme_icon_picker_options', 10 );
 
 /**
  * Allow Submenus
