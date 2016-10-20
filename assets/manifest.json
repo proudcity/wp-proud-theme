@@ -32,9 +32,9 @@
         "scripts/customizer.js"
       ]
     },
-    "modernizr.js": {
+    "modernizer.js": {
       "files": [
-        "scripts/modernizr.js"
+        "scripts/modernizer.js"
       ]
     },
     "jquery.js": {
