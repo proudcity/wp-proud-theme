@@ -1,4 +1,5 @@
 <?php use Proud\Theme\Titles; ?>
+
 <?php if( has_post_thumbnail() && !get_post_meta( get_the_ID(), 'hide_featured_image', true ) && !Titles\titleHidden() ): ?>
   <div class="media text-center">
     <?php the_post_thumbnail(); ?>
