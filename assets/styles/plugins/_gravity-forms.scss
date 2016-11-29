@@ -63,7 +63,7 @@ $gform-container-margin: 20px;
 .gform_wrapper .gfield_description {
   margin-top: -25px;
   margin-bottom: 25px;
-  font-size: .75em;
+  font-size: .75em !important;
 
   li {
     margin-bottom: 0;
@@ -140,6 +140,7 @@ $gform-container-margin: 20px;
   margin-bottom: $line-height-computed;
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
+  background: transparent;
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
 
