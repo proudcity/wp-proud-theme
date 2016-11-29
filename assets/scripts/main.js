@@ -49,7 +49,7 @@
           e.stopPropagation();
         });
         // Open external links in a new tab?
-        if (Proud.settings.global.external_link_window) {
+        if (Proud.settings.global != undefined && Proud.settings.global.external_link_window) {
           // @TODO move to core? 
           // Save external link regex
           Proud.settings.global.external_regex = new RegExp('/' + window.location.host + '|mailto\:|tel\:/');
