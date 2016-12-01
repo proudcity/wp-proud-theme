@@ -2,7 +2,6 @@
 $terms = wp_get_post_terms( get_the_ID(), 'faq-topic');
 $term_slug = !empty($terms) ?  $terms[0]->slug . '/' : '';
 $js_path = '/city/answers/' . $term_slug . $post->post_name;
-print_r($term_slug);
 ?>
 
 <article <?php post_class(); ?>>
