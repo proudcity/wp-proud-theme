@@ -39,7 +39,7 @@
             <?php endif; ?>
           </ul>
           <?php if( $title ): ?>
-            <strong>Social Media</strong>
+            <strong>Job Title</strong>
             <p><?php echo $title ?></p>
           <?php endif; ?>
           <p><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
