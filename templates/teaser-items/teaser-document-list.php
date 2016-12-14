@@ -15,7 +15,7 @@ $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="V
     <div class="col-md-7">
       <h4 class="entry-title" style="margin-top:0;">
         <?php the_title( sprintf( '<a href="%s" rel="bookmark" %s>', esc_url( get_permalink() ), $title ), '</a>' ); ?>
-        <?php foreach ($terms as $term): ?><a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?>
+        <?php foreach ($terms as $term): ?><a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a> <?php endforeach; ?>
       </h4>
       <div class="text-muted text-small"><?php echo get_the_date(); ?></div>
     </div>
