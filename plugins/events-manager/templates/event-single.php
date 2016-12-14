@@ -45,6 +45,7 @@
         <?php if ($EM_Event->bookings) { ?>
         <li><a href="#register" class="btn btn-sm btn-default"><i class="fa fa-calendar-check-o"></i> Register</a></li>
         <?php } //endif ?>
+        <li><?php the_widget( 'ShareLinks', array( 'classes' => 'btn btn-sm btn-default'), array('widget_id'=>'arbitrary-instance-' . strtolower('events-share') ) ); ?></li>
         <li><span class="addtocalendar">
           <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
           <var class="atc_event">
