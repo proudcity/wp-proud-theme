@@ -9,7 +9,10 @@ $meta = json_decode(get_post_meta( $id, 'document_meta', true ));
 $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
 $filetype = Document\get_document_type();
 
-$show_preview = in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) < 10 ) );
+$show_preview = in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && ( 
+  empty($meta->size)
+  || ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) < 10 ) )
+);
 
 $form_id = get_post_meta( $id, 'form', true );
 if ( !empty($form_id) ) {
@@ -42,12 +45,14 @@ if ( !empty($form_id) ) {
       <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j Y'); ?></div><?php endif; ?>
       <ul class="list-inline list-inline-middot icon-list">
         <li><?php echo strtoupper($filetype); ?></li>
-        <li><?php echo $meta->size; ?></li>
+        <?php if ($meta->size): ?><li><?php echo $meta->size; ?></li><?php endif; ?>
       </ul>
     </p>
     <?php if (!empty($src)): ?>
       <p>
-        <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
+        <?php if ($src): ?>
+            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
+        <?php endif; ?>
         <?php if ($show_preview === 2): ?>
           <a href="#" onclick="jQuery('#doc-preview').slideToggle();jQuery(this).toggleClass('active');" class="btn btn-default btn-sm"><i class="fa fa-eye"></i> Preview</a>
         <?php endif; ?>
