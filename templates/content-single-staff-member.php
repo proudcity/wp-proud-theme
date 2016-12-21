@@ -50,8 +50,9 @@
         <h1 class=""><?php the_title(); ?></h1>
         <?php if( $bio ): ?>
           <p><?php echo apply_filters('the_content', $bio); ?></p>
+        <?php else: ?>
+          <?php the_content(); ?>
         <?php endif; ?>
-        <?php the_content(); ?>
       </div>
     </div>
     <footer>
