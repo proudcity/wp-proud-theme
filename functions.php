@@ -82,11 +82,20 @@ function proud_customize_register( $wp_customize ) {
 
   // Logo
   $wp_customize->add_setting( 'proud_logo' );
+  $wp_customize->add_setting( 'proud_logo_id' );
   $wp_customize->add_setting( 'proud_logo_includes_title' );
+  // Old URL based logo
   $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'proud_logo', array(
     'label'    => __( 'Logo', 'proud' ),
     'section'  => 'title_tagline',
     'settings' => 'proud_logo',
+    'description' => __( 'The logo appears in the header and footer and should have a transparent background. Check the box below if you would not like the site title to appear next to the logo.', 'proud' ),
+  ) ) );
+  // New MediaID-based logo
+  $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'proud_logo_id', array(
+    'label'    => __( 'Logo', 'proud' ),
+    'section'  => 'title_tagline',
+    'settings' => 'proud_logo_id',
     'description' => __( 'The logo appears in the header and footer and should have a transparent background. Check the box below if you would not like the site title to appear next to the logo.', 'proud' ),
   ) ) );
   $wp_customize->add_control( 'proud_logo_includes_title', array(
