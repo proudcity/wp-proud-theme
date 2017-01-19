@@ -28,7 +28,6 @@
   if(!empty($EM_Event->start) && !empty( $EM_Event->event_start_time ) && $EM_Event->event_start_time != "00:00:00" ) {
     $time = date_i18n( 'h:i a', $EM_Event->start );
   }
-
 ?>
 
 <div class="row">
@@ -46,7 +45,7 @@
         <li><a href="#register" class="btn btn-sm btn-default"><i class="fa fa-calendar-check-o"></i> Register</a></li>
         <?php } //endif ?>
         <li><?php the_widget( 'ShareLinks', array( 'classes' => 'btn btn-sm btn-default'), array('widget_id'=>'arbitrary-instance-' . strtolower('events-share') ) ); ?></li>
-        <li><span class="addtocalendar">
+        <li><span class="addtocalendar" data-title="<?php print $EM_Event->event_name ?>" data-slug="<?php print $EM_Event->event_slug ?>">
           <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
           <var class="atc_event">
             <var class="atc_date_start"><?php echo date_i18n($atc_format, $EM_Event->start) ?></var>
