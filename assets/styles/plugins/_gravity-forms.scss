@@ -3,6 +3,10 @@ $gform-container-margin: 20px;
 
 // Gform additional width weirdness
 
+.ginput_container {
+  max-width: 100%;
+}
+
 .gform_wrapper .gform_body {
   max-width: 100%;
 
