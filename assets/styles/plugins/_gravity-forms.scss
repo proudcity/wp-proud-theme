@@ -124,17 +124,9 @@ $gform-container-margin: 20px;
 
 // Time field
 
-.gform_wrapper .gform_body {
-  .gfield_time_hour, .gfield_time_minute {
-    input {
-      float: left;
-    }
-  }
-}
-
 .gform_wrapper .gform_body .gfield_time_hour i {
-  margin-right: 5px;
-  margin-left: -5px;
+  margin-top: -30px;
+  margin-right: -3px;
 }
 
 // credit card info
