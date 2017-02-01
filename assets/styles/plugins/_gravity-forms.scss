@@ -163,6 +163,7 @@ $gform-container-margin: 20px;
 .gform_wrapper li.gfield.gfield_error .validation_message {
   padding: $alert-padding!important;
   margin-bottom: $line-height-computed;
+  margin-top: -($line-height-computed/2);
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
