@@ -6,6 +6,7 @@ label:empty {
 
 #proud-teaser-filter-1 {
   @include card();
+  margin-bottom: 0;
   padding: 1.25rem;
 }
 
