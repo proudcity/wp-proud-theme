@@ -40,7 +40,7 @@
       </ul>
       <ul class="list-inline">
         <li>
-          <span class="addtocalendar" data-title="<?php print the_title() ?>" data-slug="<?php print get_post_field('post_name') ?>">
+          <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
             <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar "></i> Add to calendar</a>
             <var class="atc_event">
               <var class="atc_date_start"><?php echo date_i18n($atc_format, $start) ?></var>
