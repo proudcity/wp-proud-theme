@@ -27,6 +27,7 @@ global $proudcore;
           <a id="offcanvas-toggle" href="#" class="btn btn-primary visible-xs pull-right"><i class="fa fa-bars"></i></a>
           <h2><?php echo Wrapper\parent_title(); ?></h2>
         </div><!-- /.sidebar -->
+        <?php \Proud\Core\ProudBreadcrumb::print_breadcrumb() ?>
       <?php endif; ?>
 
       <div class="content row">
