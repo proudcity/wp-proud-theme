@@ -13,7 +13,9 @@ do_action( 'single_job_listing_meta_before' ); ?>
 <ul class="job-listing-meta meta list-inline">
   <?php do_action( 'single_job_listing_meta_start' ); ?>
 
-  <li class="job" itemprop="employmentType"><span class="label job-type <?php echo get_the_job_type() ? sanitize_title( get_the_job_type()->slug ) : ''; ?>"><?php the_job_type(); ?></span></li>
+  <li class="job" itemprop="employmentType">
+    <?php Proud\WP_Job_Manager\proud_wp_job_manager_print_types($post); ?>
+  </li>
 
   <li class="location" itemprop="jobLocation"><i class="fa fa-map-marker"></i> <?php the_job_location(); ?></li>
 
