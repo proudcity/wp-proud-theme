@@ -20,27 +20,3 @@ label:empty {
   }
 
 }
-
-.search-form {
-  border: none;
-  padding: 0;
-
-  .form-control-search-icon {
-    display: none;
-  }
-
-  .form-group {
-    margin-bottom: 0;
-  }
-}
-
-// Small up
-// -------------------------
-@include respond($sm-up) {
-  .search-form { 
-    .form-control {
-      width: 80%;
-      float: left;
-    }
-  }
-}
