@@ -16,7 +16,7 @@ $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="V
       <h4 class="entry-title" style="margin-top:0;">
         <?php the_title( sprintf( '<a href="%s" rel="bookmark" %s>', esc_url( get_permalink() ), $title ), '</a>' ); ?>
       </h4>
-      <div class="text-muted text-small"><?php echo get_the_date(); ?></div>
+      <div class="text-muted text-small">Posted on <?php echo get_the_date(); ?></div>
     </div>
 
   </div>
