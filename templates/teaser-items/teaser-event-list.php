@@ -56,6 +56,7 @@
           <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default  btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
         <?php } //endif ?>
       </ul>
+      <?php do_action( 'teaser_search_matching', $post ); ?>
       <p class="margin-bottom-none"><?php echo \Proud\Core\wp_trim_excerpt(); ?></p>
     </div>
   </div>

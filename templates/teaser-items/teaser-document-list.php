@@ -24,6 +24,6 @@ $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="V
         <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
       <?php endif; ?>
     </div>
-
   </div>
+  <?php do_action( 'teaser_search_matching', $post ); ?>
 </div>
