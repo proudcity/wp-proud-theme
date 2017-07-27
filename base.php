@@ -30,7 +30,7 @@ global $proudcore;
         <?php \Proud\Core\ProudBreadcrumb::print_breadcrumb() ?>
       <?php endif; ?>
 
-      <div class="content row">
+      <div id="content-main" class="content row">
         
         <?php if ( $proudcore::$layout->page_parent_info( 'noagency' ) ) : ?>
           <aside class="sidebar">
