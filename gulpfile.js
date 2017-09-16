@@ -259,7 +259,7 @@ gulp.task('styles', ['wiredep'], function() {
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
-gulp.task('scripts', ['jshint'], function() {
+gulp.task('scripts', function() {
   var merged = merge();
   manifest.forEachDependency('js', function(dep) {
     console.log(dep);
