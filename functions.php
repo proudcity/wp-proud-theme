@@ -80,6 +80,24 @@ function proud_customize_register( $wp_customize ) {
     'settings'   => 'color_footer',
   ) ) );
 
+  // Background modifications
+  $wp_customize->add_setting( 'color_background' , array(
+      'default'     => '#FFFFFF',
+      'transport'   => 'refresh',
+  ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_background', array(
+      'label'        => __( 'Background color', 'proud' ),
+      'section'    => 'colors',
+      'settings'   => 'color_background',
+  ) ) );
+  $wp_customize->add_setting( 'background_image' );
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'background_image', array(
+      'label'      => __( 'Background Image', 'proud' ),
+      'section'    => 'colors',
+      'settings'   => 'background_image',
+      'description' => __( 'Background image for the page.', 'proud' ),
+  ) ) );
+
   // Logo
   $wp_customize->add_setting( 'proud_logo' );
   $wp_customize->add_setting( 'proud_logo_id' );
@@ -307,6 +325,25 @@ function is_light_color( $hex, $rgb = [] ) {
   return ( $o > 135 ) ? true : false;
 }
 
+/**
+ * Helper function returns either a color or '' if the color is white
+ * @param $theme_mod
+ *
+ * @return string
+ */
+function get_color_if_not_white( $theme_mod ) {
+    // Get our background color.
+    $color = get_theme_mod( $theme_mod, '' );
+    if ( $color ) {
+        $c_hex = hex_to_rgb( $color );
+
+        if ( $c_hex && $c_hex['r'] === 255 && $c_hex['g'] === 255 && $c_hex['b'] === 255  ) {
+            return '';
+        }
+    }
+    return $color;
+}
+
 function proud_customize_css()
 {
   // See below, @TODO test for darkness
@@ -317,9 +354,28 @@ function proud_customize_css()
     $navbar_background_opaque = 'rgba(' . implode( ',', $header_rgb ) . ',1)';
   }
 
+  $color_background = get_color_if_not_white('color_background');
+  $background_image = get_theme_mod( 'background_image', '' );
+
+//  print_r( get_theme_mods());
+//  exit();
+
     ?>
         <!-- proud custom theme settings -->
         <style type="text/css">
+
+            <?php if ($color_background): ?>
+            body {
+              background-color: <?php echo $color_background ?>;
+            }
+            <?php endif; ?>
+            <?php if ($background_image): ?>
+            body {
+              background-image: url("<?php echo $background_image ?>");
+              background-repeat: repeat;
+            }
+            <?php endif; ?>
+
             .menu-box, .navbar-default {
               background-color: <?php echo $navbar_background ?> !important;
             }
