@@ -18,7 +18,7 @@ $events = EM_Events::get($args);
 <?php
 foreach ($events as $EM_Event){
 
-  $datebox_format = 'F \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
+  $datebox_format = '\<\s\p\a\n \c\l\a\s\s=\"\m\o\n\t\h\-\s\m\l\"\>M\<\/\s\p\a\n\>\<\s\p\a\n \c\l\a\s\s=\"\m\o\n\t\h\-\b\i\g\"\>F\<\/\s\p\a\n\> \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
   $atc_format = 'Y-m-d H:i:s';
 
   $location = empty($EM_Event->location) ? false : $EM_Event->location->location_address . ', ' .
