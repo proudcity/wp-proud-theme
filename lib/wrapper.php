@@ -42,7 +42,8 @@ function alert_bar() {
     // @todo: get this in a template
     $html = do_shortcode( wp_kses_post( get_option('alert_message') ) );
     $severity = esc_attr(get_option('alert_severity'));
-    return '<div class="alert-banner text-center alert alert-'. $severity .'">' . $html . '</div>';
+    $severity = str_replace(['danger', 'warning'], ['red', 'yellow'], $severity);
+    return '<div class="alert-banner proud-alert-banner text-center alert alert-'. $severity .'">' . $html . '</div>';
   }
   return '';
 }
