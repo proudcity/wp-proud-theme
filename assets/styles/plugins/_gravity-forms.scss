@@ -28,6 +28,9 @@ $gform-container-margin: 20px;
 .gform_wrapper .gform_body .top_label .gfield_label {
   margin-top: 0;
   margin-bottom: 0.25em;
+  font-weight: 700;
+  font-size: inherit;
+  border-bottom: none;
 
   // Description before input, remove margin
   & + .gfield_description {
