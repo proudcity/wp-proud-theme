@@ -11,7 +11,7 @@ $filetype = Document\get_document_type();
 
 $show_preview = in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && ( 
   empty($meta->size)
-  || ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) <= 20 ) )
+  || ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) <= 25 ) )
 );
 
 $form_id = get_post_meta( $id, 'form', true );

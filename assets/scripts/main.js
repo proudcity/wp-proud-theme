@@ -67,13 +67,6 @@
           });
         }
 
-        // Hide header if this appears in an iFrame (for mobile app/kiosk)
-        if (window.self !== window.top) {
-          $('body').attr('id', 'in-iframe');
-        }
-        //@todo rm
-        $('body').attr('id', 'in-iframe');
-
         // @ TODO remove or fix my.getproudcity
         // Link admin_bar logo to proudcity.com
         // if (Proud.settings.global.proudcity_dashboard) {

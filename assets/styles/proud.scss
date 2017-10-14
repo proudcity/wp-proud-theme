@@ -24,8 +24,54 @@
 @import "plugins/job_manager";
 @import "plugins/gravity-forms";
 
-
-@import "components/kiosk";
-
-
 // @import "modules/wr-pagebuilder";
+
+
+$proud-alert-red: #BF0711;
+$proud-alert-orange: #C05717;
+$proud-alert-yellow: #EEC200;
+$proud-alert-green: #108043;
+$proud-alert-black: #212B35;
+$proud-alert-gray: #C4CDD5;
+
+
+.proud-alert-banner {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.alert-red {
+  background-color: $proud-alert-red;
+}
+
+.alert-orange {
+  background-color: $proud-alert-orange;
+}
+
+.alert-yellow {
+  background-color: $proud-alert-yellow;
+}
+
+.alert-green {
+  background-color: $proud-alert-green;
+}
+
+.alert-black {
+  background-color: $proud-alert-black;
+}
+
+.alert-gray {
+  background-color: $proud-alert-gray;
+}
+
+.alert-red,
+.alert-orange,
+.alert-green,
+.alert-black {
+  color: $white;
+  
+  a {
+    color: $white !important;
+    text-decoration: underline;
+  }
+}
