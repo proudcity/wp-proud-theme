@@ -42,7 +42,7 @@ if ( !empty($form_id) ) {
       <?php endforeach; ?>
     </p>
     <p>
-      <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j Y'); ?></div><?php endif; ?>
+      <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F, j Y'); ?></div><?php endif; ?>
       <ul class="list-inline list-inline-middot icon-list">
         <li><?php echo strtoupper($filetype); ?></li>
         <?php if ($meta->size): ?><li><?php echo $meta->size; ?></li><?php endif; ?>
