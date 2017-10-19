@@ -72,7 +72,7 @@
           $('body').attr('id', 'in-iframe');
         }
         //@todo rm
-        $('body').attr('id', 'in-iframe');
+        //$('body').attr('id', 'in-iframe');
 
         // @ TODO remove or fix my.getproudcity
         // Link admin_bar logo to proudcity.com
