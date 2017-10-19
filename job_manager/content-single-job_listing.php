@@ -24,7 +24,7 @@
       <?php echo apply_filters( 'the_job_description', get_the_content() ); ?>
     </div>
 
-    <?php if ( candidates_can_apply() ) : ?>
+    <?php if ( false && candidates_can_apply() ) : ?>
       <?php get_job_manager_template( 'job-application.php' ); ?>
     <?php endif; ?>
 
