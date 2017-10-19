@@ -8,7 +8,7 @@
   $fb_url   = $custom["_staff_member_fb"][0];
   $tw_url   = $custom["_staff_member_tw"][0] ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
   $terms = wp_get_post_terms( $post->ID, 'staff-member-group', array("fields" => "all"));
-?>
+  ?>
   <article <?php post_class(); ?>>
     <div class="page-header">
       <h2><a href="/contact">Contact</a></h2>
@@ -21,9 +21,14 @@
         </p>
         <?php endif; ?>
         <?php if( $email ): ?>
-          <strong>Email</strong>
-          <p><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
+          <?php if(filter_var( $email, FILTER_VALIDATE_EMAIL ) ): ?>
+            <strong>Email</strong>
+            <p><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
+          <?php else: ?>
+            <strong>Link</strong>
+            <p><a href="<?php echo $email ?>"><?php echo $email ?></a></p>
           <?php endif; ?>
+        <?php endif; ?>
         <?php if( $phone ): ?>
           <strong>Phone</strong>
           <p><?php echo $phone ?></p>
@@ -38,12 +43,16 @@
             <li><a target="_blank" href="<?php echo $tw_url ?>"><i class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
             <?php endif; ?>
           </ul>
-          <?php if( $title ): ?>
-            <strong>Job Title</strong>
-            <p><?php echo $title ?></p>
-          <?php endif; ?>
-          <p><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
         <?php endif; ?>
+        <?php if( $title ): ?>
+          <?php if( $position_label = get_option( 'staff_position_label', false ) ): ?>
+              <strong><?php echo $position_label ?></strong>
+          <?php else: ?>
+              <strong>Job Title</strong>
+          <?php endif; ?>
+          <p><?php echo $title ?></p>
+        <?php endif; ?>
+        <p><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
 
       </div>
       <div class="col-md-8">
