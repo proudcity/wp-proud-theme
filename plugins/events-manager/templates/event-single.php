@@ -26,7 +26,10 @@
   //echo $EM_Event->output_single();
   $time = __("All day", 'proud-core');
   if(!empty($EM_Event->start) && !empty( $EM_Event->event_start_time ) && $EM_Event->event_start_time != "00:00:00" ) {
-    $time = date_i18n( 'h:i a', $EM_Event->start );
+    $time = date_i18n( 'g:ia', $EM_Event->start );
+  }
+  if(!empty($EM_Event->end) && !empty( $EM_Event->event_end_time ) && $EM_Event->event_end_time !== $EM_Event->event_start_time && $EM_Event->event_end_time != "00:00:00" ) {
+    $time .= ' - ' . date_i18n( 'g:ia', $EM_Event->end );
   }
 ?>
 

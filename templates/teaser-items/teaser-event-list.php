@@ -24,7 +24,10 @@
     // d($meta);
     $time = __("All day", 'proud-core');
     if($start && !empty( $meta['_event_start_time'] ) && $meta['_event_start_time'][0] != "00:00:00" ) {
-      $time = date_i18n( 'h:i a', $meta['_start_ts'][0] );
+      $time = date_i18n( 'g:ia', $meta['_start_ts'][0] );
+    }
+    if($end && $start !== $end && !empty( $meta['_event_end_time'] ) && $meta['_event_end_time'][0] != "00:00:00" ) {
+      $time .= ' - ' . date_i18n( 'g:ia', $meta['_end_ts'][0] );
     }
   ?>
   <div class="row">
