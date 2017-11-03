@@ -20,7 +20,6 @@ if (in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'
     $show_preview = true;
   }
 };
-$src = 'https://storage.googleapis.com/proudcity/sanrafaelcaemployees/uploads/2017/10/Team-Charter.docx';
 
 $form_id = get_post_meta( $id, 'form', true );
 if ( !empty($form_id) ) {
