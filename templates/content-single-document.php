@@ -70,9 +70,9 @@ if ( !empty($form_id) ) {
   <div class="col-md-9">
     <?php echo the_content() ?>
     <?php if ($show_preview === 'office'): ?>
-      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?php echo $src; ?>" style="width:100%; height:800px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>
+      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?php echo $src; ?>" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>
     <?php elseif ($show_preview): ?>
-      <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" id="doc-preview" style="width:100%; height:800px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" ></iframe>
+      <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" id="doc-preview" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" ></iframe>
     <?php endif; ?>
     <?php if( !empty($form_id) ): ?>
       <?php print $form; ?>
