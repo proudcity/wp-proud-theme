@@ -7,6 +7,7 @@ var concat       = require('gulp-concat');
 var flatten      = require('gulp-flatten');
 var gulp         = require('gulp');
 var gulpif       = require('gulp-if');
+var header       = require('gulp-header');
 var imagemin     = require('gulp-imagemin');
 var jshint       = require('gulp-jshint');
 var lazypipe     = require('lazypipe');
@@ -78,6 +79,14 @@ var revManifest = path.dist + 'assets.json';
 //   .pipe(cssTasks('main.css')
 //   .pipe(gulp.dest(path.dist + 'styles'))
 // ```
+
+// Get our JSON vars
+var scssVars = config.proudSCSS && Object.keys(config.proudSCSS).map(function(key) {
+  return `$${key}: ${config.proudSCSS[key]};`;
+}).join("\n");
+
+console.log(scssVars);
+
 var cssTasks = function(filename) {
   return lazypipe()
     .pipe(function() {
@@ -85,6 +94,9 @@ var cssTasks = function(filename) {
     })
     .pipe(function() {
       return gulpif(enabled.maps, sourcemaps.init());
+    })
+    .pipe(function() {
+      return gulpif('*.scss', header(scssVars))
     })
     .pipe(function() {
       return gulpif('*.scss', sass({

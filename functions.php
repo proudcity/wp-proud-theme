@@ -351,14 +351,32 @@ function proud_customize_css()
   // Set up navbar background, allow transparent alter
   $navbar_background = get_theme_mod( 'color_topnav', '#000000' );
   if( proud_navbar_transparent() ) {
-    $navbar_background_opaque = 'rgba(' . implode( ',', $header_rgb ) . ',1)';
+    $navbar_background_rga = implode( ',', $header_rgb );
   }
 
-  $color_background = get_color_if_not_white('color_background');
+  $color_background = get_color_if_not_white( 'color_background' );
   $background_image = get_theme_mod( 'background_image', '' );
 
-//  print_r( get_theme_mods());
-//  exit();
+  // Get PROUD json scss variables
+
+  $manifestFile = dirname( __FILE__ ) . '/assets/' . 'manifest.json';
+  $subManifestFile = get_template_directory() . '/assets/' . 'manifest.json';
+
+  $manifestHelper = new \Proud\Theme\Assets\JsonManifest( $manifestFile );
+
+  $proudSCSS = $manifestHelper->get()['config']['proudSCSS'];
+
+  // Have a child theme
+	if ( $manifestFile !== $subManifestFile ) {
+	  $subManifestHelper = new \Proud\Theme\Assets\JsonManifest( $subManifestFile );
+	  $subManifest = $subManifestHelper->get();
+
+	  // Have child css settings, so add them
+	  if ( !empty( $subManifest['config']['proudSCSS']['nav-fixed-top-min'] ) ) {
+	    $proudSCSS = $subManifest['config']['proudSCSS'];
+    }
+  }
+
 
     ?>
         <!-- proud custom theme settings -->
@@ -382,12 +400,23 @@ function proud_customize_css()
             .navbar.navbar-default {
               border-color: <?php echo $navbar_background ?> !important;
             }
+
             <?php if( proud_navbar_transparent() ): ?>
-            #navbar-transparent-mask, .scrolled.proud-navbar-transparent .navbar-default, .search-active.proud-navbar-transparent .navbar-default, .active-311.proud-navbar-transparent .navbar-default,  .jumbotron-inverse .jumbotron-bg-mask  {
-              background-color: <?php echo $navbar_background_opaque ?> !important;
+            .jumbotron-inverse .jumbotron-bg {
+              background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
+              border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
             }
-            .scrolled .navbar.navbar-default {
-              border-color: <?php echo $navbar_background_opaque ?> !important;
+            @media screen and (min-width: <?php echo $proudSCSS['nav-fixed-top-min'] ?>) {
+              .proud-navbar-transparent .navbar-default {
+                background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
+                border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
+              }
+              .scrolled.proud-navbar-transparent .navbar-default, .search-active.proud-navbar-transparent .navbar-default, .active-311.proud-navbar-transparent .navbar-default  {
+                background-color: rgba(<?php echo $navbar_background_rga ?>, 1) !important
+              }
+              .scrolled .navbar.navbar-default {
+                border-color: rgba(<?php echo $navbar_background_rga ?>, 1) !important
+              }
             }
             <?php elseif($navbar_background == '#FFFFFF' || $navbar_background == '#ffffff'): ?> 
             .navbar.navbar-external {
