@@ -4,6 +4,11 @@ use Proud\Theme\Setup;
 use Proud\Theme\Wrapper;
 global $proudcore;
 
+if (!$proudcore) {
+  echo "<html><body><h1>You need ProudCore to use this theme</h1></body></html>";
+  exit;
+}
+
 ?>
 
 <!doctype html>

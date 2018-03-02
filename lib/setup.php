@@ -63,8 +63,8 @@ function widgets_init() {
     'id'            => 'footer-actions',
     'before_widget' => '<li class="dropdown %1$s %2$s">',
     'after_widget'  => '</li>',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h2 class="h4">',
+    'after_title'   => '</h2>',
     'description'   => __('Widgets placed in this are displayed in a nav bar', 'proud')
   ]);
 
@@ -73,8 +73,8 @@ function widgets_init() {
     'id'            => 'sidebar-footer',
     'before_widget' => '<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-both-half %1$s %2$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h4 class="pane-tile">',
-    'after_title'   => '</h4>'
+    'before_title'  => '<h2 class="h4 pane-tile">',
+    'after_title'   => '</h2>'
   ]);
 
   register_sidebar([
@@ -82,8 +82,8 @@ function widgets_init() {
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_title'  => '<h2 class="h3">',
+    'after_title'   => '</h2>'
   ]);
 
   register_sidebar([
@@ -91,8 +91,8 @@ function widgets_init() {
     'id'            => 'sidebar-news',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_title'  => '<h2 class="h3">',
+    'after_title'   => '</h2>'
   ]);
 
   //@todo: if (is_plugin_active( 'wp-agency' )) {die();
@@ -101,8 +101,8 @@ function widgets_init() {
       'id'            => 'sidebar-agency',
       'before_widget' => '<section class="widget %1$s %2$s">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3>',
-      'after_title'   => '</h3>'
+      'before_title'  => '<h2 class="h3">',
+      'after_title'   => '</h2>'
     ]);
   //}
 
@@ -112,8 +112,8 @@ function widgets_init() {
       'id'            => 'sidebar-event',
       'before_widget' => '<section class="widget %1$s %2$s">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3>',
-      'after_title'   => '</h3>'
+      'before_title'  => '<h2 class="h3">',
+      'after_title'   => '</h2>'
     ]);
   //}
 
@@ -123,8 +123,8 @@ function widgets_init() {
       'id'            => 'sidebar-job',
       'before_widget' => '<section class="widget %1$s %2$s">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3>',
-      'after_title'   => '</h3>'
+      'before_title'  => '<h2 class="h3">',
+      'after_title'   => '</h2>'
     ]);
   //}
   

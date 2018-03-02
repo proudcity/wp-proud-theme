@@ -85,8 +85,6 @@ var scssVars = config.proudSCSS && Object.keys(config.proudSCSS).map(function(ke
   return `$${key}: ${config.proudSCSS[key]};`;
 }).join("\n");
 
-console.log(scssVars);
-
 var cssTasks = function(filename) {
   return lazypipe()
     .pipe(function() {

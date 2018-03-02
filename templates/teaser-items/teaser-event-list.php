@@ -35,7 +35,7 @@
       <div class="date-box"><?php echo date_i18n($datebox_format, $start) ?></div>
     </div>
     <div class="col-xs-9 col-md-10">
-      <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
+      <?php the_title( sprintf( '<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
         <h5 class="margin-top-none"><span class="start-time"><?php echo $time ?></span>
         <?php if( !empty( $location_obj->location_name ) ) :?>
           <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $location_obj->location_name ?></span>

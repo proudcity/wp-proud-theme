@@ -2,7 +2,7 @@
   <meta itemprop="title" content="<?php echo esc_attr( $post->post_title ); ?>" />
   <div class="row">
     <div class="col-xs-12 pull-left">
-      <?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
+      <?php the_title( sprintf( '<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
       <ul class="list-inline">
         <?php do_action( 'job_listing_meta_start' ); ?>
         <li class="job">
