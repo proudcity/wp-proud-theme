@@ -1,5 +1,6 @@
 <div <?php post_class( "teaser" ); ?>>
-  <?php 
+  <?php
+    global $EM_Event;
     // Date formats
     $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
     $atc_format = 'Y-m-d H:i:s';
@@ -19,20 +20,24 @@
         $location_obj->location_postcode;
     }
 
-    $start = !empty( $meta['_start_ts'] ) ? $meta['_start_ts'][0] : 0;
-    $end = !empty( $meta['_end_ts'] ) ? $meta['_end_ts'][0] : 0;
-    // d($meta);
+    // Get our start and end
+    $start = !empty( $meta['_event_start_local'] ) ? $meta['_event_start_local'][0] : 0;
+    $end = !empty( $meta['_event_end_local'] ) ? $meta['_event_end_local'][0] : 0;
+    // Get EM object
+    $EM_start = new \EM_DateTime( $start );
+    $EM_end = new \EM_DateTime( $end );
+
     $time = __("All day", 'proud-core');
     if($start && !empty( $meta['_event_start_time'] ) && $meta['_event_start_time'][0] != "00:00:00" ) {
-      $time = date_i18n( 'g:ia', $meta['_start_ts'][0] );
+      $time = $EM_start->i18n( 'g:ia' );
     }
     if($end && $start !== $end && !empty( $meta['_event_end_time'] ) && $meta['_event_end_time'][0] != "00:00:00" ) {
-      $time .= ' - ' . date_i18n( 'g:ia', $meta['_end_ts'][0] );
+	    $time .= ' - ' . $EM_end->i18n( 'g:ia' );
     }
   ?>
   <div class="row">
     <div class="col-xs-3 col-md-2">
-      <div class="date-box"><?php echo date_i18n($datebox_format, $start) ?></div>
+      <div class="date-box"><?php echo $EM_start->i18n($datebox_format) ?></div>
     </div>
     <div class="col-xs-9 col-md-10">
       <?php the_title( sprintf( '<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
@@ -46,9 +51,9 @@
           <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
             <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar "></i> Add to calendar</a>
             <var class="atc_event">
-              <var class="atc_date_start"><?php echo date_i18n($atc_format, $start) ?></var>
-              <var class="atc_date_end"><?php echo date_i18n($atc_format, $end) ?></var>
-              <var class="atc_timezone"><?php echo date_i18n('e', $start) ?></var>
+              <var class="atc_date_start"><?php echo $EM_start->i18n($atc_format) ?></var>
+              <var class="atc_date_end"><?php echo $EM_end->i18n($atc_format) ?></var>
+              <var class="atc_timezone"><?php echo $EM_start->i18n('e') ?></var>
               <var class="atc_title"><?php echo $post->post_title ?></var>
               <var class="atc_description"><?php //echo $post->post_content ?></var>
               <var class="atc_location"><?php echo $location ? $location : '' ?></var>

@@ -23,7 +23,6 @@
     
   //
   /* @var $EM_Event EM_Event */
-  //echo $EM_Event->output_single();
   $time = __("All day", 'proud-core');
   if(!empty($EM_Event->start) && !empty( $EM_Event->event_start_time ) && $EM_Event->event_start_time != "00:00:00" ) {
     $time = date_i18n( 'g:ia', $EM_Event->start );
@@ -38,10 +37,13 @@
     <div class="date-box"><?php echo date_i18n($datebox_format, $EM_Event->start) ?></div>
   </div>
   <div class="col-sm-10 col-xs-9">
-      <h3 class="margin-top-none margin-bottom-none"><span class="start-time"><?php echo $time ?></span>
+      <h3 class="margin-top-none margin-bottom-none">
+        <span class="start-time"><?php echo $time ?></span>
         <?php if( !empty( $location ) ) :?>
-          <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $EM_Event->location->location_name  ?></span></h3>
-          <h6 class="margin-top-smaller"><?php echo $location ?></h6>
+        <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $EM_Event->location->location_name  ?></span></h3>
+        <h6 class="margin-top-smaller"><?php echo $location ?></h6>
+        <?php else: ?>
+      </h3>
       <?php endif; ?>
       <ul class="list-inline">
         <?php if ($EM_Event->bookings) { ?>
