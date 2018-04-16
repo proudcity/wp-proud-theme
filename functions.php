@@ -467,7 +467,7 @@ function proud_customize_css() {
             background-color: <?php echo get_theme_mod('color_footer_actions', '#FFFFFF'); ?>;
         }
 
-        .page-footer {
+        .page-footer, .powered-by-footer {
             background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
         }
     </style>
