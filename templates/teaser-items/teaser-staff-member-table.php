@@ -14,7 +14,7 @@
     <?php endif; ?>
   </td>
 
-  <td><?php if( !empty( $meta['_staff_member_phone'][0] ) ): ?>
+  <td><?php if( !empty( $meta['_staff_member_phone'][0] ) && empty($hide['phone']) ): ?>
     <?php echo sprintf( '<a href="%s"><i class="fa fa-fw fa-phone"></i>%s</a>', esc_url( 'tel:' . $meta['_staff_member_phone'][0] ) , $meta['_staff_member_phone'][0] ); ?>
   <?php endif; ?></td>
 
