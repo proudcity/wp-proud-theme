@@ -9,5 +9,8 @@
   "dependencies": {
     "proudcity-patterns": "proudcity/proudcity-patterns#1.62.2",
     "respond": "~1.4.2"
+  },
+  "resolutions": {
+    "font-awesome": "~5.3.1"
   }
 }
