@@ -1,3 +1,9 @@
+<?php
+$meta['_staff_member_tw'][0] = strpos($meta['_staff_member_tw'][0], 'http') === false ?
+  'https://twitter.com/' . $meta['_staff_member_tw'][0] :
+  $meta['_staff_member_tw'][0];
+?>
+
 <tr>
   
   <td><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></td>
