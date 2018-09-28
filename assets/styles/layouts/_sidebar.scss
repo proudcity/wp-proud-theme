@@ -43,6 +43,12 @@ ul.nav.nav-stacked.submenu,
   }
 }
 
+.field-contact-email .col-xs-10 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 
 // Responsive pages with sidebar
 // -------------------------
