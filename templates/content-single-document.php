@@ -11,13 +11,13 @@ $filetype = Document\get_document_type();
 
 if (in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && (
   empty($meta->size)
-  || ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) <= 25 ) )
+  || ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) <= 20 ) )
 )) {
   if (in_array($filetype, array('doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') )) {
     $show_preview = 'office';
   }
   else {
-    $show_preview = true;
+    $show_preview = 'google';
   }
 };
 
