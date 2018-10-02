@@ -28,6 +28,7 @@ if (!empty($agency_id)) {
 }
 
 $agenda = get_post_meta($id, 'agenda', true);
+$minutes = get_post_meta($id, 'minutes', true);
 
 $attachments = [];
 foreach(['agenda', 'minutes'] as $field) {
@@ -69,7 +70,11 @@ $youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true),
 function printDocument($params) {
     extract($params);
     $src = $url;
+    if (empty($src)) {
+        return;
+    }
 ?>
+    <hr />
     <div class="row">
         <div class="col-md-3">
             <p>
@@ -172,7 +177,7 @@ function printDocument($params) {
 <ul class="nav nav-tabs" style="margin-top:10px;">
   <?php if (!empty($video)): ?><li class="active"><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
   <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if (empty($video)): ?>class="active"<?php endif; ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
-  <li <?php if ($is_upcoming && empty($video)): ?>class="active"<?php endif; ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li>
+  <li <?php if ($is_upcoming && empty($video) || (empty($minutes) || empty($attachments['minutes']))): ?>class="active"<?php endif; ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li>
   <?php if (!empty($agency)): ?><li><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
 </ul>
 
@@ -203,7 +208,7 @@ function printDocument($params) {
   <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
       <div id="tab-minutes" class="tab-pane fade <?php if (empty($video)): ?>in active<?php endif; ?>">
         <?php if (!empty($minutes)): ?>
-          <?php echo $minutes ?>
+            <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div></div>
         <?php endif; ?>
         <?php if (!empty($attachments['minutes'])) { printDocument($attachments['minutes']); } ?>
       </div>
@@ -211,7 +216,7 @@ function printDocument($params) {
 
   <div id="tab-agenda" class="tab-pane fade <?php if ($is_upcoming && empty($video)): ?>in active<?php endif; ?>">
       <?php if (!empty($agenda)): ?>
-        <?php echo $agenda ?>
+          <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div></div>
       <?php endif; ?>
       <?php if (!empty($attachments['agenda'])) { printDocument($attachments['agenda']); } ?>
   </div>
