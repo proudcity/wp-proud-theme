@@ -41,8 +41,13 @@ foreach(['agenda', 'minutes'] as $field) {
     $attachment_meta = get_post_meta($item['id'], 'sm_cloud', true);
     $item['filesize'] = @round($attachment_meta['object']['size'] / 1024 / 1024, 1);
     $item['filetype'] = pathinfo($item['url'], PATHINFO_EXTENSION);
+    $item['filename'] = pathinfo($item['url'], PATHINFO_FILENAME);
+    $show_preview = get_post_meta($id, $field . '_attachment_preview', true);
 
-    if (in_array($item['filetype'], array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && (
+    if (
+        $show_preview == '1' &&
+        in_array($item['filetype'], array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') )
+      && (
         empty($item['filesize'])
         || ( $item['filesize'] <= 20 )
       )) {
@@ -62,7 +67,7 @@ $video = get_post_meta($id, 'video', true);
 $youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true), true);
 
 
-/**
+/**false
  * Prints a document, including metadata and preview.
  *
  * @param $params
@@ -77,8 +82,9 @@ function printDocument($params) {
     <hr />
     <div class="row">
         <div class="col-md-3">
+            <h4><?php echo $filename; ?>.<?php echo $filetype; ?></h4>
             <p>
-          <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j, Y'); ?></div><?php endif; ?>
+            <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j, Y'); ?></div><?php endif; ?>
             <ul class="list-inline list-inline-middot icon-list">
                 <li><?php echo strtoupper($filetype); ?></li>
               <?php if ($filesize): ?><li><?php echo $filesize; ?>MB</li><?php endif; ?>
@@ -175,15 +181,15 @@ function printDocument($params) {
 
 
 <ul class="nav nav-tabs" style="margin-top:10px;">
-  <?php if (!empty($video)): ?><li class="active"><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
-  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if (empty($video)): ?>class="active"<?php endif; ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
-  <li <?php if ($is_upcoming && empty($video) || (empty($minutes) || empty($attachments['minutes']))): ?>class="active"<?php endif; ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li>
+  <li class="active"><a data-toggle="tab" href="#tab-agenda">Agenda Packet</a></li>
+  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
+  <?php if (!empty($video)): ?><li><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
   <?php if (!empty($agency)): ?><li><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
 </ul>
 
 <div class="tab-content">
   <?php if (!empty($video)): ?>
-    <div id="tab-video" class="tab-pane fade in active">
+    <div id="tab-video" class="tab-pane fade">
         <div class="row">
             <div class="youtube-player-wrapper <?php if(!empty($youtube_bookmarks)):?>col-md-9 pull-right<?php else: ?>col-md-12<?php endif; ?>">
               <iframe id="player" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video ?>?autoplay=0&amp;controls=1&amp;enablejsapi=1&amp;widgetid=1"></iframe>
@@ -206,7 +212,7 @@ function printDocument($params) {
   <?php endif; ?>
 
   <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
-      <div id="tab-minutes" class="tab-pane fade <?php if (empty($video)): ?>in active<?php endif; ?>">
+      <div id="tab-minutes" class="tab-pane fade">
         <?php if (!empty($minutes)): ?>
             <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div></div>
         <?php endif; ?>
@@ -214,7 +220,7 @@ function printDocument($params) {
       </div>
   <?php endif; ?>
 
-  <div id="tab-agenda" class="tab-pane fade <?php if ($is_upcoming && empty($video)): ?>in active<?php endif; ?>">
+  <div id="tab-agenda" class="tab-pane fade in active">
       <?php if (!empty($agenda)): ?>
           <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div></div>
       <?php endif; ?>
