@@ -219,7 +219,7 @@ function printDocument($params) {
       </div>
   <?php endif; ?>
 
-  <div id="tab-agenda" class="tab-pane fade in active`">
+  <div id="tab-agenda" class="tab-pane fade in active">
       <?php if (!empty($agenda)): ?>
           <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div></div>
       <?php endif; ?>
