@@ -3,7 +3,10 @@
     // Date formats (same as Events)
     $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
     $atc_format = 'Y-m-d H:i:s';
-    $time_format = 'h:i a';
+    $time_format = 'g:i a';
+
+    //$datetime = new DateTime(get_post_meta($id, 'datetime', true));
+    $is_upcoming = $datetime > new DateTime();
   ?>
   <div class="row">
     <div class="col-xs-3 col-md-2">
@@ -16,7 +19,8 @@
           <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $location_name ?></span>
         <?php endif; ?></h5>
       </ul>
-      <ul class="list-inline">
+      <?php if($is_upcoming): ?>
+        <ul class="list-inline">
         <li>
           <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
             <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar "></i> Add to calendar</a>
@@ -33,7 +37,8 @@
         <?php if ( !empty($location) ) { ?>
           <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default  btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
         <?php } //endif ?>
-      </ul>
+        </ul>
+      <?php endif; ?>
       <?php do_action( 'teaser_search_matching', $post ); ?>
       <p class="margin-bottom-none"><?php echo \Proud\Core\wp_trim_excerpt(); ?></p>
     </div>

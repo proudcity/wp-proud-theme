@@ -8,7 +8,6 @@ $time_format = 'g:i a';
 $atc_format = 'Y-m-d H:i:s';
 
 $id = get_the_ID();
-
 $datetime = new DateTime(get_post_meta($id, 'datetime', true));
 $is_upcoming = $datetime > new DateTime();
 $location_id = get_post_meta($id, 'location', true);
@@ -220,7 +219,7 @@ function printDocument($params) {
       </div>
   <?php endif; ?>
 
-  <div id="tab-agenda" class="tab-pane fade in active">
+  <div id="tab-agenda" class="tab-pane fade in active`">
       <?php if (!empty($agenda)): ?>
           <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div></div>
       <?php endif; ?>
