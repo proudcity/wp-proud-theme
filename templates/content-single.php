@@ -1,5 +1,5 @@
 <?php use Proud\Theme\Titles; ?>
-
+<?php print_r(wp_get_post_categories()); ?>
 <?php while ( have_posts() ) : the_post(); ?>
   <article <?php post_class(); ?>>
     <?php if( !Titles\titleHidden() ) : ?>

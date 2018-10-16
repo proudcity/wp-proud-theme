@@ -256,6 +256,8 @@ function printDocument($params) {
   (function($, Proud) {
     Proud.behaviors.proud_meeting_youtube_bookmarks = {
       attach: function (context, settings) {
+
+        // Video
         var player;
         window.onYouTubeIframeAPIReady = function () {
           player = new YT.Player('player', {
@@ -269,9 +271,16 @@ function printDocument($params) {
           e.preventDefault();
           player.seekTo($(this).data('youtube-seek'));
         });
+
+        // Set active tab
+        if (location.hash !== ''){
+          $('a[href="' + location.hash.replace('/', '') + '"]').tab('show');
+        }
+
       }
     }
   })(jQuery, Proud);
+
 </script>
 
 
