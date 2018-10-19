@@ -190,8 +190,10 @@ function printDocument($params) {
   <?php if (!empty($video)): ?>
     <div id="tab-video" class="tab-pane fade">
         <div class="row">
-            <div class="youtube-player-wrapper <?php if(!empty($youtube_bookmarks)):?>col-md-9 pull-right<?php else: ?>col-md-12<?php endif; ?>">
-              <iframe id="player" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video ?>?autoplay=0&amp;controls=1&amp;enablejsapi=1&amp;widgetid=1"></iframe>
+            <div class="youtube-player-wrapper <?php if(!empty($youtube_bookmarks)):?>col-md-9 pull-right<?php else: ?>col-md-12 col-lg-10<?php endif; ?>">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe id="player" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video ?>?autoplay=0&amp;controls=1&amp;enablejsapi=1&amp;widgetid=1"></iframe>
+              </div>
             </div>
             <?php if(!empty($youtube_bookmarks)):?>
               <div class="col-md-3">
