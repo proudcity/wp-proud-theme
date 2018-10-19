@@ -23,19 +23,19 @@ if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
 }
 
 if (!empty($meta['audio'][0])) {
-  $item = "<i class='fa fa-fw fa-soundcloud'></i>Audio";
+  $item = "<i class='fa fa-fw fa-soundcloud'></i> Media";
   $content .= "<a class='label label-default' href='$url#tab-audio'>$item</a>";
 }
 
 if (!empty($meta['video'][0])) {
-  $item = "<i class='fa fa-fw fa-youtube'></i>Video";
+  $item = "<i class='fa fa-fw fa-youtube'></i> Media";
   $content .= "<a class='label label-default' href='$url#tab-video'>$item</a>";
 }
 
 
 ?>
 <tr>
-    <td><?php if( empty($hide['date']) ): ?><?php echo get_the_date(); ?><?php endif; ?></td>
     <td><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></td>
+    <td><?php if( empty($hide['date']) ): ?><?php echo get_the_date(); ?><?php endif; ?></td>
     <td><?php if( empty($hide['content_available']) ): ?><?php echo $content ?><?php endif; ?></td>
 </tr>
