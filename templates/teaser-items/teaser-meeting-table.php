@@ -32,10 +32,15 @@ if (!empty($meta['video'][0])) {
   $content .= "<a class='label label-default' href='$url#tab-video'>$item</a>";
 }
 
+$date_format = 'M j, Y';
+$time_format = 'g:i a';
 
 ?>
 <tr>
     <td><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></td>
-    <td><?php if( empty($hide['date']) ): ?><?php echo get_the_date(); ?><?php endif; ?></td>
+    <td>
+      <?php if( empty($hide['date']) ): ?><div style="min-width:7em;"><?php echo date_format($datetime, $date_format) ?></div><?php endif; ?>
+      <?php if( empty($hide['time']) ): ?><div><?php echo date_format($datetime, $time_format) ?></div><?php endif; ?>
+    </td>
     <td><?php if( empty($hide['content_available']) ): ?><?php echo $content ?><?php endif; ?></td>
 </tr>
