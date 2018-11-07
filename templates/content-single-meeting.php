@@ -26,8 +26,8 @@ if (!empty($agency_id)) {
   }
 }
 
-$agenda = get_post_meta($id, 'agenda', true);
-$minutes = get_post_meta($id, 'minutes', true);
+$agenda = wpautop(get_post_meta($id, 'agenda', true));
+$minutes = wpautop(get_post_meta($id, 'minutes', true));
 
 $attachments = [];
 foreach(['agenda', 'minutes'] as $field) {
