@@ -49,6 +49,12 @@ ul.nav.nav-stacked.submenu,
   white-space: nowrap;
 }
 
+.filename {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
 
 // Responsive pages with sidebar
 // -------------------------

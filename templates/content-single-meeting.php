@@ -29,6 +29,7 @@ if (!empty($agency_id)) {
 $agenda = wpautop(get_post_meta($id, 'agenda', true));
 $minutes = wpautop(get_post_meta($id, 'minutes', true));
 
+// Generate a list of attachments similar to what we're using in content-single-document.php
 $attachments = [];
 foreach(['agenda', 'minutes'] as $field) {
   $item = [
@@ -41,7 +42,7 @@ foreach(['agenda', 'minutes'] as $field) {
     $item['filesize'] = @round($attachment_meta['object']['size'] / 1024 / 1024, 1);
     $item['filetype'] = pathinfo($item['url'], PATHINFO_EXTENSION);
     $item['filename'] = pathinfo($item['url'], PATHINFO_FILENAME);
-    $show_preview = get_post_meta($id, $field . '_attachment_preview', true);
+    $item['show_preview'] = get_post_meta($id, $field . '_attachment_preview', true) ? 1 : 0;
 
     if (
         $show_preview == '1' &&
@@ -63,6 +64,7 @@ foreach(['agenda', 'minutes'] as $field) {
 }
 
 $video = get_post_meta($id, 'video', true);
+$audio = get_post_meta($id, 'audio', true);
 $youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true), true);
 
 
@@ -81,21 +83,7 @@ function printDocument($params) {
     <hr />
     <div class="row">
         <div class="col-md-3">
-            <h4><?php echo $filename; ?>.<?php echo $filetype; ?></h4>
-            <p>
-            <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j, Y'); ?></div><?php endif; ?>
-            <ul class="list-inline list-inline-middot icon-list">
-                <li><?php echo strtoupper($filetype); ?></li>
-              <?php if ($filesize): ?><li><?php echo $filesize; ?>MB</li><?php endif; ?>
-            </ul>
-            </p>
-          <?php if (!empty($src)): ?>
-              <p>
-                <?php if ($src): ?>
-                    <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
-                <?php endif; ?>
-              </p>
-          <?php endif; ?>
+            <?php echo printDocumentInfo($params); ?>
         </div>
         <div class="col-md-9">
           <?php echo the_content() ?>
@@ -108,7 +96,30 @@ function printDocument($params) {
     </div>
 <?php
 }
-// -------
+
+
+function printDocumentInfo($params){
+  extract($params);
+  $src = $url;
+  if (empty($src)) {
+    return;
+  }
+?>
+  <div title="<?php echo $filename; ?>"><?php echo $filename; ?>.<?php echo $filetype; ?></div>
+  <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j, Y'); ?></div><?php endif; ?>
+    <ul class="list-inline list-inline-middot icon-list">
+        <li><?php echo strtoupper($filetype); ?></li>
+      <?php if ($filesize): ?><li><?php echo $filesize; ?>MB</li><?php endif; ?>
+    </ul>
+  <?php if (!empty($src)): ?>
+        <p>
+          <?php if ($src): ?>
+              <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
+          <?php endif; ?>
+        </p>
+  <?php endif; ?>
+<?php
+}
 
 
 
@@ -181,9 +192,10 @@ function printDocument($params) {
 
 <ul class="nav nav-tabs" style="margin-top:10px;">
   <li class="active"><a data-toggle="tab" href="#tab-agenda">Agenda Packet</a></li>
-  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
-  <?php if (!empty($video)): ?><li><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
-  <?php if (!empty($agency)): ?><li><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
+    <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
+    <?php if (!empty($video)): ?><li><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
+    <?php if (!empty($audio)): ?><li><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
+    <?php if (!empty($agency)): ?><li><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
 </ul>
 
 <div class="tab-content">
@@ -211,11 +223,23 @@ function printDocument($params) {
         </div>
     </div>
   <?php endif; ?>
+  <?php if (!empty($audio)): ?>
+      <div id="tab-audio" class="tab-pane fade">
+          <div class="row">
+              <div class="col-md-8">
+                <?php echo $audio; ?>
+              </div>
+          </div>
+      </div>
+  <?php endif; ?>
 
   <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
       <div id="tab-minutes" class="tab-pane fade">
         <?php if (!empty($minutes)): ?>
-            <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div></div>
+            <div class="row">
+                <div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div>
+                <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
+            </div>
         <?php endif; ?>
         <?php if (!empty($attachments['minutes'])) { printDocument($attachments['minutes']); } ?>
       </div>
@@ -223,7 +247,11 @@ function printDocument($params) {
 
   <div id="tab-agenda" class="tab-pane fade in active">
       <?php if (!empty($agenda)): ?>
-          <div class="row"><div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div></div>
+          <div class="row">
+              <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
+              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['agenda']); ?></div>
+          </div>
+
       <?php endif; ?>
       <?php if (!empty($attachments['agenda'])) { printDocument($attachments['agenda']); } ?>
   </div>

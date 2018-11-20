@@ -9,7 +9,7 @@ if (!empty($meta['agenda'][0]) || !empty($meta['agenda_attachment'][0])) {
     else {
       $item = "<i class='fa fa-fw fa-file-text'></i>Agenda";
     }
-    $content .= "<a class='label label-default' href='$url#tab-agenda'>$item</a>";
+    $content .= "<a class='label label-primary' href='$url#tab-agenda'>$item</a>";
 }
 //print_r($meta);
 if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
@@ -19,17 +19,17 @@ if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
   else {
     $item = "<i class='fa fa-fw fa-file-text'></i>Minutes";
   }
-  $content .= "<a class='label label-default' href='$url#tab-minutes'>$item</a>";
+  $content .= "<a class='label label-primary' href='$url#tab-minutes'>$item</a>";
 }
 
 if (!empty($meta['audio'][0])) {
-  $item = "<i class='fa fa-fw fa-soundcloud'></i> Media";
-  $content .= "<a class='label label-default' href='$url#tab-audio'>$item</a>";
+  $item = "<i class='fa fa-fw fa-soundcloud'></i> Audio";
+  $content .= "<a class='label label-primary' href='$url#tab-audio'>$item</a>";
 }
 
 if (!empty($meta['video'][0])) {
-  $item = "<i class='fa fa-fw fa-youtube'></i> Media";
-  $content .= "<a class='label label-default' href='$url#tab-video'>$item</a>";
+  $item = "<i class='fa fa-fw fa-youtube'></i> Video";
+  $content .= "<a class='label label-primary' href='$url#tab-video'>$item</a>";
 }
 
 $date_format = 'M j, Y';
