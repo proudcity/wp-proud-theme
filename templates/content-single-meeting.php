@@ -80,7 +80,6 @@ function printDocument($params) {
         return;
     }
 ?>
-    <hr />
     <div class="row">
         <div class="col-md-3">
             <?php echo printDocumentInfo($params); ?>
@@ -240,6 +239,7 @@ function printDocumentInfo($params){
                 <div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div>
                 <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
             </div>
+            <hr/>
         <?php endif; ?>
         <?php if (!empty($attachments['minutes'])) { printDocument($attachments['minutes']); } ?>
       </div>
@@ -249,8 +249,9 @@ function printDocumentInfo($params){
       <?php if (!empty($agenda)): ?>
           <div class="row">
               <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
-              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['agenda']); ?></div>
+              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
           </div>
+          <hr/>
 
       <?php endif; ?>
       <?php if (!empty($attachments['agenda'])) { printDocument($attachments['agenda']); } ?>
