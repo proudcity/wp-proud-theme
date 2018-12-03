@@ -42,7 +42,8 @@ foreach(['agenda', 'minutes'] as $field) {
     $item['filesize'] = @round($attachment_meta['object']['size'] / 1024 / 1024, 1);
     $item['filetype'] = pathinfo($item['url'], PATHINFO_EXTENSION);
     $item['filename'] = pathinfo($item['url'], PATHINFO_FILENAME);
-    $item['show_preview'] = get_post_meta($id, $field . '_attachment_preview', true) ? 1 : 0;
+    $item['show_preview'] = get_post_meta($id, $field . '_attachment_preview', true);
+    $item['show_preview'] =  ($item['show_preview'] === '0') ? false : true;
 
     if (
         $show_preview == '1' &&
@@ -74,7 +75,8 @@ $youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true),
  * @param $params
  */
 function printDocument($params) {
-    extract($params);
+
+  extract($params);
     $src = $url;
     if (empty($src)) {
         return;
