@@ -5,6 +5,7 @@
     $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
     $atc_format = 'Y-m-d H:i:s';
     $loc_id = !empty( $meta['_location_id'] ) ? $meta['_location_id'][0] : false;
+    $location = '';
     if( $loc_id ) {
       global $EM_Location;
       $location_obj;
@@ -56,7 +57,7 @@
               <var class="atc_timezone"><?php echo $EM_start->i18n('e') ?></var>
               <var class="atc_title"><?php echo $post->post_title ?></var>
               <var class="atc_description"><?php //echo $post->post_content ?></var>
-              <var class="atc_location"><?php echo $location ? $location : '' ?></var>
+              <var class="atc_location"><?php echo $location ?></var>
             </var>
           </span>
         </li>
