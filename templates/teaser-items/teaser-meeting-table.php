@@ -9,8 +9,12 @@ if (!empty($meta['agenda'][0]) || !empty($meta['agenda_attachment'][0])) {
     else {
       $item = "<i class='fa fa-fw fa-file-text'></i>Agenda";
     }
-    $content .= "<a class='label label-default' href='$url#tab-agenda'>$item</a>";
+    $content .= "<td><a class='label label-primary' href='$url#tab-agenda'>$item</a></td>";
 }
+else {
+  $content .= '<td></td>';
+}
+
 //print_r($meta);
 if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
   if (!empty($meta['minutes_attachment'])) {
@@ -19,17 +23,28 @@ if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
   else {
     $item = "<i class='fa fa-fw fa-file-text'></i>Minutes";
   }
-  $content .= "<a class='label label-default' href='$url#tab-minutes'>$item</a>";
+  $content .= "<td><a class='label label-primary' href='$url#tab-minutes'>$item</a></td>";
 }
+else {
+  $content .= '<td></td>';
+}
+
 
 if (!empty($meta['audio'][0])) {
-  $item = "<i class='fa fa-fw fa-soundcloud'></i> Media";
-  $content .= "<a class='label label-default' href='$url#tab-audio'>$item</a>";
+  $item = "<i class='fa fa-fw fa-soundcloud'></i> Audio";
+  $content .= "<td><a class='label label-primary' href='$url#tab-audio'>$item</a></td>";
+}
+else {
+  $content .= '<td></td>';
 }
 
+
 if (!empty($meta['video'][0])) {
-  $item = "<i class='fa fa-fw fa-youtube'></i> Media";
-  $content .= "<a class='label label-default' href='$url#tab-video'>$item</a>";
+  $item = "<i class='fa fa-fw fa-youtube'></i> Video";
+  $content .= "<td><a class='label label-primary' href='$url#tab-video'>$item</a></td>";
+}
+else {
+  $content .= '<td></td>';
 }
 
 $date_format = 'M j, Y';
@@ -42,5 +57,5 @@ $time_format = 'g:i a';
       <?php if( empty($hide['date']) ): ?><div style="min-width:7em;"><?php echo date_format($datetime, $date_format) ?></div><?php endif; ?>
       <?php if( empty($hide['time']) ): ?><div><?php echo date_format($datetime, $time_format) ?></div><?php endif; ?>
     </td>
-    <td><?php if( empty($hide['content_available']) ): ?><?php echo $content ?><?php endif; ?></td>
+    <?php if( empty($hide['content_available']) ): ?><?php echo $content ?><?php else: ?><td></td><?php endif; ?>
 </tr>
