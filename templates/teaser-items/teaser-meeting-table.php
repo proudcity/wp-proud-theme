@@ -15,7 +15,6 @@ else {
   $content .= '<td></td>';
 }
 
-//print_r($meta);
 if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
   if (!empty($meta['minutes_attachment'])) {
     $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Minutes";
