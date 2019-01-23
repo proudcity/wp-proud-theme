@@ -442,7 +442,8 @@ function proud_customize_css() {
 
         .jumbotron:not(.jumbotron-image),
         .nav-contain .nav-pills li.active a,
-        .btn-primary {
+        .btn-primary,
+        .label-primary {
             background-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
             border-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
         }
