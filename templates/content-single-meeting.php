@@ -68,8 +68,9 @@ $video = get_post_meta($id, 'video', true);
 $audio = get_post_meta($id, 'audio', true);
 $youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true), true);
 
+$hasActive = false;
 
-/**false
+/**
  * Prints a document, including metadata and preview.
  *
  * @param $params
@@ -121,12 +122,6 @@ function printDocumentInfo($params){
   <?php endif; ?>
 <?php
 }
-
-
-
-
-
-
 
 
 ?>
@@ -190,18 +185,56 @@ function printDocumentInfo($params){
     </div>
 </div>
 
-
+<?php $hasActive = false; ?>
 <ul class="nav nav-tabs" style="margin-top:10px;">
-  <li class="active"><a data-toggle="tab" href="#tab-agenda">Agenda Packet</a></li>
-    <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
-    <?php if (!empty($video)): ?><li><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
-    <?php if (!empty($audio)): ?><li><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
-    <?php if (!empty($agency)): ?><li><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
+    <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda">Agenda Packet</a></li><?php endif; ?>
+    <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
+    <?php if (!empty($video)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
+    <?php if (!empty($audio)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
+    <?php if (!empty($agency)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
 </ul>
 
+<?php $hasActive = false; ?>
 <div class="tab-content">
+
+  <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?>
+      <div id="tab-agenda" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
+
+          <div class="row">
+              <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
+              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
+          </div>
+
+
+        <?php if (!empty($attachments['agenda'])) {
+          if(!empty($agenda)) {
+            echo '<hr/>';
+          }
+          printDocument($attachments['agenda']);
+        } ?>
+      </div>
+  <?php endif; ?>
+
+  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
+      <div id="tab-minutes" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
+        <?php if (!empty($minutes)): ?>
+            <div class="row">
+                <div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div>
+                <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
+            </div>
+            <hr/>
+        <?php endif; ?>
+        <?php if (!empty($attachments['minutes'])) {
+          if(!empty($agenda)) {
+            echo '<hr/>';
+          }
+          printDocument($attachments['minutes']);
+        } ?>
+      </div>
+  <?php endif; ?>
+
   <?php if (!empty($video)): ?>
-    <div id="tab-video" class="tab-pane fade">
+    <div id="tab-video" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
         <div class="row">
             <div class="youtube-player-wrapper <?php if(!empty($youtube_bookmarks)):?>col-md-9 pull-right<?php else: ?>col-md-12 col-lg-10<?php endif; ?>">
               <div class="embed-responsive embed-responsive-16by9">
@@ -224,8 +257,9 @@ function printDocumentInfo($params){
         </div>
     </div>
   <?php endif; ?>
+
   <?php if (!empty($audio)): ?>
-      <div id="tab-audio" class="tab-pane fade">
+      <div id="tab-audio" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
           <div class="row">
               <div class="col-md-8">
                 <?php echo $audio; ?>
@@ -234,33 +268,8 @@ function printDocumentInfo($params){
       </div>
   <?php endif; ?>
 
-  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
-      <div id="tab-minutes" class="tab-pane fade">
-        <?php if (!empty($minutes)): ?>
-            <div class="row">
-                <div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div>
-                <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
-            </div>
-            <hr/>
-        <?php endif; ?>
-        <?php if (!empty($attachments['minutes'])) { printDocument($attachments['minutes']); } ?>
-      </div>
-  <?php endif; ?>
-
-  <div id="tab-agenda" class="tab-pane fade in active">
-      <?php if (!empty($agenda)): ?>
-          <div class="row">
-              <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
-              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
-          </div>
-          <hr/>
-
-      <?php endif; ?>
-      <?php if (!empty($attachments['agenda'])) { printDocument($attachments['agenda']); } ?>
-  </div>
-
   <?php if (!empty($agency)): ?>
-    <div id="tab-contact" class="tab-pane fade">
+    <div id="tab-contact" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
         <div class="row">
             <div class="col-sm-12">
                 <h3><a href="<?php echo $agency->guid; ?>"><?php echo $agency->post_title; ?></a></h3>
