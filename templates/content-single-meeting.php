@@ -288,9 +288,6 @@ function printDocumentInfo($params){
 </div>
 
 
-
-</div>
-
 <script type="text/javascript" src="//www.youtube.com/iframe_api"></script>
 
 <script type="text/javascript">
