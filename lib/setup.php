@@ -45,7 +45,7 @@ function setup() {
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
   // Make visual default.
-  add_filter( 'wp_default_editor', create_function('', 'return "tinymce";') );
+  add_filter( 'wp_default_editor', function() { return "tinymce"; } );
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
   add_editor_style( '//fonts.googleapis.com/css?family=Lato:400,900,700,300' );
