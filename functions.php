@@ -1,4 +1,7 @@
 <?php
+
+use Proud\Theme\Customizer;
+
 /**
  * Proud includes
  *
@@ -130,6 +133,54 @@ function proud_customize_register($wp_customize) {
         'type' => 'checkbox',
         'std' => '1'
     ));
+
+    // Fonts
+
+    $wp_customize->add_section(
+        'proud_fonts',
+        array(
+            'title'       => __( 'Fonts', 'proud' ),
+            'description' => __( 'Controls fonts for the ProudCity themes.', 'proud' ),
+            'priority'    => 20, //Determines what order this appears in
+            'capability'  => 'edit_theme_options', //Capability needed to tweak
+        )
+    );
+
+    // Fonts default lowercase for select keys
+    $wp_customize->add_setting( 'proud_fonts_default' , array(
+        'default' => 'Lato',
+        'sanitize_callback' => 'Proud\Theme\Customizer\customize_sanitize_select',
+    ));
+    $wp_customize->add_setting( 'proud_fonts_headings' , array(
+        'default' => 'Lato',
+        'sanitize_callback' => 'Proud\Theme\Customizer\customize_sanitize_select',
+    ));
+
+    // Default font
+    $wp_customize->add_control('proud_fonts_default', array(
+        'label' => __('Default font', 'proud'),
+        'section' => 'proud_fonts',
+        'settings' => 'proud_fonts_default',
+        'type' => 'select',
+        'choices' => Customizer\customize_font_select(),
+        'description' => __('Controls default font sitewide.', 'proud'),
+    ) );
+    // Heading font
+    $wp_customize->add_control('proud_fonts_headings', array(
+        'label' => __('Headings font', 'proud'),
+        'section' => 'proud_fonts',
+        'settings' => 'proud_fonts_headings',
+        'type' => 'select',
+        'choices' => Customizer\customize_font_select(),
+        'description' => __('Controls heading font (h1, h2, h3, h4, h5, h6) sitewide.', 'proud'),
+    ) );
+
+    // If we're customizing and in preview, alter some stuff
+    if ( $wp_customize->is_preview() && ! is_admin() ) {
+        add_action( 'wp_footer', 'proud_customize_preview', 21 );
+    }
+
+//    var_dump($wp_customize->get_section('proud_fonts'));
 
 }
 
@@ -586,6 +637,10 @@ function proud_customize_css() {
         .page-footer, .powered-by-footer {
             background-color: <?php echo get_theme_mod( 'color_footer', '#333333' ); ?>;
         }
+
+        <?php Customizer\customize_font_default_css(); ?>
+
+        <?php Customizer\customize_font_headings_css(); ?>
     </style>
     <meta name="theme-color" content="<?php echo $navbar_background; ?>"/>
     <?php
@@ -593,3 +648,16 @@ function proud_customize_css() {
 
 add_action('wp_head', 'proud_customize_css');
 
+/**
+ * Called by preview
+ */
+function proud_customize_preview() {
+  ?>
+  <script>
+    jQuery("#external-fonts-css").remove();
+    jQuery('head').append(
+      "<link id='external-fonts-css' href='<?php echo Customizer\customize_font_uri(); ?>' rel='stylesheet' type='text/css' media='all' />"
+    );
+  </script>
+  <?php
+}
