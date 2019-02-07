@@ -40,7 +40,7 @@ $gform-container-margin: 20px;
 }
 
 .gform_wrapper {
-  .ginput_container input[type="text"], .ginput_container select, .ginput_container textarea {
+  .ginput_container input[type="text"], .ginput_container select {
     height: $input-height-base;
   }
 }
