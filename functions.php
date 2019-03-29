@@ -449,7 +449,7 @@ function proud_customize_css() {
         }
 
         a.card-btn {
-            color: <?php echo get_theme_mod('color_highlight', '#000000'); ?>;
+            color: <?php echo get_theme_mod('color_topnav', '#000000'); ?>;
         }
 
         .widget-proud-social-app .nav-pills > li > a {
