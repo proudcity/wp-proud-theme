@@ -58,12 +58,12 @@ function proud_customize_register($wp_customize) {
         'settings' => 'color_topnav',
     )));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_link', array(
-        'label' => __('Link color', 'proud'),
+        'label' => __('Primary color', 'proud'),
         'section' => 'colors',
         'settings' => 'color_link',
     )));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_highlight', array(
-        'label' => __('Highlight color', 'proud'),
+        'label' => __('Secondary color', 'proud'),
         'section' => 'colors',
         'settings' => 'color_highlight',
     )));
@@ -437,7 +437,7 @@ function proud_customize_css() {
 
         .nav-contain .nav-pills li a,
         .agency-icon {
-            background-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
+            background-color: <?php echo get_theme_mod('color_link', '#000000'); ?> !important;
         }
 
         .jumbotron:not(.jumbotron-image),
@@ -448,20 +448,20 @@ function proud_customize_css() {
             border-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
         }
 
-        a.card-btn {
-            color: <?php echo get_theme_mod('color_topnav', '#000000'); ?>;
+        a,
+        a.card-btn,
+        .widget-proud-social-app .nav-pills > li > a {
+            color: <?php echo get_theme_mod('color_link', '#0071bc'); ?>;
         }
 
-        .widget-proud-social-app .nav-pills > li > a {
-            color: <?php echo get_theme_mod('color_topnav', '#000000'); ?>;
+        a:hover,
+        a.card-btn:hover,
+        .widget-proud-social-app .nav-pills > li > a:hover {
+            color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
         }
 
         .card .social-card-header, .card .social-card-header .post-link a {
             background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 1);
-        }
-
-        a {
-            color: <?php echo get_theme_mod('color_link', '#0071bc'); ?>;
         }
 
         .footer-actions {
