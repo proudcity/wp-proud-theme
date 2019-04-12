@@ -457,7 +457,7 @@ function proud_customize_css() {
         a:hover,
         a.card-btn:hover,
         .widget-proud-social-app .nav-pills > li > a:hover {
-            color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
+            color: <?php echo get_theme_mod('color_highlight', '#000000'); ?>;
         }
 
         .card .social-card-header, .card .social-card-header .post-link a {
