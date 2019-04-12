@@ -8,7 +8,8 @@
   "license": "GPL-3.0",
   "dependencies": {
     "proudcity-patterns": "proudcity/proudcity-patterns#1.65.1",
-    "respond": "~1.4.2"
+    "respond": "~1.4.2",
+    "uswds-public-sans":  "git@github.com:uswds/public-sans.git"
   },
   "resolutions": {
     "font-awesome": "~5.3.1"
