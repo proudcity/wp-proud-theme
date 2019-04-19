@@ -28,6 +28,7 @@ add_action('customize_preview_init', __NAMESPACE__ . '\\customize_preview_js');
  */
 function customize_font_families() {
 	return [
+        'Public Sans' => "'Public Sans webfont', sans-serif",
         'Source Sans Pro' => "'Source Sans Pro', sans-serif",
         'Lato' => "'Lato', sans-serif",
 //        'Open Sans' => "'Open Sans', sans-serif",
@@ -35,6 +36,7 @@ function customize_font_families() {
         'Montserrat' => "'Montserrat', sans-serif",
 //        'Lora' => "'Lora', serif",
         'Merriweather' => "'Merriweather', serif",
+        'Taviraj' => "'Taviraj', serif;",
 //        'Noto Serif' => "'Noto Serif', serif",
 //        'Roboto Slab' => "'Roboto Slab', serif",
 //        'Source Serif Pro' => "'Source Serif Pro', serif",
@@ -67,21 +69,40 @@ function customize_font_slug( $font ) {
 }
 
 /**
- * Builds google font URI for default and headings
+ * Builds font URIs for default and headings
  *
+ * @param callable $callback
  * @return string
  */
-function customize_font_uri() {
+function customize_font_uris( $callback ) {
     $font_default = get_theme_mod( 'proud_fonts_default', 'Lato' );
     $font_headings = get_theme_mod( 'proud_fonts_headings', 'Lato' );
 
-    $fonts = [customize_font_slug($font_default)];
+    // Handle public sans
 
-    if ( $font_default !== $font_headings ) {
-        $fonts[] = customize_font_slug($font_headings);
+    if ( $font_default === 'Public Sans' || $font_headings === 'Public Sans' ) {
+        $callback( Assets\asset_path( 'fonts/public-sans/public-sans.css' ), 'public-sans-font' );
+
+        if ( $font_default === $font_headings ) {
+            // Both are public sans
+            return;
+        }
     }
 
-    return '//fonts.googleapis.com/css?family=' . implode( '|', $fonts );
+    // Google fonts
+
+    $fonts = [];//
+
+    if ($font_default !== 'Public Sans') {
+      $fonts[] = customize_font_slug( $font_default );
+    }
+
+    if ( $font_headings !== 'Public Sans' && $font_default !== $font_headings ) {
+        $fonts[] = customize_font_slug( $font_headings );
+    }
+
+
+    $callback( '//fonts.googleapis.com/css?family=' . implode( '|', $fonts ), 'external-fonts' );
 }
 
 /**
@@ -104,6 +125,14 @@ function customize_font_default_css() {
     ?>
         <?php echo implode( ', ', $selectors ); ?> {
             font-family: <?php echo $fonts[$font_default]; ?>;
+            <?php if ( $font_default === 'Public Sans'): ?>
+            text-rendering: optimizeLegibility;
+            font-variant-ligatures: common-ligatures;
+            -webkit-font-variant-ligatures: common-ligatures;
+            -webkit-font-feature-settings: "kern";
+            font-feature-settings: "kern";
+            font-kerning: normal;
+            <?php endif; ?>
         }
     <?php
 }
@@ -123,6 +152,14 @@ function customize_font_headings_css() {
     ?>
     <?php echo implode( ', ', $selectors ); ?> {
         font-family: <?php echo $fonts[$font_headings]; ?>;
+        <?php if ( $font_headings === 'Public Sans'): ?>
+        text-rendering: optimizeLegibility;
+        font-variant-ligatures: common-ligatures;
+        -webkit-font-variant-ligatures: common-ligatures;
+        -webkit-font-feature-settings: "kern";
+        font-feature-settings: "kern";
+        font-kerning: normal;
+        <?php endif; ?>
     }
     <?php
 }

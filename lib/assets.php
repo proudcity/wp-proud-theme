@@ -63,8 +63,9 @@ function asset_path($filename) {
  * Add external assets
  */
 function add_external_assets() {
-
-    wp_enqueue_style('external-fonts', Customizer\customize_font_uri() );
+    Customizer\customize_font_uris( function ( $uri, $handle ) {
+        wp_enqueue_style( $handle, $uri );
+    } );
 }
 
 add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_external_assets' );

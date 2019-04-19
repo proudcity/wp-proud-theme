@@ -654,10 +654,12 @@ add_action('wp_head', 'proud_customize_css');
 function proud_customize_preview() {
   ?>
   <script>
-    jQuery("#external-fonts-css").remove();
-    jQuery('head').append(
-      "<link id='external-fonts-css' href='<?php echo Customizer\customize_font_uri(); ?>' rel='stylesheet' type='text/css' media='all' />"
-    );
+    jQuery("#external-fonts-css, #public-sans-font-css").remove();
+    <?php Customizer\customize_font_uris( function ( $uri, $handle ) {
+      echo "jQuery('head').append(";
+      echo "  \"<link id='$handle-css' href='$uri' rel='stylesheet' type='text/css' media='all' />\"";
+      echo ");";
+    } ); ?>
   </script>
   <?php
 }
