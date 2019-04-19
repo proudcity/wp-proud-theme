@@ -25,6 +25,7 @@ function body_class( $classes ) {
 
     $header_light         = is_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
     $highlight_light      = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
+    $secondary_light      = is_light_color( get_theme_mod( 'color_secondary', get_theme_mod( 'color_topnav', '#000000' ) ) );
     $footer_light         = is_light_color( get_theme_mod( 'color_footer', '#333333' ) );
     $footer_actions_light = is_light_color( get_theme_mod( 'color_footer_actions', '#FFFFFF' ) );
 
@@ -34,6 +35,10 @@ function body_class( $classes ) {
 
     if ( $highlight_light ) {
         $classes[] = 'light-background-highlight';
+    }
+
+    if ( $secondary_light  ) {
+        $classes[] = 'light-secondary-highlight';
     }
 
     if ( $footer_light ) {
