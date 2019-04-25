@@ -67,7 +67,7 @@ function proud_customize_register($wp_customize) {
         'settings' => 'color_link',
     )));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_highlight', array(
-        'label' => __('Highlight color', 'proud'),
+        'label' => __('Primary color', 'proud'),
         'section' => 'colors',
         'settings' => 'color_highlight',
     )));
@@ -364,7 +364,23 @@ function hex_to_rgb($hex) {
 }
 
 /**
- * Gets RGB array from hex
+ * Gets brightness value for color
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ * @param array $rgb
+ *
+ * @return boolean
+ */
+function get_color_lightness($hex, $rgb = []) {
+
+    if (!$rgb) {
+        $rgb = hex_to_rgb($hex);
+    }
+    return round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
+}
+
+/**
+ * Tests if color is light
  *
  * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
  * @param array $rgb
@@ -372,13 +388,25 @@ function hex_to_rgb($hex) {
  * @return boolean
  */
 function is_light_color($hex, $rgb = []) {
+    $o = get_color_lightness($hex, $rgb);
 
-    if (!$rgb) {
-        $rgb = hex_to_rgb($hex);
-    }
-    $o = round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
     return ($o > 135) ? true : false;
 }
+
+/**
+ * Tests if color is light
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ * @param array $rgb
+ *
+ * @return boolean
+ */
+function is_extra_light_color($hex, $rgb = []) {
+    $o = get_color_lightness($hex, $rgb);
+
+    return ($o > 190) ? true : false;
+}
+
 
 /**
  * Helper function returns either a color or '' if the color is white
@@ -418,6 +446,15 @@ function proud_customize_css() {
     } else {
         $link_color_hover = adjust_brightness( $link_color, 0.15 );
     }
+
+    // Primary/highlight
+    $color_primary = get_theme_mod( 'color_highlight', '#000000' );
+    if ( is_light_color(  $color_primary ) ) {
+        $color_primary_hover = adjust_brightness(  $color_primary, -0.15 );
+    } else {
+        $color_primary_hover = adjust_brightness(  $color_primary, 0.15 );
+    }
+    $color_primary_rgb = hex_to_rgb(  $color_primary );
 
     // Secondary links
     $color_secondary = get_theme_mod('color_secondary', get_theme_mod( 'color_topnav', '#000000' ) );
@@ -516,23 +553,22 @@ function proud_customize_css() {
         .nav-contain .nav-pills li.active a,
         .btn-primary,
         .label-primary {
-            background-color: <?php echo get_theme_mod( 'color_highlight', '#000000' ); ?> !important;
-            border-color: <?php echo get_theme_mod( 'color_highlight', '#000000' ); ?> !important;
+            background-color: <?php echo  $color_primary ?> !important;
+            border-color: <?php echo  $color_primary ?> !important;
         }
 
-        a.card-btn {
-            color: <?php echo $color_secondary ?>;
-        }
-        a.card-btn:hover {
-          color: <?php echo $color_secondary_hover ?>;
+        a.card-btn,
+        .widget-proud-social-app .nav-pills > li > a {
+            color: <?php echo  $color_primary ?>;
         }
 
-         .widget-proud-social-app .nav-pills > li > a {
-            color: <?php echo $color_secondary ?>;
+        a.card-btn:hover,
+        .widget-proud-social-app .nav-pills > li > a:hover{
+          color: <?php echo  $color_primary_hover ?>;
         }
 
         .card .social-card-header, .card .social-card-header .post-link a {
-            background-color: rgba( <?php echo $color_secondary_rgb['r'] . ',' . $color_secondary_rgb['g'] . ','. $color_secondary_rgb['b'] ?>, 1 );
+            background-color: rgba( <?php echo $color_primary_rgb['r'] . ',' . $color_primary_rgb['g'] . ','. $color_primary_rgb['b'] ?>, 1 );
         }
 
         a {
