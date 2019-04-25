@@ -3,6 +3,7 @@
 namespace Proud\Theme\Setup;
 
 use Proud\Theme\Assets;
+use Proud\Theme\Customizer;
 
 /**
  * Theme setup
@@ -48,7 +49,9 @@ function setup() {
   add_filter( 'wp_default_editor', create_function('', 'return "tinymce";') );
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
-  add_editor_style( '//fonts.googleapis.com/css?family=Lato:400,900,700,300' );
+  Customizer\customize_font_uris( function ( $uri ) {
+      add_editor_style( $uri );
+  } );
   add_editor_style( Assets\asset_path( 'styles/proud-vendor.css' ) );
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup');

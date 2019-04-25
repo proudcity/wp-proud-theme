@@ -117,10 +117,10 @@ var cssTasks = function(filename) {
         'opera 12'
       ]
     })
-    .pipe(minifyCss, {
-      advanced: false,
-      rebase: false
-    })
+    // .pipe(minifyCss, {
+    //   advanced: false,
+    //   rebase: false
+    // })
     .pipe(function() {
       return gulpif(enabled.rev, rev());
     })
@@ -187,7 +187,7 @@ gulp.task('git-pull-patterns', function(cb){
 });
 
 gulp.task('pull', ['git-pull-patterns'], function(cb){
-  git.pull('origin', 'master', { }, function (err) {
+  git.pull('origin', 'master', function (err) {
     if (err) return cb(err);
     cb();
   });
@@ -238,11 +238,11 @@ gulp.task('commit', ['git-add-main', 'git-add-patterns'], function(){
 });
 
 gulp.task('git-push-patterns', function(cb){
-  git.push('origin', 'master', { cwd: './bower_components/proudcity-patterns' }, cb);
+  git.push('origin', '', { cwd: './bower_components/proudcity-patterns' }, cb);
 });
 
 gulp.task('push', ['git-push-patterns'], function(cb){
-  git.push('origin', 'master', { }, cb);
+  git.push('origin', cb);
 });
 
 // ### Styles

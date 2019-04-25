@@ -2,6 +2,8 @@
 
 namespace Proud\Theme\Assets;
 
+use Proud\Theme\Customizer;
+
 /**
  * Get paths for assets
  */
@@ -61,7 +63,9 @@ function asset_path($filename) {
  * Add external assets
  */
 function add_external_assets() {
-  wp_enqueue_style('external-fonts', '//fonts.googleapis.com/css?family=Lato:400,900,700,300');
+    Customizer\customize_font_uris( function ( $uri, $handle ) {
+        wp_enqueue_style( $handle, $uri );
+    } );
 }
 
 add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_external_assets' );
