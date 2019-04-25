@@ -42,6 +42,10 @@ function proud_customize_register($wp_customize) {
         'default' => '#000000',
         'transport' => 'refresh',
     ));
+    $wp_customize->add_setting('color_secondary', array(
+        'default' => get_theme_mod('color_topnav', '#000000'),
+        'transport' => 'refresh',
+    ));
     $wp_customize->add_setting('color_footer', array(
         'default' => '#333333',
         'transport' => 'refresh',
@@ -63,9 +67,14 @@ function proud_customize_register($wp_customize) {
         'settings' => 'color_link',
     )));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_highlight', array(
-        'label' => __('Highlight color', 'proud'),
+        'label' => __('Primary color', 'proud'),
         'section' => 'colors',
         'settings' => 'color_highlight',
+    )));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_secondary', array(
+        'label' => __('Secondary color', 'proud'),
+        'section' => 'colors',
+        'settings' => 'color_secondary',
     )));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_footer_actions', array(
         'label' => __('Footer actions bar color', 'proud'),
@@ -311,6 +320,40 @@ function submenu_get_children_ids($id, $items) {
 
 add_filter('wp_nav_menu_objects', 'submenu_limit', 10, 2);
 
+/**
+ * Increases or decreases the brightness of a color by a percentage of the current brightness.
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ * @param float $adjustPercent A number between -1 and 1. E.g. 0.3 = 30% lighter; -0.4 = 40% darker.
+ *
+ * @return  string
+ */
+function adjust_brightness($hex, $adjustPercent) {
+    $hex = ltrim($hex, '#');
+
+    if (strlen($hex) == 3) {
+        $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+    }
+
+    $hex = array_map('hexdec', str_split($hex, 2));
+
+    foreach ($hex as & $color) {
+        $adjustableLimit = $adjustPercent < 0 ? $color : 255 - $color;
+        $adjustAmount = ceil($adjustableLimit * $adjustPercent);
+
+        $color = str_pad(dechex($color + $adjustAmount), 2, '0', STR_PAD_LEFT);
+    }
+
+    return '#' . implode($hex);
+}
+
+/**
+ * Gets RGB array from hex
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ *
+ * @return array|null
+ */
 function hex_to_rgb($hex) {
     preg_match('/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $hex, $result);
     return $result ? [
@@ -320,14 +363,50 @@ function hex_to_rgb($hex) {
     ] : null;
 }
 
-function is_light_color($hex, $rgb = []) {
+/**
+ * Gets brightness value for color
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ * @param array $rgb
+ *
+ * @return boolean
+ */
+function get_color_lightness($hex, $rgb = []) {
 
     if (!$rgb) {
         $rgb = hex_to_rgb($hex);
     }
-    $o = round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
+    return round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
+}
+
+/**
+ * Tests if color is light
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ * @param array $rgb
+ *
+ * @return boolean
+ */
+function is_light_color($hex, $rgb = []) {
+    $o = get_color_lightness($hex, $rgb);
+
     return ($o > 135) ? true : false;
 }
+
+/**
+ * Tests if color is light
+ *
+ * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
+ * @param array $rgb
+ *
+ * @return boolean
+ */
+function is_extra_light_color($hex, $rgb = []) {
+    $o = get_color_lightness($hex, $rgb);
+
+    return ($o > 190) ? true : false;
+}
+
 
 /**
  * Helper function returns either a color or '' if the color is white
@@ -349,33 +428,59 @@ function get_color_if_not_white($theme_mod) {
 }
 
 function proud_customize_css() {
-    // See below, @TODO test for darkness
-    $header_rgb = hex_to_rgb(get_theme_mod('color_topnav', '#000000'));
     // Set up navbar background, allow transparent alter
-    $navbar_background = get_theme_mod('color_topnav', '#000000');
+    $navbar_background = get_theme_mod( 'color_topnav', '#000000' );
+    // See below
+    $header_rgb = hex_to_rgb( $navbar_background );
     if (proud_navbar_transparent()) {
         $navbar_background_rga = implode(',', $header_rgb);
     }
 
-    $color_background = get_color_if_not_white('color_background');
-    $background_image = get_theme_mod('background_image', '');
+    $color_background = get_color_if_not_white( 'color_background' );
+    $background_image = get_theme_mod( 'background_image', '' );
+
+    // Deal with links
+    $link_color = get_theme_mod( 'color_link', '#0071bc' );
+    if ( is_light_color( $link_color ) ) {
+        $link_color_hover = adjust_brightness( $link_color, -0.15 );
+    } else {
+        $link_color_hover = adjust_brightness( $link_color, 0.15 );
+    }
+
+    // Primary/highlight
+    $color_primary = get_theme_mod( 'color_highlight', '#000000' );
+    if ( is_light_color(  $color_primary ) ) {
+        $color_primary_hover = adjust_brightness(  $color_primary, -0.15 );
+    } else {
+        $color_primary_hover = adjust_brightness(  $color_primary, 0.15 );
+    }
+    $color_primary_rgb = hex_to_rgb(  $color_primary );
+
+    // Secondary links
+    $color_secondary = get_theme_mod('color_secondary', get_theme_mod( 'color_topnav', '#000000' ) );
+    if ( is_light_color( $color_secondary ) ) {
+        $color_secondary_hover = adjust_brightness( $color_secondary, -0.15 );
+    } else {
+        $color_secondary_hover = adjust_brightness( $color_secondary, 0.15 );
+    }
+    $color_secondary_rgb = hex_to_rgb( $color_secondary );
 
     // Get PROUD json scss variables
 
-    $manifestFile = dirname(__FILE__) . '/assets/' . 'manifest.json';
+    $manifestFile = dirname( __FILE__ ) . '/assets/' . 'manifest.json';
     $subManifestFile = get_template_directory() . '/assets/' . 'manifest.json';
 
-    $manifestHelper = new \Proud\Theme\Assets\JsonManifest($manifestFile);
+    $manifestHelper = new \Proud\Theme\Assets\JsonManifest( $manifestFile );
 
     $proudSCSS = $manifestHelper->get()['config']['proudSCSS'];
 
     // Have a child theme
-    if ($manifestFile !== $subManifestFile) {
-        $subManifestHelper = new \Proud\Theme\Assets\JsonManifest($subManifestFile);
+    if ( $manifestFile !== $subManifestFile ) {
+        $subManifestHelper = new \Proud\Theme\Assets\JsonManifest( $subManifestFile );
         $subManifest = $subManifestHelper->get();
 
         // Have child css settings, so add them
-        if (!empty($subManifest['config']['proudSCSS']['nav-fixed-top-min'])) {
+        if ( !empty( $subManifest['config']['proudSCSS']['nav-fixed-top-min'] ) ) {
             $proudSCSS = $subManifest['config']['proudSCSS'];
         }
     }
@@ -428,7 +533,7 @@ function proud_customize_css() {
             }
         }
 
-        <?php elseif($navbar_background == '#FFFFFF' || $navbar_background == '#ffffff'): ?>
+        <?php elseif ( $navbar_background == '#FFFFFF' || $navbar_background == '#ffffff' ): ?>
         .navbar.navbar-external {
             border-bottom: 1px solid #eeeeee !important;
         }
@@ -437,39 +542,49 @@ function proud_customize_css() {
 
         .nav-contain .nav-pills li a,
         .agency-icon {
-            background-color: <?php echo get_theme_mod('color_topnav', '#000000'); ?> !important;
+            background-color: <?php echo $color_secondary ?> !important;
+        }
+        .nav-contain .nav-pills li a:hover,
+        .agency-icon :hover {
+            background-color: <?php echo $color_secondary_hover ?> !important;
         }
 
         .jumbotron:not(.jumbotron-image),
         .nav-contain .nav-pills li.active a,
         .btn-primary,
         .label-primary {
-            background-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
-            border-color: <?php echo get_theme_mod('color_highlight', '#000000'); ?> !important;
+            background-color: <?php echo  $color_primary ?> !important;
+            border-color: <?php echo  $color_primary ?> !important;
         }
 
-        a.card-btn {
-            color: <?php echo get_theme_mod('color_topnav', '#000000'); ?>;
-        }
-
+        a.card-btn,
         .widget-proud-social-app .nav-pills > li > a {
-            color: <?php echo get_theme_mod('color_topnav', '#000000'); ?>;
+            color: <?php echo  $color_primary ?>;
+        }
+
+        a.card-btn:hover,
+        .widget-proud-social-app .nav-pills > li > a:hover{
+          color: <?php echo  $color_primary_hover ?>;
         }
 
         .card .social-card-header, .card .social-card-header .post-link a {
-            background-color: rgba(<?php echo $header_rgb['r'] . ',' . $header_rgb['g'] . ','. $header_rgb['b'] ?>, 1);
+            background-color: rgba( <?php echo $color_primary_rgb['r'] . ',' . $color_primary_rgb['g'] . ','. $color_primary_rgb['b'] ?>, 1 );
         }
 
         a {
-            color: <?php echo get_theme_mod('color_link', '#0071bc'); ?>;
+            color: <?php echo $link_color ?>;
+        }
+
+        a:hover {
+          color: <?php echo $link_color_hover ?>;
         }
 
         .footer-actions {
-            background-color: <?php echo get_theme_mod('color_footer_actions', '#FFFFFF'); ?>;
+            background-color: <?php echo get_theme_mod( 'color_footer_actions', '#FFFFFF' ); ?>;
         }
 
         .page-footer, .powered-by-footer {
-            background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
+            background-color: <?php echo get_theme_mod( 'color_footer', '#333333' ); ?>;
         }
     </style>
     <meta name="theme-color" content="<?php echo $navbar_background; ?>"/>

@@ -23,25 +23,55 @@ function body_class( $classes ) {
 
     // Process colors for lightness
 
-    $header_light         = is_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
-    $highlight_light      = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
-    $footer_light         = is_light_color( get_theme_mod( 'color_footer', '#333333' ) );
-    $footer_actions_light = is_light_color( get_theme_mod( 'color_footer_actions', '#FFFFFF' ) );
+    $topnav_light               = is_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
+    $topnav_light_extra         = is_extra_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
+    $highlight_light              = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
+    $highlight_light_extra        = is_extra_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
+    $secondary_light            = is_light_color( get_theme_mod( 'color_secondary', get_theme_mod( 'color_topnav', '#000000' ) ) );
+    $secondary_light_extra      = is_extra_light_color( get_theme_mod( 'color_secondary', get_theme_mod( 'color_topnav', '#000000' ) ) );
+    $footer_light               = is_light_color( get_theme_mod( 'color_footer', '#333333' ) );
+    $footer_light_extra         = is_extra_light_color( get_theme_mod( 'color_footer', '#333333' ) );
+    $footer_actions_light       = is_light_color( get_theme_mod( 'color_footer_actions', '#FFFFFF' ) );
+    $footer_actions_light_extra = is_extra_light_color( get_theme_mod( 'color_footer_actions', '#FFFFFF' ) );
 
-    if ( $header_light ) {
-        $classes[] = 'light-background-main';
+    if ( $topnav_light ) {
+        $classes[] = 'light-background-topnav';
+
+        if ( $topnav_light_extra ) {
+            $classes[] = 'extra-light-background-topnav';
+        }
     }
 
     if ( $highlight_light ) {
         $classes[] = 'light-background-highlight';
+
+        if ( $highlight_light_extra ) {
+            $classes[] = 'extra-light-background-highlight';
+        }
+    }
+
+    if ( $secondary_light  ) {
+        $classes[] = 'light-background-secondary';
+
+        if ( $secondary_light_extra ) {
+            $classes[] = 'extra-light-background-secondary';
+        }
     }
 
     if ( $footer_light ) {
         $classes[] = 'light-background-footer';
+
+        if ( $footer_light_extra ) {
+            $classes[] = 'extra-light-background-footer';
+        }
     }
 
     if ( $footer_actions_light ) {
         $classes[] = 'light-background-footer-actions';
+
+        if ( $footer_actions_light_extra ) {
+            $classes[] = 'extra-light-background-footer-actions';
+        }
     }
 
     if ( get_theme_mod( 'background_image', '' ) || get_color_if_not_white('color_background') ) {
