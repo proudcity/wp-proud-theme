@@ -14,7 +14,10 @@ $location_id = get_post_meta($id, 'location', true);
 if (!empty($location_id)) {
   $obj_location = get_post($location_id);
   $location_meta = get_post_meta($location_id);
-  $location = @$location_meta['address'][0] . ', ' . @$location_meta['city'][0] . ' ' . @$location_meta['zip'][0];
+  $streetAddress = empty($location_meta['address2'][0]) ?
+    @$location_meta['address'][0] :
+    @$location_meta['address'][0] . ', ' . $location_meta['address2'][0];
+  $location = $streetAddress . ', ' . @$location_meta['city'][0] . ' ' . @$location_meta['zip'][0];
 }
 
 $agency_id = get_post_meta($id, 'agency', true);
