@@ -28,15 +28,15 @@ add_action('customize_preview_init', __NAMESPACE__ . '\\customize_preview_js');
  */
 function customize_font_families() {
 	return [
-        'Public Sans' => "'Public Sans webfont', sans-serif",
-        'Source Sans Pro' => "'Source Sans Pro', sans-serif",
+
         'Lato' => "'Lato', sans-serif",
 //        'Open Sans' => "'Open Sans', sans-serif",
-        'Roboto' => "'Roboto', sans-serif",
         'Montserrat' => "'Montserrat', sans-serif",
 //        'Lora' => "'Lora', serif",
         'Merriweather' => "'Merriweather', serif",
-        'Taviraj' => "'Taviraj', serif;",
+        'Public Sans' => "'Public Sans webfont', sans-serif",
+        'Roboto' => "'Roboto', sans-serif",
+        'Source Sans Pro' => "'Source Sans Pro', sans-serif",
 //        'Noto Serif' => "'Noto Serif', serif",
 //        'Roboto Slab' => "'Roboto Slab', serif",
 //        'Source Serif Pro' => "'Source Serif Pro', serif",
