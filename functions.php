@@ -151,10 +151,7 @@ function proud_customize_register($wp_customize) {
         'default' => false,
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting( 'proud_topbar_logo' , array(
-        'default' => '',
-        'transport' => 'refresh',
-    ));
+    $wp_customize->add_setting( 'proud_topbar_logo' , array());
     $wp_customize->add_setting( 'proud_topbar_title' , array(
         'default' => '',
         'transport' => 'refresh',
@@ -171,7 +168,7 @@ function proud_customize_register($wp_customize) {
         'type' => 'checkbox',
         //'std' => '1'
     ));
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'proud_logo', array(
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'proud_topbar_logo', array(
         'label' => __('Top Bar Logo', 'proud'),
         'section' => 'proud_topbar',
         'settings' => 'proud_topbar_logo',
