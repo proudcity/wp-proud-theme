@@ -133,6 +133,74 @@ function proud_customize_register($wp_customize) {
         'type' => 'checkbox',
         'std' => '1'
     ));
+    
+    
+    // Top bar
+    $wp_customize->add_section(
+        'proud_topbar',
+        array(
+          'title'       => __( 'Top bar', 'proud' ),
+          //'description' => __( 'Enable the optional ProudCity Top Bar', 'proud' ),
+          'priority'    => 20, //Determines what order this appears in
+          'capability'  => 'edit_theme_options', //Capability needed to tweak
+        )
+    );
+
+    // Fonts default lowercase for select keys
+    $wp_customize->add_setting( 'proud_topbar_enable' , array(
+        'default' => false,
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting( 'proud_topbar_logo' , array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting( 'proud_topbar_title' , array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting( 'proud_topbar_action_icons' , array(
+        'default' => false,
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('proud_topbar_enable', array(
+        'label' => __('Show the Top Navigation Bar', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_enable',
+        'type' => 'checkbox',
+        //'std' => '1'
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'proud_logo', array(
+        'label' => __('Top Bar Logo', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_logo',
+        'description' => __('This optional logo appears in the top-left corner of the top bar. It is typically the city seal.', 'proud'),
+    )));
+        $wp_customize->add_control('proud_topbar_title', array(
+        'label' => __('Top Bar title', 'proud'),
+        'description' => __('Appears next to the logo on the left. Leave blank to hide.', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_title',
+        'type' => 'textfield',
+    ));
+    $wp_customize->add_control('proud_topbar_action_icons', array(
+        'label' => __('Action Icons in Top Bar', 'proud'),
+        'description' => __('Move the Action Icons (Search, Answers, etc) from the Primary Navigation to the Top Navigation Bar', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_action_icons',
+        'type' => 'checkbox',
+        //'std' => '1'
+    ));
+
+  // If we're customizing and in preview, alter some stuff
+  if ( $wp_customize->is_preview() && ! is_admin() ) {
+    add_action( 'wp_footer', 'proud_customize_preview', 21 );
+  }
+
+  
+  
+    
 
     // Fonts
 
