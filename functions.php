@@ -37,6 +37,10 @@ function proud_customize_register($wp_customize) {
         'default' => '#000000',
         'transport' => 'refresh',
     ));
+    $wp_customize->add_setting('color_nav_topbar', array(
+        'default' => get_theme_mod('color_topnav', '#000000'),
+        'transport' => 'refresh',
+    ));
     $wp_customize->add_setting('color_link', array(
         'default' => '#0071bc',
         'transport' => 'refresh',
@@ -60,10 +64,18 @@ function proud_customize_register($wp_customize) {
 
     // Controls
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_topnav', array(
-        'label' => __('Top bar color', 'proud'),
+        'label' => __('Main nav color', 'proud'),
         'section' => 'colors',
         'settings' => 'color_topnav',
     )));
+    // Don't show topbar setting unless enabled
+    if (get_theme_mod( 'proud_topbar_enable', false )) {
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_nav_topbar', array(
+            'label'    => __( 'Topbar color', 'proud' ),
+            'section'  => 'colors',
+            'settings' => 'color_nav_topbar',
+        ) ) );
+    }
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_link', array(
         'label' => __('Link color', 'proud'),
         'section' => 'colors',
@@ -546,11 +558,15 @@ function get_color_if_not_white($theme_mod) {
 function proud_customize_css() {
     // Set up navbar background, allow transparent alter
     $navbar_background = get_theme_mod( 'color_topnav', '#000000' );
+
     // See below
     $header_rgb = hex_to_rgb( $navbar_background );
     if (proud_navbar_transparent()) {
         $navbar_background_rga = implode(',', $header_rgb);
     }
+
+    // Set up navbar topbar
+    $topbar_background = get_theme_mod( 'color_nav_topbar', get_theme_mod( 'color_topnav', '#000000' ) );
 
     $color_background = get_color_if_not_white( 'color_background' );
     $background_image = get_theme_mod( 'background_image', '' );
@@ -621,11 +637,19 @@ function proud_customize_css() {
         <?php endif; ?>
 
         .menu-box, .navbar-default {
-            background-color: <?php echo $navbar_background ?> !important;
+          background-color: <?php echo $navbar_background ?> !important;
         }
 
         .navbar.navbar-default {
-            border-color: <?php echo $navbar_background ?> !important;
+          border-color: <?php echo $navbar_background ?> !important;
+        }
+
+        .navbar-topbar .menu-box, .navbar-topbar.navbar-default {
+            background-color: <?php echo $topbar_background ?> !important;
+        }
+
+        .navbar-topbar.navbar.navbar-default {
+            border-color: <?php echo $topbar_background ?> !important;
         }
 
         <?php if( proud_navbar_transparent() ): ?>
@@ -635,16 +659,16 @@ function proud_customize_css() {
         }
 
         @media screen and (min-width: <?php echo $proudSCSS['nav-fixed-top-min'] ?>) {
-            .proud-navbar-transparent .navbar-default {
+            .proud-navbar-transparent .navbar-external {
                 background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
                 border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
             }
 
-            .scrolled.proud-navbar-transparent .navbar-default, .search-active.proud-navbar-transparent .navbar-default, .active-311.proud-navbar-transparent .navbar-default {
+            .scrolled.proud-navbar-transparent .navbar-external, .search-active.proud-navbar-transparent .navbar-external, .active-311.proud-navbar-transparent .navbar-external {
                 background-color: rgba(<?php echo $navbar_background_rga ?>, 1) !important
             }
 
-            .scrolled .navbar.navbar-default {
+            .scrolled .navbar.navbar-external {
                 border-color: rgba(<?php echo $navbar_background_rga ?>, 1) !important
             }
         }

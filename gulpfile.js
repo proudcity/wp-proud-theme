@@ -180,7 +180,7 @@ var writeToManifest = function(directory) {
 // remote is the remote repo
 // branch is the remote branch to pull from
 gulp.task('git-pull-patterns', function(cb){
-  git.pull('origin', 'master', { cwd: './bower_components/proudcity-patterns' }, function (err) {
+  git.pull('origin', 'master', { args: '--no-rebase', cwd: './bower_components/proudcity-patterns' }, function (err) {
     if (err) return cb(err);
     cb();
   });
