@@ -180,20 +180,29 @@ var writeToManifest = function(directory) {
 // remote is the remote repo
 // branch is the remote branch to pull from
 gulp.task('git-pull-patterns', function(cb){
-  git.pull('origin', 'master', { args: '--no-rebase', cwd: './bower_components/proudcity-patterns' }, function (err) {
+  if (config.skipGit) {
+    return cb();
+  }
+  git.pull('origin', '', { args: '--no-rebase', cwd: './bower_components/proudcity-patterns' }, function (err) {
     if (err) return cb(err);
     cb();
   });
 });
 
 gulp.task('pull', ['git-pull-patterns'], function(cb){
-  git.pull('origin', 'master', function (err) {
+  if (config.skipGit) {
+    return cb();
+  }
+  git.pull('origin', '', function (err) {
     if (err) return cb(err);
     cb();
   });
 });
 
 gulp.task('git-add-patterns', function(cb){
+  if (config.skipGit) {
+    return cb();
+  }
   return gulp.src('./bower_components/proudcity-patterns/*')
     .pipe(git.add({ cwd: './bower_components/proudcity-patterns' }, function (err) {
       if (err) return cb(err);
@@ -202,6 +211,9 @@ gulp.task('git-add-patterns', function(cb){
 });
 
 gulp.task('git-add-main', function(cb){
+  if (config.skipGit) {
+    return cb();
+  }
   return gulp.src('.')
     .pipe(git.add({}, function (err) {
       if (err) return cb(err);
@@ -212,7 +224,10 @@ gulp.task('git-add-main', function(cb){
 // Run git pull
 // remote is the remote repo
 // branch is the remote branch to pull from
-gulp.task('commit', ['git-add-main', 'git-add-patterns'], function(){
+gulp.task('commit', ['git-add-main', 'git-add-patterns'], function(cb){
+  if (config.skipGit) {
+    return cb();
+  }
   // Patterns
   function doPatternsCommit(message) {
     return gulp.src('./bower_components/proudcity-patterns/*')
@@ -238,10 +253,16 @@ gulp.task('commit', ['git-add-main', 'git-add-patterns'], function(){
 });
 
 gulp.task('git-push-patterns', function(cb){
+  if (config.skipGit) {
+    return cb();
+  }
   git.push('origin', '', { cwd: './bower_components/proudcity-patterns' }, cb);
 });
 
 gulp.task('push', ['git-push-patterns'], function(cb){
+  if (config.skipGit) {
+    return cb();
+  }
   git.push('origin', cb);
 });
 

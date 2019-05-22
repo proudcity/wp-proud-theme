@@ -45,10 +45,10 @@ function body_class( $classes ) {
     }
 
     if ( $topbar_light ) {
-        $classes[] = 'light-background-topbar';
+        $classes[] = 'light-background-topnav-topbar';
 
         if ( $topbar_light_extra ) {
-            $classes[] = 'extra-light-background-topbar';
+            $classes[] = 'extra-light-background-topnav-topbar';
         }
     }
 

@@ -677,7 +677,6 @@ function proud_customize_css() {
         .navbar.navbar-external {
             border-bottom: 1px solid #eeeeee !important;
         }
-
         <?php endif; ?>
 
         .nav-contain .nav-pills li a,

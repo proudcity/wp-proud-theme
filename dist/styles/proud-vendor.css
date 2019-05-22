@@ -13490,6 +13490,12 @@ footer.page-footer {
   padding-left: 15px;
   padding-right: 15px; }
 
+body.proud-navbar-transparent .jumbotron, body.proud-navbar-transparent .jumbotron h1, body.proud-navbar-transparent .jumbotron .h1, body.proud-navbar-transparent .jumbotron h2, body.proud-navbar-transparent .jumbotron .h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h2 {
+  color: #f1f1f1; }
+
+body.proud-navbar-transparent.light-background-topnav .jumbotron, body.proud-navbar-transparent.light-background-topnav .jumbotron h1, body.proud-navbar-transparent.light-background-topnav .jumbotron .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron h2, body.proud-navbar-transparent.light-background-topnav .jumbotron .h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h2 {
+  color: inherit; }
+
 @media screen and (max-width: 779px) {
   .jumbotron input.input-lg, .jumbotron .input-group-lg > input.form-control, .jumbotron .search-form .input-group-lg > input.search-field, .search-form .jumbotron .input-group-lg > input.search-field, .jumbotron
   .input-group-lg > input.input-group-addon, .jumbotron
@@ -14224,15 +14230,31 @@ body.proud-navbar-active {
   border-top: 0; }
   .navbar-topbar h2, .navbar-topbar h3, .navbar-topbar .h2, .navbar-topbar .h3 {
     margin: 0; }
-    .navbar-topbar h2, .navbar-topbar h2 a, .navbar-topbar h3, .navbar-topbar h3 a, .navbar-topbar .h2, .navbar-topbar .h2 a, .navbar-topbar .h3, .navbar-topbar .h3 a {
-      color: #FFF; }
-    .light-background-topbar .navbar-topbar h2, .light-background-topbar .navbar-topbar h2 a, .light-background-topbar .navbar-topbar h3, .light-background-topbar .navbar-topbar h3 a, .light-background-topbar .navbar-topbar .h2, .light-background-topbar .navbar-topbar .h2 a, .light-background-topbar .navbar-topbar .h3, .light-background-topbar .navbar-topbar .h3 a {
-      color: #101010; }
-    .extra-light-background-topbar .navbar-topbar h2, .extra-light-background-topbar .navbar-topbar h2 a, .extra-light-background-topbar .navbar-topbar h3, .extra-light-background-topbar .navbar-topbar h3 a, .extra-light-background-topbar .navbar-topbar .h2, .extra-light-background-topbar .navbar-topbar .h2 a, .extra-light-background-topbar .navbar-topbar .h3, .extra-light-background-topbar .navbar-topbar .h3 a {
-      color: #434343; }
     .navbar-topbar h2 a, .navbar-topbar h3 a, .navbar-topbar .h2 a, .navbar-topbar .h3 a {
       float: left;
       display: block; }
+  .light-background-topnav-topbar .navbar-topbar h2, .light-background-topnav-topbar .navbar-topbar h3, .light-background-topnav-topbar .navbar-topbar .h2, .light-background-topnav-topbar .navbar-topbar .h3,
+  .light-background-topnav-topbar .navbar-topbar h2 a, .light-background-topnav-topbar .navbar-topbar h3 a, .light-background-topnav-topbar .navbar-topbar .h2 a, .light-background-topnav-topbar .navbar-topbar .h3 a,
+  .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
+    color: #101010; }
+    .light-background-topnav-topbar .navbar-topbar h2:hover, .light-background-topnav-topbar .navbar-topbar h2:focus, .light-background-topnav-topbar .navbar-topbar h3:hover, .light-background-topnav-topbar .navbar-topbar h3:focus, .light-background-topnav-topbar .navbar-topbar .h2:hover, .light-background-topnav-topbar .navbar-topbar .h2:focus, .light-background-topnav-topbar .navbar-topbar .h3:hover, .light-background-topnav-topbar .navbar-topbar .h3:focus,
+    .light-background-topnav-topbar .navbar-topbar h2 a:hover,
+    .light-background-topnav-topbar .navbar-topbar h2 a:focus, .light-background-topnav-topbar .navbar-topbar h3 a:hover, .light-background-topnav-topbar .navbar-topbar h3 a:focus, .light-background-topnav-topbar .navbar-topbar .h2 a:hover, .light-background-topnav-topbar .navbar-topbar .h2 a:focus, .light-background-topnav-topbar .navbar-topbar .h3 a:hover, .light-background-topnav-topbar .navbar-topbar .h3 a:focus,
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:hover,
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
+      color: #030303;
+      outline: none; }
+  .extra-light-background-topnav-topbar .navbar-topbar h2, .extra-light-background-topnav-topbar .navbar-topbar h3, .extra-light-background-topnav-topbar .navbar-topbar .h2, .extra-light-background-topnav-topbar .navbar-topbar .h3,
+  .extra-light-background-topnav-topbar .navbar-topbar h2 a, .extra-light-background-topnav-topbar .navbar-topbar h3 a, .extra-light-background-topnav-topbar .navbar-topbar .h2 a, .extra-light-background-topnav-topbar .navbar-topbar .h3 a,
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
+    color: #434343; }
+    .extra-light-background-topnav-topbar .navbar-topbar h2:hover, .extra-light-background-topnav-topbar .navbar-topbar h2:focus, .extra-light-background-topnav-topbar .navbar-topbar h3:hover, .extra-light-background-topnav-topbar .navbar-topbar h3:focus, .extra-light-background-topnav-topbar .navbar-topbar .h2:hover, .extra-light-background-topnav-topbar .navbar-topbar .h2:focus, .extra-light-background-topnav-topbar .navbar-topbar .h3:hover, .extra-light-background-topnav-topbar .navbar-topbar .h3:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar h2 a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar h2 a:focus, .extra-light-background-topnav-topbar .navbar-topbar h3 a:hover, .extra-light-background-topnav-topbar .navbar-topbar h3 a:focus, .extra-light-background-topnav-topbar .navbar-topbar .h2 a:hover, .extra-light-background-topnav-topbar .navbar-topbar .h2 a:focus, .extra-light-background-topnav-topbar .navbar-topbar .h3 a:hover, .extra-light-background-topnav-topbar .navbar-topbar .h3 a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
+      color: #373737;
+      outline: none; }
   .navbar-topbar .logo-menu {
     padding-left: 12px;
     margin-bottom: 0;
@@ -14284,19 +14306,73 @@ body.proud-navbar-active {
     margin-top: 6px;
     margin-right: 5px;
     max-height: 43px; }
-  .light-background-topbar .navbar-topbar .navbar-btn {
+  .light-background-topnav-topbar .navbar-topbar .navbar-btn {
     color: #101010; }
-  .light-background-topbar .navbar-topbar .navbar-btn:hover {
+  .light-background-topnav-topbar .navbar-topbar .navbar-btn:hover {
     color: #030303; }
-  .extra-light-background-topbar .navbar-topbar .navbar-btn {
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-btn {
     color: #434343; }
-  .extra-light-background-topbar .navbar-topbar .navbar-btn:hover {
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-btn:hover {
     color: #373737; }
   .navbar-topbar .menu-box {
     float: right !important;
     min-width: 125px; }
     .navbar-topbar .menu-box .btn-toolbar.pull-right {
       margin-left: 0; }
+
+@media screen and (max-width: 910px) {
+  .navbar-topbar .topbar-navigation {
+    display: none; } }
+
+@media screen and (min-width: 911px) {
+  .navbar-topbar .topbar-navigation {
+    text-align: right; }
+  .flexbox .navbar-topbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .flexbox .navbar-topbar .topbar-navigation, .flexbox .navbar-topbar .menu-box {
+      float: none !important;
+      border-top: 0 !important; }
+    .flexbox .navbar-topbar .topbar-navigation {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1; }
+    .flexbox .navbar-topbar #topbar-menu {
+      width: 100%; }
+      .flexbox .navbar-topbar #topbar-menu > li {
+        display: inline-block;
+        float: none; }
+    .flexbox .navbar-topbar .menu-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+      float: none !important;
+      min-height: 52px; }
+      .flexbox .navbar-topbar .menu-box > div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
+      .flexbox .navbar-topbar .menu-box a {
+        display: inline-block;
+        float: none !important; } }
 
 @media screen and (min-width: 1201px) {
   .navbar-topbar {
