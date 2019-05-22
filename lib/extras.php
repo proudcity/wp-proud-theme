@@ -25,8 +25,10 @@ function body_class( $classes ) {
 
     $topnav_light               = is_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
     $topnav_light_extra         = is_extra_light_color( get_theme_mod( 'color_topnav', '#000000' ) );
-    $highlight_light              = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
-    $highlight_light_extra        = is_extra_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
+    $topbar_light               = is_light_color( get_theme_mod( 'color_nav_topbar', get_theme_mod( 'color_topnav', '#000000' ) ) );
+    $topbar_light_extra         = is_extra_light_color( get_theme_mod( 'color_nav_topbar', get_theme_mod( 'color_topnav', '#000000' ) ) );
+    $highlight_light            = is_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
+    $highlight_light_extra      = is_extra_light_color( get_theme_mod( 'color_highlight', '#333333' ) );
     $secondary_light            = is_light_color( get_theme_mod( 'color_secondary', get_theme_mod( 'color_topnav', '#000000' ) ) );
     $secondary_light_extra      = is_extra_light_color( get_theme_mod( 'color_secondary', get_theme_mod( 'color_topnav', '#000000' ) ) );
     $footer_light               = is_light_color( get_theme_mod( 'color_footer', '#333333' ) );
@@ -39,6 +41,14 @@ function body_class( $classes ) {
 
         if ( $topnav_light_extra ) {
             $classes[] = 'extra-light-background-topnav';
+        }
+    }
+
+    if ( $topbar_light ) {
+        $classes[] = 'light-background-topnav-topbar';
+
+        if ( $topbar_light_extra ) {
+            $classes[] = 'extra-light-background-topnav-topbar';
         }
     }
 

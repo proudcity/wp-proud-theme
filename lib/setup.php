@@ -28,7 +28,8 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'primary_navigation' => __('Primary Navigation', 'proud')
+    'primary_navigation' => __('Primary Navigation', 'proud'),
+    'topbar_menu'        => __('Topbar Menu', 'proud'),
   ]);
 
   // Enable post thumbnails

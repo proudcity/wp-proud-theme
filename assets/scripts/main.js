@@ -18,6 +18,7 @@
     // All pages
     'common': {
       init: function() { // JavaScript to be fired on all pages
+        var $body = $('body');
 
         // Agency/subpage off-canvas
         $('#offcanvas-toggle').on('click', function(e) {
@@ -31,8 +32,12 @@
         // Calculate width of logo
         var $navLogo = $('#logo-menu > .nav-logo');
         var modWidth = parseInt($navLogo.css('width'), 10) - 12;
+        var scrollCompare = $body.hasClass('proud-navbar-topbar-active')
+          ? 50
+          : 10;
+
         window.onscroll = function (e){
-          if(typeof pageYOffset!= 'undefined' && pageYOffset <= 10){
+          if(typeof pageYOffset!= 'undefined' && pageYOffset <= scrollCompare){
             $('body').removeClass('scrolled');
             userHasScrolled = false;
             $navLogo.css({"margin-left": 0});
@@ -69,7 +74,7 @@
 
         // Hide header if this appears in an iFrame (for mobile app/kiosk)
         if (window.self !== window.top) {
-          $('body').attr('id', 'in-iframe');
+          $body.attr('id', 'in-iframe');
         }
         //@todo rm
         //$('body').attr('id', 'in-iframe');

@@ -12850,11 +12850,12 @@ img {
     left: 50%;
     min-height: 100%;
     margin-left: auto;
-    top: 0;
+    margin-top: auto;
     position: absolute;
-    -webkit-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%); }
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
   .image-aspect.ratio-2-1 {
     padding-top: 50%; }
   .image-aspect.ratio-3-2 {
@@ -13483,9 +13484,17 @@ footer.page-footer {
   padding-bottom: 50px; }
 
 .full-container .jumbotron, .jumbo-padding .jumbotron {
-  padding-left: 15px;
-  padding-right: 15px;
   margin-bottom: 0; }
+
+.jumbo-padding .jumbotron {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+body.proud-navbar-transparent .jumbotron, body.proud-navbar-transparent .jumbotron h1, body.proud-navbar-transparent .jumbotron .h1, body.proud-navbar-transparent .jumbotron h2, body.proud-navbar-transparent .jumbotron .h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h2 {
+  color: #f1f1f1; }
+
+body.proud-navbar-transparent.light-background-topnav .jumbotron, body.proud-navbar-transparent.light-background-topnav .jumbotron h1, body.proud-navbar-transparent.light-background-topnav .jumbotron .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron h2, body.proud-navbar-transparent.light-background-topnav .jumbotron .h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h2 {
+  color: inherit; }
 
 @media screen and (max-width: 779px) {
   .jumbotron input.input-lg, .jumbotron .input-group-lg > input.form-control, .jumbotron .search-form .input-group-lg > input.search-field, .search-form .jumbotron .input-group-lg > input.search-field, .jumbotron
@@ -13823,78 +13832,6 @@ body.proud-navbar-active {
     .navbar-external .navbar-btn:hover {
       background-color: #616161;
       background-color: rgba(255, 255, 255, 0.1); }
-    .navbar-external .navbar-btn .hamburger {
-      display: block;
-      position: relative;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-      width: 45px;
-      height: 45px;
-      font-size: 0;
-      text-indent: -9999px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      box-shadow: none;
-      border-radius: none;
-      border: none;
-      cursor: pointer;
-      -webkit-transition: background 0.2s;
-           -o-transition: background 0.2s;
-              transition: background 0.2s; }
-      .navbar-external .navbar-btn .hamburger:focus {
-        outline: none; }
-      .navbar-external .navbar-btn .hamburger .hamburger-bars {
-        display: block;
-        position: absolute;
-        top: 20.5px;
-        left: 13px;
-        right: 13px;
-        height: 2px;
-        -webkit-transition: background 0s 0.2s;
-        -o-transition: background 0s 0.2s;
-           transition: background 0s 0.2s; }
-        .navbar-external .navbar-btn .hamburger .hamburger-bars:before, .navbar-external .navbar-btn .hamburger .hamburger-bars:after {
-          position: absolute;
-          display: block;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          content: "";
-          -webkit-transition-duration: 0.2s, 0.2s;
-          -o-transition-duration: 0.2s, 0.2s;
-             transition-duration: 0.2s, 0.2s;
-          -webkit-transition-delay: 0.2s, 0s;
-          -o-transition-delay: 0.2s, 0s;
-             transition-delay: 0.2s, 0s; }
-        .navbar-external .navbar-btn .hamburger .hamburger-bars:before {
-          -webkit-transition-property: top, -webkit-transform;
-          -o-transition-property: top, -o-transform;
-             transition-property: top, transform;
-          top: -7px; }
-        .navbar-external .navbar-btn .hamburger .hamburger-bars:after {
-          -webkit-transition-property: bottom, -webkit-transform;
-          -o-transition-property: bottom, -o-transform;
-             transition-property: bottom, transform;
-          bottom: -7px; }
-      .navbar-external .navbar-btn .hamburger .hamburger-bars {
-        background: #FFF; }
-        .navbar-external .navbar-btn .hamburger .hamburger-bars:before, .navbar-external .navbar-btn .hamburger .hamburger-bars:after {
-          background-color: #FFF; }
-      .light-background-topnav .navbar-external .navbar-btn .hamburger .hamburger-bars {
-        background: #101010; }
-        .light-background-topnav .navbar-external .navbar-btn .hamburger .hamburger-bars:before, .light-background-topnav .navbar-external .navbar-btn .hamburger .hamburger-bars:after {
-          background-color: #101010; }
-      .extra-light-background-topnav .navbar-external .navbar-btn .hamburger .hamburger-bars {
-        background: #434343; }
-        .extra-light-background-topnav .navbar-external .navbar-btn .hamburger .hamburger-bars:before, .extra-light-background-topnav .navbar-external .navbar-btn .hamburger .hamburger-bars:after {
-          background-color: #434343; }
-  .navbar-external .menu-button {
-    bottom: 3px;
-    left: 12px;
-    position: fixed;
-    z-index: 1052; }
   .navbar-external .navbar-btn-normal {
     margin-top: 6px;
     margin-right: 5px;
@@ -13907,6 +13844,78 @@ body.proud-navbar-active {
     color: #434343; }
   .extra-light-background-topnav .navbar-external .navbar-btn:hover {
     color: #373737; }
+  .navbar-external .menu-button {
+    bottom: 3px;
+    left: 12px;
+    position: fixed;
+    z-index: 1052; }
+  .navbar-external .hamburger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 0;
+    text-indent: -9999px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: background 0.2s;
+         -o-transition: background 0.2s;
+            transition: background 0.2s; }
+    .navbar-external .hamburger:focus {
+      outline: none; }
+    .navbar-external .hamburger .hamburger-bars {
+      display: block;
+      position: absolute;
+      top: 20.5px;
+      left: 13px;
+      right: 13px;
+      height: 2px;
+      -webkit-transition: background 0s 0.2s;
+      -o-transition: background 0s 0.2s;
+         transition: background 0s 0.2s; }
+      .navbar-external .hamburger .hamburger-bars:before, .navbar-external .hamburger .hamburger-bars:after {
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        content: "";
+        -webkit-transition-duration: 0.2s, 0.2s;
+        -o-transition-duration: 0.2s, 0.2s;
+           transition-duration: 0.2s, 0.2s;
+        -webkit-transition-delay: 0.2s, 0s;
+        -o-transition-delay: 0.2s, 0s;
+           transition-delay: 0.2s, 0s; }
+      .navbar-external .hamburger .hamburger-bars:before {
+        -webkit-transition-property: top, -webkit-transform;
+        -o-transition-property: top, -o-transform;
+           transition-property: top, transform;
+        top: -7px; }
+      .navbar-external .hamburger .hamburger-bars:after {
+        -webkit-transition-property: bottom, -webkit-transform;
+        -o-transition-property: bottom, -o-transform;
+           transition-property: bottom, transform;
+        bottom: -7px; }
+    .navbar-external .hamburger .hamburger-bars {
+      background: #FFF; }
+      .navbar-external .hamburger .hamburger-bars:before, .navbar-external .hamburger .hamburger-bars:after {
+        background-color: #FFF; }
+    .light-background-topnav .navbar-external .hamburger .hamburger-bars {
+      background: #101010; }
+      .light-background-topnav .navbar-external .hamburger .hamburger-bars:before, .light-background-topnav .navbar-external .hamburger .hamburger-bars:after {
+        background-color: #101010; }
+    .extra-light-background-topnav .navbar-external .hamburger .hamburger-bars {
+      background: #434343; }
+      .extra-light-background-topnav .navbar-external .hamburger .hamburger-bars:before, .extra-light-background-topnav .navbar-external .hamburger .hamburger-bars:after {
+        background-color: #434343; }
   .menu-nav-open .navbar-external .navbar-btn.menu-button .hamburger .hamburger-bars {
     background: none; }
     .menu-nav-open .navbar-external .navbar-btn.menu-button .hamburger .hamburger-bars:after, .menu-nav-open .navbar-external .navbar-btn.menu-button .hamburger .hamburger-bars:before {
@@ -14169,6 +14178,22 @@ body.proud-navbar-active {
         padding-top: 137px !important; }
       body.proud-navbar-active.admin-menu .navbar-external, body.proud-navbar-active.admin-bar .navbar-external {
         top: 47px; }
+    body.proud-navbar-active.proud-navbar-topbar-active {
+      padding-top: 104px; }
+      body.proud-navbar-active.proud-navbar-topbar-active .navbar-external .menu-box.topbar-has-toolbar {
+        padding-left: 0;
+        min-width: 0; }
+      body.proud-navbar-active.proud-navbar-topbar-active:not(.scrolled) {
+        padding-top: 142px !important; }
+        body.proud-navbar-active.proud-navbar-topbar-active:not(.scrolled):not(.search-active):not(.active-311) .navbar-external {
+          position: absolute;
+          top: 52px; }
+      body.proud-navbar-active.proud-navbar-topbar-active.admin-menu, body.proud-navbar-active.proud-navbar-topbar-active.admin-bar {
+        padding-top: 149px !important; }
+        body.proud-navbar-active.proud-navbar-topbar-active.admin-menu:not(.scrolled), body.proud-navbar-active.proud-navbar-topbar-active.admin-bar:not(.scrolled) {
+          padding-top: 189px !important; }
+          body.proud-navbar-active.proud-navbar-topbar-active.admin-menu:not(.scrolled):not(.search-active):not(.active-311) .navbar-external, body.proud-navbar-active.proud-navbar-topbar-active.admin-bar:not(.scrolled):not(.search-active):not(.active-311) .navbar-external {
+            top: 99px; }
   .flexbox .navbar-external, .flexbox .navbar-external.navbar-default {
     border-top: 0 !important; }
   .flexbox .navbar-external.hide-site-name .nav-logo {
@@ -14199,6 +14224,170 @@ body.proud-navbar-active {
 
 .hide-site-name img.logo {
   max-width: 300px !important; }
+
+.navbar-topbar {
+  height: 52px;
+  border-top: 0; }
+  .navbar-topbar h2, .navbar-topbar h3, .navbar-topbar .h2, .navbar-topbar .h3 {
+    margin: 0; }
+    .navbar-topbar h2 a, .navbar-topbar h3 a, .navbar-topbar .h2 a, .navbar-topbar .h3 a {
+      float: left;
+      display: block; }
+  .light-background-topnav-topbar .navbar-topbar h2, .light-background-topnav-topbar .navbar-topbar h3, .light-background-topnav-topbar .navbar-topbar .h2, .light-background-topnav-topbar .navbar-topbar .h3,
+  .light-background-topnav-topbar .navbar-topbar h2 a, .light-background-topnav-topbar .navbar-topbar h3 a, .light-background-topnav-topbar .navbar-topbar .h2 a, .light-background-topnav-topbar .navbar-topbar .h3 a,
+  .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
+    color: #101010; }
+    .light-background-topnav-topbar .navbar-topbar h2:hover, .light-background-topnav-topbar .navbar-topbar h2:focus, .light-background-topnav-topbar .navbar-topbar h3:hover, .light-background-topnav-topbar .navbar-topbar h3:focus, .light-background-topnav-topbar .navbar-topbar .h2:hover, .light-background-topnav-topbar .navbar-topbar .h2:focus, .light-background-topnav-topbar .navbar-topbar .h3:hover, .light-background-topnav-topbar .navbar-topbar .h3:focus,
+    .light-background-topnav-topbar .navbar-topbar h2 a:hover,
+    .light-background-topnav-topbar .navbar-topbar h2 a:focus, .light-background-topnav-topbar .navbar-topbar h3 a:hover, .light-background-topnav-topbar .navbar-topbar h3 a:focus, .light-background-topnav-topbar .navbar-topbar .h2 a:hover, .light-background-topnav-topbar .navbar-topbar .h2 a:focus, .light-background-topnav-topbar .navbar-topbar .h3 a:hover, .light-background-topnav-topbar .navbar-topbar .h3 a:focus,
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:hover,
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
+      color: #030303;
+      outline: none; }
+  .extra-light-background-topnav-topbar .navbar-topbar h2, .extra-light-background-topnav-topbar .navbar-topbar h3, .extra-light-background-topnav-topbar .navbar-topbar .h2, .extra-light-background-topnav-topbar .navbar-topbar .h3,
+  .extra-light-background-topnav-topbar .navbar-topbar h2 a, .extra-light-background-topnav-topbar .navbar-topbar h3 a, .extra-light-background-topnav-topbar .navbar-topbar .h2 a, .extra-light-background-topnav-topbar .navbar-topbar .h3 a,
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
+    color: #434343; }
+    .extra-light-background-topnav-topbar .navbar-topbar h2:hover, .extra-light-background-topnav-topbar .navbar-topbar h2:focus, .extra-light-background-topnav-topbar .navbar-topbar h3:hover, .extra-light-background-topnav-topbar .navbar-topbar h3:focus, .extra-light-background-topnav-topbar .navbar-topbar .h2:hover, .extra-light-background-topnav-topbar .navbar-topbar .h2:focus, .extra-light-background-topnav-topbar .navbar-topbar .h3:hover, .extra-light-background-topnav-topbar .navbar-topbar .h3:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar h2 a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar h2 a:focus, .extra-light-background-topnav-topbar .navbar-topbar h3 a:hover, .extra-light-background-topnav-topbar .navbar-topbar h3 a:focus, .extra-light-background-topnav-topbar .navbar-topbar .h2 a:hover, .extra-light-background-topnav-topbar .navbar-topbar .h2 a:focus, .extra-light-background-topnav-topbar .navbar-topbar .h3 a:hover, .extra-light-background-topnav-topbar .navbar-topbar .h3 a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
+      color: #373737;
+      outline: none; }
+  .navbar-topbar .logo-menu {
+    padding-left: 12px;
+    margin-bottom: 0;
+    float: left; }
+    .navbar-topbar .logo-menu li {
+      float: left; }
+  .navbar-topbar .nav-logo {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    padding: 6px 6px 6px 10px; }
+    .navbar-topbar .nav-logo img.logo {
+      max-width: 110px;
+      max-height: 44px; }
+  .navbar-topbar .nav-text {
+    line-height: 27px;
+    height: 44px;
+    font-size: 16px;
+    padding-left: 10px; }
+  .navbar-topbar .btn-toolbar {
+    margin-bottom: 0; }
+    .navbar-topbar .btn-toolbar li {
+      float: left; }
+  .navbar-topbar .navbar-btn {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 18px;
+    border-radius: 10px;
+    color: #FFF;
+    margin-top: 2.5px;
+    margin-bottom: 0;
+    background: none; }
+    .navbar-topbar .navbar-btn, .navbar-topbar .navbar-btn i {
+      overflow: hidden;
+      width: 47px;
+      height: 45px;
+      vertical-align: middle;
+      line-height: 42.75px; }
+    .navbar-topbar .navbar-btn i {
+      -webkit-transition: -webkit-transform 0.2s linear;
+      -o-transition: -o-transform 0.2s linear;
+         transition: transform 0.2s linear;
+      vertical-align: middle; }
+    .navbar-topbar .navbar-btn:hover {
+      background-color: #616161;
+      background-color: rgba(255, 255, 255, 0.1); }
+  .navbar-topbar .navbar-btn-normal {
+    margin-top: 6px;
+    margin-right: 5px;
+    max-height: 43px; }
+  .light-background-topnav-topbar .navbar-topbar .navbar-btn {
+    color: #101010; }
+  .light-background-topnav-topbar .navbar-topbar .navbar-btn:hover {
+    color: #030303; }
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-btn {
+    color: #434343; }
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-btn:hover {
+    color: #373737; }
+  .navbar-topbar .menu-box {
+    float: right !important;
+    min-width: 125px; }
+    .navbar-topbar .menu-box .btn-toolbar.pull-right {
+      margin-left: 0; }
+
+@media screen and (max-width: 910px) {
+  .navbar-topbar .topbar-navigation {
+    display: none; } }
+
+@media screen and (min-width: 911px) {
+  .navbar-topbar .topbar-navigation {
+    text-align: right; }
+  .flexbox .navbar-topbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .flexbox .navbar-topbar .topbar-navigation, .flexbox .navbar-topbar .menu-box {
+      float: none !important;
+      border-top: 0 !important; }
+    .flexbox .navbar-topbar .topbar-navigation {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1; }
+    .flexbox .navbar-topbar #topbar-menu {
+      width: 100%; }
+      .flexbox .navbar-topbar #topbar-menu > li {
+        display: inline-block;
+        float: none; }
+    .flexbox .navbar-topbar .menu-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+      float: none !important;
+      min-height: 52px; }
+      .flexbox .navbar-topbar .menu-box > div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; }
+      .flexbox .navbar-topbar .menu-box a {
+        display: inline-block;
+        float: none !important; } }
+
+@media screen and (min-width: 1201px) {
+  .navbar-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1049; }
+    .navbar-topbar .nav-logo {
+      padding-left: 4px;
+      padding-right: 10px; }
+    .navbar-topbar .nav-text {
+      padding-left: 4px; }
+  .admin-menu .navbar-topbar, .admin-bar .navbar-topbar {
+    top: 47px; } }
 
 .navbar-header-region h2, .navbar-header-region h3, .navbar-header-region .h2, .navbar-header-region .h3 {
   margin: 12px 0; }
@@ -14246,34 +14435,41 @@ body.proud-navbar-active {
     display: none; } }
 
 @media screen and (min-width: 1201px) {
-  body.proud-navbar-transparent {
+  body.proud-navbar-transparent, body.proud-navbar-transparent:not(.scrolled) {
     padding-top: 0; }
-    body.proud-navbar-transparent .menu-box {
-      background: none !important; }
-    body.proud-navbar-transparent .navbar-external {
-      -webkit-transition: padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out;
-      -o-transition: padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out;
-         transition: padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out; }
-      body.proud-navbar-transparent .navbar-external > * {
-        z-index: 2;
-        position: relative; }
-    body.proud-navbar-transparent:not(.scrolled) {
-      padding-top: 0 !important; }
-    body.proud-navbar-transparent .alert-banner {
-      left: 0;
-      width: 100%;
-      position: absolute;
-      top: 92px;
-      z-index: 1; }
-    body.proud-navbar-transparent.admin-menu, body.proud-navbar-transparent.admin-bar {
-      padding-top: 47px !important; }
-      body.proud-navbar-transparent.admin-menu .alert-banner, body.proud-navbar-transparent.admin-bar .alert-banner {
-        margin-top: 47px; }
-      body.proud-navbar-transparent.admin-menu:not(.scrolled), body.proud-navbar-transparent.admin-bar:not(.scrolled) {
-        padding-top: 47px !important; }
-    body.proud-navbar-transparent .main > div > .panel-grid:first-child .jumbotron-header-container,
-    body.proud-navbar-transparent .main .entry-content > div > .panel-grid:first-child .jumbotron-header-container {
-      padding-top: 92px !important; }
+  body.proud-navbar-transparent .menu-box {
+    background: none !important; }
+  body.proud-navbar-transparent .navbar-external {
+    -webkit-transition: padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out;
+    -o-transition: padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out;
+       transition: padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out; }
+    body.proud-navbar-transparent .navbar-external > * {
+      z-index: 2;
+      position: relative; }
+  body.proud-navbar-transparent .alert-banner {
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: 92px;
+    z-index: 1; }
+  body.proud-navbar-transparent.admin-menu, body.proud-navbar-transparent.admin-menu:not(.scrolled), body.proud-navbar-transparent.admin-bar, body.proud-navbar-transparent.admin-bar:not(.scrolled) {
+    padding-top: 47px !important; }
+  body.proud-navbar-transparent.admin-menu .alert-banner, body.proud-navbar-transparent.admin-bar .alert-banner {
+    margin-top: 47px; }
+  body.proud-navbar-transparent .main > div > .panel-grid:first-child .jumbotron-header-container,
+  body.proud-navbar-transparent .main .entry-content > div > .panel-grid:first-child .jumbotron-header-container {
+    padding-top: 92px !important; }
+  body.proud-navbar-transparent.proud-navbar-topbar-active, body.proud-navbar-transparent.proud-navbar-topbar-active:not(.scrolled) {
+    padding-top: 52px !important; }
+  body.proud-navbar-transparent.proud-navbar-topbar-active:not(.scrolled) .alert-banner {
+    margin-top: 52px; }
+  body.proud-navbar-transparent.proud-navbar-topbar-active.admin-menu, body.proud-navbar-transparent.proud-navbar-topbar-active.admin-menu:not(.scrolled), body.proud-navbar-transparent.proud-navbar-topbar-active.admin-bar, body.proud-navbar-transparent.proud-navbar-topbar-active.admin-bar:not(.scrolled) {
+    padding-top: 99px !important; }
+  body.proud-navbar-transparent.proud-navbar-topbar-active.admin-menu:not(.scrolled) .alert-banner, body.proud-navbar-transparent.proud-navbar-topbar-active.admin-bar:not(.scrolled) .alert-banner {
+    margin-top: 99px; }
+  body.proud-navbar-transparent.proud-navbar-topbar-active .main > div > .panel-grid:first-child .jumbotron-header-container,
+  body.proud-navbar-transparent.proud-navbar-topbar-active .main .entry-content > div > .panel-grid:first-child .jumbotron-header-container {
+    padding-top: 144px !important; }
   .proud-navbar-transparent.scrolled .proud-overlay {
     padding-top: 160px; }
   .proud-navbar-transparent.scrolled .proud-overlay-close {
@@ -16647,14 +16843,17 @@ body.proud-navbar-active.admin-bar {
   .full-width-container .jsn-bootstrap3:last-child > .row:not(.wr_fullwidth) {
     padding-bottom: 48px !important; }
 
+body.siteorigin-panels-before-js .siteorigin-panels-stretch[data-stretch-type],
 .siteorigin-panels-stretch[data-stretch-type] {
   padding-left: 0 !important;
   padding-right: 0 !important; }
+  body.siteorigin-panels-before-js .siteorigin-panels-stretch[data-stretch-type] .panel-grid-cell,
   .siteorigin-panels-stretch[data-stretch-type] .panel-grid-cell {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
 @media screen and (min-width: 781px) {
+  body.siteorigin-panels-before-js .siteorigin-panels-stretch[data-stretch-type],
   .siteorigin-panels-stretch[data-stretch-type] {
     margin-left: 12px !important;
     margin-right: 12px !important; } }

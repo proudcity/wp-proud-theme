@@ -37,6 +37,10 @@ function proud_customize_register($wp_customize) {
         'default' => '#000000',
         'transport' => 'refresh',
     ));
+    $wp_customize->add_setting('color_nav_topbar', array(
+        'default' => get_theme_mod('color_topnav', '#000000'),
+        'transport' => 'refresh',
+    ));
     $wp_customize->add_setting('color_link', array(
         'default' => '#0071bc',
         'transport' => 'refresh',
@@ -60,10 +64,18 @@ function proud_customize_register($wp_customize) {
 
     // Controls
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_topnav', array(
-        'label' => __('Top bar color', 'proud'),
+        'label' => __('Main nav color', 'proud'),
         'section' => 'colors',
         'settings' => 'color_topnav',
     )));
+    // Don't show topbar setting unless enabled
+    if (get_theme_mod( 'proud_topbar_enable', false )) {
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_nav_topbar', array(
+            'label'    => __( 'Topbar color', 'proud' ),
+            'section'  => 'colors',
+            'settings' => 'color_nav_topbar',
+        ) ) );
+    }
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_link', array(
         'label' => __('Link color', 'proud'),
         'section' => 'colors',
@@ -133,6 +145,71 @@ function proud_customize_register($wp_customize) {
         'type' => 'checkbox',
         'std' => '1'
     ));
+    
+    
+    // Top bar
+    $wp_customize->add_section(
+        'proud_topbar',
+        array(
+          'title'       => __( 'Top bar', 'proud' ),
+          //'description' => __( 'Enable the optional ProudCity Top Bar', 'proud' ),
+          'priority'    => 20, //Determines what order this appears in
+          'capability'  => 'edit_theme_options', //Capability needed to tweak
+        )
+    );
+
+    // Fonts default lowercase for select keys
+    $wp_customize->add_setting( 'proud_topbar_enable' , array(
+        'default' => false,
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting( 'proud_topbar_logo' , array());
+    $wp_customize->add_setting( 'proud_topbar_title' , array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_setting( 'proud_topbar_action_icons' , array(
+        'default' => false,
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control('proud_topbar_enable', array(
+        'label' => __('Show the Top Navigation Bar', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_enable',
+        'type' => 'checkbox',
+        //'std' => '1'
+    ));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'proud_topbar_logo', array(
+        'label' => __('Top Bar Logo', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_logo',
+        'description' => __('This optional logo appears in the top-left corner of the top bar. It is typically the city seal.', 'proud'),
+    )));
+        $wp_customize->add_control('proud_topbar_title', array(
+        'label' => __('Top Bar title', 'proud'),
+        'description' => __('Appears next to the logo on the left. Leave blank to hide.', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_title',
+        'type' => 'textfield',
+    ));
+    $wp_customize->add_control('proud_topbar_action_icons', array(
+        'label' => __('Action Icons in Top Bar', 'proud'),
+        'description' => __('Move the Action Icons (Search, Answers, etc) from the Primary Navigation to the Top Navigation Bar', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_action_icons',
+        'type' => 'checkbox',
+        //'std' => '1'
+    ));
+
+  // If we're customizing and in preview, alter some stuff
+  if ( $wp_customize->is_preview() && ! is_admin() ) {
+    add_action( 'wp_footer', 'proud_customize_preview', 21 );
+  }
+
+  
+  
+    
 
     // Fonts
 
@@ -481,11 +558,15 @@ function get_color_if_not_white($theme_mod) {
 function proud_customize_css() {
     // Set up navbar background, allow transparent alter
     $navbar_background = get_theme_mod( 'color_topnav', '#000000' );
+
     // See below
     $header_rgb = hex_to_rgb( $navbar_background );
     if (proud_navbar_transparent()) {
         $navbar_background_rga = implode(',', $header_rgb);
     }
+
+    // Set up navbar topbar
+    $topbar_background = get_theme_mod( 'color_nav_topbar', get_theme_mod( 'color_topnav', '#000000' ) );
 
     $color_background = get_color_if_not_white( 'color_background' );
     $background_image = get_theme_mod( 'background_image', '' );
@@ -556,11 +637,19 @@ function proud_customize_css() {
         <?php endif; ?>
 
         .menu-box, .navbar-default {
-            background-color: <?php echo $navbar_background ?> !important;
+          background-color: <?php echo $navbar_background ?> !important;
         }
 
         .navbar.navbar-default {
-            border-color: <?php echo $navbar_background ?> !important;
+          border-color: <?php echo $navbar_background ?> !important;
+        }
+
+        .navbar-topbar .menu-box, .navbar-topbar.navbar-default {
+            background-color: <?php echo $topbar_background ?> !important;
+        }
+
+        .navbar-topbar.navbar.navbar-default {
+            border-color: <?php echo $topbar_background ?> !important;
         }
 
         <?php if( proud_navbar_transparent() ): ?>
@@ -570,16 +659,16 @@ function proud_customize_css() {
         }
 
         @media screen and (min-width: <?php echo $proudSCSS['nav-fixed-top-min'] ?>) {
-            .proud-navbar-transparent .navbar-default {
+            .proud-navbar-transparent .navbar-external {
                 background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
                 border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
             }
 
-            .scrolled.proud-navbar-transparent .navbar-default, .search-active.proud-navbar-transparent .navbar-default, .active-311.proud-navbar-transparent .navbar-default {
+            .scrolled.proud-navbar-transparent .navbar-external, .search-active.proud-navbar-transparent .navbar-external, .active-311.proud-navbar-transparent .navbar-external {
                 background-color: rgba(<?php echo $navbar_background_rga ?>, 1) !important
             }
 
-            .scrolled .navbar.navbar-default {
+            .scrolled .navbar.navbar-external {
                 border-color: rgba(<?php echo $navbar_background_rga ?>, 1) !important
             }
         }
@@ -588,7 +677,6 @@ function proud_customize_css() {
         .navbar.navbar-external {
             border-bottom: 1px solid #eeeeee !important;
         }
-
         <?php endif; ?>
 
         .nav-contain .nav-pills li a,
