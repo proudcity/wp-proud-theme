@@ -13490,10 +13490,10 @@ footer.page-footer {
   padding-left: 15px;
   padding-right: 15px; }
 
-body.proud-navbar-transparent .jumbotron, body.proud-navbar-transparent .jumbotron h1, body.proud-navbar-transparent .jumbotron .h1, body.proud-navbar-transparent .jumbotron h2, body.proud-navbar-transparent .jumbotron .h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h2 {
+body.proud-navbar-transparent .jumbotron.jumbotron-inverse, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h2 {
   color: #f1f1f1; }
 
-body.proud-navbar-transparent.light-background-topnav .jumbotron, body.proud-navbar-transparent.light-background-topnav .jumbotron h1, body.proud-navbar-transparent.light-background-topnav .jumbotron .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron h2, body.proud-navbar-transparent.light-background-topnav .jumbotron .h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h2 {
+body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h2 {
   color: inherit; }
 
 @media screen and (max-width: 779px) {
@@ -14439,7 +14439,7 @@ body.proud-navbar-active {
 
 @media screen and (min-width: 1201px) {
   body.proud-navbar-transparent, body.proud-navbar-transparent:not(.scrolled) {
-    padding-top: 0; }
+    padding-top: 0 !important; }
   body.proud-navbar-transparent .menu-box {
     background: none !important; }
   body.proud-navbar-transparent .navbar-external {
