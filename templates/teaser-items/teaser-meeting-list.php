@@ -4,8 +4,9 @@
     $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
     $atc_format = 'Y-m-d H:i:s';
     $time_format = 'g:i a';
+    $timezone = get_option('timezone_string');
 
-    //$datetime = new DateTime(get_post_meta($id, 'datetime', true));
+  //$datetime = new DateTime(get_post_meta($id, 'datetime', true));
     $is_upcoming = $datetime > new DateTime();
   ?>
   <div class="row">
@@ -27,7 +28,7 @@
             <var class="atc_event">
               <var class="atc_date_start"><?php echo date_format($datetime, $atc_format); ?></var>
               <var class="atc_date_end"><?php echo date_format($datetime, $atc_format); ?></var>
-              <var class="atc_timezone"><?php echo $datetime->getTimezone()->getName(); ?></var>
+              <var class="atc_timezone"><?php echo $timezone ?></var>
               <var class="atc_title"><?php echo $post->post_title ?></var>
               <var class="atc_description"><?php //echo $post->post_content ?></var>
               <var class="atc_location"><?php echo $location ? $location : '' ?></var>
