@@ -13,7 +13,7 @@ if (!$proudcore) {
 
 <!doctype html>
 <html <?php language_attributes(); ?>>
-  <?php get_template_part('templates/head'); ?>
+  <?php get_template_part( 'templates/head' ); ?>
   <body <?php body_class(); ?>>
     <!--[if IE]>
       <div class="alert alert-warning">
@@ -27,11 +27,7 @@ if (!$proudcore) {
     <div class="wrap <?php echo Wrapper\container_class(); ?>" role="document">
       
       <?php if ( $proudcore::$layout->page_parent_info( 'title' ) ) : ?>
-        <div class="page-header">
-          <a id="offcanvas-toggle" href="#" class="btn btn-primary visible-xs pull-right"><i class="fa fa-bars"></i></a>
-          <h2><?php echo Wrapper\parent_title(); ?></h2>
-        </div><!-- /.sidebar -->
-        <?php \Proud\Core\ProudBreadcrumb::print_breadcrumb() ?>
+          <?php get_template_part( 'templates/page-header-breadcrumb' ); ?>
       <?php endif; ?>
 
       <div id="content-main" class="content row">
