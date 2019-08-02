@@ -11,6 +11,7 @@ if ( !empty($form_id) ) {
   $form = gravity_form( $form_id, false, true, false, null, false, 0, false );
 }
 else {
+  $link_text = get_post_meta( $id, 'link_text', true );
   $link = $filename = get_post_meta( $id, 'link', true );
 }
 
@@ -27,10 +28,10 @@ else {
 <div class="row">
   <div class="col-md-7">
     <h4>Online payments</h4>
-    <?php if ($form): ?>
+    <?php if (!empty($form)): ?>
       <?php echo $form ?>
     <?php elseif ($link): ?>
-      <p><a href="<?php echo $link ?>"class="btn btn-primary btn-lg" target="_blank">Pay online now &raquo;</a></p>
+      <p><a href="<?php echo $link ?>"class="btn btn-primary btn-lg" target="_blank"><?php echo $link_text ? $link_text : "Pay online now &raquo;"; ?></a></p>
       <p><small><em>You will be redirected to our secure online payment provider.</em></small></p>
     <?php endif ?>
   </div>
