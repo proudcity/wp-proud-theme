@@ -5,10 +5,10 @@
 
   echo sprintf( '<thead><tr><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th>%s</th><th>%s</th></tr></thead>',
     __( 'Name', 'proud-teaser' ),
-    __( $position_label, 'proud-teaser' ),
+    empty($this->hide['position']) ? __( $position_label, 'proud-teaser' ) : '',
     empty($this->hide['agency']) ? _x( 'Agency', 'post type singular name', 'wp-agency' ) : '',
     empty($this->hide['phone']) ? __( 'Phone', 'proud-teaser' ) : '',
-    __( 'Contact', 'proud-teaser' ),    
+    empty($this->hide['email']) ?__( 'Contact', 'proud-teaser' ) : '',
     empty($this->hide['social']) ? __( 'Social', 'proud-teaser' ) : ''
   );
 
