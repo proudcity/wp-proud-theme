@@ -13288,6 +13288,9 @@ footer.page-footer {
     color: #FFF !important; }
   footer.page-footer h5, footer.page-footer .h5 {
     margin-bottom: 6px; }
+  footer.page-footer ul {
+    padding-left: 0;
+    list-style: none; }
   .light-background-footer footer.page-footer, .light-background-footer footer.page-footer a, .light-background-footer footer.page-footer label,
   .light-background-footer footer.page-footer h2, .light-background-footer footer.page-footer .h2, .light-background-footer footer.page-footer h3, .light-background-footer footer.page-footer .h3, .light-background-footer footer.page-footer h4, .light-background-footer footer.page-footer .h4, .light-background-footer footer.page-footer h5, .light-background-footer footer.page-footer .h5, .light-background-footer footer.page-footer h6, .light-background-footer footer.page-footer .h6,
   .light-background-footer footer.page-footer form input[type="submit"] {
