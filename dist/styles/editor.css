@@ -246,7 +246,7 @@ body {
   font-family: "Lato", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #323a45;
+  color: #212121;
   background-color: #fff; }
 
 input,
@@ -1904,7 +1904,7 @@ select[multiple].input-lg,
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #68788f; }
+  color: #616161; }
 
 @media (min-width: 780px) {
   .form-inline .form-group, .search-form .form-group, .form-inline .search-form label, .search-form .form-inline label, .search-form label {
@@ -3538,7 +3538,7 @@ a.badge:hover, a.badge:focus {
     margin-right: auto; }
   .thumbnail .caption, .wp-caption .caption {
     padding: 9px;
-    color: #323a45; }
+    color: #212121; }
 
 a.thumbnail:hover, a.wp-caption:hover,
 a.thumbnail:focus,
@@ -12454,7 +12454,7 @@ label {
 
 .gform_wrapper .hidden_label .gfield_label {
   background: #fff;
-  color: #323a45; }
+  color: #212121; }
 
 .form-group, .search-form label {
   position: relative; }
@@ -13015,7 +13015,7 @@ img {
   .breadcrumb.clean a i {
     display: inline-block; }
   .breadcrumb.clean .active {
-    color: #323a45; }
+    color: #212121; }
     .breadcrumb.clean .active i {
       margin-right: .5em; }
 
@@ -13623,7 +13623,7 @@ body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inver
   .page-header .h2,
   .page-header h3,
   .page-header .h3 {
-    color: #323a45; }
+    color: #212121; }
   .page-header h1,
   .page-header .h1,
   .page-header h2,
@@ -16334,7 +16334,7 @@ body.active-311, body.search-active {
   .map-wrapper.has-overlay:after {
     content: "\f245";
     background: none;
-    color: #323a45;
+    color: #212121;
     font-size: 30px; } }
 
 @media screen and (min-width: 1280px) {
@@ -16357,8 +16357,8 @@ body.active-311, body.search-active {
   opacity: 0.5;
   position: relative; }
   .place-shadow .shadow-icon, .place-shadow .shadow-text {
-    background: #323a45;
-    color: #323a45;
+    background: #212121;
+    color: #212121;
     display: inline-block; }
   @media screen and (max-width: 779px) {
     .place-shadow .shadow-icon + .shadow-text {
@@ -16368,7 +16368,7 @@ body.active-311, body.search-active {
     -webkit-animation: fa-spin 1s infinite steps(8);
     -o-animation: fa-spin 1s infinite steps(8);
        animation: fa-spin 1s infinite steps(8);
-    color: rgba(50, 58, 69, 0.5);
+    color: rgba(33, 33, 33, 0.5);
     font-size: 40px;
     height: 40px;
     left: 50%;
