@@ -3488,17 +3488,17 @@ a.badge:hover, a.badge:focus {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  color: inherit;
-  background-color: #d6d7d9; }
+  color: #212121;
+  background-color: rgba(255, 255, 255, 0.7); }
   .jumbotron h1,
   .jumbotron .h1 {
-    color: inherit; }
+    color: #212121; }
   .jumbotron p {
     margin-bottom: 15px;
     font-size: 24px;
     font-weight: 200; }
   .jumbotron > hr {
-    border-top-color: #bcbdc0; }
+    border-top-color: rgba(230, 230, 230, 0.7); }
   .container .jumbotron,
   .container-fluid .jumbotron {
     border-radius: 2px;
@@ -13432,10 +13432,10 @@ footer.page-footer {
   .jumbotron h2, .jumbotron .h2 {
     font-size: 37.5px;
     margin-top: 0;
-    color: #f1f1f1; }
+    color: #212121; }
   .jumbotron.jumbotron-inverse {
-    background-color: #162f41;
-    color: #f1f1f1; }
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFF; }
     .jumbotron.jumbotron-inverse h1, .jumbotron.jumbotron-inverse .h1, .jumbotron.jumbotron-inverse h2, .jumbotron.jumbotron-inverse .h2 {
       color: #FFF; }
   .jumbotron.jumbotron-image {
@@ -13443,10 +13443,10 @@ footer.page-footer {
   .jumbotron .jumbotron-bg {
     padding: 15px;
     position: static;
-    background: rgba(214, 215, 217, 0.8); }
+    background: rgba(255, 255, 255, 0.7); }
     .jumbotron .jumbotron-bg h1, .jumbotron .jumbotron-bg .h1,
     .jumbotron .jumbotron-bg h2, .jumbotron .jumbotron-bg .h2 {
-      color: inherit; }
+      color: #212121; }
     .jumbotron .jumbotron-bg > * {
       position: relative;
       z-index: 1;
@@ -13457,7 +13457,7 @@ footer.page-footer {
     padding-right: 12px !important;
     padding-left: 12px !important; }
   .jumbotron.jumbotron-inverse .jumbotron-bg {
-    background: rgba(0, 0, 0, 0.8); }
+    background: rgba(0, 0, 0, 0.7); }
 
 .jumbo-image-container {
   background-color: rgba(255, 255, 255, 0.4);
@@ -13500,10 +13500,10 @@ footer.page-footer {
   padding-right: 15px; }
 
 body.proud-navbar-transparent .jumbotron.jumbotron-inverse, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent .jumbotron.jumbotron-inverse .h2 {
-  color: #f1f1f1; }
+  color: #FFF; }
 
 body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h1, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse h2, body.proud-navbar-transparent.light-background-topnav .jumbotron.jumbotron-inverse .h2 {
-  color: inherit; }
+  color: #212121; }
 
 @media screen and (max-width: 779px) {
   .jumbotron input.input-lg, .jumbotron .input-group-lg > input.form-control, .jumbotron .search-form .input-group-lg > input.search-field, .search-form .jumbotron .input-group-lg > input.search-field, .jumbotron
