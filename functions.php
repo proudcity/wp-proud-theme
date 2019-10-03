@@ -697,12 +697,15 @@ function proud_customize_css() {
         }
 
         a.card-btn,
-        .widget-proud-social-app .nav-pills > li > a {
+        .widget-proud-social-app .nav-pills > li > a,
+        /* Service center icons */
+        .action-box dl .h4 .fa,
+        .action-box dl .h4 .fa:hover {
             color: <?php echo  $color_primary ?>;
         }
 
         a.card-btn:hover,
-        .widget-proud-social-app .nav-pills > li > a:hover{
+        .widget-proud-social-app .nav-pills > li > a:hover {
           color: <?php echo  $color_primary_hover ?>;
         }
 

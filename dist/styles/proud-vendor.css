@@ -11072,9 +11072,9 @@ readers do not read off random characters that represent icons */
   font-family: "Font Awesome 5 Free";
   font-weight: 900; }
 
-.breadcrumb.clean .active a, .action-box dl .h4 span {
+.breadcrumb.clean .active a, .action-box dl .h4 .fa {
   color: #0071bc; }
-  .breadcrumb.clean .active a:hover, .action-box dl .h4 span:hover {
+  .breadcrumb.clean .active a:hover, .action-box dl .h4 .fa:hover {
     color: #004370; }
 
 .breadcrumb.clean .active a:hover {
@@ -12623,14 +12623,16 @@ hr.compact {
       line-height: 40px;
       position: absolute;
       left: 12px;
-      top: 8px;
-      color: #212121; }
+      top: 8px; }
     .action-box dl .h4 .fa ~ span {
       padding-left: 50px; }
     .action-box dl .h4 span {
+      color: #212121;
       padding: 16.8px 12px;
       display: block;
       width: 100%; }
+      .action-box dl .h4 span:hover, .action-box dl .h4 span:focus {
+        color: #212121; }
     .active .action-box dl .h4 {
       padding-bottom: 8.4px; }
       .active .action-box dl .h4 span {
