@@ -13444,9 +13444,6 @@ footer.page-footer {
     padding: 15px;
     position: static;
     background: rgba(255, 255, 255, 0.7); }
-    .jumbotron .jumbotron-bg h1, .jumbotron .jumbotron-bg .h1,
-    .jumbotron .jumbotron-bg h2, .jumbotron .jumbotron-bg .h2 {
-      color: #212121; }
     .jumbotron .jumbotron-bg > * {
       position: relative;
       z-index: 1;
