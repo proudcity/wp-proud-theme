@@ -688,7 +688,8 @@ function proud_customize_css() {
             background-color: <?php echo $color_secondary_hover ?> !important;
         }
 
-        .jumbotron:not(.jumbotron-image),
+        .jumbo-header > .jumbotron:not(.jumbotron-image),
+        .jumbotron-inverse:not(.jumbotron-image),
         .nav-contain .nav-pills li.active a,
         .btn-primary,
         .label-primary {
