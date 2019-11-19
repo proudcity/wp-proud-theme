@@ -276,7 +276,7 @@ function printDocumentInfo($params){
     <div id="tab-contact" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
         <div class="row">
             <div class="col-sm-12">
-                <h3><a href="<?php echo $agency->guid; ?>"><?php echo $agency->post_title; ?></a></h3>
+                <h3><a href="<?php echo get_permalink($agency) ?>"><?php echo $agency->post_title; ?></a></h3>
             </div>
         </div>
         <div class="row">
