@@ -14,7 +14,7 @@
       <h2><a href="/contact">Contact</a></h2>
     </div>
     <div class="entry-content row">
-      <div class="col-md-4 padding-md-left pull-right">
+      <div class="col-md-4 padding-md-left pull-md-right">
         <?php if( has_post_thumbnail() ): ?>
         <p>
           <?php the_post_thumbnail(); ?>
@@ -52,7 +52,7 @@
           <?php endif; ?>
           <p><?php echo $title ?></p>
         <?php endif; ?>
-        <p><?php foreach ($terms as $term): ?><a class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
+        <p><?php foreach ($terms as $term): ?><a style="display: inline-block;" class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
 
       </div>
       <div class="col-md-8">
