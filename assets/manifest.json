@@ -44,6 +44,7 @@
   "config": {
     "devUrl": "http://proud.local/",
     "proudSCSS": {
+      "nav-fixed-bottom-min": "911px",
       "nav-fixed-bottom-max": "1200px",
       "nav-fixed-top-min": "1201px"
     }

@@ -581,7 +581,8 @@ function proud_customize_css() {
 
     // Primary/highlight
     $color_primary = get_theme_mod( 'color_highlight', '#000000' );
-    if ( is_light_color(  $color_primary ) ) {
+    $is_primary_light = is_light_color( $color_primary );
+    if ( $is_primary_light ) {
         $color_primary_hover = adjust_brightness(  $color_primary, -0.15 );
     } else {
         $color_primary_hover = adjust_brightness(  $color_primary, 0.15 );
@@ -590,7 +591,9 @@ function proud_customize_css() {
 
     // Secondary links
     $color_secondary = get_theme_mod('color_secondary', get_theme_mod( 'color_topnav', '#000000' ) );
-    if ( is_light_color( $color_secondary ) ) {
+    $is_secondary_light = is_light_color( $color_secondary );
+    $is_secondary_extra_light = is_extra_light_color( $color_secondary );
+    if ( is_light_color( $is_secondary_light ) ) {
         $color_secondary_hover = adjust_brightness( $color_secondary, -0.15 );
     } else {
         $color_secondary_hover = adjust_brightness( $color_secondary, 0.15 );
@@ -617,6 +620,18 @@ function proud_customize_css() {
         }
     }
 
+    // Deal with menu active state
+    $color_navbar_active = $color_secondary;
+    $color_navbar_active_hover = $color_secondary_hover;
+    $is_navbar_active_light = $is_secondary_light;
+    $is_navbar_active_extra_light = $is_secondary_extra_light;
+    if ($color_navbar_active == $navbar_background) {
+        // If secondary is same color as bar...
+        $color_navbar_active = $color_primary;
+        $color_navbar_active_hover = $color_primary_hover;
+        $is_navbar_active_light = $is_primary_light;
+        $is_navbar_active_extra_light = false;
+    }
 
     ?>
     <!-- proud custom theme settings -->
@@ -678,6 +693,37 @@ function proud_customize_css() {
             border-bottom: 1px solid #eeeeee !important;
         }
         <?php endif; ?>
+
+        /** Active navbar items **/
+        <?php // @TODO switch to scss? ?>
+        @media screen and (min-width: <?php echo $proudSCSS['nav-fixed-bottom-min'] ?>) {
+          .navbar-external .below .navbar-nav > .active > a,
+          .navbar-external .below .navbar-nav > .active > a:hover,
+          .navbar-external .below .navbar-nav > .active > a:focus,
+          .navbar-external .below .navbar-nav > :not(.active) > a:hover,
+          .navbar-external .below .navbar-nav > :not(.active) > a:focus {
+            <?php if ($is_navbar_active_light): ?>
+              <?php if ($is_navbar_active_extra_light): ?>
+                color: #434343!important;
+              <?php else: ?>
+                color: #101010!important;
+              <?php endif; ?>
+            <?php else: ?>
+              color: #fff!important;
+            <?php endif; ?>
+          }
+
+          .navbar-external .below .navbar-nav > .active > a,
+          .navbar-external .below .navbar-nav > .active > a:hover,
+          .navbar-external .below .navbar-nav > .active > a:focus {
+            background: <?php echo $color_navbar_active; ?>;
+          }
+
+          .navbar-external .below .navbar-nav > :not(.active) > a:hover,
+          .navbar-external .below .navbar-nav > :not(.active) > a:focus {
+            background: <?php echo $color_navbar_active_hover; ?>;
+          }
+        }
 
         .nav-contain .nav-pills li a,
         .agency-icon {

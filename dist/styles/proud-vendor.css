@@ -13998,8 +13998,11 @@ body.proud-navbar-active {
       .navbar-external .navbar-nav > li {
         float: left; }
         .navbar-external .navbar-nav > li > a {
+          -webkit-transition: background ease 0.2s, color ease 0.2s;
+               -o-transition: background ease 0.2s, color ease 0.2s;
+                  transition: background ease 0.2s, color ease 0.2s;
           padding-top: 14px;
-          padding-bottom: 13px; }
+          padding-bottom: 14px; }
     .navbar-external .navbar-btn {
       margin-top: 2.5px; }
     .light-background-topnav .navbar-external .navbar-nav > li > a, .light-background-topnav .navbar-external .navbar-nav > .open > a {
