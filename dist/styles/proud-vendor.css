@@ -16758,6 +16758,9 @@ body.proud-navbar-active.admin-bar {
   .media-byline.active span.media-byline-inner {
     display: block; } }
 
+.wp-caption.alignnone {
+  width: auto !important; }
+
 .wp-caption-text {
   padding: 9px; }
 
