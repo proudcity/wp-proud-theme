@@ -13263,9 +13263,9 @@ img {
     .footer-actions .nav > li a:hover, .footer-actions .nav > li a:active, .footer-actions .nav > li a:focus {
       color: #e6e6e6;
       text-decoration: underline !important; }
-  body .footer-actions .nav > li a {
+  body .light-background-highlight .footer-actions .nav > li a {
     color: #101010; }
-    body .footer-actions .nav > li a:hover, body .footer-actions .nav > li a:active, body .footer-actions .nav > li a:focus {
+    body .light-background-highlight .footer-actions .nav > li a:hover, body .light-background-highlight .footer-actions .nav > li a:active, body .light-background-highlight .footer-actions .nav > li a:focus {
       color: black; }
   .btn.proudscore-widget {
     margin-left: 12px; } }
