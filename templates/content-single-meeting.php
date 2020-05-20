@@ -31,11 +31,12 @@ if (!empty($agency_id)) {
 }
 
 $agenda = wpautop(get_post_meta($id, 'agenda', true));
+$agenda_packet = wpautop(get_post_meta($id, 'agenda_packet', true));
 $minutes = wpautop(get_post_meta($id, 'minutes', true));
 
 // Generate a list of attachments similar to what we're using in content-single-document.php
 $attachments = [];
-foreach(['agenda', 'minutes'] as $field) {
+foreach(['agenda', 'agenda_packet', 'minutes'] as $field) {
   $item = [
     'id' => get_post_meta($id, $field . '_attachment', true),
     'show_preview' => false,
@@ -191,7 +192,8 @@ function printDocumentInfo($params){
 
 <?php $hasActive = false; ?>
 <ul class="nav nav-tabs" style="margin-top:10px;">
-    <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda">Agenda Packet</a></li><?php endif; ?>
+    <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li><?php endif; ?>
+    <?php if (!empty($agenda_packet) || !empty($attachments['agenda_packet'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda-packet">Agenda Packet</a></li><?php endif; ?>
     <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
     <?php if (!empty($video)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
     <?php if (!empty($audio)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
@@ -204,17 +206,33 @@ function printDocumentInfo($params){
   <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?>
       <div id="tab-agenda" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
 
-          <div class="row">
-              <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
-              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
-          </div>
-
+        <div class="row">
+            <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
+            <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
+        </div>
 
         <?php if (!empty($attachments['agenda'])) {
           if(!empty($agenda)) {
             echo '<hr/>';
           }
           printDocument($attachments['agenda']);
+        } ?>
+      </div>
+  <?php endif; ?>
+
+  <?php if (!empty($agenda_packet) || !empty($attachments['agenda_packet'])): ?>
+      <div id="tab-agenda-packet" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
+
+        <div class="row">
+            <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda_packet ?></div>
+            <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda_packet > 1000)): ?><?php echo printDocumentInfo($attachments['agenda_packet']); ?><?php endif; ?></div>
+        </div>
+
+        <?php if (!empty($attachments['agenda_packet'])) {
+          if(!empty($agenda_packet)) {
+            echo '<hr/>';
+          }
+          printDocument($attachments['agenda_packet']);
         } ?>
       </div>
   <?php endif; ?>
@@ -229,9 +247,9 @@ function printDocumentInfo($params){
             <hr/>
         <?php endif; ?>
         <?php if (!empty($attachments['minutes'])) {
-          if(!empty($agenda)) {
-            echo '<hr/>';
-          }
+          // if(!empty($minutes)) {
+          //   echo '<hr/>';
+          // }
           printDocument($attachments['minutes']);
         } ?>
       </div>
