@@ -15,8 +15,8 @@ else {
   $content .= '<td></td>';
 }
 
-if (!empty($meta['agenda_packet'][0]) || !empty($meta['agenda_packet'][0])) {
-    if (!empty($meta['agenda_packet'][0])) {
+if (!empty($meta['agenda_packet'][0]) || !empty($meta['agenda_packet_attachment'][0])) {
+    if (!empty($meta['agenda_packet_attachment'][0])) {
       $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Packet";
     }
     else {
