@@ -15,6 +15,20 @@ else {
   $content .= '<td></td>';
 }
 
+if (!empty($meta['agenda_packet'][0]) || !empty($meta['agenda_packet'][0])) {
+    if (!empty($meta['agenda_packet'][0])) {
+      $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Packet";
+    }
+    else {
+      $item = "<i class='fa fa-fw fa-file-text'></i>Packet";
+    }
+    $content .= "<td><a class='label label-primary' href='$url#tab-agenda'>$item</a></td>";
+}
+else {
+  $content .= '<td></td>';
+}
+
+
 if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
   if (!empty($meta['minutes_attachment'])) {
     $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Minutes";
