@@ -40,7 +40,7 @@
         <?php } //endif ?>
         </ul>
       <?php endif; ?>
-      <?php do_action( 'teaser_search_matching', $post ); ?>
+      <?php //do_action( 'teaser_search_matching', $post ); ?>
     </div>
   </div>
 </div>
