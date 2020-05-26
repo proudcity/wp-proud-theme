@@ -41,7 +41,6 @@
         </ul>
       <?php endif; ?>
       <?php do_action( 'teaser_search_matching', $post ); ?>
-      <p class="margin-bottom-none"><?php echo \Proud\Core\wp_trim_excerpt(); ?></p>
     </div>
   </div>
 </div>
