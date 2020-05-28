@@ -44,9 +44,9 @@ if (!$proudcore) {
           </aside><!-- /.sidebar -->
         <?php endif; ?>
 
-        <main class="main">
+        <main class="main"><!--PAGEWATCH-->
           <?php include Wrapper\template_path(); ?>
-        </main><!-- /.main -->
+        <!--PAGEWATCH--></main><!-- /.main -->
 
       </div><!-- /.content -->
     </div><!-- /.wrap -->
