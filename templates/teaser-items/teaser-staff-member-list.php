@@ -1,5 +1,6 @@
 
 <div class="entry-content row">
+
 <div class="col-md-4 padding-md-left pull-md-right">
     <p><?php the_post_thumbnail( array( 300, 300 ) ); ?></p>
     <p>
@@ -14,6 +15,6 @@
     <div class="col-md-8">
         <?php the_title( sprintf( '<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
-        <?php echo $meta['_staff_member_bio'][0]; ?> 
+        <?php echo wpautop($meta['_staff_member_bio'][0]); ?> 
     </div>
 </div>
