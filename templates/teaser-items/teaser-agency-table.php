@@ -4,11 +4,11 @@
   
   <td><?php echo empty($this->hide['person']) && !empty( $meta['name'][0] ) ? $meta['name'][0] : '' ?></td>
   
-  <td><?php if( !empty( $meta['phone'][0] ) ): ?>
+  <td><?php if( !empty( $meta['phone'][0] ) && empty( $this->hide['phone'] ) ): ?>
     <?php echo sprintf( '<a href="%s"><i class="fa fa-fw fa-phone"></i>%s</a>', esc_url( 'tel:' . $meta['phone'][0] ) , $meta['phone'][0] ); ?>
   <?php endif; ?></td>
 
-  <td><?php if( !empty( $meta['email'][0] ) ): ?>
+  <td><?php if( !empty( $meta['email'][0] ) && empty( $this->hide['email'] ) ): ?>
     <?php if(filter_var( $meta['email'][0], FILTER_VALIDATE_EMAIL ) ): ?>
       <?php echo sprintf( '<a href="%s"><i class="fa fa-fw fa-envelope-o"></i>%s</a>', esc_url( 'mailto:' . $meta['email'][0] ) , __('Email', 'proud-agency') ); ?>
     <?php else: ?>

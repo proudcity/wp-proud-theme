@@ -726,6 +726,7 @@ function proud_customize_css() {
         }
 
         .nav-contain .nav-pills li a,
+        .card-inverse,
         .agency-icon {
             background-color: <?php echo $color_secondary ?> !important;
         }
