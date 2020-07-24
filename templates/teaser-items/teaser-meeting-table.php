@@ -22,7 +22,7 @@ if (!empty($meta['agenda_packet'][0]) || !empty($meta['agenda_packet_attachment'
     else {
       $item = "<i class='fa fa-fw fa-file-text'></i>Packet";
     }
-    $content .= "<td><a class='label label-primary' href='$url#tab-agenda'>$item</a></td>";
+    $content .= "<td><a class='label label-primary' href='$url#tab-agenda-packet'>$item</a></td>";
 }
 else {
   $content .= '<td></td>';
