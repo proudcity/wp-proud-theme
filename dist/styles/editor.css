@@ -15802,9 +15802,14 @@ body.active-311, body.search-active {
     margin-right: 10%; } }
 
 .menu-slider {
+  height: 43px;
+  opacity: 0;
   overflow: hidden;
   width: 100%;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  -webkit-transition: opacity ease-in 0.2s;
+  -o-transition: opacity ease-in 0.2s;
+     transition: opacity ease-in 0.2s; }
   .menu-slider > .inner {
     position: relative;
     float: left;
@@ -17611,6 +17616,8 @@ body.proud-navbar-active.admin-bar {
   .panel-row-multiple .panel-grid-cell {
     padding-left: 12px !important;
     padding-right: 12px !important; }
+    .panel-row-multiple .panel-grid-cell > .widget > .proud-widget-title {
+      margin-top: 0; }
 
 .wrap.container .panel-grid > .container {
   width: auto !important; }
