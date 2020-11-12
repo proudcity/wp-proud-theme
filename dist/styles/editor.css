@@ -14584,6 +14584,9 @@ body.proud-navbar-active {
     font-size: 1.6em; }
   .navbar-external .nav-logo a {
     padding: 6px; }
+    .navbar-external .nav-logo a#logo:focus {
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px; }
   .navbar-external .nav-text a {
     padding-left: 0;
     font-size: 20px; }
@@ -15213,6 +15216,9 @@ body.proud-navbar-active {
   margin-top: -5px;
   margin-bottom: -5px;
   padding: 10px; }
+  .navbar-header-region .nav-logo:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px; }
   .navbar-header-region .nav-logo img.logo {
     max-width: 150px;
     max-height: 60px; }
@@ -17296,7 +17302,10 @@ body.active-311, body.search-active {
   .show-lg-inline-block {
     display: inline-block !important; } }
 
-.sr-only:focus, .screen-reader-text:focus {
+.sr-only:focus, .screen-reader-text:focus,
+.sr-only :focus-within, .screen-reader-text :focus-within,
+.screen-reader-text:focus,
+.screen-reader-text :focus-within {
   background-color: #f1f1f1;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto;
