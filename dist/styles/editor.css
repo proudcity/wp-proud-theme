@@ -15810,6 +15810,11 @@ body.active-311, body.search-active {
   -webkit-transition: opacity ease-in 0.2s;
   -o-transition: opacity ease-in 0.2s;
      transition: opacity ease-in 0.2s; }
+  .menu-slider[data-level-active="1"] {
+    height: auto;
+    opacity: 1; }
+    .menu-slider[data-level-active="1"] > .inner:first-child {
+      float: none; }
   .menu-slider > .inner {
     position: relative;
     float: left;
