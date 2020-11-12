@@ -582,6 +582,7 @@ function proud_customize_css() {
     // Primary/highlight
     $color_primary = get_theme_mod( 'color_highlight', '#000000' );
     $is_primary_light = is_light_color( $color_primary );
+    $is_primary_extra_light = is_extra_light_color( $color_primary );
     if ( $is_primary_light ) {
         $color_primary_hover = adjust_brightness(  $color_primary, -0.15 );
     } else {
@@ -744,6 +745,29 @@ function proud_customize_css() {
             border-color: <?php echo  $color_primary ?> !important;
         }
 
+        .gform_wrapper .button, .gform_button,
+        .gform_wrapper .button:hover, .gform_button:hover {
+            <?php if ($is_primary_light): ?>
+              <?php if ($is_primary_extra_light): ?>
+                color: #434343;
+              <?php else: ?>
+                color: #101010;
+              <?php endif; ?>
+            <?php else: ?>
+              color: #fff;
+            <?php endif; ?>
+        }
+
+        .gform_wrapper .button, .gform_button {
+            background-color: <?php echo  $color_primary ?>;
+            border-color: <?php echo  $color_primary ?>;
+        }
+
+        .gform_wrapper .button:hover, .gform_button:hover {
+            background-color: <?php echo  $color_primary_hover ?>;
+            border-color: <?php echo  $color_primary_hover ?>;
+        }
+
         a.card-btn,
         .widget-proud-social-app .nav-pills > li > a,
         /* Service center icons */
@@ -754,7 +778,7 @@ function proud_customize_css() {
 
         a.card-btn:hover,
         .widget-proud-social-app .nav-pills > li > a:hover {
-          color: <?php echo  $color_primary_hover ?>;
+            color: <?php echo  $color_primary_hover ?>;
         }
 
         .card .social-card-header, .card .social-card-header .post-link a {
