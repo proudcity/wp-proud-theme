@@ -21,7 +21,13 @@
         <?php endif; ?>
       </div>
       <div class="col-md-4 right-sidebar">
-        <?php dynamic_sidebar('sidebar-job'); ?>
+        <?php //dynamic_sidebar('sidebar-job'); ?>
+        <div class="card-wrap">
+            <a href="/jobs" class="card text-center card-btn card-block">
+            <i aria-hidden="true" class="fa far fa-newspaper fa-3x"></i>
+            <div class="h4">More Job Postings</div></a>
+        </div>
+
       </div>
   </article>
 <?php endwhile; ?>
