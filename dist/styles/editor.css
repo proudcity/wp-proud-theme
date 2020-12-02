@@ -13993,29 +13993,29 @@ img {
     .footer-actions .navbar-nav > li.open > a:focus {
       background: transparent;
       text-decoration: underline; }
-  body .footer-actions .navbar-nav > li > a,
-  body .footer-actions .navbar-nav > li.open > a {
+  body .footer-actions .navbar-nav > li > a:not(.btn-primary),
+  body .footer-actions .navbar-nav > li.open > a:not(.btn-primary) {
     color: #FFF; }
-    body .footer-actions .navbar-nav > li > a:hover, body .footer-actions .navbar-nav > li > a:active, body .footer-actions .navbar-nav > li > a:focus,
-    body .footer-actions .navbar-nav > li.open > a:hover,
-    body .footer-actions .navbar-nav > li.open > a:active,
-    body .footer-actions .navbar-nav > li.open > a:focus {
+    body .footer-actions .navbar-nav > li > a:not(.btn-primary):hover, body .footer-actions .navbar-nav > li > a:not(.btn-primary):active, body .footer-actions .navbar-nav > li > a:not(.btn-primary):focus,
+    body .footer-actions .navbar-nav > li.open > a:not(.btn-primary):hover,
+    body .footer-actions .navbar-nav > li.open > a:not(.btn-primary):active,
+    body .footer-actions .navbar-nav > li.open > a:not(.btn-primary):focus {
       color: #e6e6e6; }
-  .light-background-footer-actions .footer-actions .navbar-nav > li > a,
-  .light-background-footer-actions .footer-actions .navbar-nav > li.open > a {
+  .light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary),
+  .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary) {
     color: #101010; }
-    .light-background-footer-actions .footer-actions .navbar-nav > li > a:hover, .light-background-footer-actions .footer-actions .navbar-nav > li > a:active, .light-background-footer-actions .footer-actions .navbar-nav > li > a:focus,
-    .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:hover,
-    .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:active,
-    .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:focus {
+    .light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary):hover, .light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary):active, .light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary):focus,
+    .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary):hover,
+    .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary):active,
+    .light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary):focus {
       color: black; }
-  .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a,
-  .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a {
+  .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary),
+  .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary) {
     color: #434343; }
-    .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:hover, .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:active, .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:focus,
-    .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:hover,
-    .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:active,
-    .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:focus {
+    .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary):hover, .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary):active, .extra-light-background-footer-actions .footer-actions .navbar-nav > li > a:not(.btn-primary):focus,
+    .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary):hover,
+    .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary):active,
+    .extra-light-background-footer-actions .footer-actions .navbar-nav > li.open > a:not(.btn-primary):focus {
       color: #2a2a2a; }
   .footer-actions .navbar-left.dropdown,
   .footer-actions .navbar-left > .social,
@@ -14028,15 +14028,19 @@ img {
     margin-top: 7px; }
 
 @media (max-width: 910px) {
-  .footer-actions .nav > li a {
+  .footer-actions .nav > li a:not(.btn-primary) {
     color: #FFF; }
-    .footer-actions .nav > li a:hover, .footer-actions .nav > li a:active, .footer-actions .nav > li a:focus {
+    .footer-actions .nav > li a:not(.btn-primary):hover, .footer-actions .nav > li a:not(.btn-primary):active, .footer-actions .nav > li a:not(.btn-primary):focus {
       color: #e6e6e6;
       text-decoration: underline !important; }
-  body .light-background-highlight .footer-actions .nav > li a {
+  body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary) {
     color: #101010; }
-    body .light-background-highlight .footer-actions .nav > li a:hover, body .light-background-highlight .footer-actions .nav > li a:active, body .light-background-highlight .footer-actions .nav > li a:focus {
+    body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary):hover, body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary):active, body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary):focus {
       color: black; }
+  .footer-actions .dropdown-menu > li > a:hover,
+  .footer-actions .dropdown-menu > li > a:focus {
+    background: none;
+    text-decoration: underline; }
   .btn.proudscore-widget {
     margin-left: 12px; } }
 
@@ -14044,58 +14048,102 @@ footer.page-footer {
   font-size: 14px;
   padding: 20px 0 45px 0;
   position: relative; }
-  footer.page-footer, footer.page-footer a, footer.page-footer label,
-  footer.page-footer h2, footer.page-footer .h2, footer.page-footer h3, footer.page-footer .h3, footer.page-footer h4, footer.page-footer .h4, footer.page-footer h5, footer.page-footer .h5, footer.page-footer h6, footer.page-footer .h6,
-  footer.page-footer form input[type="submit"] {
+  footer.page-footer,
+  footer.page-footer a,
+  footer.page-footer label,
+  footer.page-footer h2,
+  footer.page-footer .h2,
+  footer.page-footer h3,
+  footer.page-footer .h3,
+  footer.page-footer h4,
+  footer.page-footer .h4,
+  footer.page-footer h5,
+  footer.page-footer .h5,
+  footer.page-footer h6,
+  footer.page-footer .h6,
+  footer.page-footer form input[type='submit'] {
     color: #FFF; }
-  footer.page-footer a:hover, footer.page-footer a:focus {
+  footer.page-footer a:hover,
+  footer.page-footer a:focus {
     color: white; }
-  footer.page-footer form input[type="submit"] {
+  footer.page-footer form input[type='submit'] {
     background: rgba(0, 0, 0, 0.6);
     border-color: transparent; }
-    footer.page-footer form input[type="submit"]:hover {
+    footer.page-footer form input[type='submit']:hover {
       color: #FFF;
       background: rgba(0, 0, 0, 0.7); }
-  footer.page-footer h4, footer.page-footer .h4 {
+  footer.page-footer h4,
+  footer.page-footer .h4 {
     color: #FFF !important; }
-  footer.page-footer h5, footer.page-footer .h5 {
+  footer.page-footer h5,
+  footer.page-footer .h5 {
     margin-bottom: 6px; }
   footer.page-footer ul {
     padding-left: 0;
     list-style: none; }
-  .light-background-footer footer.page-footer, .light-background-footer footer.page-footer a, .light-background-footer footer.page-footer label,
-  .light-background-footer footer.page-footer h2, .light-background-footer footer.page-footer .h2, .light-background-footer footer.page-footer h3, .light-background-footer footer.page-footer .h3, .light-background-footer footer.page-footer h4, .light-background-footer footer.page-footer .h4, .light-background-footer footer.page-footer h5, .light-background-footer footer.page-footer .h5, .light-background-footer footer.page-footer h6, .light-background-footer footer.page-footer .h6,
-  .light-background-footer footer.page-footer form input[type="submit"] {
+  .light-background-footer footer.page-footer,
+  .light-background-footer footer.page-footer a,
+  .light-background-footer footer.page-footer label,
+  .light-background-footer footer.page-footer h2,
+  .light-background-footer footer.page-footer .h2,
+  .light-background-footer footer.page-footer h3,
+  .light-background-footer footer.page-footer .h3,
+  .light-background-footer footer.page-footer h4,
+  .light-background-footer footer.page-footer .h4,
+  .light-background-footer footer.page-footer h5,
+  .light-background-footer footer.page-footer .h5,
+  .light-background-footer footer.page-footer h6,
+  .light-background-footer footer.page-footer .h6,
+  .light-background-footer footer.page-footer form input[type='submit'] {
     color: #101010; }
-  .light-background-footer footer.page-footer form input[type="submit"]:hover, .light-background-footer footer.page-footer a:hover, .light-background-footer footer.page-footer a:focus {
+  .light-background-footer footer.page-footer form input[type='submit']:hover,
+  .light-background-footer footer.page-footer a:hover,
+  .light-background-footer footer.page-footer a:focus {
     color: #434343; }
-  .light-background-footer footer.page-footer form input[type="submit"] {
+  .light-background-footer footer.page-footer form input[type='submit'] {
     background: rgba(255, 255, 255, 0.4);
     border-color: rgba(16, 16, 16, 0.2); }
-    .light-background-footer footer.page-footer form input[type="submit"]:hover {
+    .light-background-footer footer.page-footer form input[type='submit']:hover {
       color: #101010;
       background: rgba(255, 255, 255, 0.6); }
-  .light-background-footer footer.page-footer h4, .light-background-footer footer.page-footer .h4 {
+  .light-background-footer footer.page-footer h4,
+  .light-background-footer footer.page-footer .h4 {
     color: #101010 !important; }
-  .extra-light-background-footer footer.page-footer, .extra-light-background-footer footer.page-footer a, .extra-light-background-footer footer.page-footer label,
-  .extra-light-background-footer footer.page-footer h2, .extra-light-background-footer footer.page-footer .h2, .extra-light-background-footer footer.page-footer h3, .extra-light-background-footer footer.page-footer .h3, .extra-light-background-footer footer.page-footer h4, .extra-light-background-footer footer.page-footer .h4, .extra-light-background-footer footer.page-footer h5, .extra-light-background-footer footer.page-footer .h5, .extra-light-background-footer footer.page-footer h6, .extra-light-background-footer footer.page-footer .h6,
-  .extra-light-background-footer footer.page-footer form input[type="submit"] {
+  .extra-light-background-footer footer.page-footer,
+  .extra-light-background-footer footer.page-footer a,
+  .extra-light-background-footer footer.page-footer label,
+  .extra-light-background-footer footer.page-footer h2,
+  .extra-light-background-footer footer.page-footer .h2,
+  .extra-light-background-footer footer.page-footer h3,
+  .extra-light-background-footer footer.page-footer .h3,
+  .extra-light-background-footer footer.page-footer h4,
+  .extra-light-background-footer footer.page-footer .h4,
+  .extra-light-background-footer footer.page-footer h5,
+  .extra-light-background-footer footer.page-footer .h5,
+  .extra-light-background-footer footer.page-footer h6,
+  .extra-light-background-footer footer.page-footer .h6,
+  .extra-light-background-footer footer.page-footer form input[type='submit'] {
     color: #434343; }
-  .extra-light-background-footer footer.page-footer form input[type="submit"]:hover, .extra-light-background-footer footer.page-footer a:hover, .extra-light-background-footer footer.page-footer a:focus {
+  .extra-light-background-footer footer.page-footer form input[type='submit']:hover,
+  .extra-light-background-footer footer.page-footer a:hover,
+  .extra-light-background-footer footer.page-footer a:focus {
     color: #767676; }
-  .extra-light-background-footer footer.page-footer form input[type="submit"] {
+  .extra-light-background-footer footer.page-footer form input[type='submit'] {
     background: rgba(255, 255, 255, 0.4);
     border-color: rgba(67, 67, 67, 0.2); }
-    .extra-light-background-footer footer.page-footer form input[type="submit"]:hover {
+    .extra-light-background-footer footer.page-footer form input[type='submit']:hover {
       color: #434343;
       background: rgba(255, 255, 255, 0.6); }
-  .extra-light-background-footer footer.page-footer h4, .extra-light-background-footer footer.page-footer .h4 {
+  .extra-light-background-footer footer.page-footer h4,
+  .extra-light-background-footer footer.page-footer .h4 {
     color: #434343 !important; }
-  footer.page-footer .footer-logo-wrapper h4, footer.page-footer .footer-logo-wrapper .h4 {
+  footer.page-footer .footer-logo-wrapper h4,
+  footer.page-footer .footer-logo-wrapper .h4 {
     margin: 0;
     line-height: 1.1em;
     font-size: 30px; }
-    footer.page-footer .footer-logo-wrapper h4 small, footer.page-footer .footer-logo-wrapper .h4 small {
+    footer.page-footer .footer-logo-wrapper h4 small,
+    footer.page-footer .footer-logo-wrapper .h4 small {
       font-weight: bold;
       color: #e3e4e6; }
   footer.page-footer .footer-logo-wrapper .footer-logo {
