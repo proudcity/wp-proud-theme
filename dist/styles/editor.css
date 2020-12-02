@@ -13204,6 +13204,9 @@ label {
   background: #fff;
   color: #212121; }
 
+.gform_wrapper .gfield_error input, .gform_wrapper .gfield_error select, .gform_wrapper .gfield_error textarea {
+  color: #a94442; }
+
 .form-group, .search-form label {
   position: relative; }
   .form-group .form-control-search-icon, .search-form label .form-control-search-icon {
