@@ -14036,10 +14036,10 @@ img {
     .footer-actions .nav > li a:not(.btn-primary):hover, .footer-actions .nav > li a:not(.btn-primary):active, .footer-actions .nav > li a:not(.btn-primary):focus {
       color: #e6e6e6;
       text-decoration: underline !important; }
-  body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary) {
+  body.light-background-footer-actions .footer-actions .nav > li a:not(.btn-primary) {
     color: #101010; }
-    body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary):hover, body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary):active, body.light-background-highlight .footer-actions .nav > li a:not(.btn-primary):focus {
-      color: black; }
+    body.light-background-footer-actions .footer-actions .nav > li a:not(.btn-primary):hover, body.light-background-footer-actions .footer-actions .nav > li a:not(.btn-primary):active, body.light-background-footer-actions .footer-actions .nav > li a:not(.btn-primary):focus {
+      color: #2a2a2a; }
   .footer-actions .dropdown-menu > li > a:hover,
   .footer-actions .dropdown-menu > li > a:focus {
     background: none;
