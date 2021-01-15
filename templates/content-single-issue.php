@@ -5,7 +5,7 @@ $type = get_post_meta( $post_id, 'issue_category_type', true );
 
 <article <?php post_class(); ?>>
   <header>
-    <h1 class="entry-title"><?php the_title( sprintf( 'Report Issue: ') ); ?></h1>
+    <h1 class="entry-title"><?php the_title( sprintf( _x( 'Report Issue: ', 'post prefix', 'wp-issue' )) ); ?></h1>
   </header>
   <div class="entry-content row" id="entry-content">
     <div class="col-md-9">
