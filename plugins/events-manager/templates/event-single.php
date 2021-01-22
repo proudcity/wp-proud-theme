@@ -95,7 +95,7 @@
   <hr>
 <?php } //endif ?>
 
-<!--
+<?php /*
 <span class="addtocalendar">
   <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
   <var class="atc_event">
@@ -108,7 +108,7 @@
   </var>
 </span>
 <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i> Directions</a>
--->
+*/ ?>
 
 <!-- addtocalendar code @todo: better embed -->
 <link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
