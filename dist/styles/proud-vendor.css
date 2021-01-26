@@ -13942,7 +13942,10 @@ img {
 
 @media (max-width: 910px) {
   .footer-actions .goog-te-gadget {
-    color: #FFF; } }
+    color: #FFF; }
+  header .widget-proud-google-translate .dropdown-menu {
+    top: auto;
+    bottom: 52px; } }
 
 .share.share-inline li,
 .share.share-inline h6 {
