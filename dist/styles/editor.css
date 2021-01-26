@@ -13204,7 +13204,9 @@ label {
   background: #fff;
   color: #212121; }
 
-.gform_wrapper .gfield_error input, .gform_wrapper .gfield_error select, .gform_wrapper .gfield_error textarea {
+.gform_wrapper .gfield_error input,
+.gform_wrapper .gfield_error select,
+.gform_wrapper .gfield_error textarea {
   color: #a94442; }
 
 .form-group, .search-form label {
@@ -13217,6 +13219,10 @@ label {
   .form-group .option-box-label, .search-form label .option-box-label {
     font-weight: bold;
     margin-bottom: 0; }
+  .form-group legend.option-box-label, .search-form label legend.option-box-label {
+    font-size: inherit;
+    margin-bottom: 5px;
+    border-bottom: 0; }
   .form-group .checkbox, .search-form label .checkbox {
     margin: 5px 10px; }
 
