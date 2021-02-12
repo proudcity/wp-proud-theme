@@ -27,7 +27,7 @@
   if(!empty($EM_Event->start) && !empty( $EM_Event->event_start_time ) && $EM_Event->event_start_time != "00:00:00" ) {
     $time = date_i18n( 'g:ia', $EM_Event->start );
   }
-  if(!empty($EM_Event->end) && !empty( $EM_Event->event_end_time ) && $EM_Event->event_end_time !== $EM_Event->event_start_time && $EM_Event->event_end_time != "00:00:00" ) {
+  if(!empty($EM_Event->end) && !empty( $EM_Event->event_end_time ) && $EM_Event->event_end_time !== $EM_Event->event_start_time && $EM_Event->event_end_time != "23:59:59" ) {
     $time .= ' - ' . date_i18n( 'g:ia', $EM_Event->end );
   }
 ?>
@@ -37,7 +37,7 @@
     <div class="date-box"><?php echo date_i18n($datebox_format, $EM_Event->start) ?></div>
   </div>
   <div class="col-sm-10 col-xs-9">
-      <h3 class="margin-top-none margin-bottom-none">
+      <h3 class="margin-top-none">
         <span class="start-time"><?php echo $time ?></span>
         <?php if( !empty( $location ) ) :?>
         <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $EM_Event->location->location_name  ?></span></h3>
