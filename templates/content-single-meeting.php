@@ -197,7 +197,7 @@ function printDocumentInfo($params){
     <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li><?php endif; ?>
     <?php if (!empty($agenda_packet) || !empty($attachments['agenda_packet'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda-packet">Agenda Packet</a></li><?php endif; ?>
     <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
-    <?php if ($videoStyle === '' && !empty($video)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
+    <?php if (empty($videoStyle) && !empty($video)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
     <?php if ($videoStyle === 'external' && !empty($externalVideo)): ?><li><a href="<?php echo $externalVideo ?>" target="_blank" title="View video on external website">Video <i class="fa fa-external-link"></i></a></li><?php endif; ?>
     <?php if (!empty($audio)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
     <?php if (!empty($agency)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>

@@ -51,7 +51,7 @@ else {
   $content .= '<td></td>';
 }
 
-if ($meta['video_style'][0] === '' && !empty($meta['video'][0])) {
+if (empty($meta['video_style'][0]) && !empty($meta['video'][0])) {
   $item = "<i class='fa fa-fw fa-youtube'></i> Video";
   $content .= "<td><a class='label label-primary' href='$url#tab-video'>$item</a></td>";
 }
