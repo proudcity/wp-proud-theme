@@ -51,11 +51,15 @@ else {
   $content .= '<td></td>';
 }
 
-
-if (!empty($meta['video'][0])) {
+if ($meta['video_style'][0] === '' && !empty($meta['video'][0])) {
   $item = "<i class='fa fa-fw fa-youtube'></i> Video";
   $content .= "<td><a class='label label-primary' href='$url#tab-video'>$item</a></td>";
 }
+elseif ($meta['video_style'][0] === 'external' && !empty($meta['external_video'][0])) {
+    $item = "Video <i class='fa fa-fw fa-external-link'></i>";
+    $videoUrl = $meta['external_video'][0];
+    $content .= "<td><a class='label label-primary' href='$videoUrl' target='_blank' title='Open video on external website'>$item</a></td>";
+  }
 else {
   $content .= '<td></td>';
 }
