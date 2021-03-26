@@ -13003,50 +13003,64 @@ body .ai1ec-agenda-widget-view .ai1ec-event > a {
   body .ai1ec-agenda-widget-view .ai1ec-event > a:hover {
     background-color: #f1f1f1; }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 50px;
   font-weight: 900;
   color: #212121;
   line-height: 1.1; }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 30px;
   font-weight: 700;
   color: #212121;
   line-height: 1.2; }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 24px;
   font-weight: 700;
   color: #212121;
   line-height: 1.2; }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: 20px;
   font-weight: 400;
   color: #212121;
   line-height: 1.5; }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: 16px;
   font-weight: 300;
   color: #212121;
   line-height: 1.4; }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: 16px;
   font-weight: 300;
   color: #212121;
   line-height: 1.4; }
 
 @media screen and (max-width: 779px) {
-  h1, .h1 {
+  h1,
+  .h1 {
     font-size: 37.5px; }
-  h2, .h2 {
+  h2,
+  .h2 {
     font-size: 22.5px; }
-  h3, .h3 {
+  h3,
+  .h3 {
     font-size: 18px; }
-  h4, h5, h6, .h4, .h5, .h6 {
+  h4,
+  h5,
+  h6,
+  .h4,
+  .h5,
+  .h6 {
     font-size: 15px; } }
 
 .no-margin {
@@ -13066,7 +13080,16 @@ p,
   margin-top: 24px; }
 
 .text-small {
-  font-size: .8em; }
+  font-size: 0.8em; }
+
+p a,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  text-decoration: underline; }
 
 h1 .label,
 .h1 .label,
