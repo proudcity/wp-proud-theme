@@ -56,7 +56,7 @@
               <var class="atc_date_end"><?php echo $EM_end->i18n($atc_format) ?></var>
               <var class="atc_timezone"><?php echo $EM_start->i18n('e') ?></var>
               <var class="atc_title"><?php echo $post->post_title ?></var>
-              <var class="atc_description"><?php //echo $post->post_content ?></var>
+              <var class="atc_description"><?php echo $post->post_content ?></var>
               <var class="atc_location"><?php echo $location ?></var>
             </var>
           </span>
