@@ -13756,28 +13756,34 @@ img {
 
 .alert-banner {
   margin-bottom: 0; }
+  .alert-banner a {
+    text-decoration: underline; }
 
 .proud-alert-banner {
   border-radius: 0 !important;
   border: none !important; }
 
 .alert-red {
-  background-color: #BF0711; }
+  background-color: #bf0711; }
 
 .alert-orange {
-  background-color: #C05717; }
+  background-color: #c05717; }
 
 .alert-yellow {
-  background-color: #EEC200; }
+  background-color: #eec200; }
 
 .alert-green {
   background-color: #108043; }
 
 .alert-black {
-  background-color: #212B35; }
+  background-color: #212b35; }
 
 .alert-gray {
-  background-color: #C4CDD5; }
+  background-color: #c4cdd5; }
+
+.alert-yellow a,
+.alert-gray a {
+  color: #212121 !important; }
 
 .alert-red,
 .alert-orange,
