@@ -13233,9 +13233,27 @@ label {
 .gform_wrapper .gfield_error textarea {
   color: #a94442; }
 
+.gform_wrapper .ginput_container_consent input[type='checkbox'],
 .gform_wrapper ul.gfield_checkbox li input[type='checkbox'],
 .gform_wrapper ul.gfield_radio li input[type='radio'] {
   width: auto; }
+
+.gform_wrapper .ginput_container_consent input[type='checkbox'] {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1px; }
+  .gform_wrapper .ginput_container_consent input[type='checkbox'] + label {
+    display: inline-block;
+    line-height: 1.5;
+    font-size: 0.875em;
+    vertical-align: middle;
+    max-width: 85%;
+    white-space: normal;
+    letter-spacing: inherit;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0;
+    width: auto; }
 
 .form-group, .search-form label {
   position: relative; }
