@@ -735,9 +735,13 @@ function proud_customize_css() {
         .agency-icon :hover {
             background-color: <?php echo $color_secondary_hover ?> !important;
         }
+        .card-btn.card-inverse {
+            box-shadow: none !important;
+        }
+        .card-btn.card-inverse,
         .card-btn.card-inverse a,
-        .card-btn.card-inverse h4 {
-            color: #fff;
+        .card-btn.card-inverse .h4 {
+            color: #fff !important;
         }
 
         .jumbo-header > .jumbotron:not(.jumbotron-image),
