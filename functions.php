@@ -727,7 +727,6 @@ function proud_customize_css() {
         }
 
         .nav-contain .nav-pills li a,
-        .card-inverse,
         .agency-icon {
             background-color: <?php echo $color_secondary ?> !important;
         }
@@ -748,6 +747,7 @@ function proud_customize_css() {
         .jumbotron-inverse:not(.jumbotron-image),
         .nav-contain .nav-pills li.active a,
         .btn-primary,
+        .card-inverse,
         .label-primary {
             background-color: <?php echo  $color_primary ?> !important;
             border-color: <?php echo  $color_primary ?> !important;
