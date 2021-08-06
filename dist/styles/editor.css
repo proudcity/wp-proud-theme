@@ -14712,7 +14712,6 @@ body.proud-navbar-active {
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
-    font-size: 18px;
     border-radius: 10px;
     color: #FFF;
     margin-top: 2.5px;
@@ -14725,6 +14724,13 @@ body.proud-navbar-active {
       height: 45px;
       vertical-align: middle;
       line-height: 42.75px; }
+    .navbar-external .navbar-btn i {
+      font-size: 18px; }
+    .navbar-external .navbar-btn.show-label {
+      width: auto;
+      padding-right: 1em; }
+      .navbar-external .navbar-btn.show-label i {
+        margin-right: -.75em; }
     .navbar-external .navbar-btn i {
       -webkit-transition: -webkit-transform 0.2s linear;
       -o-transition: -o-transform 0.2s linear;
@@ -15200,7 +15206,6 @@ body.proud-navbar-active {
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
-    font-size: 18px;
     border-radius: 10px;
     color: #FFF;
     margin-top: 2.5px;
@@ -15213,6 +15218,13 @@ body.proud-navbar-active {
       height: 45px;
       vertical-align: middle;
       line-height: 42.75px; }
+    .navbar-topbar .navbar-btn i {
+      font-size: 18px; }
+    .navbar-topbar .navbar-btn.show-label {
+      width: auto;
+      padding-right: 1em; }
+      .navbar-topbar .navbar-btn.show-label i {
+        margin-right: -.75em; }
     .navbar-topbar .navbar-btn i {
       -webkit-transition: -webkit-transform 0.2s linear;
       -o-transition: -o-transform 0.2s linear;
