@@ -7,17 +7,20 @@ $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="V
 <div <?php post_class( "teaser" ); ?>>
   <div class="row">
     
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-1 col-md-1">
       <a href="<?php echo esc_url( get_permalink() ) ?>" <?php echo $title ?>>
-        <i class="fa fa-3x text-muted filetype-icon <?php echo $icon ?>"></i>
+        <i class="fa fa-2x text-muted filetype-icon <?php echo $icon ?>"></i>
       </a>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-8">
       <h3 class="h4 entry-title" style="margin-top:0;">
         <?php the_title( sprintf( '<a href="%s" rel="bookmark" %s>', esc_url( get_permalink() ), $title ), '</a>' ); ?>
       </h3>
-      <div class="text-muted text-small">Posted on <?php echo get_the_date(); ?></div>
     </div>
-
+    <div class="col-md-3 text-md-right">
+      <?php if (!empty($src)): ?>
+        <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-fw fa-download"></i>Download</a>
+      <?php endif; ?>
+    </div>
   </div>
 </div>

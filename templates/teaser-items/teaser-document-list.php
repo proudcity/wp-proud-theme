@@ -21,7 +21,7 @@ $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="V
     </div>
     <div class="col-md-3 text-md-right">
       <?php if (!empty($src)): ?>
-        <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
+        <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-fw fa-download"></i>Download</a>
       <?php endif; ?>
     </div>
   </div>
