@@ -164,6 +164,10 @@ function proud_customize_register($wp_customize) {
         'transport' => 'refresh',
     ));
     $wp_customize->add_setting( 'proud_topbar_logo' , array());
+    $wp_customize->add_setting( 'proud_topbar_official' , array(
+        'default' => false,
+        'transport' => 'refresh',
+    ));
     $wp_customize->add_setting( 'proud_topbar_title' , array(
         'default' => '',
         'transport' => 'refresh',
@@ -186,7 +190,15 @@ function proud_customize_register($wp_customize) {
         'settings' => 'proud_topbar_logo',
         'description' => __('This optional logo appears in the top-left corner of the top bar. It is typically the city seal.', 'proud'),
     )));
-        $wp_customize->add_control('proud_topbar_title', array(
+    $wp_customize->add_control('proud_topbar_official', array(
+        'label' => __('Topbar is Official government site notice', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_official',
+        'type' => 'checkbox',
+        'description' => __('Displays "An official website of the United States government" notice.  If selected settings below may not apply', 'proud'),
+        //'std' => '1'
+    ));
+    $wp_customize->add_control('proud_topbar_title', array(
         'label' => __('Top Bar title', 'proud'),
         'description' => __('Appears next to the logo on the left. Leave blank to hide.', 'proud'),
         'section' => 'proud_topbar',
