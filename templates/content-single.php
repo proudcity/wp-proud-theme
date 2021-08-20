@@ -10,7 +10,7 @@
     </header>
     <?php endif; ?>
     <div class="row">
-      <div class="col-md-<?php echo !is_active_sidebar('sidebar-news') ? '8' : '12' ?> entry-content">
+      <div class="col-md-<?php echo is_active_sidebar('sidebar-news') ? '8' : '12' ?> entry-content">
         <?php if( has_post_thumbnail() && !get_post_meta( get_the_ID(), 'hide_featured_image', true ) && !Titles\titleHidden() ): ?>
           <div class="media text-center">
             <?php the_post_thumbnail(); ?>
