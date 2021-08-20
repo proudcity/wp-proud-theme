@@ -1,6 +1,5 @@
 <?php use Proud\Theme\Titles; ?>
 <?php while ( have_posts() ) : the_post(); ?>
-  <?php $newsSidebar = dynamic_sidebar('sidebar-news'); ?>
   <article <?php post_class(); ?>>
     <?php if( !Titles\titleHidden() ) : ?>
     <header>
@@ -11,7 +10,7 @@
     </header>
     <?php endif; ?>
     <div class="row">
-      <div class="col-md-<?php echo !empty($newsSidebar) ? '8' : '12' ?> entry-content">
+      <div class="col-md-<?php echo !is_active_sidebar('sidebar-news') ? '8' : '12' ?> entry-content">
         <?php if( has_post_thumbnail() && !get_post_meta( get_the_ID(), 'hide_featured_image', true ) && !Titles\titleHidden() ): ?>
           <div class="media text-center">
             <?php the_post_thumbnail(); ?>
@@ -21,9 +20,9 @@
         <?php endif; ?>
         <?php the_content(); ?>
       </div>
-      <?php if (!empty($newsSidebar)): ?>
+      <?php if (is_active_sidebar('sidebar-news')): ?>
         <div class="text-left col-md-4 right-sidebar">
-            <?php $newsSidebar ?>
+            <?php dynamic_sidebar('sidebar-news'); ?>
         </div>
       <?php endif; ?>
     </div>
