@@ -58,10 +58,13 @@ if ( !empty($form_id) ) {
     <?php if (!empty($src)): ?>
       <p>
         <?php if ($src): ?>
-            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
+            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-fw fa-download"></i>Download</a>
+            <?php if (!$show_preview): ?>
+                <a href="<?php echo $src; ?>" class="btn btn-default btn-sm"><i class="fa fa-fw fa-external-link"></i>Popout</a>
+            <?php endif; ?>
         <?php endif; ?>
         <?php if ($show_preview === 2): ?>
-          <a href="#" onclick="jQuery('#doc-preview').slideToggle();jQuery(this).toggleClass('active');" class="btn btn-default btn-sm"><i class="fa fa-eye"></i> Preview</a>
+          <a href="#" onclick="jQuery('#doc-preview').slideToggle();jQuery(this).toggleClass('active');" class="btn btn-default btn-sm"><i class="fa fa-fw fa-eye"></i>Preview</a>
         <?php endif; ?>
       </p>
 

@@ -123,7 +123,10 @@ function printDocumentInfo($params){
   <?php if (!empty($src)): ?>
         <p>
           <?php if ($src): ?>
-              <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download"></i> Download</a>
+            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download fa-fw"></i>Download</a>
+            <?php if (!$show_preview): ?>
+                <a href="<?php echo $src; ?>" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-external-link fa-fw"></i>Popout</a>
+            <?php endif; ?>
           <?php endif; ?>
         </p>
   <?php endif; ?>
