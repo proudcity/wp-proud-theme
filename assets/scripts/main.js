@@ -65,7 +65,7 @@
           // @TODO move to core?
           // Save external link regex
           Proud.settings.global.external_regex = new RegExp(
-            "/" + window.location.host + "|mailto:|tel:/"
+            "/" + window.location.host + "|mailto:|tel:|javacript:/"
           );
           $("a").each(function () {
             if (
