@@ -168,6 +168,10 @@ function proud_customize_register($wp_customize) {
         'default' => '',
         'transport' => 'refresh',
     ));
+    $wp_customize->add_setting( 'proud_topbar_link' , array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
     $wp_customize->add_setting( 'proud_topbar_action_icons' , array(
         'default' => false,
         'transport' => 'refresh',
@@ -186,11 +190,18 @@ function proud_customize_register($wp_customize) {
         'settings' => 'proud_topbar_logo',
         'description' => __('This optional logo appears in the top-left corner of the top bar. It is typically the city seal.', 'proud'),
     )));
-        $wp_customize->add_control('proud_topbar_title', array(
+    $wp_customize->add_control('proud_topbar_title', array(
         'label' => __('Top Bar title', 'proud'),
         'description' => __('Appears next to the logo on the left. Leave blank to hide.', 'proud'),
         'section' => 'proud_topbar',
         'settings' => 'proud_topbar_title',
+        'type' => 'textfield',
+    ));
+    $wp_customize->add_control('proud_topbar_link', array(
+        'label' => __('Top Bar link url', 'proud'),
+        'description' => __('The URL to use as the link for the Top Bar title, if it is visible. Defaults to this site\'s homepage', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_link',
         'type' => 'textfield',
     ));
     $wp_customize->add_control('proud_topbar_action_icons', array(
