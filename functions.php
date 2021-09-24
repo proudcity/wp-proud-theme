@@ -172,6 +172,10 @@ function proud_customize_register($wp_customize) {
         'default' => '',
         'transport' => 'refresh',
     ));
+    $wp_customize->add_setting( 'proud_topbar_title_attr' , array(
+        'default' => 'Home',
+        'transport' => 'refresh',
+    ));
     $wp_customize->add_setting( 'proud_topbar_action_icons' , array(
         'default' => false,
         'transport' => 'refresh',
