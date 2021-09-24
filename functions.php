@@ -204,6 +204,13 @@ function proud_customize_register($wp_customize) {
         'settings' => 'proud_topbar_link',
         'type' => 'textfield',
     ));
+    $wp_customize->add_control('proud_topbar_title_attr', array(
+        'label' => __('Top Bar accessibility title', 'proud'),
+        'description' => __('Appears in a tooltip when hovering over the title.', 'proud'),
+        'section' => 'proud_topbar',
+        'settings' => 'proud_topbar_title_attr',
+        'type' => 'textfield',
+    ));
     $wp_customize->add_control('proud_topbar_action_icons', array(
         'label' => __('Action Icons in Top Bar', 'proud'),
         'description' => __('Move the Action Icons (Search, Answers, etc) from the Primary Navigation to the Top Navigation Bar', 'proud'),
