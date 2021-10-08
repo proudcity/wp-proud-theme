@@ -7,13 +7,9 @@ $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="V
 <div <?php post_class( "teaser" ); ?>>
   <div class="row">
     
-    <div class="col-xs-2 col-md-1">
-      <a href="<?php echo esc_url( get_permalink() ) ?>" <?php echo $title ?>>
-        <i class="fa fa-3x text-muted filetype-icon <?php echo $icon ?>"></i>
-      </a>
-    </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
       <h3 class="h4 entry-title" style="margin-top:0;">
+        <i class="fa fa-fw text-muted filetype-icon <?php echo $icon ?>"></i>
         <?php the_title( sprintf( '<a href="%s" rel="bookmark" %s>', esc_url( get_permalink() ), $title ), '</a>' ); ?>
         <?php foreach ($terms as $term): ?><a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a> <?php endforeach; ?>
       </h3>
