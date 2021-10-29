@@ -17586,6 +17586,17 @@ body.active-311, body.search-active {
   width: auto;
   z-index: 100000; }
 
+#skiplinks {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+#skiplinks li {
+  min-height: 0; }
+
+#skiplinks a:focus {
+  left: auto; }
+
 @media screen and (max-width: 779px) {
   .xs-sr-only {
     position: absolute;
