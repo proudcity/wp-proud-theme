@@ -17564,6 +17564,17 @@ body.active-311, body.search-active {
   .show-lg-inline-block {
     display: inline-block !important; } }
 
+#skiplinks {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+#skiplinks li {
+  min-height: 0; }
+
+#skiplinks a:focus {
+  left: auto; }
+
 .sr-only:focus, .screen-reader-text:focus,
 .sr-only :focus-within, .screen-reader-text :focus-within,
 .screen-reader-text:focus,
@@ -17585,17 +17596,6 @@ body.active-311, body.search-active {
   text-transform: none;
   width: auto;
   z-index: 100000; }
-
-#skiplinks {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-#skiplinks li {
-  min-height: 0; }
-
-#skiplinks a:focus {
-  left: auto; }
 
 @media screen and (max-width: 779px) {
   .xs-sr-only {
