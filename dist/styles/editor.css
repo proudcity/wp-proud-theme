@@ -1497,7 +1497,7 @@ output {
   color: #5b616b;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #949494;
   border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -1508,12 +1508,12 @@ output {
     outline: 0;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
   .form-control::-moz-placeholder, .search-form .search-field::-moz-placeholder {
-    color: #999;
+    color: #888;
     opacity: 1; }
   .form-control:-ms-input-placeholder, .search-form .search-field:-ms-input-placeholder {
-    color: #999; }
+    color: #888; }
   .form-control::-webkit-input-placeholder, .search-form .search-field::-webkit-input-placeholder {
-    color: #999; }
+    color: #888; }
   .form-control::-ms-expand, .search-form .search-field::-ms-expand {
     border: 0;
     background-color: transparent; }
@@ -2675,7 +2675,7 @@ tbody.collapse.in {
   color: #5b616b;
   text-align: center;
   background-color: #d6d7d9;
-  border: 1px solid #ccc;
+  border: 1px solid #949494;
   border-radius: 2px; }
   .input-group-addon.input-sm, .search-form .input-group-sm > .input-group-addon.search-field,
   .input-group-sm > .input-group-addon,
@@ -12299,7 +12299,7 @@ to prevent collapsing during animation*/
     color: #5b616b;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #ccc;
+    border: 1px solid #949494;
     border-radius: 2px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -13960,7 +13960,7 @@ img {
   color: #5b616b;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: 1px solid #949494;
   border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -15152,31 +15152,79 @@ body.proud-navbar-active {
 .navbar-topbar {
   height: 52px;
   border-top: 0; }
-  .navbar-topbar h2, .navbar-topbar h3, .navbar-topbar .h2, .navbar-topbar .h3 {
+  .navbar-topbar h2,
+  .navbar-topbar h3,
+  .navbar-topbar .h2,
+  .navbar-topbar .h3 {
     margin: 0; }
-    .navbar-topbar h2 a, .navbar-topbar h3 a, .navbar-topbar .h2 a, .navbar-topbar .h3 a {
+    .navbar-topbar h2 a,
+    .navbar-topbar h3 a,
+    .navbar-topbar .h2 a,
+    .navbar-topbar .h3 a {
       float: left;
       display: block; }
-  .light-background-topnav-topbar .navbar-topbar h2, .light-background-topnav-topbar .navbar-topbar h3, .light-background-topnav-topbar .navbar-topbar .h2, .light-background-topnav-topbar .navbar-topbar .h3,
-  .light-background-topnav-topbar .navbar-topbar h2 a, .light-background-topnav-topbar .navbar-topbar h3 a, .light-background-topnav-topbar .navbar-topbar .h2 a, .light-background-topnav-topbar .navbar-topbar .h3 a,
-  .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
+  .light-background-topnav-topbar .navbar-topbar h2,
+  .light-background-topnav-topbar .navbar-topbar h3,
+  .light-background-topnav-topbar .navbar-topbar .h2,
+  .light-background-topnav-topbar .navbar-topbar .h3,
+  .light-background-topnav-topbar .navbar-topbar h2 a,
+  .light-background-topnav-topbar .navbar-topbar h3 a,
+  .light-background-topnav-topbar .navbar-topbar .h2 a,
+  .light-background-topnav-topbar .navbar-topbar .h3 a,
+  .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a,
+  .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
     color: #101010; }
-    .light-background-topnav-topbar .navbar-topbar h2:hover, .light-background-topnav-topbar .navbar-topbar h2:focus, .light-background-topnav-topbar .navbar-topbar h3:hover, .light-background-topnav-topbar .navbar-topbar h3:focus, .light-background-topnav-topbar .navbar-topbar .h2:hover, .light-background-topnav-topbar .navbar-topbar .h2:focus, .light-background-topnav-topbar .navbar-topbar .h3:hover, .light-background-topnav-topbar .navbar-topbar .h3:focus,
+    .light-background-topnav-topbar .navbar-topbar h2:hover, .light-background-topnav-topbar .navbar-topbar h2:focus,
+    .light-background-topnav-topbar .navbar-topbar h3:hover,
+    .light-background-topnav-topbar .navbar-topbar h3:focus,
+    .light-background-topnav-topbar .navbar-topbar .h2:hover,
+    .light-background-topnav-topbar .navbar-topbar .h2:focus,
+    .light-background-topnav-topbar .navbar-topbar .h3:hover,
+    .light-background-topnav-topbar .navbar-topbar .h3:focus,
     .light-background-topnav-topbar .navbar-topbar h2 a:hover,
-    .light-background-topnav-topbar .navbar-topbar h2 a:focus, .light-background-topnav-topbar .navbar-topbar h3 a:hover, .light-background-topnav-topbar .navbar-topbar h3 a:focus, .light-background-topnav-topbar .navbar-topbar .h2 a:hover, .light-background-topnav-topbar .navbar-topbar .h2 a:focus, .light-background-topnav-topbar .navbar-topbar .h3 a:hover, .light-background-topnav-topbar .navbar-topbar .h3 a:focus,
+    .light-background-topnav-topbar .navbar-topbar h2 a:focus,
+    .light-background-topnav-topbar .navbar-topbar h3 a:hover,
+    .light-background-topnav-topbar .navbar-topbar h3 a:focus,
+    .light-background-topnav-topbar .navbar-topbar .h2 a:hover,
+    .light-background-topnav-topbar .navbar-topbar .h2 a:focus,
+    .light-background-topnav-topbar .navbar-topbar .h3 a:hover,
+    .light-background-topnav-topbar .navbar-topbar .h3 a:focus,
     .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:hover,
-    .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover, .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus,
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover,
+    .light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
       color: #030303;
       outline: none; }
-  .extra-light-background-topnav-topbar .navbar-topbar h2, .extra-light-background-topnav-topbar .navbar-topbar h3, .extra-light-background-topnav-topbar .navbar-topbar .h2, .extra-light-background-topnav-topbar .navbar-topbar .h3,
-  .extra-light-background-topnav-topbar .navbar-topbar h2 a, .extra-light-background-topnav-topbar .navbar-topbar h3 a, .extra-light-background-topnav-topbar .navbar-topbar .h2 a, .extra-light-background-topnav-topbar .navbar-topbar .h3 a,
-  .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
+  .extra-light-background-topnav-topbar .navbar-topbar h2,
+  .extra-light-background-topnav-topbar .navbar-topbar h3,
+  .extra-light-background-topnav-topbar .navbar-topbar .h2,
+  .extra-light-background-topnav-topbar .navbar-topbar .h3,
+  .extra-light-background-topnav-topbar .navbar-topbar h2 a,
+  .extra-light-background-topnav-topbar .navbar-topbar h3 a,
+  .extra-light-background-topnav-topbar .navbar-topbar .h2 a,
+  .extra-light-background-topnav-topbar .navbar-topbar .h3 a,
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a,
+  .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a {
     color: #434343; }
-    .extra-light-background-topnav-topbar .navbar-topbar h2:hover, .extra-light-background-topnav-topbar .navbar-topbar h2:focus, .extra-light-background-topnav-topbar .navbar-topbar h3:hover, .extra-light-background-topnav-topbar .navbar-topbar h3:focus, .extra-light-background-topnav-topbar .navbar-topbar .h2:hover, .extra-light-background-topnav-topbar .navbar-topbar .h2:focus, .extra-light-background-topnav-topbar .navbar-topbar .h3:hover, .extra-light-background-topnav-topbar .navbar-topbar .h3:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar h2:hover, .extra-light-background-topnav-topbar .navbar-topbar h2:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar h3:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar h3:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .h2:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .h2:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .h3:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .h3:focus,
     .extra-light-background-topnav-topbar .navbar-topbar h2 a:hover,
-    .extra-light-background-topnav-topbar .navbar-topbar h2 a:focus, .extra-light-background-topnav-topbar .navbar-topbar h3 a:hover, .extra-light-background-topnav-topbar .navbar-topbar h3 a:focus, .extra-light-background-topnav-topbar .navbar-topbar .h2 a:hover, .extra-light-background-topnav-topbar .navbar-topbar .h2 a:focus, .extra-light-background-topnav-topbar .navbar-topbar .h3 a:hover, .extra-light-background-topnav-topbar .navbar-topbar .h3 a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar h2 a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar h3 a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar h3 a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .h2 a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .h2 a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .h3 a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .h3 a:focus,
     .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:hover,
-    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover, .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > li > a:focus,
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:hover,
+    .extra-light-background-topnav-topbar .navbar-topbar .navbar-nav > .open > a:focus {
       color: #373737;
       outline: none; }
   .navbar-topbar .logo-menu {
@@ -15197,6 +15245,32 @@ body.proud-navbar-active {
     height: 44px;
     font-size: 16px;
     padding-left: 10px; }
+  .navbar-topbar.navbar-topbar-official-active {
+    z-index: 5; }
+  .navbar-topbar .official-title {
+    font-size: 1.6rem;
+    font-weight: normal; }
+    .navbar-topbar .official-title,
+    .navbar-topbar .official-title button {
+      color: white;
+      line-height: 1.5em; }
+    .navbar-topbar .official-title button {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: 0;
+      text-decoration: underline; }
+  .navbar-topbar .official-topbar-outer .collapse,
+  .navbar-topbar .official-topbar-outer .collapsing {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 5px; }
+  .navbar-topbar .official-topbar-collapse .media-left {
+    padding: 0 2rem; }
+    .navbar-topbar .official-topbar-collapse .media-left i {
+      font-size: 20px; }
   .navbar-topbar .btn-toolbar {
     margin-bottom: 0; }
     .navbar-topbar .btn-toolbar li {
@@ -15261,7 +15335,27 @@ body.proud-navbar-active {
 
 @media screen and (max-width: 910px) {
   .navbar-topbar .topbar-navigation {
-    display: none; } }
+    display: none; }
+  .official-topbar-outer .h3 .nav-logo {
+    display: none; }
+  .navbar-topbar-official-active .official-title {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 1rem; }
+    .navbar-topbar-official-active .official-title button {
+      display: block;
+      padding-left: 0; } }
+
+@media screen and (max-width: 1200px) {
+  .flexbox .navbar-topbar .menu-box a.show-label,
+  .flexbox .navbar-topbar .menu-box a.show-label i {
+    overflow: hidden;
+    width: 47px;
+    height: 45px;
+    margin-right: 0;
+    vertical-align: middle;
+    line-height: 42.75px; } }
 
 @media screen and (min-width: 911px) {
   .navbar-topbar .topbar-navigation {
@@ -15273,7 +15367,8 @@ body.proud-navbar-active {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    .flexbox .navbar-topbar .topbar-navigation, .flexbox .navbar-topbar .menu-box {
+    .flexbox .navbar-topbar .topbar-navigation,
+    .flexbox .navbar-topbar .menu-box {
       float: none !important;
       border-top: 0 !important; }
     .flexbox .navbar-topbar .topbar-navigation {
@@ -15290,6 +15385,9 @@ body.proud-navbar-active {
       .flexbox .navbar-topbar #topbar-menu > li {
         display: inline-block;
         float: none; }
+    .flexbox .navbar-topbar .logo-menu + .menu-box {
+      right: 0;
+      position: absolute; }
     .flexbox .navbar-topbar .menu-box {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -15313,7 +15411,23 @@ body.proud-navbar-active {
             flex-wrap: nowrap; }
       .flexbox .navbar-topbar .menu-box a {
         display: inline-block;
-        float: none !important; } }
+        float: none !important; }
+  .navbar-topbar-official-active.navbar-topbar {
+    display: block;
+    z-index: 1053; }
+  .navbar-topbar-official-active .official-topbar-outer .media {
+    margin-top: 0;
+    margin-bottom: 0; }
+  .navbar-topbar-official-active .official-title {
+    padding: 1.4rem 0; }
+    .navbar-topbar-official-active .official-title,
+    .navbar-topbar-official-active .official-title button {
+      vertical-align: middle; }
+    .navbar-topbar-official-active .official-title button {
+      margin-top: -5px; }
+  .navbar-topbar-official-active .official-topbar-outer .collapse,
+  .navbar-topbar-official-active .official-topbar-outer .collapsing {
+    top: -1px; } }
 
 @media screen and (min-width: 1201px) {
   .navbar-topbar {
@@ -15327,7 +15441,8 @@ body.proud-navbar-active {
       padding-right: 10px; }
     .navbar-topbar .nav-text {
       padding-left: 4px; }
-  .admin-menu .navbar-topbar, .admin-bar .navbar-topbar {
+  .admin-menu .navbar-topbar,
+  .admin-bar .navbar-topbar {
     top: 47px; } }
 
 .navbar-header-region h2, .navbar-header-region h3, .navbar-header-region .h2, .navbar-header-region .h3 {
