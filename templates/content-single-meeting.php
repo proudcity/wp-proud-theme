@@ -79,7 +79,7 @@ $hasActive = false;
 
 // Get URL
 global $wp;
-$page_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );  
+$page_url = home_url( $wp->request );  
 
 
 /**
