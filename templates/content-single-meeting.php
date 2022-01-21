@@ -77,6 +77,11 @@ $youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true),
 
 $hasActive = false;
 
+// Get URL
+global $wp;
+$page_url = add_query_arg( $wp->query_string, '', home_url( $wp->request ) );  
+
+
 /**
  * Prints a document, including metadata and preview.
  *
@@ -158,16 +163,9 @@ function printDocumentInfo($params){
                 <a class="btn btn-sm btn-default" href="#" id="share-meeting" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="true"><i aria-hidden="true" class="fa fa-fw fa-share-alt"></i>Share</a>
                 <ul class="dropdown-menu" aria-labelledby="share-arbitrary-instance-events-share">
-                    <li><a title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php"
-                           target="_blank"><i aria-hidden="true" class="fa fa-facebook-square fa-fw"></i>
-                            Facebook</a></li>
-                    <li><a title="Share on Twitter"
-                           href="https://twitter.com/share?url=http%3A%2F%2Fwordpress.dd%3A8083%2Fevent%2Fnational-coffee-with-a-cop-day-october-3rd%3Fevent%3Dnational-coffee-with-a-cop-day-october-3rd%26post_type%3Devent%26name%3Dnational-coffee-with-a-cop-day-october-3rd"><i
-                                aria-hidden="true" class="fa fa-twitter-square fa-fw"></i> Twitter</a></li>
-                    <li><a title="Share by Email"
-                           href="mailto:?subject=National+Coffee+with+a+Cop+Day+%26%238211%3B+October+3rd+from+San+Rafael&amp;body=Read more: http%3A%2F%2Fwordpress.dd%3A8083%2Fevent%2Fnational-coffee-with-a-cop-day-october-3rd%3Fevent%3Dnational-coffee-with-a-cop-day-october-3rd%26post_type%3Devent%26name%3Dnational-coffee-with-a-cop-day-october-3rd"><i
-                                aria-hidden="true" class="fa fa-envelope fa-fw"></i> Email</a>
-                    </li>
+                  <li><a title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php print urlencode($page_url); ?>" target="_blank"><i aria-hidden="true" class="fa fa-facebook-square fa-fw"></i> Facebook</a></li>
+                  <li><a title="Share on Twitter" href="https://twitter.com/share?url=<?php print urlencode($page_url); ?>"><i aria-hidden="true" class="fa fa-twitter-square fa-fw"></i> Twitter</a></li>
+                  <li><a  title="Share by Email" href="mailto:?subject=<?php print urlencode($title); ?>&body=Read more: <?php print urlencode($page_url); ?>"><i aria-hidden="true" class="fa fa-envelope fa-fw"></i> Email</a>
                 </ul>
                 <!--</div>-->
             </section>
