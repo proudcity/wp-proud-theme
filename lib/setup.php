@@ -47,7 +47,7 @@ function setup() {
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
   // Make visual default.
-  add_filter( 'wp_default_editor', create_function('', 'return "tinymce";') );
+  //add_filter( 'wp_default_editor', create_function('', 'return "tinymce";') );
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
   Customizer\customize_font_uris( function ( $uri ) {
@@ -131,7 +131,7 @@ function widgets_init() {
       'after_title'   => '</h2>'
     ]);
   //}
-  
+
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
@@ -151,7 +151,7 @@ function assets() {
   // Icons
   proud_theme_add_gov_icon_styles();
   // Add moderizer support
-  wp_enqueue_script( 'proud/js/modernizr', 
+  wp_enqueue_script( 'proud/js/modernizr',
     Assets\asset_path( 'scripts/modernizr.js' ),
     array()
   );
@@ -165,7 +165,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100 );
 //  */
 // function print_menu() {
 //   if(has_nav_menu('primary_navigation')) {
-//     wp_nav_menu( [ 
+//     wp_nav_menu( [
 //       'theme_location'    => 'primary_navigation',
 //       'container'         => 'div',
 //       'container_class'   => 'below',
