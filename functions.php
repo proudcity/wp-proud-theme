@@ -30,7 +30,6 @@ foreach ($proud_includes as $file) {
 }
 unset($file, $filepath);
 
-
 function proud_customize_register($wp_customize) {
     // Settings
     $wp_customize->add_setting('color_topnav', array(
@@ -145,8 +144,8 @@ function proud_customize_register($wp_customize) {
         'type' => 'checkbox',
         'std' => '1'
     ));
-    
-    
+
+
     // Top bar
     $wp_customize->add_section(
         'proud_topbar',
@@ -229,9 +228,9 @@ function proud_customize_register($wp_customize) {
     add_action( 'wp_footer', 'proud_customize_preview', 21 );
   }
 
-  
-  
-    
+
+
+
 
     // Fonts
 
