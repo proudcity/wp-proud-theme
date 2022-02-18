@@ -43,7 +43,7 @@ function alert_bar() {
     $html = do_shortcode( wp_kses_post( get_option('alert_message') ) );
     $severity = esc_attr(get_option('alert_severity'));
     $severity = str_replace(['danger', 'warning'], ['red', 'yellow'], $severity);
-    return '<div class="alert-banner proud-alert-banner text-center alert alert-'. $severity .'">' . $html . '</div>';
+    return '<div class="alert-banner proud-alert-banner text-center alert alert-'. $severity .'">' . stripslashes( $html ) . '</div>';
   }
   return '';
 }
