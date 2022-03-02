@@ -4,7 +4,9 @@ The ProudCity Wordpress theme built on top of [Bootstrap](http://getbootstrap.co
 All bug reports, feature requests and other issues should be added to the [wp-proudcity Issue Queue](https://github.com/proudcity/wp-proudcity/issues).
 
 
-Building notes
+### Building notes
+You should install [Node Version Manager](https://github.com/nvm-sh/nvm) to run
+the commands below and work on Node v8 for this build.
 ```
 nvm use 8
 npm install
