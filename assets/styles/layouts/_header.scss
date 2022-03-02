@@ -3,9 +3,13 @@
 // Hide the header if we're in an iFrame (for kiosk/mobile app
 body#in-iframe {
   padding-top: 0 !important;
-  
+
   #wpadminbar,
   #navbar-external {
     display: none;
   }
+}
+
+.page .page-header{
+  border-bottom:0 none transparent;
 }

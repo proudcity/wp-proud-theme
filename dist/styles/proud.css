@@ -108,6 +108,9 @@ body#in-iframe {
   body#in-iframe #navbar-external {
     display: none; }
 
+.page .page-header {
+  border-bottom: 0 none transparent; }
+
 ul.nav.nav-stacked.submenu,
 .nav.nav-stacked.submenu ul {
   margin-bottom: 1em;
