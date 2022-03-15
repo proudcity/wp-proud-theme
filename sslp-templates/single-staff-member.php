@@ -5,6 +5,7 @@
   $email    = $custom["_staff_member_email"][0];
   $contact_link = $custom["_proud_contact_link"][0];
   $phone    = $custom["_staff_member_phone"][0];
+  $address  = $custom["_proud_address"][0];
   $bio      = $custom["_staff_member_bio"][0];
   $fb_url   = $custom["_staff_member_fb"][0];
   $tw_url   = $custom["_staff_member_tw"][0] ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
@@ -34,6 +35,10 @@
           <strong>Phone</strong>
           <p><a href="tel:<?php esc_html( $phone ); ?>"><?php echo esc_html( $phone ); ?></a></p>
         <?php endif; ?>
+        <?php if ( ! empty( $address )) { ?>
+          <strong>Address</strong>
+          <?php echo apply_filters( 'the_content', $address ); ?>
+        <?php } // if address ?>
         <?php if( $fb_url || $tw_url || $linkedin_url ): ?>
           <strong>Social Media</strong>
           <ul class="list-inline">
