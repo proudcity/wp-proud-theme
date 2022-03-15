@@ -3,6 +3,7 @@
   $custom = get_post_custom();
   $title    = $custom["_staff_member_title"][0];
   $email    = $custom["_staff_member_email"][0];
+  $contact_link = $custom["_proud_contact_link"][0];
   $phone    = $custom["_staff_member_phone"][0];
   $bio      = $custom["_staff_member_bio"][0];
   $fb_url   = $custom["_staff_member_fb"][0];
@@ -21,15 +22,14 @@
           <?php the_post_thumbnail(); ?>
         </p>
         <?php endif; ?>
-        <?php if( $email ): ?>
-          <?php if(filter_var( $email, FILTER_VALIDATE_EMAIL ) ): ?>
-            <strong>Email</strong>
-            <p><a href="mailto:<?php echo sanitize_email( $email ); ?>"><?php echo sanitize_email( $email ); ?></a></p>
-          <?php else: ?>
-            <strong>Link</strong>
-            <p><a href="<?php echo sanitize_email( $email ); ?>"><?php echo sanitize_email( $email ); ?></a></p>
-          <?php endif; ?>
-        <?php endif; ?>
+        <?php if( ! empty( $email ) ){ ?>
+          <strong>Email</strong>
+          <p><a href="mailto:<?php echo sanitize_email( $email ); ?>"><?php echo sanitize_email( $email ); ?></a></p>
+        <?php } ?>
+        <?php if ( ! empty( $contact_link ) ) { ?>
+          <strong>Link</strong>
+          <p><a href="<?php echo esc_url( $contact_link ); ?>">Contact <?php the_title(); ?></a></p>
+        <?php } // if contact_link ?>
         <?php if( $phone ): ?>
           <strong>Phone</strong>
           <p><a href="tel:<?php esc_html( $phone ); ?>"><?php echo esc_html( $phone ); ?></a></p>
