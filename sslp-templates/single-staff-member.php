@@ -7,6 +7,7 @@
   $bio      = $custom["_staff_member_bio"][0];
   $fb_url   = $custom["_staff_member_fb"][0];
   $tw_url   = $custom["_staff_member_tw"][0] ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
+  $linkedin_url = $custom["_proud_linkedin_link"][0];
   $terms = wp_get_post_terms( $post->ID, 'staff-member-group', array("fields" => "all"));
   ?>
   <article <?php post_class(); ?>>
@@ -23,36 +24,39 @@
         <?php if( $email ): ?>
           <?php if(filter_var( $email, FILTER_VALIDATE_EMAIL ) ): ?>
             <strong>Email</strong>
-            <p><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></p>
+            <p><a href="mailto:<?php echo sanitize_email( $email ); ?>"><?php echo sanitize_email( $email ); ?></a></p>
           <?php else: ?>
             <strong>Link</strong>
-            <p><a href="<?php echo $email ?>"><?php echo $email ?></a></p>
+            <p><a href="<?php echo sanitize_email( $email ); ?>"><?php echo sanitize_email( $email ); ?></a></p>
           <?php endif; ?>
         <?php endif; ?>
         <?php if( $phone ): ?>
           <strong>Phone</strong>
-          <p><?php echo $phone ?></p>
+          <p><a href="tel:<?php esc_html( $phone ); ?>"><?php echo esc_html( $phone ); ?></a></p>
         <?php endif; ?>
-        <?php if( $fb_url || $tw_url ): ?>
+        <?php if( $fb_url || $tw_url || $linkedin_url ): ?>
           <strong>Social Media</strong>
           <ul class="list-inline">
             <?php if( $fb_url ): ?>
-            <li><a target="_blank" href="<?php echo $fb_url ?>"><i class="fa fa-facebook-square fa-2x"></i><span class="sr-only">Facebook</span></a></li>
+            <li><a target="_blank" href="<?php echo esc_url( $fb_url ); ?>"><i class="fa fa-facebook-square fa-2x"></i><span class="sr-only">Facebook</span></a></li>
             <?php endif; ?>
             <?php if( $tw_url ): ?>
-            <li><a target="_blank" href="<?php echo $tw_url ?>"><i class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
+            <li><a target="_blank" href="<?php echo esc_url( $tw_url ); ?>"><i class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
             <?php endif; ?>
+            <?php if ( ! empty( $linkedin_url ) ){ ?>
+              <li><a target="_blank" href="<?php echo esc_url( $linkedin_url ); ?>"><i class="fa fa-linkedin fa-2x"></i><span class="sr-only">Linkedin</span></a></li>
+            <?php } // if linkedin ?>
           </ul>
         <?php endif; ?>
         <?php if( $title ): ?>
           <?php if( $position_label = get_option( 'staff_position_label', false ) ): ?>
-              <strong><?php echo $position_label ?></strong>
+              <strong><?php echo esc_attr( $position_label ); ?></strong>
           <?php else: ?>
               <strong>Job Title</strong>
           <?php endif; ?>
-          <p><?php echo $title ?></p>
+          <p><?php echo esc_attr( $title ); ?></p>
         <?php endif; ?>
-        <p><?php foreach ($terms as $term): ?><a style="display: inline-block;" class="label label-default" href="/contact?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?></p>
+        <p><?php foreach ($terms as $term): ?><a style="display: inline-block;" class="label label-default" href="/contact?filter_categories[]=<?php echo absint( $term->term_id ); ?>"><?php echo esc_attr( $term->name ); ?></a><?php endforeach; ?></p>
 
       </div>
       <div class="col-md-8">
