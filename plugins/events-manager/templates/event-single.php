@@ -61,7 +61,9 @@
             <var class="atc_location"><?php echo $location ?></var>
           </var>
         </span></li>
-        <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
+        <?php if ( ! empty( $location ) ) { ?>
+          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
+        <?php } ?>
       </p>
   </div>
 </div>
