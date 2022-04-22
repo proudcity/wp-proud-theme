@@ -28,8 +28,8 @@
           <p><a href="mailto:<?php echo sanitize_email($email); ?>"><?php echo sanitize_email($email); ?></a></p>
         <?php } ?>
         <?php if (!empty($contact_link)) { ?>
-          <strong>Link</strong>
-          <p><a href="<?php echo esc_url($contact_link); ?>">Contact <?php the_title(); ?></a></p>
+          <strong>Contact Link</strong>
+          <p><a href="<?php echo esc_url($contact_link); ?>"><?php the_title(); ?></a></p>
         <?php } // if contact_link 
         ?>
         <?php if ($phone) : ?>
