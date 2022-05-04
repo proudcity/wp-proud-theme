@@ -525,7 +525,14 @@ function get_color_lightness($hex, $rgb = []) {
     if (!$rgb) {
         $rgb = hex_to_rgb($hex);
     }
-    return round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
+
+    if ( empty( $rgb['r']) || empty( $rgb['g'] ) || empty( $rgb['b'] ) ){
+        $lightness = true;
+    } else{
+        $lightness = round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
+    }
+
+    return $lightness;
 }
 
 /**
