@@ -44,13 +44,13 @@
       <?php the_title( sprintf( '<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
         <h5 class="margin-top-none"><span class="start-time"><?php echo $time ?></span>
         <?php if( !empty( $location_obj->location_name ) ) :?>
-          <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $location_obj->location_name ?></span>
+          <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $location_obj->location_name ?></span>
         <?php endif; ?></h5>
       </ul>
       <ul class="list-inline">
         <li>
           <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
-            <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar "></i> Add to calendar</a>
+            <a class="atcb-link btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar "></i> Add to calendar</a>
             <var class="atc_event">
               <var class="atc_date_start"><?php echo $EM_start->i18n($atc_format) ?></var>
               <var class="atc_date_end"><?php echo $EM_end->i18n($atc_format) ?></var>
@@ -62,7 +62,7 @@
           </span>
         </li>
         <?php if ( !empty($location) ) { ?>
-          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default  btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
+          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default  btn-block"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
         <?php } //endif ?>
       </ul>
       <?php do_action( 'teaser_search_matching', $post ); ?>

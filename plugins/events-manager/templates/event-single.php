@@ -40,14 +40,14 @@
       <h3 class="margin-top-none">
         <span class="start-time"><?php echo $time ?></span>
         <?php if( !empty( $location ) ) :?>
-        <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $EM_Event->location->location_name  ?></span></h3>
+        <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $EM_Event->location->location_name  ?></span></h3>
         <h6 class="margin-top-smaller"><?php echo $location ?></h6>
         <?php else: ?>
       </h3>
       <?php endif; ?>
       <ul class="list-inline">
         <?php if ($EM_Event->bookings) { ?>
-        <li><a href="#register" class="btn btn-sm btn-default"><i class="fa fa-calendar-check-o"></i> Register</a></li>
+        <li><a href="#register" class="btn btn-sm btn-default"><i aria-hidden="true" class="fa fa-calendar-check-o"></i> Register</a></li>
         <?php } //endif ?>
         <li><?php the_widget( 'ShareLinks', array( 'classes' => 'btn btn-sm btn-default'), array('widget_id'=>'arbitrary-instance-' . strtolower('events-share') ) ); ?></li>
         <li><span class="addtocalendar" data-title="<?php print $EM_Event->event_name ?>" data-slug="<?php print $EM_Event->event_slug ?>">
@@ -62,7 +62,7 @@
           </var>
         </span></li>
         <?php if ( ! empty( $location ) ) { ?>
-          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
+          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default btn-block"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
         <?php } ?>
       </p>
   </div>
