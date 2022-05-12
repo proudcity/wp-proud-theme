@@ -1,4 +1,4 @@
-<?php 
+<?php
 use Proud\Document;
 $icon = Document\get_document_icon();
 $filetype = Document\get_document_type();
@@ -9,7 +9,7 @@ $filetype = Document\get_document_type();
   <td><?php if( empty($hide['date']) ): ?><?php echo get_the_date(); ?><?php endif; ?></td>
   <td>
     <?php if( empty($hide['download']) && !empty($src) ): ?><a href="<?php echo esc_url( get_permalink() ) ?>" <?php echo $title ?>>
-      <i class="fa fa-fw text-muted filetype-icon <?php echo $icon ?>"></i> <?php echo strtoupper($filetype); ?> (<?php echo $meta->size; ?>)
+      <i aria-hidden="true" class="fa fa-fw text-muted filetype-icon <?php echo sanitize_html_class( $icon ); ?>"></i> <?php echo strtoupper($filetype); ?> (<?php echo $meta->size; ?>)
     </a><?php endif; ?>
   </td>
 </tr>

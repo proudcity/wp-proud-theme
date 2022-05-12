@@ -79,7 +79,7 @@ $hasActive = false;
 
 // Get URL
 global $wp;
-$page_url = home_url( $wp->request );  
+$page_url = home_url( $wp->request );
 
 
 /**
@@ -128,9 +128,9 @@ function printDocumentInfo($params){
   <?php if (!empty($src)): ?>
         <p>
           <?php if ($src): ?>
-            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i class="fa fa-download fa-fw"></i>Download</a>
+            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i aria-hidden="true" class="fa fa-download fa-fw"></i>Download</a>
             <?php if (!$show_preview): ?>
-                <a href="<?php echo $src; ?>" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-external-link fa-fw"></i>Popout</a>
+                <a href="<?php echo $src; ?>" class="btn btn-default btn-sm" target="_blank"><i aria-hidden="true" class="fa fa-external-link fa-fw"></i>Popout</a>
             <?php endif; ?>
           <?php endif; ?>
         </p>
@@ -152,7 +152,7 @@ function printDocumentInfo($params){
     <div class="col-xs-9 col-md-10">
         <h3 class="margin-top-none"><span class="start-time"><?php echo date_format($datetime, $time_format); ?></span>
           <?php if( !empty( $obj_location ) ) :?>
-              <i class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $obj_location->post_title ?></span>
+              <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $obj_location->post_title ?></span>
           <?php endif; ?>
         </h3>
         <?php if( !empty( $location ) ) :?><h6 class="margin-top-smaller"><?php echo $location ?></h6><?php endif;?>
@@ -173,7 +173,7 @@ function printDocumentInfo($params){
           <?php if ($is_upcoming): ?>
             <li>
               <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
-                <a class="atcb-link btn btn-sm btn-default"><i class="fa fa-calendar "></i> Add to calendar</a>
+                <a class="atcb-link btn btn-sm btn-default"><i aria-hidden="true" class="fa fa-calendar "></i> Add to calendar</a>
                 <var class="atc_event">
                   <var class="atc_date_start"><?php echo date_format($datetime, $atc_format); ?></var>
                   <var class="atc_date_end"><?php echo date_format($datetime, $atc_format); ?></var>
@@ -185,7 +185,7 @@ function printDocumentInfo($params){
               </span>
             </li>
             <?php if ( !empty($location) ): ?>
-              <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default  btn-block"><i class="fa fa-map-marker"></i> Directions</a></li>
+              <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default  btn-block"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
             <?php endif; ?>
           <?php endif;?>
         </ul>
@@ -199,7 +199,7 @@ function printDocumentInfo($params){
     <?php if (!empty($agenda_packet) || !empty($attachments['agenda_packet'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda-packet">Agenda Packet</a></li><?php endif; ?>
     <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
     <?php if (empty($videoStyle) && !empty($video)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
-    <?php if ($videoStyle === 'external' && !empty($externalVideo)): ?><li><a href="<?php echo $externalVideo ?>" target="_blank" title="View video on external website">Video <i class="fa fa-external-link"></i></a></li><?php endif; ?>
+    <?php if ($videoStyle === 'external' && !empty($externalVideo)): ?><li><a href="<?php echo $externalVideo ?>" target="_blank" title="View video on external website">Video <i aria-hidden="true" class="fa fa-external-link"></i></a></li><?php endif; ?>
     <?php if (!empty($audio)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
     <?php if (!empty($agency)): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
 </ul>

@@ -16,7 +16,7 @@ $type = get_post_meta( $post_id, 'issue_category_type', true );
         <?php gravity_form( get_post_meta( $post_id, 'form', true ), false, false ); ?>
       <?php else: ?>
         <script type="text/javascript">
-          jQuery('#entry-content').html('<div class="text-center"><i class="fa fa-spinner fa-pulse fa-4x"></i></div>');
+          jQuery('#entry-content').html('<div class="text-center"><i aria-hidden="true" class="fa fa-spinner fa-pulse fa-4x"></i></div>');
           window.location = '<?php echo get_post_meta( $post_id, 'url', true ) ?>';
         </script>
       <?php endif ?>

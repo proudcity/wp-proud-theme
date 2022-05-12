@@ -30,7 +30,7 @@
         <?php if (!empty($contact_link)) { ?>
           <strong>Contact Link</strong>
           <p><a href="<?php echo esc_url($contact_link); ?>"><?php the_title(); ?></a></p>
-        <?php } // if contact_link 
+        <?php } // if contact_link
         ?>
         <?php if ($phone) : ?>
           <strong>Phone</strong>
@@ -39,20 +39,20 @@
         <?php if (!empty($address)) { ?>
           <strong>Address</strong>
           <?php echo apply_filters('the_content', $address); ?>
-        <?php } // if address 
+        <?php } // if address
         ?>
         <?php if ($fb_url || $tw_url || $linkedin_url) : ?>
           <strong>Social Media</strong>
           <ul class="list-inline">
             <?php if ($fb_url) : ?>
-              <li><a target="_blank" href="<?php echo esc_url($fb_url); ?>"><i class="fa fa-facebook-square fa-2x"></i><span class="sr-only">Facebook</span></a></li>
+              <li><a target="_blank" href="<?php echo esc_url($fb_url); ?>"><i aria-hidden="true" class="fa fa-facebook-square fa-2x"></i><span class="sr-only">Facebook</span></a></li>
             <?php endif; ?>
             <?php if ($tw_url) : ?>
-              <li><a target="_blank" href="<?php echo esc_url($tw_url); ?>"><i class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
+              <li><a target="_blank" href="<?php echo esc_url($tw_url); ?>"><i aria-hidden="true" class="fa fa-twitter-square fa-2x"></i><span class="sr-only">Twitter</span></a></li>
             <?php endif; ?>
             <?php if (!empty($linkedin_url)) { ?>
-              <li><a target="_blank" href="<?php echo esc_url($linkedin_url); ?>"><i class="fa fa-linkedin fa-2x"></i><span class="sr-only">Linkedin</span></a></li>
-            <?php } // if linkedin 
+              <li><a target="_blank" href="<?php echo esc_url($linkedin_url); ?>"><i aria-hidden="true" class="fa fa-linkedin fa-2x"></i><span class="sr-only">Linkedin</span></a></li>
+            <?php } // if linkedin
             ?>
           </ul>
         <?php endif; ?>

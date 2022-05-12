@@ -4,10 +4,10 @@ $url = esc_url( get_permalink() );
 $content = '';
 if (!empty($meta['agenda'][0]) || !empty($meta['agenda_attachment'][0])) {
     if (!empty($meta['agenda_attachment'][0])) {
-      $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Agenda";
+      $item = "<i aria-hidden='true' class='fa fa-fw fa-file-pdf-o'></i>Agenda";
     }
     else {
-      $item = "<i class='fa fa-fw fa-file-text'></i>Agenda";
+      $item = "<i aria-hidden='true' class='fa fa-fw fa-file-text'></i>Agenda";
     }
     $content .= "<td><a class='label label-primary' href='$url#tab-agenda'>$item</a></td>";
 }
@@ -17,10 +17,10 @@ else {
 
 if (!empty($meta['agenda_packet'][0]) || !empty($meta['agenda_packet_attachment'][0])) {
     if (!empty($meta['agenda_packet_attachment'][0])) {
-      $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Packet";
+      $item = "<i aria-hidden='true' class='fa fa-fw fa-file-pdf-o'></i>Packet";
     }
     else {
-      $item = "<i class='fa fa-fw fa-file-text'></i>Packet";
+      $item = "<i aria-hidden='true' class='fa fa-fw fa-file-text'></i>Packet";
     }
     $content .= "<td><a class='label label-primary' href='$url#tab-agenda-packet'>$item</a></td>";
 }
@@ -31,10 +31,10 @@ else {
 
 if (!empty($meta['minutes'][0]) || !empty($meta['minutes_attachment'][0])) {
   if (!empty($meta['minutes_attachment'])) {
-    $item = "<i class='fa fa-fw fa-file-pdf-o'></i>Minutes";
+    $item = "<i aria-hidden='true' class='fa fa-fw fa-file-pdf-o'></i>Minutes";
   }
   else {
-    $item = "<i class='fa fa-fw fa-file-text'></i>Minutes";
+    $item = "<i aria-hidden='true' class='fa fa-fw fa-file-text'></i>Minutes";
   }
   $content .= "<td><a class='label label-primary' href='$url#tab-minutes'>$item</a></td>";
 }
@@ -44,7 +44,7 @@ else {
 
 
 if (!empty($meta['audio'][0])) {
-  $item = "<i class='fa fa-fw fa-soundcloud'></i> Audio";
+  $item = "<i aria-hidden='true' class='fa fa-fw fa-soundcloud'></i> Audio";
   $content .= "<td><a class='label label-primary' href='$url#tab-audio'>$item</a></td>";
 }
 else {
@@ -52,11 +52,11 @@ else {
 }
 
 if (empty($meta['video_style'][0]) && !empty($meta['video'][0])) {
-  $item = "<i class='fa fa-fw fa-youtube'></i> Video";
+  $item = "<i aria-hidden='true' class='fa fa-fw fa-youtube'></i> Video";
   $content .= "<td><a class='label label-primary' href='$url#tab-video'>$item</a></td>";
 }
 elseif ($meta['video_style'][0] === 'external' && !empty($meta['external_video'][0])) {
-    $item = "Video <i class='fa fa-fw fa-external-link'></i>";
+    $item = "Video <i aria-hidden='true' class='fa fa-fw fa-external-link'></i>";
     $videoUrl = $meta['external_video'][0];
     $content .= "<td><a class='label label-primary' href='$videoUrl' target='_blank' title='Open video on external website'>$item</a></td>";
   }

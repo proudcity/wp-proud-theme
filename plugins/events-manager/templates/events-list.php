@@ -35,10 +35,10 @@ foreach ($events as $EM_Event){
       <h3 class="h4"><a href="<?php echo get_permalink($EM_Event->post_id) ?>"><?php echo $EM_Event->post_title ?></a></h3>
       <p></p>
       <?php if ($EM_Event->bookings) { ?>
-        <a href="#register" class="btn btn-xs btn-default"><i class="fa fa-calendar-check-o"></i> Register</a>
+        <a href="#register" class="btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar-check-o"></i> Register</a>
       <?php } //endif ?>
       <span class="addtocalendar">
-        <a class="atcb-link btn btn-xs btn-default"><i class="fa fa-calendar"></i> Add to calendar</a>
+        <a class="atcb-link btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar"></i> Add to calendar</a>
         <var class="atc_event">
           <var class="atc_date_start"><?php echo date_i18n($atc_format, $EM_Event->start) ?></var>
           <var class="atc_date_end"><?php echo date_i18n($atc_format, $EM_Event->end) ?></var>
@@ -49,7 +49,7 @@ foreach ($events as $EM_Event){
         </var>
       </span>
       <?php if ($location) { ?>
-        <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default"><i class="fa fa-map-marker"></i> Directions</a>
+        <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a>
       <?php } //endif ?>
       </p>
     </div>
