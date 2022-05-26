@@ -114,27 +114,30 @@ function customize_font_slug( $font ) {
  * @return string
  */
 function customize_font_uris( $callback ) {
+
     $fonts = customize_font_families();
     $font_default = get_theme_mod( 'proud_fonts_default', 'Lato' );
     $font_headings = get_theme_mod( 'proud_fonts_headings', 'Lato' );
 
     // Handle public sans / custom fonts
 
-    if ( !$fonts[$font_default]['google'] || !$fonts[$font_headings]['google'] ) {
-        // Default
-        if (!$fonts[$font_default]['google']) {
-            $callback( $fonts[$font_default]['path'], $fonts[$font_default]['asset_name'] );
-        }
-        // Header not same, but is not google
-        if ($font_default !== $font_headings && !$fonts[$font_headings]['google']) {
-            $callback( $fonts[$font_headings]['path'], $fonts[$font_headings]['asset_name'] );
-        }
-        if (!$fonts[$font_default]['google'] && !$fonts[$font_headings]['google'] ) {
-            // Both are not google, so don't continue
-            return;
-        }
+    if ( isset( $fonts[$font_default]['google'] ) ){
+        if ( !$fonts[$font_default]['google'] || !$fonts[$font_headings]['google'] ) {
+            // Default
+            if (!$fonts[$font_default]['google']) {
+                $callback( $fonts[$font_default]['path'], $fonts[$font_default]['asset_name'] );
+            }
+            // Header not same, but is not google
+            if ($font_default !== $font_headings && !$fonts[$font_headings]['google']) {
+                $callback( $fonts[$font_headings]['path'], $fonts[$font_headings]['asset_name'] );
+            }
+            if (!$fonts[$font_default]['google'] && !$fonts[$font_headings]['google'] ) {
+                // Both are not google, so don't continue
+                return;
+            }
 
-    }
+        }
+    } // isset $fonts[$font_default]['google']
 
     // Google fonts
 
