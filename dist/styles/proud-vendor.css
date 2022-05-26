@@ -6587,6 +6587,16 @@ label {
     position: relative; }
     .main-311 .slide-left-2 + .slide-left-2 {
       height: 1px; }
+    .main-311 .slide-left-2[aria-hidden='true'] {
+      visibility: hidden;
+      -webkit-transition-property: opacity, -webkit-transform, visibility;
+           -o-transition-property: opacity, -o-transform, visibility;
+              transition-property: opacity, transform, visibility; }
+    .main-311 .slide-left-2[aria-hidden='false'] {
+      visibility: visible;
+      -webkit-transition-property: opacity, -webkit-transform;
+           -o-transition-property: opacity, -o-transform;
+              transition-property: opacity, transform; }
   .main-311 h2:not(.h1):first-child {
     margin-top: 0; }
 
@@ -6621,6 +6631,12 @@ label {
           color: #101010; }
         .extra-light-background-highlight .nav-contain .nav-pills li.active a, .extra-light-background-highlight .nav-contain .nav-pills li.active a:hover, .extra-light-background-highlight .nav-contain .nav-pills li.active a:focus {
           color: #434343; }
+      .nav-contain .nav-pills li a:focus, .nav-contain .nav-pills li a:active, .nav-contain .nav-pills li:not(.active) a:focus, .nav-contain .nav-pills li:not(.active) a:active {
+        outline: 1px solid #3b3b3b; }
+        .light-background-secondary .nav-contain .nav-pills li a:focus, .light-background-secondary .nav-contain .nav-pills li a:active, .light-background-secondary .nav-contain .nav-pills li:not(.active) a:focus, .light-background-secondary .nav-contain .nav-pills li:not(.active) a:active {
+          outline-color: black; }
+        .extra-light-background-secondary .nav-contain .nav-pills li a:focus, .extra-light-background-secondary .nav-contain .nav-pills li a:active, .extra-light-background-secondary .nav-contain .nav-pills li:not(.active) a:focus, .extra-light-background-secondary .nav-contain .nav-pills li:not(.active) a:active {
+          outline-color: #2a2a2a; }
 
 .ol-next {
   position: absolute;
@@ -6671,7 +6687,8 @@ hr.compact {
       padding-bottom: 8.4px; }
       .active .action-box dl .h4 span {
         padding-bottom: 8.4px; }
-  .action-box dl dd, .action-box dl li {
+  .action-box dl dd,
+  .action-box dl li {
     list-style: none; }
   .action-box dl ul {
     padding: 0 0 0 51px; }
@@ -6747,18 +6764,18 @@ hr.compact {
   margin-top: 50px; }
 
 .issue-status form {
-  padding-bottom: .6em;
+  padding-bottom: 0.6em;
   border-bottom: 1px solid #d6d7d9; }
   .issue-status form .form-group, .issue-status form .search-form label, .search-form .issue-status form label,
   .issue-status form label {
-    margin-right: .5em; }
+    margin-right: 0.5em; }
 
 .issue-status .issue-status-tabs ul.nav {
-  margin-top: .75em;
+  margin-top: 0.75em;
   margin-bottom: 0; }
   .issue-status .issue-status-tabs ul.nav li a {
     background-color: #f1f1f1;
-    margin-bottom: .2em; }
+    margin-bottom: 0.2em; }
   .issue-status .issue-status-tabs ul.nav li.active a {
     background-color: #d6d7d9 !important; }
 
@@ -6769,9 +6786,15 @@ hr.compact {
   margin-top: 1em; }
 
 @media screen and (max-width: 779px) {
-  .action-box h1, .action-box .h1, .action-box h2, .action-box .h2 {
+  .action-box h1,
+  .action-box .h1,
+  .action-box h2,
+  .action-box .h2 {
     font-size: 21px; }
-  .action-box h3, .action-box .h3, .action-box h4, .action-box .h4 {
+  .action-box h3,
+  .action-box .h3,
+  .action-box h4,
+  .action-box .h4 {
     font-size: 18px; }
   .nav-contain .nav-pills li a {
     text-align: center;
@@ -6797,7 +6820,10 @@ hr.compact {
   .main-311 .slide-left-2 {
     padding-left: 12px;
     padding-right: 12px; }
-  .action-box h1, .action-box .h1, .action-box h2, .action-box .h2 {
+  .action-box h1,
+  .action-box .h1,
+  .action-box h2,
+  .action-box .h2 {
     font-size: 30px; }
   .action-box > div {
     border: 1px solid #d6d7d9; }
