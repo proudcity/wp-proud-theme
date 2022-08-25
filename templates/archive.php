@@ -15,10 +15,10 @@
             </div>
         <?php endwhile; ?>
 
- 
+
         <?php global $wp_query;
         if ( isset( $wp_query->max_num_pages ) && $wp_query->max_num_pages > 1 ) { ?>
-            <nav id="<?php echo $nav_id; ?>">
+            <nav id="<?php echo absint( $nav_id ); ?>">
                 <div class="nav-previous"><?php next_posts_link( '<span class="meta-nav">&larr;</span> Older reviews'); ?></div>
                 <div class="nav-next"><?php previous_posts_link( 'Newer reviews <span class= "meta-nav">&rarr;</span>' ); ?></div>
             </nav>
