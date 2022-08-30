@@ -7,10 +7,12 @@
 // ---------------------------------
 
 @import "load-variables";
-@import "bootstrap/mixins";
+@import "../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
 
 // Load Proudcity vendor scss
 // ---------------------------------
 
-@import "pattern-scss/loaders/bourbon-loader";
-@import "pattern-scss/proudcity-mixins";
+@import "../../../bower_components/bourbon/dist/bourbon";
+//@import "pattern-scss/loaders/bourbon-loader";
+@import "../../../bower_components/proudcity-patterns/app/pattern-scss/proudcity-mixins"
+//@import "pattern-scss/proudcity-mixins";
