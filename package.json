@@ -1,0 +1,26 @@
+{
+  "name": "wp-proud-theme",
+  "version": "1.0.0",
+  "description": "The ProudCity Wordpress theme built on top of [Bootstrap](http://getbootstrap.com) and [Sage](https://roots.io/sage/). [ProudCity](http://proudcity.com) is a Wordpress platform for modern, standards-compliant municipal websites.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proudcity/wp-proud-theme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/proudcity/wp-proud-theme/issues"
+  },
+  "homepage": "https://github.com/proudcity/wp-proud-theme#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49"
+  }
+}
