@@ -11,7 +11,7 @@ the commands below and work on Node v12 for this build.
 ```
 nvm use 12
 # clones our proudcity-patterns repository and sets it up as the theme expects
-npm script-run projectsetup
+npm run-script projectsetup
 # build project
 npx mix
 ```
