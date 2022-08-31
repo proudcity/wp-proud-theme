@@ -6,25 +6,18 @@ All bug reports, feature requests and other issues should be added to the [wp-pr
 
 ### Building notes
 You should install [Node Version Manager](https://github.com/nvm-sh/nvm) to run
-the commands below and work on Node v8 for this build.
+the commands below and work on Node v12 for this build.
+
 ```
-nvm use 8
-npm install
-bower install
-gulp
+nvm use 12
+# clones our proudcity-patterns repository and sets it up as the theme expects
+npm script-run projectsetup
+# build project
+npx mix
 ```
 
-## Working with ProudCity Patterns
+**Deprecated Commands from Gulp**
 ```
-nvm use 8
-npm install
-bower install
-# Replace patterns with the git version
-cd bower_components
-rm -r proudcity-patterns
-git clone git@github.com:proudcity/proudcity-patterns.git
-# Use the gulp commands to simplify development
-cd ../
 # Pull on both the theme and proudcity-patterns repos
 gulp pull
 # Watch for changes in both the theme and proudcity-pattern repos
