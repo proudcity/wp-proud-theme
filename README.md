@@ -16,6 +16,12 @@ npm run-script projectsetup
 npx mix
 ```
 
+To update ProudCity Patterns run the following NPM command to delete the old repository and download the latest master branch.
+
+```
+npm run-script projectupdate
+```
+
 **Deprecated Commands from Gulp**
 ```
 # Pull on both the theme and proudcity-patterns repos
