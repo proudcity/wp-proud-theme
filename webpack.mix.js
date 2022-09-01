@@ -2,7 +2,9 @@
 
 let mix = require('laravel-mix');
 
-const{ exec } = require('child_process');
+mix.webpackConfig({
+    devtool: "source-map"
+});
 
 mix.sass('assets/styles/proud.scss','dist/styles', {
     sassOptions:{
@@ -23,5 +25,25 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
                 'bower_components/proudcity-patterns/app'
             ],
         }
-});
-// add sourcemaps
+})
+    .sass('assets/styles/editor.scss', 'dist/styles', {
+        sassOptions:{
+            outputStyle: "compressed",
+            includePaths: [
+                'bower_components/bootstrap-sass-official/assets/stylesheets',
+                'bower_components/bourbon/dist',
+                'bower_components/proudcity-patterns/app'
+            ],
+        }
+})
+    .sass('assets/styles/ie9-and-below.scss', 'dist/styles', {
+        sassOptions:{
+            outputStyle: "compressed",
+            includePaths: [
+                'bower_components/bootstrap-sass-official/assets/stylesheets',
+                'bower_components/bourbon/dist',
+                'bower_components/proudcity-patterns/app'
+            ],
+        }
+})
+    .sourceMaps();

@@ -1,0 +1,16 @@
+.paged-navigation{
+    text-align:center;
+
+    .pagination{
+        display:inline-block;
+    }
+
+    .current{
+        background-color:#0071bc;
+        color:white;
+    }
+
+} // .paged-navigation
+
+
+

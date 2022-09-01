@@ -143,8 +143,6 @@ function assets() {
   wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, null);
   wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, null);
 
-  wp_enqueue_style( 'proud/extra', Assets\asset_path( 'styles/extra.css' ), false, null );
-
   //IE9
   wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'] );
   $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
