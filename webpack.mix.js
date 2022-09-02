@@ -68,5 +68,4 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
 /**
  * @todo do I need to add in the default 'npm build:production' scripts and such that are generated during a laravel project install?
  *  - see first laracasts video: https://laracasts.com/series/learn-laravel-mix
- * @todo add js linting for project JS in assets/scripts
  */
