@@ -59,9 +59,7 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
     .sourceMaps();
 
 /**
- * @todo change our enqueue so we use the minify version of scripts on production
  * @todo do I need to add in the default 'npm build:production' scripts and such that are generated during a laravel project install?
  *  - see first laracasts video: https://laracasts.com/series/learn-laravel-mix
  * @todo add image minification in here from the old guplfile
- * @todo why are we adding our own jquery in the dist/scripts directory. We should stop doing that
  */
