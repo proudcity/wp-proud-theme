@@ -54,7 +54,7 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
     .eslint({
         fix: true,
         extensions: ['js'],
-        exclude: ['node_modules']
+        exclude: ['node_modules', 'assets/scripts/modernizr.js']
     })
     .minify(
         [
