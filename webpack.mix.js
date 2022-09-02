@@ -2,6 +2,8 @@
 
 let mix = require('laravel-mix');
 
+require( 'laravel-mix-eslint' );
+
 mix.webpackConfig({
     devtool: "source-map"
 });
@@ -49,6 +51,11 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
     .js( 'assets/scripts/customizer.js', 'dist/scripts')
     .js( 'assets/scripts/main.js', 'dist/scripts')
     .js( 'assets/scripts/modernizr.js', 'dist/scripts')
+    .eslint({
+        fix: true,
+        extensions: ['js'],
+        exclude: ['node_modules']
+    })
     .minify(
         [
             'dist/scripts/customizer.js',

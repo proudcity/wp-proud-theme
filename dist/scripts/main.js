@@ -15,9 +15,8 @@ var __webpack_exports__ = {};
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
 (function ($) {
-  console.log('running js'); // Use this variable to set up the common and page specific functions. If you
+  // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
-
   var ProudTheme = {
     // All pages
     common: {
@@ -37,7 +36,7 @@ var __webpack_exports__ = {};
         var modWidth = parseInt($navLogo.css("width"), 10) - 12;
         var scrollCompare = $body.hasClass("proud-navbar-topbar-active") ? 50 : 10;
 
-        window.onscroll = function (e) {
+        window.onscroll = function () {
           if (typeof pageYOffset != "undefined" && pageYOffset <= scrollCompare) {
             $("body").removeClass("scrolled");
             userHasScrolled = false;

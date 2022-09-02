@@ -36,7 +36,7 @@
           ? 50
           : 10;
 
-        window.onscroll = function (e) {
+        window.onscroll = function () {
           if (
             typeof pageYOffset != "undefined" &&
             pageYOffset <= scrollCompare
