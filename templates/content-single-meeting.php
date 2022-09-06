@@ -339,7 +339,18 @@ function printDocumentInfo($params){
 
         // Set active tab
         if (location.hash !== ''){
-          $('a[href="' + location.hash.replace('/', '') + '"]').tab('show');
+
+          var tabNavWrapper = $('.nav-tabs');
+          var tabContentWrapper = $('.tab-content');
+
+          $( tabNavWrapper ).find('a').on('touchstart click', function( e ){
+            e.preventDefault();
+
+            var toActivate = $(this).attr('href');
+
+            $(tabContentWrapper).find('.tab-pane').hide().removeClass('active').removeClass('in');
+            $(tabContentWrapper).find(toActivate).show().addClass('active').addClass('in');
+          });
         }
 
       }
