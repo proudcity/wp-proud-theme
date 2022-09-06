@@ -99,6 +99,15 @@ function widgets_init() {
     'after_title'   => '</h2>'
   ]);
 
+  register_sidebar([
+    'name'          => __('Location sidebar', 'proud'),
+    'id'            => 'sidebar-location',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="h3">',
+    'after_title'   => '</h2>'
+  ]);
+
   //@todo: if (is_plugin_active( 'wp-agency' )) {die();
     register_sidebar([
       'name'          => __('Agency sidebar', 'proud'),

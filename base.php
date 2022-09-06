@@ -25,13 +25,13 @@ if (!$proudcore) {
     ?>
     <?php echo Wrapper\alert_bar(); ?>
     <div class="wrap <?php echo Wrapper\container_class(); ?>" role="document">
-      
+
       <?php if ( $proudcore::$layout->page_parent_info( 'title' ) ) : ?>
           <?php get_template_part( 'templates/page-header-breadcrumb' ); ?>
       <?php endif; ?>
 
       <div id="content-main" class="content row">
-        
+
         <?php if ( $proudcore::$layout->page_parent_info( 'noagency' ) ) : ?>
           <aside class="sidebar">
             <?php include Wrapper\sidebar_path(); ?>
