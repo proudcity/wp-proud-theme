@@ -1,0 +1,12 @@
+{
+    "/dist/scripts/customizer.js": "/dist/scripts/customizer.js",
+    "/dist/scripts/main.js": "/dist/scripts/main.js",
+    "/dist/scripts/modernizr.js": "/dist/scripts/modernizr.js",
+    "/dist/styles/ie9-and-below.css": "/dist/styles/ie9-and-below.css",
+    "/dist/styles/editor.css": "/dist/styles/editor.css",
+    "/dist/styles/proud-vendor.css": "/dist/styles/proud-vendor.css",
+    "/dist/styles/proud.css": "/dist/styles/proud.css",
+    "/dist/scripts/customizer.min.js": "/dist/scripts/customizer.min.js",
+    "/dist/scripts/main.min.js": "/dist/scripts/main.min.js",
+    "/dist/scripts/modernizr.min.js": "/dist/scripts/modernizr.min.js"
+}

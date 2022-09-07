@@ -12,12 +12,16 @@
 // Load Proudcity vendor scss
 // ---------------------------------
 
+//@import "../../../bower_components/proudcity-patterns/app/pattern-scss/loaders/bootstrap-loader";
 @import "pattern-scss/loaders/bootstrap-loader";
+//@import "../../../bower_components/proudcity-patterns/app/pattern-scss/loaders/bourbon-loader";
 @import "pattern-scss/loaders/bourbon-loader";
 //@import "pattern-scss/loaders/font-awesome-loader";
 
 
 // Proudcity pattern library
 // ---------------------------------
+//@import "../../../bower_components/proudcity-patterns/app/pattern-scss/proudcity-patterns";
 @import "pattern-scss/proudcity-patterns";
+//@import "../../../bower_components/proudcity-patterns/app/pattern-scss/proudcity-wp"
 @import "pattern-scss/proudcity-wp";

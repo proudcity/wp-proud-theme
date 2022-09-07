@@ -36,7 +36,7 @@
           ? 50
           : 10;
 
-        window.onscroll = function (e) {
+        window.onscroll = function () {
           if (
             typeof pageYOffset != "undefined" &&
             pageYOffset <= scrollCompare
@@ -74,6 +74,7 @@
               !$(this).hasClass("same-window")
             ) {
               $(this).click(function (event) {
+                console.log('preventingDefault');
                 event.preventDefault();
                 event.stopPropagation();
                 window.open(this.href, "_blank");
