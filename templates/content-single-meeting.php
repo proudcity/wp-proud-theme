@@ -339,23 +339,7 @@ function printDocumentInfo($params){
 
         // Set active tab
         if (location.hash !== ''){
-
-          var tabNavWrapper = $('.nav-tabs');
-          var tabContentWrapper = $('.tab-content');
-
-          $( tabNavWrapper ).find('a').on('touchstart click', function( e ){
-            e.preventDefault();
-
-            var toActivate = $(this).attr('href');
-
-            // navigation styles
-            $(tabNavWrapper).find('li').removeClass('active');
-            $(this).parent('li').addClass('active');
-
-            // activating the tab
-            $(tabContentWrapper).find('.tab-pane').hide().removeClass('active').removeClass('in');
-            $(tabContentWrapper).find(toActivate).show().addClass('active').addClass('in');
-          });
+          $('a[href="' + location.hash.replace('/', '') + '"]').tab('show');
         }
 
       }
