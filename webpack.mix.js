@@ -51,16 +51,18 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
     .js( 'assets/scripts/customizer.js', 'dist/scripts')
     .js( 'assets/scripts/main.js', 'dist/scripts')
     .js( 'assets/scripts/modernizr.js', 'dist/scripts')
+    .js( 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', 'dist/scripts')
     .eslint({
         fix: true,
         extensions: ['js'],
-        exclude: ['node_modules', 'assets/scripts/modernizr.js']
+        exclude: ['node_modules', 'assets/scripts/modernizr.js', 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js']
     })
     .minify(
         [
             'dist/scripts/customizer.js',
             'dist/scripts/main.js',
-            'dist/scripts/modernizr.js'
+            'dist/scripts/modernizr.js',
+            'dist/scripts/bootstrap.js'
         ]
     )
     .sourceMaps();
