@@ -2,10 +2,15 @@
 .main {
   min-height: 500px;
 
-  a{text-decoration:underline;}
-
   .card-wrap a,
   .service-center-navbar-horizontal a{text-decoration:none;}
+}
+
+#tab-agenda-packet{
+  li{
+    a,
+    a:visited{text-decoration:underline;}
+  }
 }
 
 
