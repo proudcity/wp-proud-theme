@@ -54,6 +54,7 @@
         // Allow nav + footer-actions dropdowns
         $(".btn-toolbar .dropdown-menu, .footer-actions .dropdown-menu").click(
           function (e) {
+            console.log( 'main.js line 57')
             e.stopPropagation();
           }
         );
@@ -74,6 +75,7 @@
               !$(this).hasClass("same-window")
             ) {
               $(this).click(function (event) {
+                console.log( 'main.js line 78' );
                 console.log('preventingDefault');
                 event.preventDefault();
                 event.stopPropagation();

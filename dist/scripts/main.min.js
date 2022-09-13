@@ -54,6 +54,7 @@ var __webpack_exports__ = {};
 
 
         $(".btn-toolbar .dropdown-menu, .footer-actions .dropdown-menu").click(function (e) {
+          console.log('main.js line 57');
           e.stopPropagation();
         }); // Open external links in a new tab?
 
@@ -64,6 +65,7 @@ var __webpack_exports__ = {};
           $("a").each(function () {
             if (this.href && !Proud.settings.global.external_regex.test(this.href) && !$(this).hasClass("same-window")) {
               $(this).click(function (event) {
+                console.log('main.js line 78');
                 console.log('preventingDefault');
                 event.preventDefault();
                 event.stopPropagation();
