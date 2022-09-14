@@ -1,0 +1,15 @@
+// Ckeditor
+.cke_editable {
+
+  // custom ckeditor styles
+  body {
+    margin: 20px;
+    background: white;
+  }
+
+  // rows should just be 100%
+  .row {
+    max-width: 100% !important;
+  }
+
+}

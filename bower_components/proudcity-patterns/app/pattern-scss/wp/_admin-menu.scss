@@ -1,0 +1,211 @@
+$admin-bar-height: 47px;
+$admin-bar-bg: $brand-primary;
+$admin-bar-sub-bg:  $brand-primary-darkest;
+$admin-bar-profile-links: #233c54;
+
+// Admin menu active, compensate, override
+html, html[lang] {
+  margin-top: 0!important;
+}
+
+body.proud-navbar-active.admin-bar {
+  top: 0!important;
+  padding-top: $admin-bar-height!important;
+}
+
+
+#wpadminbar {
+  height: $admin-bar-height !important;
+  background-color: $admin-bar-bg;
+
+  a.ab-item:hover,
+  .hover a.ab-item,
+  a.ab-item {
+    border-top: 5px solid $brand-primary !important;
+    background: none !important;
+    margin-top: 0 !important;
+    color: $white !important;
+
+    .ab-label {
+      color: $white !important;
+    }
+  }
+
+  #wp-admin-bar-wp-logo {
+    background: url(//my.proudcity.com/images/IconWhite.png) 0 5px no-repeat !important;
+    background-size: $admin-bar-height - 10px $admin-bar-height - 10px !important;
+    margin-left: 10px; // @todo: var
+
+    a {
+      height: $admin-bar-height - 2px;
+      width: $admin-bar-height - 2px;
+    }
+
+    .ab-icon:before {
+      content: none !important;
+    }
+
+    .ab-item {
+      background: none;
+
+      &:hover {
+        border-color: $admin-bar-bg;
+      }
+    }
+
+    .ab-sub-wrapper {
+      display: none;
+    }
+  }
+
+  #wp-admin-bar-customize,
+  #wp-admin-bar-updates,
+  #wp-admin-bar-comments,
+  #wp-admin-bar-site-name,
+  #wp-admin-bar-wpseo-menu,
+  #wp-admin-bar-popup-maker,
+  #wp-admin-bar-new_draft{
+    display: none !important;
+  }
+
+  #wp-admin-bar-my-item,
+  #wp-admin-bar-new-content,
+  #wp-admin-bar-menu-toggle,
+  #wp-admin-bar-edit,
+  #wp-admin-bar-view {
+    > a {
+      @include fa-icon-force($fa-var-file, ':before') {
+        margin-top: 4px;
+        font-size: 13px;
+      }
+    }
+
+    .ab-icon {
+      display: none;
+    }
+  }
+
+  #wp-admin-bar-my-item > a {
+    @include fa-icon-force($fa-var-tachometer-alt);
+  }
+  #wp-admin-bar-new-content > a {
+    @include fa-icon-force($fa-var-plus-circle);
+  }
+  #wp-admin-bar-menu-toggle > a {
+    @include fa-icon-force($fa-var-bars);
+  }
+  #wp-admin-bar-edit a {
+    @include fa-icon-force($fa-var-pencil-alt, 'default', '&:before', true);
+  }
+  #wp-admin-bar-view a {
+    @include fa-icon-force($fa-var-external-link-square-alt, 'default', '&:before', true);
+  }
+
+  .ab-item {
+    margin-top: 5px !important; // @todo: var/math
+    border-top: none !important;
+  }
+
+  #wp-admin-bar-menu-toggle a:before {
+    color: white;
+  }
+
+  .menupop .ab-sub-wrapper {
+    background-color: $admin-bar-sub-bg;
+    top: $admin-bar-height;
+
+    a {
+      border-top-color: $admin-bar-sub-bg !important;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  
+  .quicklinks .menupop {
+    
+    ul.ab-sub-secondary,
+    ul.ab-sub-secondary .ab-submenu {
+      background: $admin-bar-profile-links !important;
+      
+      a.ab-item {
+        border-top: 0 !important;
+      }
+    }
+    
+    
+  }
+  
+  
+}
+
+
+#screen-meta-links #contextual-help-link-wrap,
+#screen-options-wrap .metabox-prefs,
+#welcome-panel {
+  display: none;
+}
+
+
+// Responsive
+@media screen and (max-width: 782px) {
+  html.wp-toolbar {
+    padding-top: 0 !important;
+
+    #wpbody-content {
+      //padding-top: $admin-bar-height;
+    }
+  }
+
+  html.wp-toolbar {
+    padding-top: 0 !important;
+  }
+
+  #wpadminbar {
+    .ab-item {
+      margin-top: 0 !important; // @todo: var/math
+
+      &:before {
+        font-size: $admin-bar-height - 20px !important;
+        line-height: $admin-bar-height - 7px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      &:hover {
+        border-top-color: $admin-bar-bg !important;
+      }
+    }
+
+    #wp-admin-bar-wp-logo {
+      display: none !important;
+    }
+
+    #wp-admin-bar-menu-toggle a {
+      height: 46px;
+    }
+  }
+}
+
+
+@include respond($sm-up) {
+
+  // do map application for front end
+  body.admin-bar.proud-map-fullscreen {
+    .overflow .filter-button, .overflow .full-screen-button, .menu-ui {
+      top: 10px + $admin-bar-height;
+    }
+
+    .overflow .leaflet-top {
+      top: 35px + $admin-bar-height; 
+    }
+    
+    .overflow .map-details {
+      padding-top: 30px + $admin-bar-height;
+    }
+
+    .overflow .map-details-close {
+      top: 20px + $admin-bar-height;
+    }
+  }
+}

@@ -1,0 +1,650 @@
+//
+// Styles for action box app
+//
+
+// Wrapper + animations
+// -------------------------------
+
+.app-wrap {
+  padding-bottom: $page-section-spacing;
+  overflow: hidden;
+
+  .widget-proud-actions-app & {
+    overflow: initial;
+  }
+}
+
+.main-311 {
+  @include transition(all ease 0.5s);
+  @include clearfix();
+  float: left;
+  padding-bottom: 5px;
+  left: 0;
+  margin-left: 0;
+  position: relative;
+  width: 200% !important;
+
+  &.slide-left {
+    margin-left: -100%;
+
+    & > .slide-left-2 {
+      height: 1px;
+
+      & + .slide-left-2 {
+        height: auto;
+        min-height: 270px;
+      }
+    }
+  }
+
+  .slide-left-2 {
+    float: left;
+    width: 50% !important;
+    height: auto;
+    position: relative;
+
+    & + .slide-left-2 {
+      height: 1px;
+    }
+
+    // Accessibility tabbing
+    &[aria-hidden='true'] {
+      visibility: hidden;
+      transition-property: opacity, transform, visibility;
+    }
+
+    &[aria-hidden='false'] {
+      visibility: visible;
+      transition-property: opacity, transform;
+    }
+  }
+
+  h2:not(.h1):first-child {
+    margin-top: 0;
+  }
+}
+
+// Menu items
+// --------------------------------
+
+.nav-contain {
+  padding-top: $grid-gutter-width/2;
+  padding-bottom: 0;
+
+  .nav-pills {
+    margin-bottom: 0;
+
+    li {
+      float: left;
+      width: 25%;
+      padding-right: 1px;
+      margin-top: 0 !important;
+
+      & ~ li {
+        padding-left: 1px;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      a {
+        background-color: $gray-base;
+
+        &,
+        &:hover,
+        &:focus {
+          color: $white;
+
+          .light-background-secondary & {
+            color: $light-back-secondary-color;
+          }
+
+          .extra-light-background-secondary & {
+            color: $extra-light-back-secondary-color;
+          }
+        }
+      }
+
+      &:not(.active) {
+        a {
+          &:hover,
+          &:focus {
+            background: darken($gray, 5%);
+          }
+        }
+      }
+
+      &.active a {
+        &,
+        &:hover,
+        &:focus {
+          color: $white;
+          background: $brand-primary;
+
+          .light-background-highlight & {
+            color: $light-back-highlight-color;
+          }
+
+          .extra-light-background-highlight & {
+            color: $extra-light-back-highlight-color;
+          }
+        }
+      }
+
+      // Accessibility outline
+      &,
+      &:not(.active) {
+        a {
+          &:focus,
+          &:active {
+            outline: 1px solid lighten($gray-base, 10%);
+
+            .light-background-secondary & {
+              outline-color: darken($light-back-secondary-color, 10%);
+            }
+
+            .extra-light-background-secondary & {
+              outline-color: darken($extra-light-back-secondary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Content
+// -------------------------------
+
+.ol-next {
+  position: absolute;
+  right: $grid-gutter-width/2;
+  top: -2px;
+}
+
+.content-contain {
+  padding-top: $grid-gutter-width/2;
+}
+
+hr.compact {
+  margin: 10px 0;
+}
+
+// Category Listings
+// ------------------------------
+
+$icon-dim: 40px;
+
+.action-box dl {
+  padding-left: 0;
+
+  & > dd {
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    min-height: $icon-dim;
+
+    &:hover {
+      background-color: $gray-lightest;
+    }
+
+    &.active {
+      // border-color: $gray-lighter;
+      background-color: none;
+      // @include box-shadow(0 2px 3px -1px rgba(0,0,0,0.1));
+    }
+  }
+
+  .h4 {
+    margin: 0;
+    // font-weight: $medium-weight;
+
+    a {
+      &:focus,
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .fa {
+      border-radius: 100%;
+      width: $icon-dim;
+      height: $icon-dim;
+      text-align: center;
+      line-height: $icon-dim;
+      position: absolute;
+      left: $grid-gutter-width/2;
+      top: $icon-dim * 0.2;
+      @extend %normal-link-color;
+    }
+
+    .fa ~ span {
+      padding-left: $icon-dim + 10px;
+    }
+
+    span {
+      color: $font-color-h4;
+      padding: ($icon-dim * 0.42) $grid-gutter-width/2;
+      display: block;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        color: $font-color-h4;
+      }
+    }
+
+    .active & {
+      padding-bottom: $icon-dim * 0.21;
+
+      span {
+        padding-bottom: $icon-dim * 0.21;
+      }
+    }
+  }
+
+  dd,
+  li {
+    list-style: none;
+  }
+
+  ul {
+    padding: 0 0 0 ($icon-dim + 10px + 1);
+
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+// Answers Display
+// -------------------------------
+.action-box {
+  .panel-group {
+    .panel-title {
+      display: block;
+    }
+
+    .panel-heading {
+      background: $gray-lightest;
+    }
+
+    .panel.active {
+      border-color: $gray-lightest;
+
+      .panel-heading {
+        background: $white;
+      }
+    }
+    .panel-body {
+      padding-top: 0;
+
+      > div {
+        border-top: 1px solid $gray-lightest;
+        padding-top: $panel-body-padding;
+      }
+    }
+  }
+}
+
+// General helpers
+// -------------------------------
+.action-box {
+  hr {
+    clear: both;
+  }
+
+  .unhide-dropdown {
+    display: block;
+    top: auto;
+    padding: 10px;
+  }
+
+  .action-buttons {
+    .btn {
+      display: block;
+      margin-bottom: 5px;
+      min-width: 94px;
+      text-align: left;
+    }
+  }
+}
+
+.pc-map {
+  height: 600px;
+  width: 100%;
+}
+
+.local-location .pc-map {
+  height: 400px;
+}
+
+// Forms
+// -------------------------------
+
+.action-box {
+  form {
+    textarea {
+      width: 100%;
+    }
+
+    .has-error {
+      .error-message {
+        display: block !important;
+      }
+    }
+    .has-success {
+      .success-message {
+        display: block !important;
+      }
+    }
+
+    &.form-inline {
+      .form-group + .btn {
+        margin-bottom: 0;
+      }
+    }
+
+    // Search form
+    &.form-inline-mobile {
+      .form-control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .track-status {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  button.close:active {
+    outline: none;
+  }
+}
+
+// Issue report map
+// -------------------------------
+#issue-map {
+  .leaflet-control-mapbox-geocoder {
+    position: absolute;
+  }
+
+  .leaflet-control-zoom {
+    margin-top: 50px;
+  }
+}
+
+// Issue lookup
+// -------------------------------
+.issue-status {
+  form {
+    padding-bottom: 0.6em;
+    border-bottom: 1px solid $gray-lighter;
+
+    .form-group,
+    label {
+      margin-right: 0.5em;
+    }
+  }
+
+  .issue-status-tabs {
+    ul.nav {
+      margin-top: 0.75em;
+      margin-bottom: 0;
+
+      li a {
+        background-color: $gray-lightest;
+        margin-bottom: 0.2em;
+      }
+      li.active a {
+        background-color: #d6d7d9 !important;
+      }
+    }
+
+    img.pull-right {
+      margin-left: 1em;
+    }
+  }
+
+  .tab-content {
+    margin-top: 1em;
+  }
+}
+
+// *
+// * Media Queries
+// *
+// ******************************************************
+
+// Mobile only
+// -------------------------
+@include respond($xs-only) {
+  .action-box {
+    // make local headers a little more managable
+    h1,
+    .h1,
+    h2,
+    .h2 {
+      font-size: 21px;
+    }
+
+    h3,
+    .h3,
+    h4,
+    .h4 {
+      font-size: 18px;
+    }
+  }
+
+  $icon-dim: 35px;
+
+  .nav-contain .nav-pills li a {
+    text-align: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 25px;
+    margin-bottom: 0;
+
+    i {
+      width: 100%;
+      font-size: 20px;
+      width: $icon-dim;
+      height: $icon-dim;
+      line-height: $icon-dim;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .mobile-margin-top {
+    margin-top: 2.5em;
+  }
+}
+
+// Small up
+// -------------------------
+@include respond($sm-up) {
+  // Wrapper + animations
+  // -------------------------------
+
+  .main-311 {
+    .slide-left-2 {
+      padding-left: $grid-gutter-width/2;
+      padding-right: $grid-gutter-width/2;
+    }
+  }
+
+  .action-box {
+    // make local headers a little more managable
+    h1,
+    .h1,
+    h2,
+    .h2 {
+      font-size: 30px;
+    }
+
+    & > div {
+      border: 1px solid $gray-lighter;
+    }
+  }
+
+  // Menu
+  // --------------------------------
+  .nav-contain {
+    .nav-pills li {
+      text-align: center;
+
+      .fa {
+        font-size: 28px;
+        display: block;
+      }
+
+      a {
+        font-family: $headings-font-family;
+        font-weight: $medium-weight;
+        font-size: 16px;
+      }
+    }
+  }
+
+  // Content
+  // -------------------------------
+
+  .col-icon {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .padding-top {
+    padding-top: 20px;
+  }
+
+  $icon-dim: 50px;
+
+  .action-box dl {
+    & > dd {
+      margin-bottom: 8px;
+      min-height: $icon-dim;
+    }
+
+    .h4 {
+      font-size: 20px;
+
+      span {
+        padding-bottom: $icon-dim * 0.42;
+        padding-top: $icon-dim * 0.42;
+      }
+
+      .fa {
+        width: $icon-dim;
+        height: $icon-dim;
+        line-height: $icon-dim;
+        font-size: 30px;
+      }
+
+      .fa ~ span {
+        padding-left: $icon-dim + 15px;
+      }
+
+      .active & {
+        padding-bottom: $icon-dim * 0.21;
+
+        span {
+          padding-bottom: $icon-dim * 0.21;
+        }
+      }
+    }
+
+    ul {
+      padding-left: $icon-dim + 15px + 1;
+    }
+  }
+
+  .ol-next {
+    right: $grid-gutter-width;
+  }
+
+  .content-contain {
+    padding: $grid-gutter-width/2;
+  }
+}
+
+// Small only
+// -------------------------
+@include respond($sm-only) {
+  // Menu
+  // --------------------------------
+  .nav-contain {
+    .nav-pills li {
+      .fa {
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  // Content
+  // -------------------------------
+
+  .action-box dl {
+    dd {
+      &:nth-child(2n + 1) {
+        clear: left;
+      }
+    }
+  }
+}
+
+// Medium up
+// -------------------------
+@include respond($md-up) {
+  // Menu
+  // --------------------------------
+  .nav-contain {
+    padding: $grid-gutter-width $grid-gutter-width 0;
+
+    .nav-pills {
+      li {
+        .fa {
+          font-size: 22px;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 0.5em;
+        }
+
+        span {
+          vertical-align: middle;
+        }
+
+        a {
+          font-size: 18px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  // Content
+  // -------------------------------
+  .content-contain {
+    padding: $grid-gutter-width $grid-gutter-width;
+  }
+
+  .action-box dl {
+    dd {
+      &:nth-child(3n + 1) {
+        clear: left;
+      }
+    }
+  }
+}

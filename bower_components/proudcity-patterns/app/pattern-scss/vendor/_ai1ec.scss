@@ -1,0 +1,43 @@
+//
+// All for one event calendar
+//
+
+body {
+  .timely-widget {
+    border-bottom: 1px solid $gray-lighter;
+    margin-bottom: 15px;
+  } 
+
+  .ai1ec-agenda-widget-view {
+    .ai1ec-date, .ai1ec-date.ai1ec-today {
+      background: none;    
+      border-color: $gray-lighter;
+    }
+
+    .ai1ec-date-title {
+      background: none;
+      border-radius: 0;
+      border: 1px solid $gray-light;
+      box-shadow: none;
+
+      * {
+        color: $gray-light;
+        text-shadow: none;
+      }
+
+      .ai1ec-month {
+        border-radius: 0;
+        background: none;
+      }
+    }
+
+    .ai1ec-event > a {
+      border-radius: 0;
+      border-width: 0;
+
+      &:hover {
+        background-color: $gray-lightest;
+      }
+    }
+  }
+}

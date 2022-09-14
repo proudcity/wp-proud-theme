@@ -1,0 +1,38 @@
+section.widget-fullcalendar {
+  margin-bottom: 1rem;
+
+  .wpfc-calendar-wrapper *,
+  .ui-selectmenu-menu {
+    font-size: $font-size-small !important;
+    font-family: $font-family-base !important;
+
+    h2 {
+      font-size: $font-size-h3 !important;
+    }
+  }
+
+  .fc th,
+  .fc td {
+    border-color: $gray-light !important;
+  }
+
+  .ui-button {
+    background-color: $white !important;
+    border-color: $gray-lighter !important;
+    border-width: 1px;
+  }
+
+  .fc-prev-button span.ui-icon {
+    @include fa-icon-force($fa-var-chevron-left);
+  }
+
+  .fc-next-button span.ui-icon {
+    @include fa-icon-force($fa-var-chevron-right);
+  }
+}
+
+.ui-tooltip,
+.qtip {
+  font-size: $font-size-small !important;
+  line-height: $line-height-base*$font-size-small !important;
+}

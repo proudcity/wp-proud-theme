@@ -1,0 +1,132 @@
+// 
+// BETA bar on sites
+//
+
+$proudbar-background: $brand-primary!default;
+$nav-height-short: 52px!default;
+$nav-height-mod: 2px!default;
+$proudbar-height: 45px!default;
+$proudbar-padding: 7px!default;
+$proudbar-line-height: $proudbar-height - $proudbar-padding*2!default;
+$proudbar-logo-height: $proudbar-line-height - 6px!default;
+
+.proudbar {
+  background: $proudbar-background;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $proudbar-height;
+  line-height: $proudbar-line-height;
+  padding: $proudbar-padding;
+  position: fixed;
+  z-index: $nav-user-overlay-z - 2;
+  text-align: center;
+  color: $white;
+
+  a, div {
+    color: $white;
+    margin: 0 $proudbar-padding;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .proudbar-title {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 28px;
+  }
+
+  .proudbar-btn {
+    background: $white;
+    border-radius: 5px;
+    color: $proudbar-background;
+    padding: 0 $proudbar-padding;
+    font-size: .9em;
+    display: inline-block;
+
+    &:hover {
+      background-color: $gray-lighter;
+    }
+  }
+
+  .proudbar-btn-circle {
+    width: $proudbar-line-height;
+    height: $proudbar-line-height;
+    border-radius: $proudbar-line-height/2;
+    margin-top: 1px;
+    line-height: $proudbar-line-height;
+    text-align: center;
+    padding: 0;
+  }
+
+  .proudbar-logo {
+    float: left;
+    background: url(//my.proudcity.com/images/FullLogoWhite.png) 0 0 no-repeat;
+    background-size: 114px/22px*$proudbar-logo-height $proudbar-logo-height;
+    width: 114px/22px*$proudbar-logo-height;
+    height: $proudbar-logo-height;
+    margin-top: ($proudbar-line-height - $proudbar-logo-height) / 2;
+    margin-right: 0;
+    text-indent: -1000em;
+  }
+
+}
+
+
+// Mobile
+// -------------------------
+@include respond($xs-only) {
+  .proudbar {
+    .proudbar-btn {
+      float: right;
+    }
+  }
+}
+
+// Fixed to bottom
+// -------------------------
+@include respond($mq-nav-fixed-bottom) {
+
+  body.proud-navbar-active.proud-bar-active {
+
+    // Bottom padding
+    .page-footer {
+      padding-bottom: $nav-height-short - $nav-height-mod - 2px + $proudbar-height + $footer-padding + $page-section-spacing;
+    }
+
+    .powered-by-footer {
+      bottom: $proudbar-height + $nav-height-short - $nav-height-mod - 2px;
+    }
+
+    .proudbar {
+      bottom: $nav-height-short - $nav-height-mod - 2px;
+
+      .proudbar-logo {
+        background: url("//my.proudcity.com/images/IconWhite.png") 0 0 no-repeat;
+        background-size: $proudbar-line-height $proudbar-line-height;
+        width: $proudbar-line-height;
+        margin-top: 0;
+        height: $proudbar-line-height;
+      }
+    }
+  }
+}
+
+// Top menu
+// -------------------------
+@include respond($mq-nav-fixed-top) {
+  body.proud-navbar-active.proud-bar-active {
+
+    // Bottom padding
+    .page-footer {
+      padding-bottom: $proudbar-height + $page-section-spacing*2 + $footer-padding;
+    }
+
+    .powered-by-footer {
+      bottom: $proudbar-height;
+    }
+  }
+}

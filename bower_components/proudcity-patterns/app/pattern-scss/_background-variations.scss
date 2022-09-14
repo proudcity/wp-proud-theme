@@ -1,0 +1,106 @@
+//
+// Page background options
+//
+
+
+@mixin background-color-base() {
+  background: $body-bg;
+  padding-top: $grid-gutter-width;
+  padding-left: $grid-gutter-width/2!important;
+  padding-right: $grid-gutter-width/2!important;
+}
+
+@mixin background-color-page() {
+  background: $body-bg;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-left: $grid-gutter-width;
+  padding-right: $grid-gutter-width;
+  padding-top: $grid-gutter-width;
+  padding-bottom: $grid-gutter-width;
+}
+
+
+// Deal with background colors / images
+.background-color-active {
+
+
+  @include respond($xs-only) {
+    .wrap {
+      // Mask body background for mobile
+      background-color: $body-bg;
+      padding-bottom: $page-section-spacing * 2;
+    }
+
+    // Reset bottom portion for mobile
+    .footer-actions {
+      margin-top: 0;
+    }
+  }
+
+  @include respond($sm-up) {
+
+    // Handle some heading issues
+
+    .page-header {
+      margin-bottom: 20px;
+    }
+
+    .wrap > .breadcrumb {
+      margin-top: -11px;
+    }
+
+    // The background color accentuates spacing issues
+    .widget-pagetitle h1 {
+      margin-bottom: 0;
+    }
+
+    // Full width pages
+    .wrap.full-width-container {
+
+      // Targets full width stlye pages with just page title widget
+      .panel-grid:not(:only-child):first-child > .container:not(.siteorigin-panels-stretch) {
+        @include background-color-base();
+        margin-top: 30px;
+
+        // No bottom because the following item will have padding
+        h1 {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      // Full width page, only 1 row
+      .panel-grid:only-child > .container {
+        @include background-color-page();
+        // Already has padding as container
+        padding-left: $grid-gutter-width/2!important;
+        padding-right: $grid-gutter-width/2!important;
+
+        // No need to space further
+        h1 {
+          margin-top: 0;
+        }
+      }
+
+      // Full width pages multiple rows
+      .panel-grid + .panel-grid > .container {
+        @include background-color-base();
+        margin-bottom: 30px;
+        padding-bottom: $grid-gutter-width;
+      }
+    }
+
+    // Article / normal pages
+    .wrap:not(.full-width-container) {
+      @include background-color-page();
+
+      // Targets page headers for normal pages
+      .page-header h2,
+      .main:only-child h1 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+

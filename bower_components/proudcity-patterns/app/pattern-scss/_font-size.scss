@@ -1,0 +1,17 @@
+.font-size, .widget_proud_font_size {
+  & {
+    .dropdown-menu {
+      min-width: 198px;
+      padding: $padding-base-vertical/2 $padding-base-horizontal/2;
+
+      &.nav-pills > li > a {
+        padding: $padding-base-vertical $padding-base-horizontal;
+        font-family: $font-family-serif;
+
+        sup {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

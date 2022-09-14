@@ -1,0 +1,357 @@
+//
+// Front end page header: only visible for smaller screens
+//
+
+$button-d: 45px;
+$button-width: 47px;
+$button-height: $button-d;
+
+.navbar-topbar {
+  height: $nav-height-short;
+  border-top: 0;
+  // text-align: center;
+
+  h2,
+  h3,
+  .h2,
+  .h3 {
+    margin: 0;
+
+    a {
+      float: left;
+      display: block;
+    }
+  }
+
+  // Light color
+  .light-background-topnav-topbar & {
+    h2,
+    h3,
+    .h2,
+    .h3,
+    h2 a,
+    h3 a,
+    .h2 a,
+    .h3 a,
+    .navbar-nav > li > a,
+    .navbar-nav > .open > a {
+      color: $light-back-topnav-color;
+
+      &:hover,
+      &:focus {
+        color: darken($light-back-topnav-color, 5%);
+        outline: none;
+      }
+    }
+  }
+
+  // Extra light
+  .extra-light-background-topnav-topbar & {
+    h2,
+    h3,
+    .h2,
+    .h3,
+    h2 a,
+    h3 a,
+    .h2 a,
+    .h3 a,
+    .navbar-nav > li > a,
+    .navbar-nav > .open > a {
+      color: $extra-light-back-topnav-color;
+
+      &:hover,
+      &:focus {
+        color: darken($extra-light-back-topnav-color, 5%);
+        outline: none;
+      }
+    }
+  }
+
+  .logo-menu {
+    padding-left: $grid-gutter-width/2;
+    margin-bottom: 0;
+    float: left;
+
+    li {
+      float: left;
+    }
+  }
+
+  .nav-logo {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    padding: 6px 6px 6px 10px;
+
+    img.logo {
+      max-width: 110px;
+      max-height: 44px;
+    }
+  }
+
+  .nav-text {
+    line-height: 27px;
+    height: 44px;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  // Navbar official statements
+  &.navbar-topbar-official-active {
+    z-index: 5;
+  }
+
+  .official-title {
+    // padding: 1.4rem 0;
+    font-size: 1.6rem;
+    font-weight: normal;
+
+    &,
+    button {
+      color: white;
+      line-height: 1.5em;
+      // vertical-align: middle;
+    }
+
+    button {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: 0;
+      // margin-top: -5px;
+      text-decoration: underline;
+    }
+  }
+
+  .official-topbar-outer .collapse,
+  .official-topbar-outer .collapsing {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 5px;
+  }
+
+  .official-topbar-collapse .media-left {
+    padding: 0 2rem;
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  // Actions toolbar
+  @include navbar-action-toolbar(
+    $button-width,
+    $button-height,
+    'topnav-topbar'
+  );
+
+  .menu-box {
+    float: right !important;
+    min-width: 125px;
+
+    .open .dropdown-menu {
+      bottom: auto;
+      left: auto;
+      right: 0;
+      top: $nav-height-short - 3;
+      z-index: $nav-user-overlay-z + 3;
+    }
+
+    #menu-button {
+      display: none;
+    }
+
+    .btn-toolbar.pull-right {
+      margin-left: 0;
+    }
+  }
+}
+
+// Mobile menu view, hide
+// -------------------------
+@include respond($mq-nav-xs-mode) {
+  .navbar-topbar .topbar-navigation {
+    display: none;
+  }
+
+  // Navbar official statements
+  .official-topbar-outer {
+    .h3 .nav-logo {
+      display: none;
+    }
+  }
+
+  .navbar-topbar-official-active {
+    .official-title {
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0 1rem;
+
+      button {
+        display: block;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+// Nav at bottom
+// -------------------------
+@include respond($mq-nav-fixed-bottom) {
+  .flexbox {
+    .navbar-topbar {
+      // Prevent show label icons from showing label on mobile
+      .menu-box {
+        a.show-label,
+        a.show-label i {
+          overflow: hidden;
+          width: $button-width;
+          height: $button-height;
+          margin-right: 0;
+          vertical-align: middle;
+          line-height: $button-height * 0.95;
+        }
+      }
+    }
+  }
+}
+
+// Nav visible
+// -------------------------
+@include respond($mq-menu-visible) {
+  .navbar-topbar {
+    // Hit children with no float
+    .topbar-navigation {
+      text-align: right;
+    }
+  }
+
+  // Use Flexbox if possible to deal with dynamic elements
+  // -----------------------------------------------------
+  .flexbox {
+    .navbar-topbar {
+      display: flex;
+      align-items: center;
+
+      // Hit children with no float
+      .topbar-navigation,
+      .menu-box {
+        float: none !important;
+        border-top: 0 !important;
+      }
+
+      .topbar-navigation {
+        flex: 1;
+        flex-shrink: 1;
+        order: 1;
+      }
+
+      #topbar-menu {
+        width: 100%;
+
+        > li {
+          display: inline-block;
+          float: none;
+        }
+      }
+
+      // No Menu active
+      .logo-menu + .menu-box {
+        right: 0;
+        position: absolute;
+      }
+
+      .menu-box {
+        display: flex;
+        flex-wrap: nowrap;
+        order: 2;
+        flex-shrink: 0;
+        float: none !important;
+        min-height: $nav-height-short;
+
+        .open .dropdown-menu {
+          top: auto;
+        }
+
+        & > div {
+          display: flex;
+          flex-wrap: nowrap;
+        }
+
+        a {
+          display: inline-block;
+          float: none !important;
+        }
+      }
+    }
+  }
+
+  // Navbar official statements
+  .navbar-topbar-official-active {
+    &.navbar-topbar {
+      display: block;
+      z-index: $nav-user-overlay-z + 3;
+    }
+
+    .official-topbar-outer .media {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .official-title {
+      padding: 1.4rem 0;
+
+      &,
+      button {
+        // font-size: 1.6rem;
+        // color: white;
+        // line-height: 1.5em;
+        vertical-align: middle;
+      }
+
+      button {
+        // display: inline-block;
+        // padding-top: 0;
+        // padding-bottom: 0;
+        // border: 0;
+        margin-top: -5px;
+        // text-decoration: underline;
+      }
+    }
+
+    .official-topbar-outer .collapse,
+    .official-topbar-outer .collapsing {
+      top: -1px;
+    }
+  }
+}
+
+// Top menu
+// -------------------------
+@include respond($mq-nav-fixed-top) {
+  .navbar-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: $nav-user-overlay-z + 3;
+
+    .nav-logo {
+      padding-left: 4px;
+      padding-right: 10px;
+    }
+
+    .nav-text {
+      padding-left: 4px;
+    }
+  }
+
+  .admin-menu,
+  .admin-bar {
+    .navbar-topbar {
+      top: $admin-bar-height;
+    }
+  }
+}

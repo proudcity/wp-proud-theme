@@ -1,0 +1,125 @@
+// -----------------------------------------------------------------------------
+// from https://github.com/callmenick/Animating-Hamburger-Icons/blob/master/sass/_components.hamburger.scss
+//   HAMBURGER ICONS COMPONENT 
+  
+// -----------------------------------------------------------------------------
+
+// vars
+
+$b-width: 45px;                    // The width of the button area
+$b-height: 45px;                   // The height of the button area
+$bar-thick: 2px;                    // The thickness of the button bars
+$b-pad: 13px;                      // The left/right padding between button area and bars.
+$b-bar-space: 4px;                // The spacing between button bars
+$b-trans-dur: 0.2s;     // The transition duration
+
+//  *
+//  * Toggle Switch Globals
+//  *
+//  * All switches should take on the class `c-hamburger` as well as their
+//  * variant that will give them unique properties. This class is an overview
+//  * class that acts as a reset for all versions of the icon.
+
+@mixin hamburger-icon-active($button-trans-dur : $b-trans-dur) {
+  .hamburger-bars {
+    background: none;
+
+    &:after, &:before {
+      @include transition-delay(0s, $button-trans-dur);
+    }
+      
+    &:before {
+      top: 0;
+      @include transform(rotate(45deg));
+    }
+
+    &:after {
+      bottom: 0;
+      @include transform(rotate(-45deg));
+    }
+  }
+}
+
+@mixin hamburger-icon-color(
+  $button-bar-color: $white ) {
+
+  .hamburger-bars {
+    background: $button-bar-color;
+    
+    &:before, &:after {
+      background-color: $button-bar-color;
+    }
+  }
+}
+
+@mixin hamburger-icon-animate(
+  $button-bar-color: $white,
+  $button-active:    '.menu-nav-open &',
+  $button-width:     $b-width, 
+  $button-height:    $b-height,
+  $bar-thickness:    $bar-thick,
+  $button-pad:       $b-pad,
+  $button-bar-space: $b-bar-space,
+  $button-trans-dur: $b-trans-dur) {
+
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  transition: background $button-trans-dur;
+  
+  &:focus {
+    outline: none;
+  }
+
+  .hamburger-bars {
+    display: block;
+    position: absolute;
+    top: ($button-height / 2) - ($bar-thickness / 2) - 1;
+    left: $button-pad;
+    right: $button-pad;
+    height: $bar-thickness;
+    @include transition(background 0s $button-trans-dur);
+    
+    &:before, &:after {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: $bar-thickness;
+      content: "";
+      @include transition-duration($button-trans-dur, $button-trans-dur);
+      @include transition-delay($button-trans-dur, 0s);
+    }
+    
+    &:before {
+      @include transition-property(top, transform);
+      top: -$bar-thickness - $button-bar-space - 1;
+    }
+    
+    &:after {
+      @include transition-property(bottom, transform);
+      bottom: -$bar-thickness - $button-bar-space - 1;
+    }
+  }
+  
+  @if ($button-active != false) {
+    #{$button-active} {
+      @include hambuger-icon-active($button-trans-dur)
+    }
+  }
+
+  @include hamburger-icon-color($button-bar-color);
+}

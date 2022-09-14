@@ -1,0 +1,18 @@
+.social {
+
+  &.social-inline {
+    li,
+    h6 {
+      float: left;
+    }
+
+    h6 {
+      margin: $padding-base-vertical $padding-base-horizontal;
+    }
+
+    ul li a {
+      padding: $padding-base-vertical $padding-base-horizontal;
+    }
+  }
+
+}

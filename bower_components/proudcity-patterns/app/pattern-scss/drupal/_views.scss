@@ -1,0 +1,46 @@
+
+
+.views-exposed-form {
+  @include card('&');
+}
+
+.views-widget .form-item-title .form-text {
+  @include text-search;
+}
+
+.views-exposed-form {
+  label {
+    font-weight: normal;
+  }
+
+  .views-exposed-widget {
+    padding-top: $form-group-margin-bottom;
+
+    .form-submit {
+      margin-top: 0;
+    }
+  }
+
+  .views-submit-button, .views-reset-button {
+    padding-right: 0;
+
+    ~ .views-submit-button, ~ .views-reset-button {
+      padding-left: $grid-gutter-width/2;
+    }
+  }
+}
+
+// Sidebar widgets
+.sidebar {
+  .views-exposed-widget[class*="views-widget-filter-"] {
+    float: none;
+    padding-right: 0;
+  }
+}
+
+@include respond($xs-only) {
+  .views-exposed-widget[class*="views-widget-filter-"] {
+    float: none;
+    padding-right: 0;
+  }
+}

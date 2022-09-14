@@ -1,0 +1,247 @@
+
+$header-dim-height: 52px;
+$header-dim-width: $header-dim-height - 10;
+
+// Filter header
+.widget-proud-social-app {
+  .nav-pills>li>a {
+    min-width: 42px;
+    font-size: 20px;
+    padding: 6px 11px; 
+    text-align: center;
+  }
+
+  .light-background-topnav & {
+    .nav-pills>li>a {
+      color: $light-back-topnav-color;
+    }
+    .nav-pills>li.active>a {
+      background: $gray-lighter;
+    }
+  }
+
+  .extra-light-background-topnav & {
+    .nav-pills>li>a {
+      color: $extra-light-back-topnav-color;
+    }
+    .nav-pills>li.active>a {
+      background: $gray-lighter;
+    }
+  }
+}
+
+
+// Items in wall
+
+.card {
+  // Image secton
+  .card-img-top-wrapper {
+    position: relative;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    // border-top: $card-border-width solid $card-border-color;
+
+    img {
+      border-radius: 0;
+      position: absolute;
+      margin-bottom: 0;
+      width: 100%;
+      max-height: none;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .social-card-header { 
+    // background-color: $gray-lightest;
+    background-color: $brand-primary;
+    height: $header-dim-height;
+    padding: 10px 8px 6px ($header-dim-width + 10);
+    position: relative;
+    border-radius: $card-border-radius $card-border-radius 0 0;
+
+    & > * {
+      z-index: 1;
+      position: relative;
+    }
+
+    &, a {
+      color: $white;
+
+      .light-background-highlight & {
+        color: $light-back-highlight-color;
+      }
+
+      .extra-light-background-highlight & {
+        color: $extra-light-back-highlight-color;
+      }
+    }
+
+    .post-link {
+      position: absolute;
+      left: 0;
+      text-align: center;
+      top: 0;
+
+      a {
+        display: block;
+        background-color: $brand-primary;
+        border-radius: $card-border-radius 0 0 0;
+        @include transition(background-color ease 0.2s);
+
+        &:hover {
+          background-color: rgba(0,0,0,0.1);
+        }
+      }
+
+      .fa {
+        font-size: 1.6em;
+      }
+      
+      &, a {
+        height: $header-dim-height;
+        line-height: $header-dim-height + 5;
+        width: $header-dim-width;
+      }
+
+    }
+
+    .date {
+      line-height: 1;
+      font-size: 1.1em;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    // Text
+    & ~ .card-block {
+      border-top: $card-border-width solid $card-border-color;
+
+      .card-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  // Static styles
+  .img-top-buffer {
+    .card-img-top-wrapper {
+      display: block;
+      position: relative;
+
+      img {
+        position: static;
+      }
+    }
+  }
+
+  .widget-proud-social-app .card-columns > & {
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -o-column-break-inside: avoid;
+    -ms-column-break-inside: avoid;
+    column-break-inside: avoid;
+    -webkit-backface-visibility: hidden;
+    display: block;
+  }
+}
+
+// Social wall (dynamic)
+
+[dynamic-layout] {
+  position: relative;
+  margin-right: -($grid-gutter-width / 2);
+  margin-left: -($grid-gutter-width / 2);
+}
+
+// Animation
+
+.move-items-animation{
+  transition-property: left, top;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.dynamic-layout-item-parent.ng-enter{
+  transition: .5s ease-in-out;
+  opacity:0;
+}
+.dynamic-layout-item-parent.ng-enter.ng-enter-active{
+  opacity:1;
+}
+
+.dynamic-layout-item-parent.ng-leave{
+  transition: .5s ease-in-out;
+  opacity:1;
+}
+.dynamic-layout-item-parent.ng-leave.ng-leave-active{
+  opacity:0;
+}
+
+.dynamic-layout-item-parent {
+  width: 100%;
+}
+
+.dynamic-layout-item {
+  padding: 0 ($grid-gutter-width / 2) ($grid-gutter-width / 2);
+}
+
+@include respond($xs-only) {
+  [social-wall] {
+    height: auto!important;
+
+    // contact link
+    .text-right .btn-default {
+      font-size: 12px;
+      height: 42px;
+      line-height: 29px;
+    }
+
+    .dynamic-layout-item-parent {
+      position: relative!important;
+      top: auto!important;
+      left: auto!important;
+    }
+  }
+}
+
+@include respond($sm-up) {
+  [social-wall] {
+    .dynamic-layout-item-parent {
+      width: 50%;
+    }
+  }
+}
+
+@include respond($md-up) {
+  [social-wall] {
+    .dynamic-layout-item-parent {
+      width: (100/3)*1%;
+      
+      // Hacky fix for firefox
+      .container & {
+        max-width: ($container-md - 30 - 1)/3;
+      }
+    }
+  }
+}
+
+@include respond($lg-up) {
+  // Hacky fix for firefox
+  .container [social-wall] {
+    .dynamic-layout-item-parent {
+      max-width: ($container-lg - 30 - 1)/3;
+    }
+  }
+}

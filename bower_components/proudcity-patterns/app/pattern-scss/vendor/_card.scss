@@ -1,0 +1,506 @@
+.card {
+  max-width: $card-max-width;
+
+  &.card-full {
+    max-width: 100%;
+  }
+
+  &.card-primary {
+    small,
+    h4 {
+      a {
+        color: #fff;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    
+  }
+  
+}
+
+// From https://github.com/twbs/bootstrap/blob/v4-dev/scss/_card.scss
+// Sep 20, 2015.
+
+//
+// Base styles
+//
+
+.card-wrap {
+  position: relative;
+}
+
+.card {
+  @include card();
+}
+
+.card-block {
+  display: block;
+  padding: $card-spacer-x;
+}
+
+.card-title {
+  margin-bottom: $card-spacer-y;
+  margin-top: 0;
+}
+
+.card-subtitle {
+  margin-top: -($card-spacer-y / 2);
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+// .card-actions {
+//   padding: $card-spacer-y $card-spacer-x;
+
+//   .card-link + .card-link {
+//     margin-left: $card-spacer-x;
+//   }
+// }
+
+.card-link {
+  @include hover {
+    text-decoration: none;
+  }
+
+  + .card-link {
+    margin-left: $card-spacer-x;
+  }
+}
+
+@if $enable-rounded {
+  .card {
+    > .list-group:first-child {
+      .list-group-item:first-child {
+        border-radius: $card-border-radius $card-border-radius 0 0;
+      }
+    }
+
+    > .list-group:last-child {
+      .list-group-item:last-child {
+        border-radius: 0 0 $card-border-radius $card-border-radius;
+      }
+    }
+  }
+}
+
+
+//
+// Optional textual caps
+//
+
+.card-header {
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-cap-bg;
+  border-bottom: $card-border-width solid $card-border-color;
+
+  &:first-child {
+    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+  }
+}
+
+.card-footer {
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-cap-bg;
+  border-top: $card-border-width solid $card-border-color;
+
+  &:last-child {
+    @include border-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+  }
+}
+
+
+//
+// Background variations
+//
+
+.card-primary {
+  @include card-color($brand-primary);
+}
+
+.card-success {
+  @include card-color($brand-success);
+}
+
+.card-info {
+  @include card-color($brand-info);
+}
+
+.card-warning {
+  @include card-color($brand-warning);
+}
+
+.card-danger {
+  @include card-color($brand-danger);
+}
+
+.card-gray-light {
+  @include card-color($gray-light);
+}
+
+.card-dark {
+  @include card-color($gray-dark);
+}
+
+
+//
+// Inverse text within a card for use with dark backgrounds
+//
+
+.card-inverse {
+  .card-header,
+  .card-footer {
+    border-bottom: .075rem solid rgba(255,255,255,.2);
+  }
+  .card-header,
+  .card-footer,
+  .card-title,
+  .card-text,
+  .card-blockquote {
+    color: #fff;
+  }
+  .card-link,
+  .card-blockquote > footer {
+    color: rgba(255,255,255,.65);
+  }
+  .card-link {
+    @include hover-focus {
+      color: #fff;
+    }
+  }
+}
+
+
+//
+// Button card
+//
+.card-btn {
+  padding-top: $card-spacer-x * 1.5;
+  padding-bottom: $card-spacer-x * 1.5; 
+  
+  &:hover {
+    text-decoration: none;
+  }
+
+  & > *, & > .card-block > * {
+    margin-top: $card-spacer-x;
+    margin-bottom: 0; 
+  }
+
+  & > *:first-child, & > .card-block > *:first-child {
+    margin-top: 0;
+  }
+
+  .card & {
+    display: block;
+  }
+}
+
+//
+// Blockquote
+//
+
+.card-blockquote {
+  padding: 0;
+  margin-bottom: 0;
+  border-left: 0;
+}
+
+// Card image
+.card-img {
+  // margin: -1.325rem;
+  @include border-radius(.25rem);
+}
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+}
+
+.card-img, .card-img-top, .card-img-bottom {
+  min-width: 100%;
+}
+
+
+// Card image caps
+.card-img-top {
+  @include border-radius(.25rem .25rem 0 0);
+}
+.card-img-bottom {
+  @include border-radius(0 0 .25rem .25rem);
+}
+
+
+//
+// Card set
+//
+
+@if $enable-flex {
+  @include respond($sm-up) {
+    .card-deck {
+      display: flex;
+      flex-flow: row wrap;
+      margin-right: -.625rem;
+      margin-left: -.625rem;
+
+      .card {
+        flex: 1 0 0;
+        margin-right: .625rem;
+        margin-left: .625rem;
+      }
+    }
+  }
+} @else {
+  @include respond($sm-up) {
+    .card-deck {
+      display: table;
+      table-layout: fixed;
+      border-spacing: 1.25rem 0;
+
+      .card {
+        display: table-cell;
+        width: 1%;
+        vertical-align: top;
+      }
+    }
+    .card-deck-wrapper {
+      margin-right: -1.25rem;
+      margin-left: -1.25rem;
+    }
+  }
+}
+
+//
+// Card groups
+//
+@include respond($sm-up) {
+  .card-group {
+    @if $enable-flex {
+      display: flex;
+      flex-flow: row wrap;
+    } @else {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    .card {
+      @if $enable-flex {
+        flex: 1 0 0;
+      } @else {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:first-child {
+          .card-img-top {
+            border-top-right-radius: 0;
+          }
+          .card-img-bottom {
+            border-bottom-right-radius: 0;
+          }
+        }
+        &:last-child {
+          .card-img-top {
+            border-top-left-radius: 0;
+          }
+          .card-img-bottom {
+            border-bottom-left-radius: 0;
+          }
+        }
+
+        &:not(:first-child):not(:last-child) {
+          border-radius: 0;
+
+          .card-img-top,
+          .card-img-bottom {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+$column-gap: 1.25rem;
+
+//
+// Card columns
+//
+.card-columns {
+  vertical-align: top;
+  margin-bottom: 30px;
+  margin-left: -($column-gap/2);
+  margin-right: -($column-gap/2);
+  @include clearfix();
+
+  & > * {
+    padding-left: $column-gap/2;
+    padding-right: $column-gap/2;
+    float: left;
+    display: block;
+  }
+}
+
+// Makes columns work for mobile
+@include respond($xs-only) {
+  .card-columns-xs-1 {
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .card-columns-xs-2 {
+    & > * {
+      width: 50%;
+    }
+  }
+}
+
+@include respond($sm-up) {
+  
+  // 4 column
+  .card-columns-sm-2 {
+    & > * {
+      width: 50%;
+    }
+  }
+
+  // Normal 3 column
+  .card-columns-sm-3 {
+    & > * {
+      width: (100/3 * 1%);
+    }
+  }
+  
+  // 4 column
+  .card-columns-sm-4 {
+    & > * {
+      width: (100/4 * 1%);
+    }
+  }
+}
+
+// go to 4 column on med
+@include respond($md-up) {
+  .card-columns-md-3 {
+    & > * {
+      width: (100/3 * 1%);
+    }
+  }
+
+  .card-columns-md-4 {
+    & > * {
+      width: (100/4 * 1%);
+    }
+  }
+}
+
+// go to 4 column on lg
+@include respond($lg-up) {
+  .card-columns-lg-3 {
+    & > * {
+      width: (100/3 * 1%);
+    }
+  }
+
+  .card-columns-lg-4 {
+    & > * {
+      width: (100/4 * 1%);
+    }
+  }
+}
+
+
+// @TODO fix this approach to cards... currently 
+// css column do not allow for proper alignment
+// 
+// //
+// // Card columns
+// //
+// .card-columns {
+//   @include column-gap(1.25rem);
+//   vertical-align: top;
+//   margin-bottom: 30px;
+
+//   & > * {
+//     -webkit-column-break-inside: avoid;
+//     page-break-inside: avoid;
+//     break-inside: avoid-column;
+//     display: table;
+//     vertical-align: top;
+//     width: 100%;
+//   }
+// }
+
+// // Makes columns work for mobile
+// @include respond($xs-only) {
+//   .card-columns-xs-1 .card {
+//     display: block;
+//   }
+
+//   .card-columns-xs-2 {
+//     @include column-count(2);
+    
+//   }
+// }
+
+// @include respond($sm-up) {
+  
+//   // 4 column
+//   .card-columns-sm-2 {
+//     @include column-count(2);
+//   }
+
+//   // Normal 3 column
+//   .card-columns-sm-3 {
+//     @include column-count(3);
+
+//     // .card {
+//     //   display: inline-block;
+//     //   width: 100%; // Don't let them exceed the column width
+//     // }
+//   }
+  
+//   // 4 column
+//   .card-columns-sm-4 {
+//     @include column-count(4);
+//   }
+// }
+
+// // go to 4 column on med
+// @include respond($md-up) {
+//   .card-columns-md-3 {
+//     @include column-count(3);
+//   }
+
+//   .card-columns-md-4 {
+//     @include column-count(4);
+//   }
+// }
+
+// // go to 4 column on lg
+// @include respond($lg-up) {
+//   .card-columns-lg-3 {
+//     @include column-count(3);
+//   }
+
+//   .card-columns-lg-4 {
+//     @include column-count(4);
+//   }
+// }

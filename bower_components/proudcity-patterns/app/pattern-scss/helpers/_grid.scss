@@ -1,0 +1,50 @@
+
+$extra-padding: 40px;
+
+.padding-xs-left {
+  padding-left: $extra-padding;
+}
+
+.padding-xs-right {
+  padding-right: $extra-padding
+}
+
+@include respond($sm-up) {
+  .padding-sm-left {
+    padding-left: $extra-padding;
+  }
+
+  .padding-sm-right {
+    padding-right: $extra-padding
+  }
+}
+
+@include respond($md-up) {
+  .padding-md-left {
+    padding-left: $extra-padding;
+  }
+
+  .padding-md-right {
+    padding-right: $extra-padding
+  }
+
+  .col-md-offset-both-half {
+    margin-left: percentage(((1 / $grid-columns) / 2));
+    margin-right: percentage(((1 / $grid-columns) / 2));
+  }
+}
+
+@include respond($lg-up) {
+  .padding-lg-left {
+    padding-left: $extra-padding;
+  }
+
+  .padding-lg-right {
+    padding-right: $extra-padding
+  }
+
+  .col-lg-offset-both-half {
+    margin-left: percentage(((1 / $grid-columns) / 2));
+    margin-right: percentage(((1 / $grid-columns) / 2));
+  }
+}

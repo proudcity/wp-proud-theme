@@ -1,0 +1,13 @@
+
+.agency-contact-widget {
+  word-wrap: break-word;
+}
+
+@include respond($sm-only) {
+  .agency-contact-widget {
+    .col-xs-2 {
+      margin-left: -15px;
+      margin-right: 15px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+
+// Pad select is a css selector to apply padding to
+@mixin card($pad-select: false) {
+  font-size: $font-size-small;
+  position: relative;
+  margin-bottom: $card-spacer-y;
+  background-color: $white;
+  min-width: 0;
+  border: $card-border-width solid $card-border-color;
+  @include border-radius($card-border-radius);
+  @include transition(box-shadow 0.1s linear);
+  box-shadow: 0 0 10px $white inset;
+
+
+  &.card-btn, .card-btn {
+    @include hover-focus {
+      box-shadow: 0 0 8px 4px darken($white, 3%) inset;
+    }
+  }
+
+  @if($pad-select) {
+    #{$pad-select} {
+      padding: $card-spacer-x;
+    }
+  }
+}
+
+//
+// Background variations
+//
+
+@mixin card-color($color, $hover-amount: 10%) {
+  background-color: $color;
+  border-color: $color;
+  box-shadow: 0 0 10px $color inset;
+
+  @if (lightness($color) < 40) {
+     // box-shadow: 0 0 10px lighten($color, 10%) inset;
+
+     * {
+      color: $white;
+     }
+
+     &.card-btn, .card-btn {
+        @include hover-focus {
+          box-shadow: 0 0 8px 4px lighten($color, 5%) inset;
+        }
+      }
+  }
+  @else {
+    // box-shadow: 0 0 10px darken($color, 10%) inset;
+
+    &.card-btn, .card-btn {
+      @include hover-focus {
+        box-shadow: 0 0 8px 4px darken($color, 5%) inset;
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+// Headers
+// -------------------------------------
+
+h1,
+.h1 {
+  @include h1;
+}
+h2,
+.h2 {
+  @include h2;
+}
+h3,
+.h3 {
+  @include h3;
+}
+h4,
+.h4 {
+  @include h4;
+}
+h5,
+.h5 {
+  @include h5;
+}
+h6,
+.h6 {
+  @include h6;
+}
+
+// Decrease fonts for mobile
+@include respond($xs-only) {
+  h1,
+  .h1 {
+    @include xs-header-size($font-size-h1);
+  }
+  h2,
+  .h2 {
+    @include xs-header-size($font-size-h2);
+  }
+  h3,
+  .h3 {
+    @include xs-header-size($font-size-h3);
+  }
+  h4,
+  h5,
+  h6,
+  .h4,
+  .h5,
+  .h6 {
+    @include xs-header-size($font-size-h4);
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+// Paragraph
+// -------------------------------------
+
+p,
+.p {
+  margin-bottom: 1em;
+}
+
+.header-margin {
+  margin-top: $line-height-computed;
+}
+
+.text-small {
+  font-size: 0.8em;
+}
+
+// Links
+// -------------------------------------
+
+// @TODO adding underline to links... might not be ideal in some cases
+// https://github.com/proudcity/wp-proudcity/issues/1828
+p a,
+.textwidget a,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+footer a {
+  text-decoration: underline;
+}
+
+// Label overrides
+// -------------------------------------
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  .label {
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+}
+
+// Icons
+// -------------------------------------
+
+.icon-even-width {
+  min-width: 1.5em;
+}
+
+// Random Helpers
+// -------------------------------------
+$or-bar-width: 50px;
+.or-bar {
+  border-top: 1px solid $gray-light;
+  padding-bottom: 2em;
+  margin-top: 2em;
+
+  span {
+    position: absolute;
+    padding: 5px 10px;
+    background-color: $white;
+    margin-top: -1em;
+    width: $or-bar-width;
+    text-align: center;
+    left: 50%;
+    margin-left: -($or-bar-width/2);
+  }
+}
+
+iframe {
+  border: none;
+}

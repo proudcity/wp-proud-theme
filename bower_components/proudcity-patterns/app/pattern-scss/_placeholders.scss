@@ -1,0 +1,35 @@
+
+.place-shadow {
+  opacity: 0.5;
+  position: relative;
+
+  .shadow-icon, .shadow-text {
+    background: $text-color;
+    color: $text-color;
+    display: inline-block;
+  }
+
+  // Shadow text making things huge on mobile
+  @include respond($xs-only) {
+    .shadow-icon + .shadow-text {
+      display: inline;
+    }
+  }
+  
+  $loading-icon-size: 40px;
+
+  @include fa-icon-force($fa-var-spinner, 'default', '&:after') {
+    @include animation(fa-spin 1s infinite steps(8));
+    color: rgba($text-color, .5);
+    font-size: $loading-icon-size;
+    height: $loading-icon-size;
+    left: 50%;
+    line-height: $loading-icon-size;
+    margin-left: -($loading-icon-size/2);
+    margin-top: -($loading-icon-size/2);
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: $loading-icon-size;
+  }
+}

@@ -1,0 +1,46 @@
+.menu-slider {
+  height: 43px;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+  @include transition(opacity ease-in 0.2s);
+
+  // only first level, no variablilty
+  &[data-level-active="1"] {
+    height: auto;
+    opacity: 1;
+
+    > .inner:first-child {
+      float: none;
+    }
+  }
+
+  > .inner {
+    position: relative;
+    float: left;
+    margin-bottom: 0;
+    @include transition(margin-left ease-in 0.2s);
+    @include clearfix();
+
+    > * {
+      float: left;
+    }
+  }
+
+  @for $level from 1 through 100 {
+    &.level-count-#{$level} > .inner {
+      width: (100% * $level);
+
+      > * {
+        width: (100%/$level);
+      }
+    }
+
+    $levelLeft: $level - 1;
+
+    &.level-#{$level}-active > .inner {
+      margin-left: -#{100*$levelLeft}#{'%'};
+    }
+  }
+}

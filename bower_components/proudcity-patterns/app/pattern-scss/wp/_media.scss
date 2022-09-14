@@ -1,0 +1,99 @@
+.media {
+  position: relative;
+  margin-bottom: 1em;
+
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: black;
+
+    // ~ * {
+    //   font: googffeeee;
+    // }
+  }
+  
+  .wp-post-image {
+    max-height: 400px;
+    width: auto;
+  }
+
+  .media-byline {
+    z-index: 1000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: $font-size-small;
+
+    @include fa-icon-force($fa-var-image, 'regular') {
+      display: none;
+    }
+
+    span.media-byline-inner {
+      padding: 3px 10px 5px;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: $gray-lighter;
+
+      @include fa-icon-force($fa-var-image, 'regular') {
+        margin-right: 2px;
+      }
+
+      a {
+        color: $gray-lighter;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  //&:hover .media-byline {
+  //  display: block;
+  //}
+}
+
+
+@include respond($xs-only) {
+  .media-byline {
+    &:before {
+      display: block !important;
+      margin-left: 10px;
+      margin-bottom: 5px;
+      font-size: $font-size-large;
+      color: $white;
+    }
+
+    span.media-byline-inner {
+      display: none;      
+    }
+
+    &.active {
+      &:before {
+        display: none !important;
+      }
+
+      span.media-byline-inner {
+        display: block;
+      }
+    }
+  }
+}
+
+// Captions
+.wp-caption {
+  @extend .thumbnail;
+
+  &.alignnone {
+    width: auto!important;
+  }
+}
+
+
+.wp-caption-text {
+  padding: $thumbnail-caption-padding;
+}
+
+// Text meant only for screen readers
+.screen-reader-text {
+  @extend .sr-only;
+  @extend .sr-only-focusable;
+}
+

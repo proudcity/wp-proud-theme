@@ -1,0 +1,30 @@
+
+$throb-dim: 25px;
+
+.ajax-progress-throbber {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($white, 0.3);
+
+  .throbber {
+    position: absolute!important;
+    background: none;
+    width: $throb-dim;
+    height: $throb-dim;
+    top: 50%!important;
+    left: 50%;
+    margin: (-($throb-dim/2)) 0 0 (-($throb-dim/2));
+
+    @include fa-icon-force($fa-var-cog) {
+      color: $brand-info;
+      line-height: $throb-dim;
+      font-size: $throb-dim*0.75;
+      -webkit-animation: fa-spin 2s infinite linear;
+      animation: fa-spin 2s infinite linear;
+    }
+  }
+}

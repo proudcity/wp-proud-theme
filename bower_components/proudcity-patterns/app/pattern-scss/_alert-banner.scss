@@ -1,0 +1,66 @@
+// Proud alert banner
+
+.alert-banner {
+  margin-bottom: 0;
+  // @todo: decr padding
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+// Colors from https://polaris.shopify.com/visuals/colors
+$proud-alert-red: #bf0711;
+$proud-alert-orange: #c05717;
+$proud-alert-yellow: #eec200;
+$proud-alert-green: #108043;
+$proud-alert-black: #212b35;
+$proud-alert-gray: #c4cdd5;
+
+.proud-alert-banner {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.alert-red {
+  background-color: $proud-alert-red;
+}
+
+.alert-orange {
+  background-color: $proud-alert-orange;
+}
+
+.alert-yellow {
+  background-color: $proud-alert-yellow;
+}
+
+.alert-green {
+  background-color: $proud-alert-green;
+}
+
+.alert-black {
+  background-color: $proud-alert-black;
+}
+
+.alert-gray {
+  background-color: $proud-alert-gray;
+}
+
+.alert-yellow,
+.alert-gray {
+  a {
+    color: $text-color !important;
+  }
+}
+
+.alert-red,
+.alert-orange,
+.alert-green,
+.alert-black {
+  color: $white;
+
+  a {
+    color: $white !important;
+    text-decoration: underline;
+  }
+}

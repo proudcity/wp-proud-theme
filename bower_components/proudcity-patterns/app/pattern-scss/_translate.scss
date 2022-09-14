@@ -1,0 +1,38 @@
+//
+// Google translate widget
+//
+
+.translate,
+.widget_proud_google_translate,
+.widget-proud-google-translate {
+  ul.dropdown-menu {
+    min-width: 240px;
+
+    li {
+      padding: $nav-link-padding;
+    }
+  }
+
+  select {
+    @include form-control();
+  }
+
+  &.translate-stacked {
+    margin: $padding-base-vertical 0;
+  }
+}
+
+// Nav goes to mobile mode
+// -------------------------
+@media (max-width: $grid-float-breakpoint-max) {
+  .goog-te-gadget {
+    .footer-actions & {
+      color: $white;
+    }
+  }
+
+  header .widget-proud-google-translate .dropdown-menu {
+    top: auto;
+    bottom: 52px;
+  }
+}

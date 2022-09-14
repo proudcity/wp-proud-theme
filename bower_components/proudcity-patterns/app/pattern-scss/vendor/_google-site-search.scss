@@ -1,0 +1,126 @@
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button 
+{
+  box-sizing: content-box;
+  line-height: normal;
+}
+
+.gsc-tabsArea div 
+{
+  /*By default, Google custom search CSS sets it as AUTO, which shows scroll bars*/
+  overflow: visible; 
+}
+
+.gsc-control-wrapper-cse {
+  table, thead, tbody, tr, th, td {
+    border: 0!important;
+  }
+
+  .gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top, td {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+}
+
+.gsc-above-wrapper-area-container {
+  td {
+    border-top: 0;
+  }
+
+  .gsc-orderby-container {
+    padding-bottom: 0;
+  }
+
+  .gsc-selected-option-container {
+    width: auto!important;
+  }
+}
+
+
+// Results 
+// ------------
+.gsc-results {
+  position: relative!important;
+
+  .gsc-webResult {
+    border-color: transparent!important;
+    border-left: 0!important;
+    border-right: 0!important;
+    border-bottom: 0!important;
+  }
+
+  .gsc-expansionArea .gsc-webResult:first-child,
+  .gsc-webResult ~ .gsc-webResult {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid $gray-lighter!important;
+  }
+
+  .gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b,
+  .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b,
+  .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b {
+    color: $brand-primary;
+  }
+
+  .gs-webResult div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
+    color: $gray-warm-dark;
+  }
+
+  .gcsc-branding {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  // Pager
+  // ----------
+  .gsc-cursor-box {
+    display: inline-block;
+    padding-left: 0;
+    margin: $line-height-computed 0!important;
+    border-radius: $border-radius-base;
+
+    .gsc-cursor-page {
+      display: inline-block; // Remove list-style and block-level defaults
+      position: relative;
+      float: left; // Collapse white-space
+      padding: $padding-base-vertical $padding-base-horizontal;
+      line-height: $line-height-base!important;
+      text-decoration: none;
+      color: $pagination-color!important;
+      background-color: $pagination-bg!important;
+      border: 1px solid $pagination-border!important;
+      margin-left: -1px;
+
+      &:first-child {
+        margin-left: 0;
+        @include border-left-radius($border-radius-base);
+      }
+      &:last-child {
+        @include border-right-radius($border-radius-base);
+      }
+    }
+
+    .gsc-cursor-page:not(.gsc-cursor-current-page) {
+      &:hover,
+      &:focus {
+        z-index: 3;
+        color: $pagination-hover-color!important;
+        background-color: $pagination-hover-bg!important;
+        border-color: $pagination-hover-border!important;
+      }
+    }
+
+    .gsc-cursor-current-page {
+      &,
+      &:hover,
+      &:focus {
+        z-index: 2;
+        color: $pagination-active-color!important;
+        background-color: $pagination-active-bg!important;
+        border-color: $pagination-active-border!important;
+        cursor: default;
+      }
+    }
+  }
+}

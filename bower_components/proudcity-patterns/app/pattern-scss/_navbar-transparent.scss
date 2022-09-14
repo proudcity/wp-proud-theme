@@ -1,0 +1,189 @@
+$navbar-transparent-opacity: 0.8;
+
+// Expanding/contracting topnav + tablet view
+//body.proud-navbar-transparent {
+//
+//  // Deal with jumbotron items
+//  .main {
+//    & > div > .panel-grid:first-child,
+//    .entry-content > div > .panel-grid:first-child {
+//      // backpound
+//      .jumbotron-inverse {
+//        .jumbotron-bg {
+//          //position: static;
+//          opacity: $navbar-transparent-opacity;
+//        }
+//
+//        //.jumbotron-bg-mask {
+//        //  opacity: $navbar-transparent-opacity;
+//        //}
+//      }
+//    }
+//  }
+//}
+
+// Only init for blendmode capable, plus
+// insane bug with chrome + mapbox prevents this mode with admin bar
+//.backgroundblendmode body.proud-navbar-transparent:not(.admin-bar) {
+//  .main {
+//    & > div > .panel-grid:first-child,
+//    .entry-content > div > .panel-grid:first-child {
+//      .jumbotron-inverse {
+//        .jumbotron-bg-mask {
+//          opacity: 1;
+//          @include background-blend();
+//          z-index: $nav-user-overlay-z - 11;
+//
+//          & ~ * {
+//            position: relative;
+//            z-index: $nav-user-overlay-z - 10;
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
+
+// Top menu
+// -------------------------
+@include respond($mq-nav-fixed-top) {
+
+  // Expanding/contracting topnav + tablet view
+  body.proud-navbar-transparent {
+    &, &:not(.scrolled) {
+      padding-top: 0!important;
+    }
+
+    .menu-box {
+      background: none!important;
+    }
+
+    .navbar-external {
+      @include transition(padding 0.15s ease-out, background-color 0.35s ease-out, border-color 0.35s ease-out);
+
+      > * {
+        z-index: 2;
+        position: relative;
+      }
+    }
+
+    // Alert banner
+    .alert-banner {
+      left: 0;
+      width: 100%;
+      position: absolute;
+      top: $nav-height-short + $nav-big-padding*2;
+      z-index: 1;
+    }
+
+    // Admin menu active, compensate
+    &.admin-menu, &.admin-bar {
+      &, &:not(.scrolled) {
+        padding-top: $admin-bar-height !important;
+      }
+
+      // Alert banner
+      .alert-banner {
+        margin-top: $admin-bar-height;
+      }
+    }
+
+    // Deal with jumbotron items
+    .main {
+      & > div > .panel-grid:first-child,
+      .entry-content > div > .panel-grid:first-child {
+        // "full" height style jumbotrons
+        .jumbotron-header-container {
+          padding-top: $nav-height-short + $nav-big-padding*2 !important;
+        }
+      }
+    }
+
+    &.proud-navbar-topbar-active {
+      &, &:not(.scrolled) {
+        padding-top: $nav-height-short !important;
+      }
+
+      // Alert banner
+      //.alert-banner {
+      //  margin-top: $nav-height-short;
+      //}
+
+      &:not(.scrolled) .alert-banner {
+        margin-top: $nav-height-short;
+      }
+
+      // Admin menu active, compensate
+      &.admin-menu, &.admin-bar {
+        &, &:not(.scrolled) {
+          padding-top: $admin-bar-height + $nav-height-short !important;
+        }
+
+        // Alert banner
+        //.alert-banner {
+        //  margin-top: $admin-bar-height;
+        //}
+
+        &:not(.scrolled) .alert-banner {
+          margin-top: $admin-bar-height + $nav-height-short;
+        }
+      }
+
+      .main {
+        & > div > .panel-grid:first-child,
+        .entry-content > div > .panel-grid:first-child {
+          // "full" height style jumbotrons
+          .jumbotron-header-container {
+            padding-top: $nav-height-short*2 + $nav-big-padding*2 !important;
+          }
+        }
+      }
+    }
+  }
+
+  //
+  // Overlay spacing
+  //
+  .proud-navbar-transparent.scrolled {
+    $top-pad: 160px;
+
+    .proud-overlay {
+      padding-top: $top-pad;
+    }
+
+    .proud-overlay-close {
+      top: $top-pad - 70;
+    }
+
+    &.search-active {
+      #wrapper-search {
+        top: $top-pad;
+      }
+    }
+  }
+
+  
+
+  // if admin, move
+  .proud-navbar-transparent.admin-bar {
+    $top-pad: 210px;
+
+    &.scrolled {
+
+      .proud-overlay {
+        padding-top: $top-pad;
+      }
+
+      .proud-overlay-close {
+        top: $top-pad - 70;
+      }
+
+
+      &.search-active {
+        #wrapper-search {
+          top: $top-pad;
+        }
+      }
+    }
+  }
+}

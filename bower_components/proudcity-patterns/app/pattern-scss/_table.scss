@@ -1,0 +1,33 @@
+// 
+// Boostrap tables
+//
+
+
+
+// Remove lines between trs
+.table {
+  border: 1px solid $table-border-color;
+  
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+
+  tr:hover {
+    background-color: $gray-lightest !important;
+  }
+}
+
+
+// @todo: mixin throws errors
+// @include table-row-variant('active', $table-bg-active);
+.table > thead > tr > td.active, .table > thead > tr > th.active, .table > thead > tr.active > td, .table > thead > tr.active > th, .table > tbody > tr > td.active, .table > tbody > tr > th.active, .table > tbody > tr.active > td, .table > tbody > tr.active > th, .table > tfoot > tr > td.active, .table > tfoot > tr > th.active, .table > tfoot > tr.active > td, .table > tfoot > tr.active > th {
+  background-color: transparent;
+}

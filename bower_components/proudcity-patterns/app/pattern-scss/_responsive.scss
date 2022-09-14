@@ -1,0 +1,13 @@
+@include respond($md-up) {
+  .pull-md-right {
+    float: right;
+  }
+
+  .text-md-right {
+    text-align: right;
+  }
+  
+  .md-header-margin {
+    margin-top: $line-height-computed;
+  }
+}

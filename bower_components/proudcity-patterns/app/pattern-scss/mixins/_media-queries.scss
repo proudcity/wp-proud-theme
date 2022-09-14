@@ -1,0 +1,46 @@
+@mixin respond($media, $modList: ()) {
+  @if(length($modList)) {
+    @each $mod in $modList {
+      $media: "#{$media} and (#{$modList})"; 
+    }
+  }
+  @media #{$media} {
+    @content;
+  }
+}
+
+// Bootstrap
+// -----------------
+
+// Mobile
+$xs-only: "screen and (max-width: #{$screen-xs-max})";
+// Tablet + mobile
+$sm-and-down: "screen and (max-width: #{$screen-sm-max})";
+// Tablet only
+$sm-only: "screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})";
+// Tablet up
+$sm-up: "screen and (min-width: #{$screen-sm-min})";
+// Laptop + tablet + mobile
+$md-and-down: "screen and (max-width: #{$screen-md-max})";
+// Laptop only
+$md-only: "screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})";
+// Laptop up
+$md-up: "screen and (min-width: #{$screen-md-min})";
+// Large screen
+$lg-up: "screen and (min-width: #{$screen-lg-min})";
+
+// Navigational queries
+// ----------------
+
+// Overridden by json in wp-proud-theme
+$nav-fixed-bottom-max: 1200px!default;
+$nav-fixed-top-min: 1201px!default;
+
+// full mobile appearance
+$mq-nav-xs-mode: "screen and (max-width: #{$grid-float-breakpoint-max})"!default;
+// Navbar fixed below
+$mq-nav-fixed-bottom: "screen and (max-width: #{$nav-fixed-bottom-max})"!default;
+// No longer hiding menu 
+$mq-menu-visible: "screen and (min-width: #{$grid-float-breakpoint})"!default;
+// Full navigation at top
+$mq-nav-fixed-top: "screen and (min-width: #{$nav-fixed-top-min})"!default;

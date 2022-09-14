@@ -1,0 +1,143 @@
+$icon-dim: 30px;
+$width-mod: 10px;
+
+.now-feed  {
+  position: relative;
+  margin-top: 20px;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    margin-left: -1.5px;
+    background-color: #eeeeee;
+    display: block;
+  
+    // mobile 
+    left: $icon-dim/2;
+  }
+
+  & > * {
+    padding-left: $icon-dim + $width-mod;
+    margin-bottom: 30px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .feed-icon {
+    float: left;
+    background: darken(#eeeeee, 5%);
+    border-radius: $icon-dim/2;
+    position: relative;
+    z-index: 1;
+    font-size: ($icon-dim - ($width-mod * 1.5));
+    width: $icon-dim;
+    height: $icon-dim;
+    line-height: $icon-dim * 1.05;
+    text-align: center;
+    margin-left: -($icon-dim + $width-mod);
+    @include transition(background-color .2s ease);
+
+    &, &:hover {
+      i {
+        color: darken(#eeeeee, 40%);
+      }
+    }
+
+    &:hover {
+      background: darken(#eeeeee, 10%);
+      
+    }
+  }
+}
+
+$item-width: 50%;
+$icon-dim: 50px;
+$width-mod: 20px;
+
+
+@include respond($sm-up) {
+  
+  .now-feed  {
+    position: relative;
+
+    &:before {
+      left: 50%;
+    }
+
+    .feed-icon {
+      border-radius: $icon-dim/2;
+      font-size: ($icon-dim - ($width-mod * 1.5));
+      width: $icon-dim;
+      height: $icon-dim;
+      line-height: $icon-dim * 1.05;
+    }
+
+    & > * {
+      margin-bottom: 0;
+      clear: both;
+      width: $item-width;
+      padding-right: $icon-dim + $width-mod;
+      padding-left: 0;
+      float: left;
+      margin-left: (50% - $item-width);
+
+      .feed-icon {
+        float: right;
+        margin-left: 0;
+        margin-right: -($icon-dim + $width-mod + $icon-dim/2);
+      }
+      
+    }
+
+    &.item-right > *:nth-child(2n + 1),
+    &.item-left > *:nth-child(2n) {
+      float: right;
+      margin-right: (50% - $item-width);
+      padding-left: $icon-dim + $width-mod;
+
+      .feed-icon {
+        float: left;
+        margin-left: -($icon-dim + $width-mod + $icon-dim/2);
+      }
+    }
+  } 
+}
+
+$item-width: 46%;
+
+@include respond($md-up) {
+  .now-feed  {
+    & > * {
+      width: $item-width;
+      margin-left: (50% - $item-width);
+    }
+
+    &.item-right > *:nth-child(2n + 1),
+    &.item-left > *:nth-child(2n) {
+      margin-right: (50% - $item-width);
+    }
+  }
+}
+
+
+$item-width: 40%;
+
+@include respond($lg-up) {
+  .now-feed  {
+    & > * {
+      width: $item-width;
+      margin-left: (50% - $item-width);
+    }
+
+    &.item-right > *:nth-child(2n + 1),
+    &.item-left > *:nth-child(2n) {
+      margin-right: (50% - $item-width);
+    }
+  }
+}

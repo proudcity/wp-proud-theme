@@ -1,0 +1,57 @@
+@import "bower_components/font-awesome/scss/variables.scss";
+@import "bower_components/font-awesome/scss/mixins.scss";
+@import "bower_components/font-awesome/scss/core.scss";
+
+$fa-regular-font-family: "Font Awesome 5 Free";
+$fa-regular-font-weight: 400;
+
+%fa-style-regular {
+  font-family: $fa-regular-font-family;
+  font-weight: $fa-regular-font-weight;
+}
+
+$fa-solid-font-family: "Font Awesome 5 Free";
+$fa-solid-font-weight: 900;
+
+%fa-style-solid {
+  font-family: $fa-solid-font-family;
+  font-weight: $fa-solid-font-weight;
+}
+
+$fa-brands-font-family: "Font Awesome 5 Brands";
+$fa-brands-font-weight: normal;
+
+%fa-style-brands {
+  font-family: $fa-brands-font-family;
+  font-weight: $fa-brands-font-weight;
+}
+
+// Mixin makes a fontawesome element on :before
+// @include fa-icon-force($fa-var-chevron-right)
+//
+// $icon: the fontawesome variable name
+// $style: the font awesome style to use 'regular' or 'brands' or 'default/solid'
+
+@mixin fa-icon-force(
+  $icon,
+  $style: "default",
+  $selector: "&:before",
+  $important: false
+) {
+  #{$selector} {
+    @if ($important) {
+      content: fa-content($icon) !important;
+    } @else {
+      content: fa-content($icon);
+    }
+    @extend %fa-icon;
+    @if ($style == "regular") {
+      @extend %fa-style-regular;
+    } @else if ($style == "brands") {
+      @extend %fa-style-brands;
+    } @else {
+      @extend %fa-style-solid;
+    }
+    @content;
+  }
+}

@@ -1,0 +1,141 @@
+// 
+// Creates a padded, colored box for content @todo remove or use
+//
+
+
+
+$box-color-mod: 30%!default;
+
+.box-padding {
+  padding: 30px 20px;
+}
+
+.box-margin-bottom {
+  margin-bottom: 30px;
+}
+
+@mixin box-text-color($color) {
+  *:not(.btn):not(input) {
+    color: $color;
+  }
+
+  @if (lightness($color) < 40) {
+    .form-control {
+      border-color: lighten($color, 50%);
+    }
+
+    a {
+      color: $brand-primary-darker;
+    }
+  }
+  @else {
+   .form-control {
+      border-color: darken($color, 50%);
+    }
+
+    a {
+      color: $brand-primary-alt-lightest;
+    }
+  }
+}
+
+%box-white-color {
+  @include box-text-color($white);
+}
+
+%box-dark-color {
+  @include box-text-color($gray-dark);
+}
+
+@mixin box-color(
+  $color, 
+  $color-faded: false, 
+  $text-color: false, 
+  $text-color-faded: false, 
+  $color-mod: $box-color-mod
+) {
+
+  background: $color;
+
+  @if (lightness($color) < 40) {
+    @if($text-color) {
+      @include box-text-color($text-color);
+    }
+    @else {
+      @extend %box-white-color;
+    }
+
+    .icon-list li:before {
+      color: lighten($color, $color-mod);
+    }
+  }
+  @else {
+    @if($text-color) {
+      @include box-text-color($text-color);
+    }
+    @else {
+      @extend %box-dark-color;
+    }
+
+    .icon-list li:before {
+      color: darken($color, $color-mod);
+    }
+  }
+
+  @if ($color-faded) {
+    &.box-fade {
+      background: $color-faded;
+      @if($text-color-faded) {
+        @include box-text-color($text-color-faded);
+      }
+      @else {
+        @extend %box-dark-color;
+      }
+
+      .icon-list li:before {
+        color: darken($color-faded, $color-mod);
+      }
+    }
+  }
+}
+
+.box-primary {
+  @include box-color($brand-primary, $brand-primary-alt-lightest);
+}
+
+.box-success {
+  @include box-color($brand-success, $brand-success-lightest);
+}
+
+.box-secondary, .box-danger {
+  @include box-color($brand-secondary, $brand-secondary-lightest);
+}
+
+.box-warning {
+  @include box-color($brand-warning, $brand-warning-lightest);
+}
+
+.box-gray {
+  @include box-color($gray-dark, $gray-warm-light, false, $gray-dark);
+}
+
+@include respond($sm-up) {
+  .box-padding {
+    padding: 60px 60px;
+  }
+
+  .box-margin-bottom {
+    margin-bottom: 40px;
+  }
+} 
+
+@include respond($md-up) {
+  .box-padding {
+    padding: 80px;
+  }
+
+
+  .box-margin-bottom {
+    margin-bottom: 50px;
+  }
+} 

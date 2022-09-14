@@ -1,0 +1,141 @@
+
+.full-screen-background {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  z-index: 0;
+
+  > div {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+  }
+
+  img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 55%;
+    min-height: 55%;
+  }
+}
+
+
+@mixin full-padding-margin($padding) {
+  padding-top: $padding;
+
+  // & > .full {
+  //   margin-top: -($padding);
+  // }
+}
+
+// Small up
+// -------------------------
+@include respond($sm-up) {
+
+  .full-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+
+    & > .full {
+      height: 100% !important;
+      display: table;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: auto;
+
+      & > * {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    
+    // vertical alignment
+    & > .full-v-align-top {
+      & > * {
+        vertical-align: top;
+      }
+    }
+    & > .full-v-align-bottom {
+      & > * {
+        vertical-align: bottom;
+      }
+    }
+
+    // horizonal alignment
+    & > .full-h-align-center {
+      & > * > * {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    & > .full-h-align-right {
+      & > * > * {
+        float: right;
+      }
+    }
+  }
+}
+
+// Tablet landscape
+// -------------------------
+@media #{$sm-only} and (orientation: landscape) {
+  .full-container {
+    @include full-padding-margin(50%); 
+
+    .container & {
+      @include full-padding-margin(70%);
+    }
+  }
+}
+
+// Tablet portrait
+// -------------------------
+@media #{$sm-only} and (orientation: portrait) {
+  .full-container {
+    @include full-padding-margin(90%);
+  }
+}
+
+// landscape
+// -------------------------
+@media #{$md-up} and (orientation: landscape) {
+  .full-container {
+    @include full-padding-margin(40%);
+
+    .container & {
+      @include full-padding-margin(55%);
+    }
+  }
+}
+
+// portrait
+// -------------------------
+@media #{$md-up} and (orientation: portrait) {
+  .full-container {
+    @include full-padding-margin(80%);
+  }
+}
+
+
+// larger screens
+// -------------------------
+@media (min-width: 1600px) and (min-height: 950px) {
+  .full-container {
+    .container & {
+      @include full-padding-margin(60%);
+    }
+  }
+}

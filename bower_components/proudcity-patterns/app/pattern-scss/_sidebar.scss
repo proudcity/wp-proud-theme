@@ -1,0 +1,11 @@
+
+
+.sidebar {
+  font-size: $font-size-small;
+}
+
+.sidebar, .right-sidebar {
+  .widget {
+    margin-bottom: 15px;
+  }
+}

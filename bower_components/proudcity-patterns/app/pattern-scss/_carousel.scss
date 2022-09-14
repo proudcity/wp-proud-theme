@@ -1,0 +1,115 @@
+
+$carousel-icon-size: 20px;
+
+// Full images carousel items
+.carousel {
+  .full-image .container {
+    padding-left: 7%;
+    padding-right: 7%;
+  } 
+
+  .carousel-caption {
+    @include transition(opacity 0.3s ease-in-out);
+    opacity: 0;
+
+    * {
+      color: white;
+    }
+  }
+
+  .active {
+    .carousel-caption {
+      opacity: 1;
+    }
+  }
+}
+
+.carousel-control {
+  &.left, &.right  {
+    width: 10%;
+
+    &, &:hover {
+      background-image: none;
+    }
+  } 
+    
+  span {
+    font-size: $carousel-icon-size;
+    height: $carousel-icon-size;
+    left: 50%;
+    line-height: $carousel-icon-size;
+    position: absolute;
+    margin: (-($carousel-icon-size/2)) 0 0 (-($carousel-icon-size/2));
+    top: 50%;
+    text-align: center;
+  }
+}
+
+@include respond($xs-only) {
+  .carousel {
+    .carousel-caption {
+      position: relative;
+      left: 0;
+      right: 0;
+    }
+   }
+}
+
+$carousel-icon-size: 35px;
+
+@include respond($sm-up) {
+    
+  .carousel-control {
+    &.left, &.right  {
+      width: 8%;
+    }
+
+    span {
+      font-size: $carousel-icon-size;
+      height: $carousel-icon-size;
+      line-height: $carousel-icon-size;
+      margin: (-($carousel-icon-size/2)) 0 0 (-($carousel-icon-size/2));
+      width: $carousel-icon-size;
+    }
+  }
+}
+
+
+$carousel-icon-size: 40px;
+
+@include respond($md-up) {
+  .carousel-control {
+
+    span {
+      font-size: $carousel-icon-size;
+      height: $carousel-icon-size;
+      line-height: $carousel-icon-size;
+      margin: (-($carousel-icon-size/2)) 0 0 (-($carousel-icon-size/2));
+      width: $carousel-icon-size;
+    }
+  }
+}
+
+$carousel-icon-size: 50px;
+
+@include respond($lg-up) {
+  // Full images carousel items
+  .carousel {
+    .full-image .container {
+      padding-left: 0;
+      padding-right: 0;
+    } 
+  }
+
+  .carousel-control {
+
+    span {
+      font-size: $carousel-icon-size;
+      height: $carousel-icon-size;
+      line-height: $carousel-icon-size;
+      margin: (-($carousel-icon-size/2)) 0 0 (-($carousel-icon-size/2));
+      width: $carousel-icon-size;
+    }
+  }
+
+}
