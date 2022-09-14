@@ -1,9 +1,0 @@
-$jumbotron-header-margin-bottom: $page-section-spacing!default;
-
- .widget-proud-jumbotron-header {
-  &, .panel-grid .panel-grid-cell & {
-    &:last-child {
-      margin-bottom: $jumbotron-header-margin-bottom!important;
-    }
-  }
-}
