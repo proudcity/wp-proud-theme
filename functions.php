@@ -831,6 +831,7 @@ function proud_customize_css() {
             color: <?php echo $link_color ?>;
         }
 
+        a:focus,
         a:hover {
           color: <?php echo $link_color_hover ?>;
         }
