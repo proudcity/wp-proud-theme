@@ -817,6 +817,7 @@ function proud_customize_css() {
             color: <?php echo  $color_primary_hover ?>;
         }
 
+        a.card-btn.card-inverse:focus,
         a.card-btn.card-inverse:hover{
             box-shadow: 0 0 8px 4px #fff inset !important;
             border:1px solid #FFF;
