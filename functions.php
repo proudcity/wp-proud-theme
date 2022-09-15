@@ -817,6 +817,11 @@ function proud_customize_css() {
             color: <?php echo  $color_primary_hover ?>;
         }
 
+        a.card-btn.card-inverse:hover{
+            box-shadow: 0 0 8px 4px #fff inset !important;
+            border:1px solid #FFF;
+        }
+
         .card .social-card-header, .card .social-card-header .post-link a {
             background-color: rgba( <?php echo $color_primary_rgb['r'] . ',' . $color_primary_rgb['g'] . ','. $color_primary_rgb['b'] ?>, 1 );
         }
