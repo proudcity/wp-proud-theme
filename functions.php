@@ -602,9 +602,9 @@ function proud_customize_css() {
     // Deal with links
     $link_color = get_theme_mod( 'color_link', '#0071bc' );
     if ( is_light_color( $link_color ) ) {
-        $link_color_hover = adjust_brightness( $link_color, -0.15 );
+        $link_color_hover = adjust_brightness( $link_color, -0.20 );
     } else {
-        $link_color_hover = adjust_brightness( $link_color, 0.15 );
+        $link_color_hover = adjust_brightness( $link_color, 0.20 );
     }
 
     // Primary/highlight

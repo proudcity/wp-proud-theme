@@ -151,7 +151,6 @@ function customize_font_uris( $callback ) {
         $googleFonts[] = customize_font_slug( $font_headings );
     }
 
-
     $callback( '//fonts.googleapis.com/css?family=' . implode( '|', $googleFonts ), 'external-fonts' );
 }
 

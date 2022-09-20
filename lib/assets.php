@@ -63,11 +63,11 @@ function asset_path($filename) {
  * Add external assets
  */
 function add_external_assets() {
-  if ( function_exists( 'Customizer\customize_font_uris' ) ){
+
     Customizer\customize_font_uris( function ( $uri, $handle ) {
         wp_enqueue_style( $handle, $uri );
     } );
-  }
+
 }
 
 add_action( 'wp_enqueue_scripts',  __NAMESPACE__ . '\\add_external_assets' );
