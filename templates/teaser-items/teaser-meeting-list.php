@@ -21,9 +21,35 @@
         <?php endif; ?></h5>
       </ul>
       <?php if($is_upcoming): ?>
+
         <ul class="list-inline">
         <li>
           <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
+            <div class="atcb">
+              <?php
+                $event = array(
+                  "event" => array(
+                      "@context" => "https://schema.org",
+                      "@type" => "Event",
+                      "name" => esc_attr( $post->post_title ),
+                      "startDate" => date_format( $datetime, "Y-m-d" ),
+                      "endDate" => date_format( $datetime, "Y-m-d" ),
+                      "location" => $location,
+                  ),
+                  "label" => "Add to Calendar",
+                  "options" => array( "Apple", "Google", "iCal", "Microsoft365", "Outlook.com", "MicrosoftTeams", "Yahoo" ),
+                  "timezone" => $timezone,
+                  "trigger" => "click",
+                  "iCalFilename" => sanitize_title( $post->post_title ),
+                  "background" => false,
+                );
+              ?>
+              <script type="application/json">
+                <?php echo json_encode( $event, JSON_PRETTY_PRINT ); ?>
+              </script>
+            </div><!-- /.atcb -->
+
+            <!--
             <a class="atcb-link btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar "></i> Add to calendar</a>
             <var class="atc_event">
               <var class="atc_date_start"><?php echo date_format($datetime, $atc_format); ?></var>
@@ -33,6 +59,7 @@
               <var class="atc_description"><?php //echo $post->post_content ?></var>
               <var class="atc_location"><?php echo $location ? $location : '' ?></var>
             </var>
+              -->
           </span>
         </li>
         <?php if ( !empty($location) ) { ?>
@@ -45,15 +72,8 @@
   </div>
 </div>
 
-
-
-<!-- addtocalendar code @todo: better embed -->
-<link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
-<script type="text/javascript">(function () {
-    if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
-    if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
-      var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-      s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
-      s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
-      var h = d[g]('body')[0];h.appendChild(s); }})();
-</script>
+<!-- https://github.com/add2cal/add-to-calendar-button -->
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/add-to-calendar-button@1/assets/css/atcb.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@1" async defer></script>-->
+<!-- script is registered in setup.php -->
+<?php wp_enqueue_script( 'atcb' ); ?>
