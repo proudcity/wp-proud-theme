@@ -48,18 +48,6 @@
                 <?php echo json_encode( $event, JSON_PRETTY_PRINT ); ?>
               </script>
             </div><!-- /.atcb -->
-
-            <!--
-            <a class="atcb-link btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar "></i> Add to calendar</a>
-            <var class="atc_event">
-              <var class="atc_date_start"><?php echo date_format($datetime, $atc_format); ?></var>
-              <var class="atc_date_end"><?php echo date_format($datetime, $atc_format); ?></var>
-              <var class="atc_timezone"><?php echo $timezone ?></var>
-              <var class="atc_title"><?php echo $post->post_title ?></var>
-              <var class="atc_description"><?php //echo $post->post_content ?></var>
-              <var class="atc_location"><?php echo $location ? $location : '' ?></var>
-            </var>
-              -->
           </span>
         </li>
         <?php if ( !empty($location) ) { ?>
@@ -73,7 +61,5 @@
 </div>
 
 <!-- https://github.com/add2cal/add-to-calendar-button -->
-<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/add-to-calendar-button@1/assets/css/atcb.min.css">-->
-<!--<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@1" async defer></script>-->
 <!-- script is registered in setup.php -->
 <?php wp_enqueue_script( 'atcb' ); ?>
