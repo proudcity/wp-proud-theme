@@ -124,3 +124,57 @@ function excerpt_more() {
 }
 
 add_filter( 'excerpt_more', __NAMESPACE__ . '\\excerpt_more' );
+
+/**
+ * Formats our data for the Add to Calendar button properly
+ *
+ * @since 2022-10-11
+ * @author Curtis
+ *
+ * @uses    object          $event              required                        The event post_object
+ * @uses    string          $location           required                        Location string
+ * @uses    object          $datetime           required                        DateTime object
+ * @uses    string          $timezone           required
+ */
+function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
+
+    if ( null == $timezone ){
+        $timezone = get_option( 'timezone_string' );
+    }
+
+    $formatted_event = array(
+        "event" => array(
+            "@context" => "https://schema.org",
+            "@type" => "Event",
+            "name" => esc_attr( $event->post_title ),
+            "startDate" => date_format( $datetime, "Y-m-d" ),
+            "endDate" => date_format( $datetime, "Y-m-d" ),
+            "location" => $location,
+        ),
+        "label" => "Add to Calendar",
+        "options" => array( "Apple", "Google", "iCal", "Microsoft365", "Outlook.com", "MicrosoftTeams", "Yahoo" ),
+        "timezone" => $timezone,
+        "trigger" => "click",
+        "iCalFilename" => sanitize_title( $event->post_title ),
+        "background" => false,
+    );
+
+    return json_encode( $formatted_event, JSON_PRETTY_PRINT );
+
+} // build_atcb_json
+
+function get_atcb_button( $event, $location, $datetime, $timezone = null ){ ?>
+
+          <span class="addtocalendar" data-title="<?php print sanitize_title( $event->post_title ); ?>" data-slug="<?php print esc_attr( get_post_field('post_name') ); ?>">
+            <div class="atcb">
+              <script type="application/json">
+                <?php echo build_atcb_json( $event, $location, $datetime ); //json_encode( $event, JSON_PRETTY_PRINT ); ?>
+              </script>
+            </div><!-- /.atcb -->
+          </span>
+<?php
+
+//https://github.com/add2cal/add-to-calendar-button
+// script is registered in setup.php
+wp_enqueue_script( 'atcb' );
+}

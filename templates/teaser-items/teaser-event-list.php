@@ -49,17 +49,10 @@
       </ul>
       <ul class="list-inline">
         <li>
-          <span class="addtocalendar" data-title="<?php print $post->post_title ?>" data-slug="<?php print get_post_field('post_name') ?>">
-            <a class="atcb-link btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar "></i> Add to calendar</a>
-            <var class="atc_event">
-              <var class="atc_date_start"><?php echo $EM_start->i18n($atc_format) ?></var>
-              <var class="atc_date_end"><?php echo $EM_end->i18n($atc_format) ?></var>
-              <var class="atc_timezone"><?php echo $EM_start->i18n('e') ?></var>
-              <var class="atc_title"><?php echo $post->post_title ?></var>
-              <var class="atc_description"><?php echo $post->post_content ?></var>
-              <var class="atc_location"><?php echo $location ?></var>
-            </var>
-          </span>
+          <?php
+            // builds out or HTML, JSON and such for the add to calendar button
+            Proud\Theme\Extras\get_atcb_button( $post, $location, $datetime );
+          ?>
         </li>
         <?php if ( !empty($location) ) { ?>
           <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default  btn-block"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
