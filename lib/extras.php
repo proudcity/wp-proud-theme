@@ -134,7 +134,7 @@ add_filter( 'excerpt_more', __NAMESPACE__ . '\\excerpt_more' );
  * @uses    object          $event              required                        The event post_object
  * @uses    string          $location           required                        Location string
  * @uses    object          $datetime           required                        DateTime object
- * @uses    string          $timezone           required
+ * @uses    string          $timezone           optional                        Set if you want a different timezone than the site default
  */
 function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
 
@@ -163,6 +163,17 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
 
 } // build_atcb_json
 
+/**
+ * Builds out the HTML for the Add to Calendar button and includes the scripts
+ * 
+ * @since 2022-10-11
+ * @author Curtis
+ * 
+ * @uses    object          $event              required                        The event post_object
+ * @uses    string          $location           required                        Location string
+ * @uses    object          $datetime           required                        DateTime object
+ * @uses    string          $timezone           optional                        Set if you want a different timezone than the site default
+ */
 function get_atcb_button( $event, $location, $datetime, $timezone = null ){ ?>
 
           <span class="addtocalendar" data-title="<?php print sanitize_title( $event->post_title ); ?>" data-slug="<?php print esc_attr( get_post_field('post_name') ); ?>">
