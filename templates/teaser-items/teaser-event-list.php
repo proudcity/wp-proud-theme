@@ -27,6 +27,7 @@
     // Get EM object
     $EM_start = new \EM_DateTime( $start );
     $EM_end = new \EM_DateTime( $end );
+    $datetime = new DateTime();
 
     $time = __("All day", 'proud-core');
     if($start && !empty( $meta['_event_start_time'] ) && $meta['_event_start_time'][0] != "00:00:00" ) {
