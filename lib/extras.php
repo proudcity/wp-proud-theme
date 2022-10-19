@@ -165,10 +165,10 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
 
 /**
  * Builds out the HTML for the Add to Calendar button and includes the scripts
- * 
+ *
  * @since 2022-10-11
  * @author Curtis
- * 
+ *
  * @uses    object          $event              required                        The event post_object
  * @uses    string          $location           required                        Location string
  * @uses    object          $datetime           required                        DateTime object
