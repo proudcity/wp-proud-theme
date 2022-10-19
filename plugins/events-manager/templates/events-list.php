@@ -10,6 +10,7 @@
  */
 $args = apply_filters('em_content_events_args', $args);
 
+$datetime = new DateTime();
 $events = EM_Events::get($args);
 //d($events);
 //echo EM_Events::output( $args );
@@ -38,15 +39,7 @@ foreach ($events as $EM_Event){
         <a href="#register" class="btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar-check-o"></i> Register</a>
       <?php } //endif ?>
       <span class="addtocalendar">
-        <a class="atcb-link btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-calendar"></i> Add to calendar</a>
-        <var class="atc_event">
-          <var class="atc_date_start"><?php echo date_i18n($atc_format, $EM_Event->start) ?></var>
-          <var class="atc_date_end"><?php echo date_i18n($atc_format, $EM_Event->end) ?></var>
-          <var class="atc_timezone"><?php echo date_i18n('e', $EM_Event->start) ?></var>
-          <var class="atc_title"><?php echo $EM_Event->post_title ?></var>
-          <var class="atc_description"><?php //echo $EM_Event->post_content ?></var>
-          <var class="atc_location"><?php echo $location ? $location : '' ?></var>
-        </var>
+          <?php Proud\Theme\Extras\get_atcb_button( $EM_Event, $location, $datetime ); ?>
       </span>
       <?php if ($location) { ?>
         <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a>
