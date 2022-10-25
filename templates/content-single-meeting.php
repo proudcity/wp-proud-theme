@@ -11,17 +11,19 @@ $timezone = get_option('timezone_string');
 $id = get_the_ID();
 $datetime = new DateTime(get_post_meta($id, 'datetime', true));
 $is_upcoming = $datetime > new DateTime();
-$location_id = get_post_meta($id, 'location', true);
+$location_id = get_post_meta( absint( $id ) , 'location', true);
 if (!empty($location_id)) {
-  $obj_location = get_post($location_id);
-  $location_meta = get_post_meta($location_id);
+  $obj_location = get_post( absint( $location_id ));
+  $location_meta = get_post_meta( absint( $location_id ) );
   $streetAddress = empty($location_meta['address2'][0]) ?
     @$location_meta['address'][0] :
     @$location_meta['address'][0] . ', ' . $location_meta['address2'][0];
   $location = $streetAddress . ', ' . @$location_meta['city'][0] . ' ' . @$location_meta['zip'][0];
+} else {
+  $location = null;
 }
 
-$agency_id = get_post_meta($id, 'agency', true);
+$agency_id = get_post_meta( absint( $id ), 'agency', true);
 if (!empty($agency_id)) {
   $agency = get_post($agency_id);
   $agency_meta = [];
@@ -30,15 +32,15 @@ if (!empty($agency_id)) {
   }
 }
 
-$agenda = wpautop(get_post_meta($id, 'agenda', true));
-$agenda_packet = wpautop(get_post_meta($id, 'agenda_packet', true));
-$minutes = wpautop(get_post_meta($id, 'minutes', true));
+$agenda = wpautop(get_post_meta( absint( $id ), 'agenda', true));
+$agenda_packet = wpautop(get_post_meta( absint( $id ), 'agenda_packet', true));
+$minutes = wpautop(get_post_meta( absint( $id ), 'minutes', true));
 
 // Generate a list of attachments similar to what we're using in content-single-document.php
 $attachments = [];
 foreach(['agenda', 'agenda_packet', 'minutes'] as $field) {
   $item = [
-    'id' => get_post_meta($id, $field . '_attachment', true),
+    'id' => get_post_meta( absint( $id ), $field . '_attachment', true),
     'show_preview' => false,
   ];
   if (!empty($item['id'])) {
@@ -155,7 +157,7 @@ function printDocumentInfo($params){
               <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $obj_location->post_title ?></span>
           <?php endif; ?>
         </h3>
-        <?php if( !empty( $location ) ) :?><h6 class="margin-top-smaller"><?php echo $location ?></h6><?php endif;?>
+        <?php if( null !== $location && !empty( $location ) ) :?><h6 class="margin-top-smaller"><?php echo $location ?></h6><?php endif;?>
         <ul class="list-inline">
           <li>
             <section class="widget widget-proud-share-links clearfix">
@@ -339,21 +341,6 @@ function printDocumentInfo($params){
     }
   })(jQuery, Proud);
 
-</script>
-
-
-
-<!-- addtocalendar code @todo: better embed -->
-<link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
-
-<!-- 2. Include script -->
-<script type="text/javascript">(function () {
-    if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
-    if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
-      var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-      s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
-      s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
-      var h = d[g]('body')[0];h.appendChild(s); }})();
 </script>
 
 
