@@ -15,6 +15,7 @@
 
   $datebox_format = '\<\s\p\a\n \c\l\a\s\s=\"\m\o\n\t\h\-\s\m\l\"\>M\<\/\s\p\a\n\>\<\s\p\a\n \c\l\a\s\s=\"\m\o\n\t\h\-\b\i\g\"\>F\<\/\s\p\a\n\> \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
   $atc_format = 'Y-m-d H:i:s';
+  $datetime = new DateTime();
 
   $location = empty($EM_Event->location) ? false : $EM_Event->location->location_address . ', ' .
     $EM_Event->location->location_town . ', ' .
@@ -51,15 +52,7 @@
         <?php } //endif ?>
         <li><?php the_widget( 'ShareLinks', array( 'classes' => 'btn btn-sm btn-default'), array('widget_id'=>'arbitrary-instance-' . strtolower('events-share') ) ); ?></li>
         <li><span class="addtocalendar" data-title="<?php print $EM_Event->event_name ?>" data-slug="<?php print $EM_Event->event_slug ?>">
-          <a class="atcb-link btn btn-sm btn-default"><i aria-hidden="true" class="fa fa-calendar"></i> Add to calendar</a>
-          <var class="atc_event">
-            <var class="atc_date_start"><?php echo date_i18n($atc_format, $EM_Event->start) ?></var>
-            <var class="atc_date_end"><?php echo date_i18n($atc_format, $EM_Event->end) ?></var>
-            <var class="atc_timezone"><?php echo date_i18n( 'e', $EM_Event->start ) ?></var>
-            <var class="atc_title"><?php echo $EM_Event->post_title ?></var>
-            <var class="atc_description"><?php echo $EM_Event->post_content ?></var>
-            <var class="atc_location"><?php echo $location ?></var>
-          </var>
+          <?php Proud\Theme\Extras\get_atcb_button( $EM_Event, $location, $datetime ); ?>
         </span></li>
         <?php if ( ! empty( $location ) ) { ?>
           <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default btn-block"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
@@ -111,18 +104,3 @@
 </span>
 <a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i> Directions</a>
 */ ?>
-
-<!-- addtocalendar code @todo: better embed -->
-<link href="//addtocalendar.com/atc/1.5/atc-style-blue.css" rel="stylesheet" type="text/css">
-
-<!-- 2. Include script -->
-<script type="text/javascript">(function () {
-  if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
-  if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
-      var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-      s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
-      s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
-      var h = d[g]('body')[0];h.appendChild(s); }})();
-</script>
-
-
