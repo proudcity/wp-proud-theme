@@ -130,6 +130,7 @@ add_filter( 'excerpt_more', __NAMESPACE__ . '\\excerpt_more' );
  *
  * @since 2022-10-11
  * @author Curtis
+ * @link: https://github.com/add2cal/add-to-calendar-button
  *
  * @uses    object          $event              required                        The event post_object
  * @uses    string          $location           required                        Location string
