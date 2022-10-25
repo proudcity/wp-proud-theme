@@ -50,7 +50,7 @@ foreach(['agenda', 'agenda_packet', 'minutes'] as $field) {
     $item['filetype'] = pathinfo($item['url'], PATHINFO_EXTENSION);
     $item['filename'] = pathinfo($item['url'], PATHINFO_FILENAME);
     $item['show_preview'] = get_post_meta($id, $field . '_attachment_preview', true);
-    $item['show_preview'] =  ($item['show_preview'] === '0') ? false : true;
+    $show_preview =  ($item['show_preview'] === '0') ? false : true;
 
     if (
         $show_preview == '1' &&
