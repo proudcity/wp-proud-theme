@@ -121,7 +121,7 @@ function printDocumentInfo($params){
     return;
   }
 ?>
-  <div title="<?php echo $filename; ?>"><?php echo $filename; ?>.<?php echo $filetype; ?></div>
+  <div title="<?php echo esc_attr( $filename ); ?>"><?php echo esc_attr( $filename ); ?>.<?php echo esc_attr( $filetype ); ?></div>
   <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j, Y'); ?></div><?php endif; ?>
     <ul class="list-inline list-inline-middot icon-list">
         <li><?php echo strtoupper($filetype); ?></li>
