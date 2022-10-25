@@ -71,11 +71,11 @@ foreach(['agenda', 'agenda_packet', 'minutes'] as $field) {
 
 }
 
-$videoStyle = get_post_meta($id, 'video_style', true);
-$video = get_post_meta($id, 'video', true);
-$externalVideo = get_post_meta($id, 'external_video', true);
-$audio = get_post_meta($id, 'audio', true);
-$youtube_bookmarks = json_decode(get_post_meta( $id, 'youtube_bookmarks', true), true);
+$videoStyle = get_post_meta( absint( $id ), 'video_style', true);
+$video = get_post_meta( absint( $id ), 'video', true);
+$externalVideo = get_post_meta( absint( $id ), 'external_video', true);
+$audio = get_post_meta( absint( $id ), 'audio', true);
+$youtube_bookmarks = json_decode(get_post_meta( absint( $id ), 'youtube_bookmarks', true), true);
 
 $hasActive = false;
 
