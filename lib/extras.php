@@ -156,7 +156,7 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         "options" => array( "Apple", "Google", "iCal", "Microsoft365", "Outlook.com", "MicrosoftTeams", "Yahoo" ),
         "timezone" => $timezone,
         "trigger" => "click",
-        "iCalFilename" => sanitize_title( $event->post_title ),
+        "iCalFileName" => sanitize_title( $event->post_title ),
         "background" => false,
     );
 
