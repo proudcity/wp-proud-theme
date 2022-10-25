@@ -154,7 +154,7 @@ function printDocumentInfo($params){
     <div class="col-xs-9 col-md-10">
         <h3 class="margin-top-none"><span class="start-time"><?php echo date_format($datetime, $time_format); ?></span>
           <?php if( !empty( $obj_location ) ) :?>
-              <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo $obj_location->post_title ?></span>
+              <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo sanitize_title( $obj_location->post_title ); ?></span>
           <?php endif; ?>
         </h3>
         <?php if( null !== $location && !empty( $location ) ) :?><h6 class="margin-top-smaller"><?php echo $location ?></h6><?php endif;?>
@@ -293,7 +293,7 @@ function printDocumentInfo($params){
     <div id="tab-contact" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
         <div class="row">
             <div class="col-sm-12">
-                <h3><a href="<?php echo get_permalink($agency) ?>"><?php echo $agency->post_title; ?></a></h3>
+                <h3><a href="<?php echo get_permalink($agency) ?>"><?php echo sanitize_title( $agency->post_title ); ?></a></h3>
             </div>
         </div>
         <div class="row">
@@ -342,5 +342,3 @@ function printDocumentInfo($params){
   })(jQuery, Proud);
 
 </script>
-
-
