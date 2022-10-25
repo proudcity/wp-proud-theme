@@ -180,7 +180,7 @@ function get_atcb_button( $event, $location, $datetime, $timezone = null ){ ?>
           <span class="addtocalendar" data-title="<?php print sanitize_title( $event->post_title ); ?>" data-slug="<?php print esc_attr( get_post_field('post_name') ); ?>">
             <div class="atcb">
               <script type="application/json">
-                <?php echo build_atcb_json( $event, $location, $datetime ); //json_encode( $event, JSON_PRETTY_PRINT ); ?>
+                <?php echo build_atcb_json( $event, $location, $datetime ); ?>
               </script>
             </div><!-- /.atcb -->
           </span>
