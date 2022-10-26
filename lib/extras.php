@@ -158,6 +158,8 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         $end_time = date('H:i', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) . '+1 hour' ) );
 
         $description = get_permalink( absint( $event->ID ) );
+
+        $location = proud_get_meeting_location( get_post_meta( absint( $event->ID ), 'location', true ) );
     }
 
     $formatted_event = '{
@@ -214,4 +216,26 @@ function get_atcb_button( $event, $location, $datetime, $timezone = null ){ ?>
 //https://github.com/add2cal/add-to-calendar-button
 // script is registered in setup.php
 wp_enqueue_script( 'atcb' );
+}
+
+/**
+ * Returns a formatted address for meeting locations
+ *
+ * @todo move this into the Proud Meeting plugin?
+ *
+ * @since 2022.10.26
+ * @author Curtis
+ *
+ * @param   int             $location_id            required            ID of the meeting location which is the location CPT
+ * @uses    get_the_title()                                             Returns the title given the post_id
+ * @uses    get_post_meta()                                             returns post meta given post_id and key
+ * @return  string                                                      Built location information
+ */
+function proud_get_meeting_location( $location_id ){
+
+    $title = get_the_title( absint( $location_id ) );
+    $address = get_post_meta( absint( $location_id ), 'address', true );
+    $city = get_post_meta( absint( $location_id ), 'city', true );
+
+    return $title . ' ' . $address . ' ' . $city;
 }
