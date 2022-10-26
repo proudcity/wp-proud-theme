@@ -149,7 +149,7 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         $start_time = get_post_meta( absint( $event->ID ), '_event_start_time', true );
         $end_time = get_post_meta( absint( $event->ID ), '_event_end_time', true );
 
-        $description = $event->post_content;
+        $description = get_permalink( $event->ID );
     } else {
         // meetings
         $start_date = date( 'Y-m-d', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) ) );
@@ -157,7 +157,7 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         $start_time = date( 'H:i', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) ) );
         $end_time = date('H:i', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) . '+1 hour' ) );
 
-        $description = get_post_meta( absint( $event->ID ), 'agenda_packet', true );
+        $description = get_permalink( absint( $event->ID ) );
     }
 
     $formatted_event = '{
