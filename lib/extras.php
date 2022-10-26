@@ -143,24 +143,37 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         $timezone = get_option( 'timezone_string' );
     }
 
-    $formatted_event = array(
-        "event" => array(
-            "@context" => "https://schema.org",
-            "@type" => "Event",
-            "name" => esc_attr( $event->post_title ),
-            "startDate" => date_format( $datetime, "Y-m-d" ),
-            "endDate" => date_format( $datetime, "Y-m-d" ),
-            "location" => $location,
-        ),
-        "label" => "Add to Calendar",
-        "options" => array( "Apple", "Google", "iCal", "Microsoft365", "Outlook.com", "MicrosoftTeams", "Yahoo" ),
-        "timezone" => $timezone,
-        "trigger" => "click",
-        "iCalFileName" => sanitize_title( $event->post_title ),
-        "background" => false,
-    );
+    $start_date = get_post_meta( absint( $event->ID ), '_event_start_date', true );
+    $end_date = get_post_meta( absint( $event->ID ), '_event_end_date', true );
+    $start_time = get_post_meta( absint( $event->ID ), '_event_start_time', true );
+    $end_time = get_post_meta( absint( $event->ID ), '_event_end_time', true );
 
-    return json_encode( $formatted_event, JSON_PRETTY_PRINT );
+    $formatted_event = '{
+        "name":"' . esc_attr( $event->post_title ) .'",
+        "description":"' . sanitize_post( $event->post_content ) .'",
+        "startDate":"' . sanitize_text_field( $start_date ) .'",
+        "endDate":"'. sanitize_text_field( $end_date ) .'",
+        "startTime":"' . sanitize_text_field( $start_time ) .'",
+        "endTime":"' . sanitize_text_field( $end_time ) .'",
+        "location":"'. sanitize_text_field( $location ) .'",
+        "label":"Add to Calendar",
+        "options":[
+            "Apple",
+            "Google",
+            "iCal",
+            "Microsoft365",
+            "MicrosoftTeams",
+            "Outlook.com",
+            "Yahoo"
+        ],
+        "timeZone":"' . sanitize_text_field( $timezone ) .'",
+        "trigger":"click",
+        "inline":true,
+        "listStyle":"overlay",
+        "iCalFileName":"' . sanitize_title( $event->post_title ) .'"
+    }';
+
+    return $formatted_event;
 
 } // build_atcb_json
 
