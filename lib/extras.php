@@ -143,14 +143,26 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         $timezone = get_option( 'timezone_string' );
     }
 
-    $start_date = get_post_meta( absint( $event->ID ), '_event_start_date', true );
-    $end_date = get_post_meta( absint( $event->ID ), '_event_end_date', true );
-    $start_time = get_post_meta( absint( $event->ID ), '_event_start_time', true );
-    $end_time = get_post_meta( absint( $event->ID ), '_event_end_time', true );
+    if ( 'event' === get_post_type( $event->ID ) ){
+        $start_date = get_post_meta( absint( $event->ID ), '_event_start_date', true );
+        $end_date = get_post_meta( absint( $event->ID ), '_event_end_date', true );
+        $start_time = get_post_meta( absint( $event->ID ), '_event_start_time', true );
+        $end_time = get_post_meta( absint( $event->ID ), '_event_end_time', true );
+
+        $description = $event->post_content;
+    } else {
+        // meetings
+        $start_date = date( 'Y-m-d', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) ) );
+        $end_date = date( 'Y-m-d', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) ) );
+        $start_time = date( 'H:i', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) ) );
+        $end_time = date('H:i', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) . '+1 hour' ) );
+
+        $description = get_post_meta( absint( $event->ID ), 'agenda_packet', true );
+    }
 
     $formatted_event = '{
         "name":"' . esc_attr( $event->post_title ) .'",
-        "description":"' . sanitize_post( $event->post_content ) .'",
+        "description":' . json_encode( sanitize_text_field( $description ) ).',
         "startDate":"' . sanitize_text_field( $start_date ) .'",
         "endDate":"'. sanitize_text_field( $end_date ) .'",
         "startTime":"' . sanitize_text_field( $start_time ) .'",
