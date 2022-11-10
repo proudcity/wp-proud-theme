@@ -150,12 +150,14 @@ add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 function assets() {
   global $wp_styles;
 
+    $version = wp_get_theme('wp-proud-theme')->get('Version');
+
     // enqueue for all env_types
-    wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, null);
-    wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, null);
+    wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, esc_attr( $version ) );
+    wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, esc_attr( $version ) );
 
     //IE9
-    wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'] );
+    wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'], esc_attr( $version ) );
     $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
     if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
       wp_enqueue_script( 'comment-reply' );
@@ -166,11 +168,12 @@ function assets() {
     // Add moderizer support
     wp_enqueue_script( 'proud/js/modernizr',
       Assets\asset_path( 'scripts/modernizr.js' ),
-      array()
+      array(),
+      esc_attr( $version )
     );
 
-    wp_enqueue_script( 'proud/js', Assets\asset_path( 'scripts/main.js' ), ['jquery'], null, true );
-    wp_enqueue_script( 'bootstrap', Assets\asset_path( 'scripts/bootstrap.js' ), ['jquery'], null, true );
+    wp_enqueue_script( 'proud/js', Assets\asset_path( 'scripts/main.js' ), ['jquery'], esc_attr( $version ), true );
+    wp_enqueue_script( 'bootstrap', Assets\asset_path( 'scripts/bootstrap.js' ), ['jquery'], esc_attr( $version ), true );
 
     // add to calendar, we use wp_enqueue_script on the widgets that need the scriptw
     wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb.min.js'), '', '1.18.3', true );
