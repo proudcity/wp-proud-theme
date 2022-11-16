@@ -154,7 +154,7 @@ function printDocumentInfo($params){
     <div class="col-xs-9 col-md-10">
         <h3 class="margin-top-none"><span class="start-time"><?php echo date_format($datetime, $time_format); ?></span>
           <?php if( !empty( $obj_location ) ) :?>
-              <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i> <span class="location"><?php echo sanitize_title( $obj_location->post_title ); ?></span>
+              <i aria-hidden="true" class="fa fa-caret-right icon-even-width text-center"></i><span class="location"><?php echo get_the_title( absint( $obj_location->ID ) );; ?></span>
           <?php endif; ?>
         </h3>
         <?php if( null !== $location && !empty( $location ) ) :?><h6 class="margin-top-smaller"><?php echo $location ?></h6><?php endif;?>
