@@ -90,7 +90,7 @@ function customize_font_families() {
 function customize_font_select() {
     $fonts = customize_font_families();
 
-    array_walk( $fonts, function ( &$value, &$key ) {
+    array_walk( $fonts, function ( &$value, $key ) {
         $value = $key;
     } );
 
