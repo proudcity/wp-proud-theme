@@ -17,5 +17,12 @@
 //  }
 //
 //
-//  ?>
+//
+?>
+
+  <?php
+  if ( ! has_post_thumbnail() ){ ?>
+     <meta properyt="og:image" content="<?php echo esc_url( get_option( 'proud_default_social_image' ) ); ?>" />
+  <?php } // has_post_thumnail ?>
+
 </head>
