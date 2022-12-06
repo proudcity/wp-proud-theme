@@ -1,4 +1,4 @@
-<div <?php post_class( "teaser" ); ?>>
+<div <?php post_class( "teaser" ); ?>><!-- template-file: teaser-event-list.php -->
   <?php
     global $EM_Event;
     // Date formats

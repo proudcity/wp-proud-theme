@@ -31,7 +31,7 @@ if ( !empty($form_id) ) {
 }
 
 ?>
-<div class="page-header">
+<div class="page-header"><!-- template-file: templates/content-single-document.php -->
   <h2><a href="/documents" onclick="history.go(-1);return false;"><?php echo __('Documents and forms'); ?></a></h2>
 </div>
 

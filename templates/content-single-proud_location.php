@@ -1,6 +1,6 @@
 <?php use Proud\Theme\Titles; ?>
 <?php while ( have_posts() ) : the_post(); ?>
-  <article <?php post_class(); ?>>
+  <article <?php post_class(); ?>><!-- template-file: templates/content-single-proud_location.php -->
     <?php if( !Titles\titleHidden() ) : ?>
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>

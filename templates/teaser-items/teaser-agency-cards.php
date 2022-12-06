@@ -1,5 +1,5 @@
 <?php use Proud\Agency; ?>
-<div <?php post_class( "card-wrap" ); ?>>
+<div <?php post_class( "card-wrap" ); ?>><!-- template-file: teaser-agency-cards.php -->
   <div class="card">
     <?php if( has_post_thumbnail() ): ?>
     <div class="card-img-top text-center">

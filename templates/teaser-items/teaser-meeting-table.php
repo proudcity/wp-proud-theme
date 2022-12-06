@@ -1,7 +1,7 @@
 <?php
 
 $url = esc_url( get_permalink() );
-$content = '';
+$content = '<!-- template-file: teaser-meeting-table.php -->';
 if (!empty($meta['agenda'][0]) || !empty($meta['agenda_attachment'][0])) {
     if (!empty($meta['agenda_attachment'][0])) {
       $item = "<i aria-hidden='true' class='fa fa-fw fa-file-pdf-o'></i>Agenda";

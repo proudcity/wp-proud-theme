@@ -1,4 +1,4 @@
-<div <?php post_class( "teaser" ); ?>>
+<div <?php post_class( "teaser" ); ?>><!-- template-file: teaser-meeting-list.php -->
   <?php
     // Date formats (same as Events)
     $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';

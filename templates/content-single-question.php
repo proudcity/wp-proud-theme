@@ -4,7 +4,7 @@ $term_slug = !empty($terms) ?  $terms[0]->slug . '/' : '';
 $js_path = '/' . $term_slug . $post->post_name;
 ?>
 
-<article <?php post_class(); ?>>
+<article <?php post_class(); ?>><!-- template-file: templates/content-single-quetsion.php -->
   <header>
     <h1 class="entry-title"><?php the_title(); ?></h1>
   </header>

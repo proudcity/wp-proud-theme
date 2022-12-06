@@ -7,4 +7,4 @@
     empty($this->hide['download']) ? __( 'Download', 'proud-teaser' ) : ''
   );
   ?>
-  <tbody>
+  <tbody><!-- template-file: teaser-document-table-header.php -->

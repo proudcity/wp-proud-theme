@@ -16,7 +16,7 @@ else {
 }
 
 ?>
-<div class="page-header">
+<div class="page-header"><!-- template-file: templates/content-single-payment.php -->
   <h2><a href="/payments" onclick="jQuery('.navbar-btn.payments-button').trigger('click');return false;">Payments</a></h2>
 </div>
 

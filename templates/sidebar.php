@@ -1,1 +1,1 @@
-<?php dynamic_sidebar('sidebar-primary'); ?>
+<?php dynamic_sidebar('sidebar-primary'); ?><!-- template-file: templates/sidebar.php -->

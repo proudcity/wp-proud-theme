@@ -1,6 +1,6 @@
 <?php use Proud\Agency; ?>
 <?php echo $row_open; ?>
-<div <?php post_class( "teaser media" . $column_classes  ); ?>>
+<div <?php post_class( "teaser media" . $column_classes  ); ?>><!-- template-file: teaser-agency-media.php -->
   <div class="media-left">
   <?php if( has_post_thumbnail() ): ?>
     <a href="<?php echo esc_url( Agency\get_agency_permalink() ); ?>">

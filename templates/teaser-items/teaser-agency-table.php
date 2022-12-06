@@ -1,4 +1,4 @@
-<tr>
+<tr><!-- template-file: teaser-agency-table.php -->
 
   <td><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></td>
 

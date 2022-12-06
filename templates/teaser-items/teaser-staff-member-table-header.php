@@ -1,4 +1,4 @@
-<div class="table-responsive"><table class="table table-striped">
+<div class="table-responsive"><table class="table table-striped"><!-- template-file: teaser-staff-member-table-header.php -->
   <?php
 
   $position_label = get_option( 'staff_position_label', 'Position' );

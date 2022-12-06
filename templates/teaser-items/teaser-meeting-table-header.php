@@ -1,4 +1,4 @@
-<div class="table-responsive"><table class="table table-striped">
+<div class="table-responsive"><table class="table table-striped"><!-- template-file: teaser-meeting-table-header.php -->
   <?php
   if (empty($this->hide['date'])) {
     $dateLabel =  __( 'Date', 'proud-teaser' );

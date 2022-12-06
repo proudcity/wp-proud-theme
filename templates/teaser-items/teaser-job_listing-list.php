@@ -1,4 +1,4 @@
-<div <?php post_class( "teaser" ); ?> itemscope itemtype="http://schema.org/JobPosting">
+<div <?php post_class( "teaser" ); ?> itemscope itemtype="http://schema.org/JobPosting"><!-- template-file: teaser-job_listing-list.php -->
   <meta itemprop="title" content="<?php echo esc_attr( $post->post_title ); ?>" />
   <div class="row">
     <div class="col-xs-12 pull-left">

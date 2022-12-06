@@ -3,7 +3,7 @@ $post_id = get_the_ID();
 $type = get_post_meta( $post_id, 'issue_category_type', true );
 ?>
 
-<article <?php post_class(); ?>>
+<article <?php post_class(); ?>><!-- template-file: templates/content-single-issue.php -->
   <header>
     <h1 class="entry-title"><?php the_title( sprintf( _x( 'Report Issue: ', 'post prefix', 'wp-issue' )) ); ?></h1>
   </header>

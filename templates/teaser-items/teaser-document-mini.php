@@ -4,7 +4,7 @@ $icon = Document\get_document_icon();
 $title = ($icon == 'fa-globe') ? 'title="Complete this form online"' : 'title="View/download form"';
 ?>
 
-<div <?php post_class( "teaser" ); ?>>
+<div <?php post_class( "teaser" ); ?>><!-- template-file: teaser-document-mini.php -->
   <div class="row">
 
     <div class="col-md-9">

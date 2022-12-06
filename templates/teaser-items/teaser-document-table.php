@@ -3,7 +3,7 @@ use Proud\Document;
 $icon = Document\get_document_icon();
 $filetype = Document\get_document_type();
 ?>
-<tr>
+<tr><!-- template-file: teaser-document-table.php -->
   <td><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></td>
   <td><?php if( empty($hide['category']) ): ?><?php foreach ($terms as $term): ?><a href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a><?php endforeach; ?><?php endif; ?></td>
   <td><?php if( empty($hide['date']) ): ?><?php echo get_the_date(); ?><?php endif; ?></td>

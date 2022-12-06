@@ -2,7 +2,7 @@
     use Proud\Theme\Wrapper;
     use Proud\Core\ProudBreadcrumb;
 ?>
-<div class="page-header">
+<div class="page-header"><!-- template-file: templates/page-header-breadcrumb.php -->
     <?php if ( empty( $hide_mobile_menu ) ): ?>
     <a id="offcanvas-toggle" href="#" class="btn btn-primary visible-xs pull-right"><i aria-hidden="true" class="fa fa-bars"></i></a>
     <?php endif; ?>

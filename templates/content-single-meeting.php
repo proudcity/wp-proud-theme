@@ -97,7 +97,7 @@ function printDocument($params) {
         return;
     }
 ?>
-    <div class="row">
+    <div class="row"><!-- template-file: templates/content-single-meeting.php -->
         <div class="col-md-3">
             <?php echo printDocumentInfo($params); ?>
         </div>

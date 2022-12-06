@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header(); ?><!-- template-file: templates/archive.php -->
 <div class="card-columns card-columns-sm-2 card-columns-md-3 card-columns-xs-1">
     <?php if ( have_posts() ) : ?>
 

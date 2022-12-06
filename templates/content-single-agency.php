@@ -1,5 +1,5 @@
 <?php use Proud\Theme\Titles; ?>
-
+<!-- template-file: templates/content-single-agency.php -->
 <?php if (get_post_meta( get_the_id(), 'agency_type', true ) == 'external' && $url = get_post_meta( get_the_id(), 'url', true )): ?>
   <script type="text/javascript">
     jQuery('#entry-content').html('<div class="text-center"><i aria-hidden="true" class="fa fa-spinner fa-pulse w4x"></i></div>');
