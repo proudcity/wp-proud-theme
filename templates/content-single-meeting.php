@@ -207,7 +207,9 @@ function printDocumentInfo($params){
 
         <div class="row">
             <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda ?></div>
-            <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
+            <?php if ( isset( $attachments['agenda'] ) && ! empty( $attachments['agenda'] ) ){ ?>
+              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
+            <?php } // isset $attachments['agenda'] ?>
         </div>
 
         <?php if (!empty($attachments['agenda'])) {
@@ -223,17 +225,21 @@ function printDocumentInfo($params){
       <div id="tab-agenda-packet" class="tab-pane fade <?php if(!$hasActive) { echo 'in active'; $hasActive = true; } ?>">
 
         <div class="row">
-            <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda_packet ?></div>
-            <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda_packet > 1000)): ?><?php echo printDocumentInfo($attachments['agenda_packet']); ?><?php endif; ?></div>
+          <div class="col-md-9" style="padding-top:10px;"><?php echo $agenda_packet ?></div>
+
+          <?php if ( isset( $attachments['agenda_packet'] ) && ! empty( $attachments['agenda_packet'] ) ){ ?>
+              <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if(strlen($agenda_packet > 1000)): ?><?php echo printDocumentInfo($attachments['agenda_packet']); ?><?php endif; ?></div>
+          <?php } // isset $attachments['agenda_packet'] ?>
         </div>
 
         <?php if (!empty($attachments['agenda_packet'])) {
-          if(!empty($agenda_packet)) {
-            echo '<hr/>';
-          }
-          printDocument($attachments['agenda_packet']);
+        if(!empty($agenda_packet)) {
+        echo '<hr/>';
+        }
+        printDocument($attachments['agenda_packet']);
         } ?>
-      </div>
+      </div></!-- /#tab-agenda-packet -->
+
   <?php endif; ?>
 
   <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
@@ -241,7 +247,9 @@ function printDocumentInfo($params){
         <?php if (!empty($minutes)): ?>
             <div class="row">
                 <div class="col-md-9" style="padding-top:10px;"><?php echo $minutes ?></div>
-                <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
+                <?php if ( isset( $attachments['minutes'] ) && ! empty( $attachments['minutes'] ) ){ ?>
+                  <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
+                <?php } ?>
             </div>
             <hr/>
         <?php endif; ?>
