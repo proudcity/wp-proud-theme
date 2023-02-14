@@ -46,7 +46,13 @@ foreach(['agenda', 'agenda_packet', 'minutes'] as $field) {
   if (!empty($item['id'])) {
     $item['url'] = wp_get_attachment_url($item['id']);
     $attachment_meta = get_post_meta($item['id'], 'sm_cloud', true);
-    $item['filesize'] = @round($attachment_meta['object']['size'] / 1024 / 1024, 1);
+
+    if ( ! empty( $attachment_meta ) ){
+      $item['filesize'] = round( $attachment_meta['filesize'] / 1024 / 1024, 1 );
+    } else {
+      $item['filesize'] = 'null';
+    }
+
     $item['filetype'] = pathinfo($item['url'], PATHINFO_EXTENSION);
     $item['filename'] = pathinfo($item['url'], PATHINFO_FILENAME);
     $item['show_preview'] = get_post_meta($id, $field . '_attachment_preview', true);
