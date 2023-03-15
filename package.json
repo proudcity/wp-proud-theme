@@ -31,5 +31,6 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.54.7",
     "sass-loader": "^12.6.0"
-  }
+  },
+  "dependencies": {}
 }
