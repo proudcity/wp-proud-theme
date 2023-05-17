@@ -65,11 +65,11 @@ $gform-container-margin: 20px;
     height: auto;
     margin-left: 0.15em;
     margin-top: 0.4em;
-    
+
     &[value="gf_other_choice"] {
       margin-top: 15px;
     }
-  } 
+  }
 }
 
 .gform_wrapper .gform_body .gform_page_footer .button.gform_previous_button {
@@ -78,7 +78,7 @@ $gform-container-margin: 20px;
 
 // gforms description margins
 .gform_wrapper .gfield_description {
-  margin-top: -25px;
+  margin-top: -5px;
   margin-bottom: 25px;
   font-size: .75em !important;
 
@@ -103,12 +103,12 @@ $gform-container-margin: 20px;
 
 // Complex form items
 .gform_wrapper .gform_body ul li.gfield {
-  .ginput_complex { 
+  .ginput_complex {
     margin-bottom: 0;
   }
 }
 
-.ginput_complex { 
+.ginput_complex {
   > span {
     margin-bottom: $gform-container-margin;
 
@@ -117,12 +117,12 @@ $gform-container-margin: 20px;
     }
 
     // Remove padding
-    [type="text"], select, textarea { 
+    [type="text"], select, textarea {
       & ~ label {
         margin-bottom: 0;
       }
-    } 
-  } 
+    }
+  }
 }
 
 // Time field
