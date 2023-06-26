@@ -145,6 +145,33 @@ function proud_customize_register($wp_customize) {
         'std' => '1'
     ));
 
+    /**
+     * Redefines the standard site_icon area which overrides
+     * it and thus gives us control of the text so we can make it what we want
+     *
+     * @author Curtis
+     * @since 2023.006.26
+     */
+		$wp_customize->add_control(
+			new \WP_Customize_Site_Icon_Control(
+				$wp_customize,
+				'site_icon',
+				array(
+					'label'       => __( 'Site Icon' ),
+					'description' => sprintf(
+						'<p>' . __( 'Site Icons, or <a href="https://help.proudcity.com/favicons-and-local-government-websites/" target="_blank">favicons</a>, are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps.' ) . '</p>' .
+						/* translators: %s: Site icon size in pixels. */
+						'<p>' . __( 'Site Icons should be square and at least %s pixels.' ) . '</p>',
+						'<strong>512 &times; 512</strong>'
+					),
+					'section'     => 'title_tagline',
+					'priority'    => 60,
+					'height'      => 512,
+					'width'       => 512,
+				)
+			)
+		);
+
 
     // Top bar
     $wp_customize->add_section(
