@@ -50,6 +50,13 @@ function customize_font_families() {
                 'value'  => "'Merriweather', serif",
                 'google' => true,
             ],
+            'Red Hat Display'     => [
+                'value'      => "'Red Hat Display', sans-serif",
+                'google'     => false,
+                'path'       => Assets\asset_path( 'fonts/red-hat-display/red-hat-display.css' ),
+                'asset_name' => 'red-had-display',
+            ],
+
             'Public Sans'     => [
                 'value'      => "'Public Sans webfont', sans-serif",
                 'google'     => false,
