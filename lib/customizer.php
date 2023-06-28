@@ -54,7 +54,7 @@ function customize_font_families() {
                 'value'      => "'Red Hat Display', sans-serif",
                 'google'     => false,
                 'path'       => Assets\asset_path( 'fonts/red-hat-display/red-hat-display.css' ),
-                'asset_name' => 'red-had-display',
+                'asset_name' => 'red-hat-display',
             ],
 
             'Public Sans'     => [
