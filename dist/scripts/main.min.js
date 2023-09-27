@@ -14,7 +14,6 @@ var __webpack_exports__ = {};
  * The routing is enclosed within an anonymous function so that you can
  * always reference jQuery with $, even when in .noConflict() mode.
  * ======================================================================== */
-
 (function ($) {
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
@@ -23,21 +22,20 @@ var __webpack_exports__ = {};
     common: {
       init: function init() {
         // JavaScript to be fired on all pages
-        var $body = $("body");
+        var $body = $("body"); // Agency/subpage off-canvas
 
-        // Agency/subpage off-canvas
         $("#offcanvas-toggle").on("click", function (e) {
           $("body").toggleClass("offcanvas-active");
           $(this).toggleClass("active");
           e.preventDefault();
-        });
+        }); // Poor man's scrollspy for header
 
-        // Poor man's scrollspy for header
-        var userHasScrolled = false;
-        // Calculate width of logo
+        var userHasScrolled = false; // Calculate width of logo
+
         var $navLogo = $("#logo-menu > .nav-logo");
         var modWidth = parseInt($navLogo.css("width"), 10) - 12;
         var scrollCompare = $body.hasClass("proud-navbar-topbar-active") ? 50 : 10;
+
         window.onscroll = function () {
           if (typeof pageYOffset != "undefined" && pageYOffset <= scrollCompare) {
             $("body").removeClass("scrolled");
@@ -52,14 +50,14 @@ var __webpack_exports__ = {};
               "margin-left": -modWidth + "px"
             });
           }
-        };
+        }; // Allow nav + footer-actions dropdowns
 
-        // Allow nav + footer-actions dropdowns
+
         $(".btn-toolbar .dropdown-menu, .footer-actions .dropdown-menu").click(function (e) {
           console.log('main.js line 57');
           e.stopPropagation();
-        });
-        // Open external links in a new tab?
+        }); // Open external links in a new tab?
+
         if (Proud.settings.global != undefined && Proud.settings.global.external_link_window) {
           // @TODO move to core?
           // Save external link regex
@@ -75,22 +73,20 @@ var __webpack_exports__ = {};
               });
             }
           });
-        }
+        } // Hide header if this appears in an iFrame (for mobile app/kiosk)
 
-        // Hide header if this appears in an iFrame (for mobile app/kiosk)
+
         if (window.self !== window.top) {
           $body.attr("id", "in-iframe");
-        }
-        //@todo rm
+        } //@todo rm
         //$('body').attr('id', 'in-iframe');
-
         // @ TODO remove or fix my.getproudcity
         // Link admin_bar logo to proudcity.com
         // if (Proud.settings.global.proudcity_dashboard) {
         //   $('#wp-admin-bar-wp-logo .ab-item').attr( 'href', Proud.settings.global.proudcity_dashboard + '/stats/' + Proud.settings.global.proudcity_site_id );
         // }
-      },
 
+      },
       finalize: function finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
         $(".jsn-bootstrap3 + p:empty").remove();
@@ -98,23 +94,19 @@ var __webpack_exports__ = {};
     },
     // Home page
     home: {
-      init: function init() {
-        // JavaScript to be fired on the home page
+      init: function init() {// JavaScript to be fired on the home page
       },
-      finalize: function finalize() {
-        // JavaScript to be fired on the home page, after the init JS
+      finalize: function finalize() {// JavaScript to be fired on the home page, after the init JS
       }
     },
     // About us page, note the change from about-us to about_us.
     about_us: {
-      init: function init() {
-        // JavaScript to be fired on the about us page
+      init: function init() {// JavaScript to be fired on the about us page
       }
     }
-  };
-
-  // The routing fires all common scripts, followed by the page specific scripts.
+  }; // The routing fires all common scripts, followed by the page specific scripts.
   // Add additional events for more control over timing e.g. a finalize event
+
   var UTIL = {
     fire: function fire(func, funcname, args) {
       var fire;
@@ -123,26 +115,24 @@ var __webpack_exports__ = {};
       fire = func !== "";
       fire = fire && namespace[func];
       fire = fire && typeof namespace[func][funcname] === "function";
+
       if (fire) {
         namespace[func][funcname](args);
       }
     },
     loadEvents: function loadEvents() {
       // Fire common init JS
-      UTIL.fire("common");
+      UTIL.fire("common"); // Fire page-specific init JS, and then finalize JS
 
-      // Fire page-specific init JS, and then finalize JS
       $.each(document.body.className.replace(/-/g, "_").split(/\s+/), function (i, classnm) {
         UTIL.fire(classnm);
         UTIL.fire(classnm, "finalize");
-      });
+      }); // Fire common finalize JS
 
-      // Fire common finalize JS
       UTIL.fire("common", "finalize");
     }
-  };
+  }; // Load Events
 
-  // Load Events
   $(document).ready(UTIL.loadEvents);
 })(jQuery); // Fully reference jQuery after this point.
 /******/ })()
