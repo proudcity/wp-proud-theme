@@ -4,7 +4,7 @@
   <div class="media text-center">
     <?php the_post_thumbnail(); ?>
     <?php $media = get_post(get_post_thumbnail_id()); ?>
-    <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo $media->post_excerpt ?></span></div><?php endif; ?>
+    <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo wp_kses_post( $media->post_excerpt ) ?></span></div><?php endif; ?>
   </div>
 <?php endif; ?>
 <?php the_content(); ?>
