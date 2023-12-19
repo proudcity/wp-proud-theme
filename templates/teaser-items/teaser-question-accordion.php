@@ -1,7 +1,15 @@
+<?php
+/**
+ * UniqueID is passed through a bunch of files so that accordions can have a unique
+ * parent id and then target the expected parent.
+ *
+ * Find the original definition of uniqueID in teaser-list-widget.class.php
+ */
+?>
 <div class="panel panel-default accordion"><!-- template-file: teaser-question-accordian.php -->
   <div class="panel-heading">
     <h4 class="panel-title">
-      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo the_id(); ?>">
+      <a data-toggle="collapse" data-parent="#accordion<?php echo esc_attr( $uniqueID ); ?>" href="#collapse<?php echo the_id(); ?>">
         <?php echo the_title(); ?>
       </a>
     </h4>
