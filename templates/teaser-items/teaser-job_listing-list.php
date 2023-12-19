@@ -1,5 +1,13 @@
 <div <?php post_class( "teaser" ); ?> itemscope itemtype="http://schema.org/JobPosting"><!-- template-file: teaser-job_listing-list.php -->
   <meta itemprop="title" content="<?php echo esc_attr( $post->post_title ); ?>" />
+
+  <?php
+      if ( function_exists( 'wpjm_get_job_listing_structured_data' ) ){
+        $structured_data = wpjm_get_job_listing_structured_data( get_the_ID() );
+        echo '<script type="application/ld+json">' . wpjm_esc_json( wp_json_encode( $structured_data ), true ) . '</script>';
+      }
+  ?>
+
   <div class="row">
     <div class="col-xs-12 pull-left">
       <?php the_title( sprintf( '<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
