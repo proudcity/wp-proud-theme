@@ -18,7 +18,49 @@
             <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo $media->post_excerpt ?></span></div><?php endif; ?>
           </div>
         <?php endif; ?>
+        <?php
+          // @todo add the address here
+        ?>
+        <div class="proud-location-information">
+
+          <div itemscope itemtype="https://schema.org/Person">
+
+            <div><!-- this should be a left column-->
+              <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span itemprop="streetAddresss">
+                    <p><?php echo esc_attr( get_post_meta( get_the_ID(), 'address', true ) ); ?></p>
+                    <p><?php echo esc_attr( get_post_meta( get_the_ID(), 'address2', true ) ); ?></p>
+                </span><!-- /streetAddress -->
+
+                <p itemprop="addressLocality">
+                    <?php echo esc_attr( get_post_meta( get_the_ID(), 'city', true ) ); ?>
+                </p><!-- addressLocality -->
+
+                <p itemprop="addressRegion">
+                    <?php echo esc_attr( get_post_meta( get_the_ID(), 'state', true ) ); ?>
+                </p><!-- addressRegion -->
+
+                <span itemprop="postalCode">
+                    <?php echo esc_attr( get_post_meta( get_the_ID(), 'zip', true ) ); ?>
+                </span><!-- postalCode -->
+
+            </div><!-- / PostalAddress -->
+          </div><!-- / left column -->
+
+          <div><!-- this should be a right column -->
+            <p class="proud-location-email"><strong>Email:</strong> <?php echo sanitize_email( get_post_meta( get_the_ID(), 'email', true ) ); ?></p>
+          </div><!-- / right column -->
+
+          </div><!-- /itemscope Person -->
+
+        </div><!-- /.proud-location-information -->
+
         <?php the_content(); ?>
+
+        <div class="proud-location-map">
+          map goes here
+        </div><!-- /.proud-location-map -->
+
       </div>
       <?php if (is_active_sidebar('sidebar-news')): ?>
         <div class="text-left col-md-4 right-sidebar">
