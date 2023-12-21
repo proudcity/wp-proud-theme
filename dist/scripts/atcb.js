@@ -4,27 +4,16 @@ var __webpack_exports__ = {};
   !*** ./assets/scripts/atcb.js ***!
   \********************************/
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 /*!
  *  @preserve
  *
@@ -677,26 +666,20 @@ var tzlibZonesDB = {
   "Zulu": ["Etc/UTC", 91]
 };
 var tzlibZonesDetailsDB = ["20221015T115821Z<n><bs><n><tz>GMT<n><of>+0000<n><ot>+0000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>EAT<n><of>+0300<n><ot>+0300<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>CET<n><of>+0100<n><ot>+0100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>WAT<n><of>+0100<n><ot>+0100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>CAT<n><of>+0200<n><ot>+0200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>EET<n><of>+0200<n><ot>+0200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+01<n><of>+0100<n><ot>+0100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>CEST<n><of>+0100<n><ot>+0200<n><s>19700329T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>CET<n><of>+0200<n><ot>+0100<n><s>19701025T030000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>SAST<n><of>+0200<n><ot>+0200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>HDT<n><of>-1000<n><ot>-0900<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>HST<n><of>-0900<n><ot>-1000<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>AKDT<n><of>-0900<n><ot>-0800<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>AKST<n><of>-0800<n><ot>-0900<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>AST<n><of>-0400<n><ot>-0400<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-03<n><of>-0300<n><ot>-0300<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>-03<n><of>-0400<n><ot>-0300<n><s>19701004T000000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=1SU<n><ed><n><bs><n><tz>-04<n><of>-0300<n><ot>-0400<n><s>19700322T000000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=4SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>EST<n><of>-0500<n><ot>-0500<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>CST<n><of>-0500<n><ot>-0600<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n><bd><n><tz>CDT<n><of>-0600<n><ot>-0500<n><s>19700405T020000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>CST<n><of>-0600<n><ot>-0600<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-04<n><of>-0400<n><ot>-0400<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-05<n><of>-0500<n><ot>-0500<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>MDT<n><of>-0700<n><ot>-0600<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>MST<n><of>-0600<n><ot>-0700<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>CDT<n><of>-0600<n><ot>-0500<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>CST<n><of>-0500<n><ot>-0600<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>MDT<n><of>-0700<n><ot>-0600<n><s>19700405T020000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><ed><n><bs><n><tz>MST<n><of>-0600<n><ot>-0700<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>MST<n><of>-0700<n><ot>-0700<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>EDT<n><of>-0500<n><ot>-0400<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>EST<n><of>-0400<n><ot>-0500<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>PDT<n><of>-0800<n><ot>-0700<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>PST<n><of>-0700<n><ot>-0800<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>ADT<n><of>-0400<n><ot>-0300<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>AST<n><of>-0300<n><ot>-0400<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>-02<n><of>-0300<n><ot>-0200<n><s>19700328T220000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SA<n><ed><n><bs><n><tz>-03<n><of>-0200<n><ot>-0300<n><s>19701024T230000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SA<n><es><n>", "20221015T115821Z<n><bs><n><tz>AST<n><of>-0300<n><ot>-0400<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n><bd><n><tz>ADT<n><of>-0400<n><ot>-0300<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>EST<n><of>-0400<n><ot>-0500<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n><bd><n><tz>EDT<n><of>-0500<n><ot>-0400<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>CST<n><of>-0400<n><ot>-0500<n><s>19701101T010000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n><bd><n><tz>CDT<n><of>-0500<n><ot>-0400<n><s>19700308T000000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n>", "20221015T115821Z<n><bd><n><tz>CDT<n><of>-0600<n><ot>-0500<n><s>19700405T020000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><ed><n><bs><n><tz>CST<n><of>-0500<n><ot>-0600<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>-02<n><of>-0300<n><ot>-0200<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n><bs><n><tz>-03<n><of>-0200<n><ot>-0300<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>-02<n><of>-0200<n><ot>-0200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>CST<n><of>-0500<n><ot>-0600<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n><bd><n><tz>CDT<n><of>-0600<n><ot>-0500<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>-04<n><of>-0300<n><ot>-0400<n><s>19700405T000000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n><bd><n><tz>-03<n><of>-0400<n><ot>-0300<n><s>19700906T000000<n><r>FREQ=YEARLY;BYMONTH=9;BYDAY=1SU<n><ed><n>", "20221015T115821Z<n><bd><n><tz>+00<n><of>-0100<n><ot>+0000<n><s>19700329T000000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>-01<n><of>+0000<n><ot>-0100<n><s>19701025T010000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>NST<n><of>-0230<n><ot>-0330<n><s>19701101T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=1SU<n><es><n><bd><n><tz>NDT<n><of>-0330<n><ot>-0230<n><s>19700308T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=2SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>+11<n><of>+1100<n><ot>+1100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+07<n><of>+0700<n><ot>+0700<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+10<n><of>+1000<n><ot>+1000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>AEST<n><of>+1100<n><ot>+1000<n><s>19700405T030000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n><bd><n><tz>AEDT<n><of>+1000<n><ot>+1100<n><s>19701004T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>+05<n><of>+0500<n><ot>+0500<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>NZDT<n><of>+1200<n><ot>+1300<n><s>19700927T020000<n><r>FREQ=YEARLY;BYMONTH=9;BYDAY=-1SU<n><ed><n><bs><n><tz>NZST<n><of>+1300<n><ot>+1200<n><s>19700405T030000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>+03<n><of>+0300<n><ot>+0300<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>+02<n><of>+0000<n><ot>+0200<n><s>19700329T010000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>+00<n><of>+0200<n><ot>+0000<n><s>19701025T030000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>+06<n><of>+0600<n><ot>+0600<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+12<n><of>+1200<n><ot>+1200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+04<n><of>+0400<n><ot>+0400<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>EEST<n><of>+0200<n><ot>+0300<n><s>19700329T000000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>EET<n><of>+0300<n><ot>+0200<n><s>19701025T000000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>+08<n><of>+0800<n><ot>+0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>IST<n><of>+0530<n><ot>+0530<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+09<n><of>+0900<n><ot>+0900<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>CST<n><of>+0800<n><ot>+0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+0530<n><of>+0530<n><ot>+0530<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>EEST<n><of>+0200<n><ot>+0300<n><s>19700329T030000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>EET<n><of>+0300<n><ot>+0200<n><s>19701025T040000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>EET<n><of>+0300<n><ot>+0200<n><s>19701024T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SA<n><es><n><bd><n><tz>EEST<n><of>+0200<n><ot>+0300<n><s>19700328T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SA<n><ed><n>", "20221015T115821Z<n><bs><n><tz>HKT<n><of>+0800<n><ot>+0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>WIB<n><of>+0700<n><ot>+0700<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>WIT<n><of>+0900<n><ot>+0900<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>IDT<n><of>+0200<n><ot>+0300<n><s>19700327T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1FR<n><ed><n><bs><n><tz>IST<n><of>+0300<n><ot>+0200<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>+0430<n><of>+0430<n><ot>+0430<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>PKT<n><of>+0500<n><ot>+0500<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+0545<n><of>+0545<n><ot>+0545<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>WITA<n><of>+0800<n><ot>+0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>PST<n><of>+0800<n><ot>+0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>EET<n><of>+0300<n><ot>+0200<n><s>19701025T040000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n><bd><n><tz>EEST<n><of>+0200<n><ot>+0300<n><s>19700329T030000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>KST<n><of>+0900<n><ot>+0900<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+0630<n><of>+0630<n><ot>+0630<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+0330<n><of>+0330<n><ot>+0330<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>JST<n><of>+0900<n><ot>+0900<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>WEST<n><of>+0000<n><ot>+0100<n><s>19700329T010000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>WET<n><of>+0100<n><ot>+0000<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>-01<n><of>-0100<n><ot>-0100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>ACST<n><of>+1030<n><ot>+0930<n><s>19700405T030000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n><bd><n><tz>ACDT<n><of>+0930<n><ot>+1030<n><s>19701004T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>AEST<n><of>+1000<n><ot>+1000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>AEDT<n><of>+1000<n><ot>+1100<n><s>19701004T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=1SU<n><ed><n><bs><n><tz>AEST<n><of>+1100<n><ot>+1000<n><s>19700405T030000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>ACST<n><of>+0930<n><ot>+0930<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+0845<n><of>+0845<n><ot>+0845<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+1030<n><of>+1100<n><ot>+1030<n><s>19700405T020000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n><bd><n><tz>+11<n><of>+1030<n><ot>+1100<n><s>19701004T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>AWST<n><of>+0800<n><ot>+0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-06<n><of>-0500<n><ot>-0600<n><s>19700404T220000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SA<n><es><n><bd><n><tz>-05<n><of>-0600<n><ot>-0500<n><s>19700905T220000<n><r>FREQ=YEARLY;BYMONTH=9;BYDAY=1SA<n><ed><n>", "20221015T115821Z<n><bs><n><tz>IST<n><of>+0000<n><ot>+0100<n><s>19700329T010000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><es><n><bd><n><tz>GMT<n><of>+0100<n><ot>+0000<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>+13<n><of>+1300<n><ot>+1300<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+14<n><of>+1400<n><ot>+1400<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>+02<n><of>+0200<n><ot>+0200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-10<n><of>-1000<n><ot>-1000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-11<n><of>-1100<n><ot>-1100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-12<n><of>-1200<n><ot>-1200<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-06<n><of>-0600<n><ot>-0600<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-07<n><of>-0700<n><ot>-0700<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-08<n><of>-0800<n><ot>-0800<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-09<n><of>-0900<n><ot>-0900<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>UTC<n><of>+0000<n><ot>+0000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>BST<n><of>+0000<n><ot>+0100<n><s>19700329T010000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>GMT<n><of>+0100<n><ot>+0000<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>EEST<n><of>+0200<n><ot>+0300<n><s>19700329T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>EET<n><of>+0300<n><ot>+0200<n><s>19701025T030000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>WET<n><of>+0100<n><ot>+0000<n><s>19701025T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n><bd><n><tz>WEST<n><of>+0000<n><ot>+0100<n><s>19700329T010000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n>", "20221015T115821Z<n><bs><n><tz>MSK<n><of>+0300<n><ot>+0300<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>HST<n><of>-1000<n><ot>-1000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>MEST<n><of>+0100<n><ot>+0200<n><s>19700329T020000<n><r>FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU<n><ed><n><bs><n><tz>MET<n><of>+0200<n><ot>+0100<n><s>19701025T030000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>+1345<n><of>+1245<n><ot>+1345<n><s>19700927T024500<n><r>FREQ=YEARLY;BYMONTH=9;BYDAY=-1SU<n><ed><n><bs><n><tz>+1245<n><of>+1345<n><ot>+1245<n><s>19700405T034500<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n>", "20221015T115821Z<n><bd><n><tz>+13<n><of>+1200<n><ot>+1300<n><s>19701108T020000<n><r>FREQ=YEARLY;BYMONTH=11;BYDAY=2SU<n><ed><n><bs><n><tz>+12<n><of>+1300<n><ot>+1200<n><s>19700118T030000<n><r>FREQ=YEARLY;BYMONTH=1;BYDAY=-2SU<n><es><n>", "20221015T115821Z<n><bs><n><tz>ChST<n><of>+1000<n><ot>+1000<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>-0930<n><of>-0930<n><ot>-0930<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bs><n><tz>SST<n><of>-1100<n><ot>-1100<n><s>19700101T000000<n><es><n>", "20221015T115821Z<n><bd><n><tz>+12<n><of>+1100<n><ot>+1200<n><s>19701004T020000<n><r>FREQ=YEARLY;BYMONTH=10;BYDAY=1SU<n><ed><n><bs><n><tz>+11<n><of>+1200<n><ot>+1100<n><s>19700405T030000<n><r>FREQ=YEARLY;BYMONTH=4;BYDAY=1SU<n><es><n>"];
-
 function tzlib_get_content(tzName) {
   var nameParts = tzName.split('/');
-
   if (nameParts.length === 3 && (!tzlibZonesDB["".concat(nameParts[0])] || !tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])] || !tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])]["".concat(nameParts[2])]) || nameParts.length === 2 && (!tzlibZonesDB["".concat(nameParts[0])] || !tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])]) || nameParts.length === 1 && !tzlibZonesDB["".concat(nameParts[0])]) {
     console.error('Given timezone not valid.');
     return '';
   }
-
   if (nameParts.length === 3) {
     return [tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])]["".concat(nameParts[2])][0], tzlib_enrich_data(tzlibZonesDetailsDB[tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])]["".concat(nameParts[2])][1]])];
   }
-
   if (nameParts.length === 2) {
     return [tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])][0], tzlib_enrich_data(tzlibZonesDetailsDB[tzlibZonesDB["".concat(nameParts[0])]["".concat(nameParts[1])][1]])];
   }
-
   return [tzlibZonesDB["".concat(nameParts[0])][0], tzlib_enrich_data(tzlibZonesDetailsDB[tzlibZonesDB["".concat(nameParts[0])][1]])];
 }
-
 function tzlib_enrich_data(string) {
   var shortenerMap = {
     "<br>": "<n>",
@@ -710,27 +693,21 @@ function tzlib_enrich_data(string) {
     "BEGIN:STANDARD": "<bs>",
     "END:STANDARD": "<es>"
   };
-
   for (var _i = 0, _Object$entries = Object.entries(shortenerMap); _i < _Object$entries.length; _i++) {
     var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-        key = _Object$entries$_i[0],
-        value = _Object$entries$_i[1];
-
+      key = _Object$entries$_i[0],
+      value = _Object$entries$_i[1];
     string = string.replaceAll(value, key);
   }
-
   return string;
-} // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function tzlib_get_ical_block(tzName) {
   var jsonType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   var tzBlock = tzlib_get_content(tzName);
-
   if (tzBlock[1] == null || tzBlock[1] == '') {
     return '';
   }
-
   var location = function () {
     if (tzBlock[0] == '') {
       return tzName;
@@ -738,39 +715,30 @@ function tzlib_get_ical_block(tzName) {
       return tzBlock[0];
     }
   }();
-
   var tzidLine = 'TZID=' + location;
   var output = ['BEGIN:VTIMEZONE\r\nTZID:' + location + '\r\nX-LIC-LOCATION:' + location + '\r\nLAST-MODIFIED:' + tzBlock[1].replace(/[^\w_\-:,;=+/<br>]/g, '').replace(/<br>/g, '\r\n') + 'END:VTIMEZONE', tzidLine];
-
   if (jsonType) {
     return JSON.stringify(output);
   }
-
   return output;
-} // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function tzlib_get_offset(tzName, isoDate, isoTime) {
   var tzBlock = tzlib_get_content(tzName);
-
   if (tzBlock[1] == null || tzBlock[1] == '') {
     return '';
   }
-
   if (!isoDate.match(/^\d{4}-\d{2}-\d{2}$/)) {
     console.error('offset calculation failed: date misspelled [-> YYYY-MM-DD]');
     return '';
   }
-
   if (!isoTime.match(/^\d{2}:\d{2}$/)) {
     console.error('offset calculation failed: time misspelled [-> hh:mm]');
     return '';
   }
-
   if (!tzBlock[1].match(/BEGIN:DAYLIGHT/i)) {
     return tzBlock[1].match(/TZOFFSETTO:([+|-]\d{4})/i)[1];
   }
-
   var dateString = isoDate + 'T' + isoTime + ':00';
   var date = new Date(dateString);
   var dateYear = date.getFullYear();
@@ -783,17 +751,14 @@ function tzlib_get_offset(tzName, isoDate, isoTime) {
     2: {}
   };
   var breakpointCount = 0;
-
   for (var i = 0; i < timezoneData.length; i++) {
     if (timezoneData["".concat(i)].startsWith('TZOFFSETTO')) {
       breakpointCount++;
       tzBreakpoints["".concat(breakpointCount)].offset = timezoneData["".concat(i)].split(':')[1];
     }
-
     if (timezoneData["".concat(i)].startsWith('DTSTART')) {
       tzBreakpoints["".concat(breakpointCount)].hour = parseInt(timezoneData["".concat(i)].substr(17, 2));
     }
-
     if (timezoneData["".concat(i)].startsWith('RRULE')) {
       var rruleParts = timezoneData["".concat(i)].split(';');
       var rruleMonth = parseInt(rruleParts[1].split('=')[1]);
@@ -801,13 +766,11 @@ function tzlib_get_offset(tzName, isoDate, isoTime) {
       tzBreakpoints["".concat(breakpointCount)].day = rruleParts[2].split('=')[1];
     }
   }
-
   if (tzBreakpoints[1].month > tzBreakpoints[2].month) {
     var _ref = [tzBreakpoints[2], tzBreakpoints[1]];
     tzBreakpoints[1] = _ref[0];
     tzBreakpoints[2] = _ref[1];
   }
-
   if (dateMonth != tzBreakpoints[1].month && dateMonth != tzBreakpoints[2].month) {
     if (dateMonth < tzBreakpoints[1].month || dateMonth > tzBreakpoints[2].month) {
       return tzBreakpoints[2].offset;
@@ -815,13 +778,11 @@ function tzlib_get_offset(tzName, isoDate, isoTime) {
       return tzBreakpoints[1].offset;
     }
   }
-
   var theCase = function () {
     return Object.keys(tzBreakpoints).find(function (key) {
       return tzBreakpoints["".concat(key)].month == dateMonth;
     });
   }();
-
   var helperArrayWeekdays = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
   var numberDays = new Date(dateYear, dateMonth, 0).getDate();
   var weekdayCount = new Date(dateYear, dateMonth - 1, 1).getDay();
@@ -834,17 +795,14 @@ function tzlib_get_offset(tzName, isoDate, isoTime) {
     FR: {},
     SA: {}
   };
-
   for (var d = 1; d <= numberDays; d++) {
     var occurence = Object.keys(weekdays[helperArrayWeekdays["".concat(weekdayCount)]]).length + 1;
     weekdays[helperArrayWeekdays["".concat(weekdayCount)]]["".concat(occurence)] = d;
     weekdayCount++;
-
     if (weekdayCount == 7) {
       weekdayCount = 0;
     }
   }
-
   var actualDay = function () {
     if (tzBreakpoints["".concat(theCase)].day[0] == '-') {
       var breakpointWeekday = tzBreakpoints["".concat(theCase)].day.substr(2, 2);
@@ -852,15 +810,12 @@ function tzlib_get_offset(tzName, isoDate, isoTime) {
       return weekdays["".concat(breakpointWeekday)]["".concat(dayIndex)];
     } else {
       var _breakpointWeekday = tzBreakpoints["".concat(theCase)].day.substr(1, 2);
-
       return weekdays["".concat(_breakpointWeekday)][tzBreakpoints["".concat(theCase)].day[0]];
     }
   }();
-
   if (dateDay > actualDay || dateDay == actualDay && dateHour >= tzBreakpoints["".concat(theCase)].hour) {
     return tzBreakpoints["".concat(theCase)].offset;
   }
-
   var fallbackCase = function () {
     if (theCase == 1) {
       return 2;
@@ -868,35 +823,28 @@ function tzlib_get_offset(tzName, isoDate, isoTime) {
       return 1;
     }
   }();
-
   return tzBreakpoints["".concat(fallbackCase)].offset;
 }
-
-var tzlibZoneNames = []; // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
+var tzlibZoneNames = [];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function tzlib_get_timezones() {
   var jsonType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
   if (tzlibZoneNames.length == 0) {
     tzlibZoneNames = function () {
       var namesArr = [];
-
       for (var _i2 = 0, _Object$entries2 = Object.entries(tzlibZonesDB); _i2 < _Object$entries2.length; _i2++) {
         var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
-            key = _Object$entries2$_i[0],
-            value = _Object$entries2$_i[1];
-
+          key = _Object$entries2$_i[0],
+          value = _Object$entries2$_i[1];
         if (_typeof(value) === 'object' && !Array.isArray(value)) {
           for (var _i3 = 0, _Object$entries3 = Object.entries(value); _i3 < _Object$entries3.length; _i3++) {
             var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2),
-                key2 = _Object$entries3$_i[0],
-                value2 = _Object$entries3$_i[1];
-
+              key2 = _Object$entries3$_i[0],
+              value2 = _Object$entries3$_i[1];
             if (_typeof(value2) === 'object' && !Array.isArray(value2)) {
               for (var _i4 = 0, _Object$entries4 = Object.entries(value2); _i4 < _Object$entries4.length; _i4++) {
                 var _Object$entries4$_i = _slicedToArray(_Object$entries4[_i4], 1),
-                    key3 = _Object$entries4$_i[0];
-
+                  key3 = _Object$entries4$_i[0];
                 namesArr.push(key + '/' + key2 + '/' + key3);
               }
             } else {
@@ -907,17 +855,15 @@ function tzlib_get_timezones() {
           namesArr.push(key);
         }
       }
-
       return namesArr;
     }();
   }
-
   if (jsonType) {
     return JSON.stringify(tzlibZoneNames);
   }
-
   return tzlibZoneNames;
 }
+
 /*!
  *  @preserve
  *
@@ -932,10 +878,7 @@ function tzlib_get_timezones() {
  *  Note:    DO NOT REMOVE THE COPYRIGHT NOTICE ABOVE!
  *
  */
-
-
 var atcbVersion = '1.18.3';
-
 var isBrowser = function isBrowser() {
   if (typeof window === 'undefined') {
     return false;
@@ -943,7 +886,6 @@ var isBrowser = function isBrowser() {
     return true;
   }
 };
-
 var isiOS = isBrowser() ? function () {
   if (/iPad|iPhone|iPod/i.test(navigator.userAgent || navigator.vendor || window.opera) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
     return true;
@@ -971,7 +913,6 @@ var isChrome = isBrowser() ? function () {
 } : function () {
   return false;
 };
-
 var isMobile = function isMobile() {
   if (isAndroid() || isiOS()) {
     return true;
@@ -979,7 +920,6 @@ var isMobile = function isMobile() {
     return false;
   }
 };
-
 var isWebView = isBrowser() ? function () {
   if (/(; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent || navigator.vendor)) {
     return true;
@@ -1019,7 +959,6 @@ var atcbIcon = {
   warning: '<span class="atcb-icon-warning"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="m100 0c27.613 0 52.613 11.195 70.711 29.293 18.094 18.094 29.289 43.098 29.289 70.707 0 27.613-11.195 52.613-29.289 70.711-18.098 18.094-43.098 29.289-70.711 29.289-27.609 0-52.613-11.195-70.707-29.289-18.098-18.098-29.293-43.098-29.293-70.711 0-27.609 11.195-52.613 29.293-70.707 18.094-18.098 43.098-29.293 70.707-29.293zm57.66 42.34c-14.758-14.754-35.145-23.883-57.66-23.883-22.516 0-42.902 9.1289-57.66 23.883-14.754 14.758-23.883 35.145-23.883 57.66 0 22.516 9.1289 42.902 23.883 57.66 14.758 14.754 35.145 23.883 57.66 23.883 22.516 0 42.902-9.1289 57.66-23.883 14.754-14.758 23.883-35.145 23.883-57.66 0-22.516-9.1289-42.902-23.883-57.66z" fill="#f44336" fill-rule="nonzero" stroke-width=".39062"/><g transform="matrix(3.8384 0 0 3.8384 2277.8 -576.85)" style="shape-inside:url(#rect7396);white-space:pre" aria-label="!"><path d="m-563.8 161.59-0.65341 20.185h-5.8381l-0.65341-20.185zm-3.5796 29.503q-1.5199 0-2.6136-1.0795-1.0796-1.0796-1.0796-2.6136 0-1.5057 1.0796-2.571 1.0938-1.0796 2.6136-1.0796 1.4631 0 2.571 1.0796 1.1222 1.0653 1.1222 2.571 0 1.0227-0.52557 1.8608-0.51137 0.83807-1.3494 1.3352-0.82387 0.49715-1.8182 0.49715z"/></g></svg></span>',
   checkmark: '<span class="atcb-icon-checkmark"><svg viewBox="0 0 122.88 122.87" xmlns="http://www.w3.org/2000/svg"><path fill:#39B54A; d="m33.666 50.046s6.0748-0.59297 17.413 4.2983c9.3883 4.5751 11.891 8.3955 11.891 8.3955 5.38-8.65 11.11-16.6 17.16-23.9 10.412-12.578 24.613-22.448 24.613-22.448l14.257-0.012228s-19.308 19.294-32.483 38.51c-13.175 19.216-22.877 41.21-22.877 41.21s-9.3948-18.164-14.53-24.53-10.77-11.59-17.52-16.22z" fill="#45b555"/><path fill:#3C3C3C; d="m61.44 0c9.53 0 18.55 2.17 26.61 6.04-3.3 2.61-6.36 5.11-9.21 7.53-5.43-1.97-11.28-3.05-17.39-3.05-14.06 0-26.79 5.7-36 14.92s-14.92 21.94-14.92 36 5.7 26.78 14.92 36 21.94 14.92 36 14.92 26.79-5.7 36-14.92c9.22-9.22 14.91-21.94 14.91-36 0-3.34-0.32-6.62-0.94-9.78 2.64-3.44 5.35-6.88 8.11-10.28 2.17 6.28 3.35 13.04 3.35 20.06 0 16.96-6.88 32.33-17.99 43.44-11.12 11.12-26.48 18-43.44 18s-32.32-6.88-43.44-18c-11.13-11.12-18.01-26.48-18.01-43.44 0-16.97 6.88-32.33 17.99-43.44 11.12-11.12 26.48-18 43.45-18z"/></svg></span>'
 };
-
 function atcb_patch_config(configData) {
   if (configData.event != null) {
     Object.keys(configData.event).forEach(function (key) {
@@ -1029,7 +968,6 @@ function atcb_patch_config(configData) {
     });
     delete configData.event;
   }
-
   var keyChanges = {
     title: 'name',
     dateStart: 'startDate',
@@ -1044,7 +982,6 @@ function atcb_patch_config(configData) {
   });
   return configData;
 }
-
 function atcb_decorate_data(data) {
   data = atcb_decorate_data_identifier(data);
   data.subscribe = atcb_decorate_data_subscribe(data);
@@ -1061,32 +998,25 @@ function atcb_decorate_data(data) {
   data = atcb_decorate_data_extend(data);
   return data;
 }
-
 function atcb_decorate_data_identifier(data) {
   if (data.identifier != null && data.identifier != '') {
     data.identifier = 'atcb-btn-' + data.identifier;
-
     if (!/^[\w-]+$/.test(data.identifier)) {
       data.identifier = '';
       console.warn('Add to Calendar Button generation: identifier invalid - using auto numbers instead');
     }
   }
-
   return data;
 }
-
 function atcb_decorate_data_subscribe(data) {
   if (data.subscribe != null && data.subscribe == true) {
     return true;
   }
-
   return false;
 }
-
 function atcb_decorate_data_rrule(data) {
   if (data.recurrence != null && data.recurrence != '') {
     data.recurrence = data.recurrence.replace(/\s+/g, '').toUpperCase();
-
     if (!/^(RRULE:[\w=;,:+-/\\]+|daily|weekly|monthly|yearly)$/im.test(data.recurrence)) {
       data.recurrence = '!wrong rrule format!';
     } else {
@@ -1107,14 +1037,11 @@ function atcb_decorate_data_rrule(data) {
         if (data.recurrence_interval == null || data.recurrence_interval == '') {
           data.recurrence_interval = 1;
         }
-
         if (data.recurrence_weekstart == null || data.recurrence_weekstart == '' | data.recurrence_weekstart.length > 2) {
           data.recurrence_weekstart = 'MO';
         }
-
         data.recurrence_frequency = data.recurrence;
         data.recurrence = 'RRULE:FREQ=' + data.recurrence + ';WKST=' + data.recurrence_weekstart + ';INTERVAL=' + data.recurrence_interval;
-
         if (data.recurrence_until != null && data.recurrence_until != '') {
           if (data.endTime != null && data.endTime != '') {
             data.recurrence = data.recurrence + ';UNTIL=' + data.recurrence_until.replace(/-/g, '').slice(0, 8) + 'T' + data.endTime.replace(':', '') + '00';
@@ -1122,139 +1049,106 @@ function atcb_decorate_data_rrule(data) {
             data.recurrence = data.recurrence + ';UNTIL=' + data.recurrence_until.replace(/-/g, '').slice(0, 8);
           }
         }
-
         if (data.recurrence_count != null && data.recurrence_count != '') {
           data.recurrence = data.recurrence + ';COUNT=' + data.recurrence_count;
         }
-
         if (data.recurrence_byDay != null && data.recurrence_byDay != '') {
           data.recurrence = data.recurrence + ';BYDAY=' + data.recurrence_byDay;
         }
-
         if (data.recurrence_byMonth != null && data.recurrence_byMonth != '') {
           data.recurrence = data.recurrence + ';BYMONTH=' + data.recurrence_byMonth;
         }
-
         if (data.recurrence_byMonthDay != null && data.recurrence_byMonthDay != '') {
           data.recurrence = data.recurrence + ';BYMONTHDAY=' + data.recurrence_byMonthDay;
         }
       }
     }
   }
-
   return data;
 }
-
 function atcb_decorate_data_options(data) {
   if (isiOS() && data.options.includes('ical') && !data.options.includes('apple')) {
     data.options.push('apple');
   }
-
   var newOptions = [];
   data.optionLabels = [];
-
-  var _loop = function _loop(i) {
+  var _loop = function _loop() {
     var cleanOption = data.options["".concat(i)].split('|');
     var optionName = cleanOption[0].toLowerCase().replace('microsoft', 'ms').replace('.', '');
-
     var optionLabel = function () {
       if (cleanOption[1] != null) {
         return cleanOption[1];
       }
-
       return '';
     }();
-
     if (isiOS() && atcbiOSInvalidOptions.includes(optionName) || data.recurrence != null && data.recurrence != '' && (!atcbValidRecurrOptions.includes(optionName) || data.recurrence_until != null && data.recurrence_until != '' && (optionName == 'apple' || optionName == 'ical')) || data.subscribe && atcbInvalidSubscribeOptions.includes(optionName)) {
       return "continue";
     }
-
     newOptions.push(optionName);
     data.optionLabels.push(optionLabel);
   };
-
   for (var i = 0; i < data.options.length; i++) {
-    var _ret = _loop(i);
-
+    var _ret = _loop();
     if (_ret === "continue") continue;
   }
-
   data.options = newOptions;
   return data;
 }
-
 function atcb_decorate_data_rich_data(data) {
   if (data.richData != null && data.richData == false) {
     return false;
   }
-
   return true;
 }
-
 function atcb_decorate_data_checkmark(data) {
   if (data.checkmark != null && data.checkmark == false) {
     return false;
   }
-
   return true;
 }
-
 function atcb_decorate_data_branding(data) {
   if (data.branding != null && data.branding == false) {
     return false;
   }
-
   return false;
 }
-
 function atcb_decorate_data_mind_scrolling(data) {
   if (data.mindScrolling != null && data.mindScrolling == true) {
     return true;
   }
-
   return false;
 }
-
 function atcb_decorate_data_style(data) {
   if (data.listStyle == null || data.listStyle == '') {
     data.listStyle = 'dropdown';
   }
-
   if (data.listStyle === 'modal') {
     data.trigger = 'click';
   }
-
   if (data.buttonStyle != null && data.buttonStyle != '' && data.buttonStyle != 'default') {
     if (data.buttonStyle == 'bubble' || data.buttonStyle == 'text' || data.buttonStyle == 'date') {
       data.trigger = 'click';
     }
-
     if (data.buttonStyle == 'date' && data.listStyle == 'dropdown') {
       data.listStyle = 'overlay';
     }
   } else {
     data.buttonStyle = '';
   }
-
   data.sizes = [];
   data.sizes['l'] = data.sizes['m'] = data.sizes['s'] = 16;
-
   if (data.size != null && data.size != '') {
     var sizeParts = data.size.split('|');
-
     for (var i = 0; i < sizeParts.length; i++) {
       sizeParts["".concat(i)] = parseInt(sizeParts["".concat(i)]);
     }
-
     if (sizeParts[0] >= 0 && sizeParts[0] < 11) {
       data.sizes['l'] = 10 + sizeParts[0];
     }
-
     if (sizeParts.length > 2) {
       if (sizeParts[1] >= 0 && sizeParts[1] < 11) {
         data.sizes['m'] = 10 + sizeParts[1];
       }
-
       if (sizeParts[2] >= 0 && sizeParts[2] < 11) {
         data.sizes['s'] = 10 + sizeParts[2];
       }
@@ -1264,12 +1158,10 @@ function atcb_decorate_data_style(data) {
       }
     }
   }
-
   if (data.lightMode == null || data.lightMode == '') {
     data.lightMode = 'light';
   } else if (data.lightMode != null && data.lightMode != '') {
     var prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
     switch (data.lightMode) {
       case 'system':
         if (prefersDarkScheme.matches) {
@@ -1277,43 +1169,34 @@ function atcb_decorate_data_style(data) {
         } else {
           data.lightMode = 'light';
         }
-
         break;
-
       case 'bodyScheme':
       case 'dark':
         break;
-
       default:
         data.lightMode = 'light';
         break;
     }
   }
-
   return data;
 }
-
 function atcb_decorate_data_i18n(data) {
   if (data.language == null || data.language == '') {
     data.language = 'en';
   }
-
   if (data.language == 'ar') {
     data.rtl = true;
   } else {
     data.rtl = false;
   }
-
   return data;
 }
-
 function atcb_decorate_data_dates(data) {
   if (data.dates != null && data.dates.length > 0) {
     for (var i = 0; i < data.dates.length; i++) {
       if (data.dates["".concat(i)].timeZone == null && data.timeZone != null) {
         data.dates["".concat(i)].timeZone = data.timeZone;
       }
-
       var cleanedUpDates = atcb_date_cleanup(data.dates["".concat(i)]);
       data.dates["".concat(i)].startTime = cleanedUpDates.startTime;
       data.dates["".concat(i)].endTime = cleanedUpDates.endTime;
@@ -1324,7 +1207,6 @@ function atcb_decorate_data_dates(data) {
     }
   } else {
     var _cleanedUpDates = atcb_date_cleanup(data);
-
     data.dates = [];
     data.dates[0] = new Object();
     data.startTime = data.dates[0].startTime = _cleanedUpDates.startTime;
@@ -1333,32 +1215,24 @@ function atcb_decorate_data_dates(data) {
     data.startDate = data.dates[0].startDate = atcb_date_calculation(_cleanedUpDates.startDate);
     data.endDate = data.dates[0].endDate = atcb_date_calculation(_cleanedUpDates.endDate);
   }
-
   var now = new Date();
-
   if (data.created == null || data.created == '') {
     data.created = atcb_format_datetime(now, 'clean', true);
   }
-
   if (data.updated == null || data.updated == '') {
     data.updated = atcb_format_datetime(now, 'clean', true);
   }
-
   return data;
 }
-
 function atcb_decorate_data_meta(data) {
   if (data.status == null || data.status == '') {
     data.status = 'CONFIRMED';
   }
-
   if (data.sequence == null || data.sequence == '') {
     data.sequence = 0;
   }
-
   return data;
 }
-
 function atcb_decorate_data_description(data, i) {
   if (data.dates["".concat(i)].description != null && data.dates["".concat(i)].description != '') {
     data.dates["".concat(i)].descriptionHtmlFree = atcb_rewrite_html_elements(data.dates["".concat(i)].description, true);
@@ -1371,132 +1245,104 @@ function atcb_decorate_data_description(data, i) {
       data.dates["".concat(i)].descriptionHtmlFree = data.dates["".concat(i)].description = '';
     }
   }
-
   return data;
 }
-
 function atcb_decorate_data_extend(data) {
   for (var i = 0; i < data.dates.length; i++) {
     data = atcb_decorate_data_description(data, i);
-
     if (data.dates["".concat(i)].name == null || data.dates["".concat(i)].name == '') {
       data.dates["".concat(i)].name = data.name;
     }
-
     if (data.dates["".concat(i)].status == null) {
       data.dates["".concat(i)].status = data.status.toUpperCase();
     } else {
       data.dates["".concat(i)].status = data.dates["".concat(i)].status.toUpperCase();
     }
-
     if (data.dates["".concat(i)].sequence == null) {
       data.dates["".concat(i)].sequence = data.sequence;
     }
-
     if (data.dates["".concat(i)].location == null && data.location != null) {
       data.dates["".concat(i)].location = data.location;
     }
-
     if (data.dates["".concat(i)].organizer == null && data.organizer != null) {
       data.dates["".concat(i)].organizer = data.organizer;
     }
-
     if (data.dates["".concat(i)].availability == null && data.availability != null) {
       data.dates["".concat(i)].availability = data.availability.toLowerCase();
     } else if (data.dates["".concat(i)].availability != null) {
       data.dates["".concat(i)].availability = data.dates["".concat(i)].availability.toLowerCase();
     }
-
     if (data.dates["".concat(i)].uid == null) {
       data.dates["".concat(i)].uid = atcb_generate_uuid();
     }
   }
-
   if (data.recurrence != null && data.recurrence != '') {
     data.dates[0].recurrence = data.recurrence;
   }
-
   if (data.dates.length > 1) {
     data.dates.sort(function (a, b) {
       return a.timestamp - b.timestamp;
     });
   }
-
   return data;
 }
-
 function atcb_date_cleanup(dateTimeData) {
   if (dateTimeData.endDate == null || dateTimeData.endDate == '') {
     dateTimeData.endDate = dateTimeData.startDate;
   }
-
   var endpoints = ['start', 'end'];
   endpoints.forEach(function (point) {
     if (dateTimeData[point + 'Date'] != null) {
       dateTimeData[point + 'Date'] = dateTimeData[point + 'Date'].replace(/\.\d{3}/, '').replace('Z', '');
       var tmpSplitStartDate = dateTimeData[point + 'Date'].split('T');
-
       if (tmpSplitStartDate[1] != null) {
         dateTimeData[point + 'Date'] = tmpSplitStartDate[0];
         dateTimeData[point + 'Time'] = tmpSplitStartDate[1];
       }
     }
-
     if (dateTimeData[point + 'Time'] != null && dateTimeData[point + 'Time'].length === 8) {
       var timeStr = dateTimeData[point + 'Time'];
       dateTimeData[point + 'Time'] = timeStr.substring(0, timeStr.length - 3);
     }
-
     if (dateTimeData.timeZone == 'currentBrowser') {
       dateTimeData.timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     }
-
     var tmpDate;
-
     if (dateTimeData[point + 'Time'] != null) {
       tmpDate = new Date(dateTimeData[point + 'Date'] + ' ' + dateTimeData[point + 'Time']);
     } else {
       tmpDate = new Date(dateTimeData[point + 'Date']);
     }
-
     dateTimeData[point + 'Timestamp'] = tmpDate.getTime();
   });
   return dateTimeData;
 }
-
 function atcb_date_calculation(dateString) {
   var today = new Date();
   var todayString = today.getUTCFullYear() + '-' + (today.getUTCMonth() + 1) + '-' + today.getUTCDate();
   dateString = dateString.replace(/today/gi, todayString);
   var dateStringParts = dateString.split('+');
   var dateParts = dateStringParts[0].split('-');
-
   var newDate = function () {
     if (dateParts[0].length < 4) {
       return new Date(dateParts[2], dateParts[0] - 1, dateParts[1]);
     }
-
     return new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
   }();
-
   if (dateStringParts[1] != null && dateStringParts[1] > 0) {
     newDate.setDate(newDate.getDate() + parseInt(dateStringParts[1]));
   }
-
   return newDate.getFullYear() + '-' + ((newDate.getMonth() + 1 < 10 ? '0' : '') + (newDate.getMonth() + 1)) + '-' + (newDate.getDate() < 10 ? '0' : '') + newDate.getDate();
 }
-
 function atcb_check_required(data) {
   if (data.options == null || data.options.length < 1) {
     console.error('Add to Calendar Button generation failed: no valid options set');
     return false;
   }
-
   if (data.name == null || data.name == '') {
     console.error('Add to Calendar Button generation failed: required name information missing');
     return false;
   }
-
   if (data.dates != null && data.dates.length > 0) {
     var requiredMultiField = ['name', 'startDate'];
     var requiredMultiFieldFlex = ['name'];
@@ -1507,7 +1353,6 @@ function atcb_check_required(data) {
           return false;
         }
       }
-
       return true;
     });
   } else {
@@ -1517,12 +1362,10 @@ function atcb_check_required(data) {
         console.error('Add to Calendar Button generation failed: required setting missing [' + field + ']');
         return false;
       }
-
       return true;
     });
   }
 }
-
 function atcb_validate(data) {
   var msgPrefix = 'Add to Calendar Button generation (' + data.identifier + ')';
   if (!atcb_validate_icsFile(data, msgPrefix)) return false;
@@ -1534,75 +1377,59 @@ function atcb_validate(data) {
   if (!atcb_validate_rrule(data, msgPrefix)) return false;
   return true;
 }
-
 function atcb_validate_icsFile(data, msgPrefix) {
   var i = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   var msgSuffix = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
-
   var icsFileStr = function () {
     if (i != '' && data.dates["".concat(i)].icsFile != null) {
       return data.dates["".concat(i)].icsFile;
     }
-
     if (i == '' && data.icsFile != null) {
       return data.icsFile;
     }
-
     return '';
   }();
-
   if (icsFileStr != '') {
     if (!atcb_secure_url(icsFileStr, false) || !/^https:\/\/(.)*\.ics$/m.test(data.icsFile) && !data.subscribe || !data.icsFile.startsWith('https://') && data.subscribe) {
       console.error(msgPrefix + ' failed: explicit ics file path not valid' + msgSuffix);
       return false;
     }
   }
-
   return true;
 }
-
 function atcb_validate_subscribe(data, msgPrefix) {
   if (data.subscribe == true && (data.icsFile == null || data.icsFile == '')) {
     console.error(msgPrefix + ' failed: a subscription calendar requires a valid explicit ics file as well');
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_created(data, msgPrefix) {
   if (!/^\d{8}T\d{6}Z$/.test(data.created)) {
     console.error(msgPrefix + ' failed: created date format not valid. Needs to be a full ISO-8601 UTC date and time string, formatted YYYYMMDDTHHMMSSZ');
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_updated(data, msgPrefix) {
   if (!/^\d{8}T\d{6}Z$/.test(data.updated)) {
     console.error(msgPrefix + ' failed: updated date format not valid. Needs to be a full ISO-8601 UTC date and time string, formatted YYYYMMDDTHHMMSSZ');
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_options(data, msgPrefix) {
   if (!data.options.every(function (option) {
     if (!atcbOptions.includes(option)) {
       console.error(msgPrefix + ' failed: invalid option [' + option + ']');
       return false;
     }
-
     return true;
   })) {
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_date_blocks(data, msgPrefix) {
   var _loop2 = function _loop2(i) {
     var msgSuffix = function () {
@@ -1612,7 +1439,6 @@ function atcb_validate_date_blocks(data, msgPrefix) {
         return ' [dates array object #' + (i + 1) + '/' + data.dates.length + '] ';
       }
     }();
-
     if (!atcb_validate_icsFile(data, msgPrefix, i, msgSuffix)) return {
       v: false
     };
@@ -1638,213 +1464,166 @@ function atcb_validate_date_blocks(data, msgPrefix) {
       v: false
     };
   };
-
   for (var i = 0; i < data.dates.length; i++) {
     var _ret2 = _loop2(i);
-
     if (_typeof(_ret2) === "object") return _ret2.v;
   }
-
   return true;
 }
-
 function atcb_validate_status(data, msgPrefix, i, msgSuffix) {
   if (data.dates["".concat(i)].status != 'TENTATIVE' && data.dates["".concat(i)].status != 'CONFIRMED' && data.dates["".concat(i)].status != 'CANCELLED') {
     console.error(msgPrefix + ' failed: event status needs to be TENTATIVE, CONFIRMED, or CANCELLED' + msgSuffix);
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_availability(data, msgPrefix, i, msgSuffix) {
   if (data.dates["".concat(i)].availability != null && data.dates["".concat(i)].availability != '' && data.dates["".concat(i)].availability != 'free' && data.dates["".concat(i)].availability != 'busy') {
     console.error(msgPrefix + ' failed: event availability needs to be "free" or "busy"' + msgSuffix);
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_organizer(data, msgPrefix, i, msgSuffix) {
   if (data.dates["".concat(i)].organizer != null && data.dates["".concat(i)].organizer != '') {
     var organizerParts = data.dates["".concat(i)].organizer.split('|');
-
     if (organizerParts.length != 2 || organizerParts[0].length > 50 || organizerParts[1].length > 80 || !atcb_validEmail(organizerParts[1])) {
       console.error(msgPrefix + ' failed: organizer needs to match the schema "NAME|EMAIL" with a valid email address' + msgSuffix);
       return false;
     }
   }
-
   return true;
 }
-
 function atcb_validate_uid(data, msgPrefix, i, msgSuffix) {
   if (!/^(\w|-){1,254}$/.test(data.dates["".concat(i)].uid)) {
     console.warn(msgPrefix + ': UID not valid. May only contain alpha, digits, and dashes; and be less than 255 characters. Falling back to an automated value!' + msgSuffix);
     data.dates["".concat(i)].uid = atcb_generate_uuid();
   }
-
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(data.dates["".concat(i)].uid)) {
     console.warn(msgPrefix + ': UID is highly recommended to be a hex-encoded random Universally Unique Identifier (UUID)!' + msgSuffix);
   }
-
   return true;
 }
-
 function atcb_validate_sequence(data, msgPrefix, i, msgSuffix) {
   if (!/^\d+$/.test(data.dates["".concat(i)].sequence)) {
     console.log(msgPrefix + ': sequence needs to be a number. Used the default 0 instead' + msgSuffix);
     data.dates["".concat(i)].sequence = 0;
   }
-
   return true;
 }
-
 function atcb_validate_timezone(data, msgPrefix, i, msgSuffix) {
   if (data.dates["".concat(i)].timeZone != null && data.dates["".concat(i)].timeZone != '') {
     var validTimeZones = tzlib_get_timezones();
-
     if (!validTimeZones.includes(data.dates["".concat(i)].timeZone)) {
       console.error(msgPrefix + ' failed: invalid time zone given' + msgSuffix);
       return false;
     }
   }
-
   return true;
 }
-
 function atcb_validate_datetime(data, msgPrefix, i, msgSuffix) {
   var dates = ['startDate', 'endDate'];
   var newDate = dates;
-
   if (!dates.every(function (date) {
     if (data.dates["".concat(i)]["".concat(date)].length !== 10) {
       console.error(msgPrefix + ' failed: date misspelled [-> YYYY-MM-DD]' + msgSuffix);
       return false;
     }
-
     var dateParts = data.dates["".concat(i)]["".concat(date)].split('-');
-
     if (dateParts.length < 3 || dateParts.length > 3) {
       console.error(msgPrefix + ' failed: date misspelled [' + date + ': ' + data.dates["".concat(i)]["".concat(date)] + ']' + msgSuffix);
       return false;
     }
-
     newDate["".concat(date)] = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
     return true;
   })) {
     return false;
   }
-
   var times = ['startTime', 'endTime'];
-
   if (!times.every(function (time) {
     if (data.dates["".concat(i)]["".concat(time)] != null) {
       if (data.dates["".concat(i)]["".concat(time)].length !== 5) {
         console.error(msgPrefix + ' failed: time misspelled [-> HH:MM]' + msgSuffix);
         return false;
       }
-
       var timeParts = data.dates["".concat(i)]["".concat(time)].split(':');
-
       if (timeParts.length < 2 || timeParts.length > 2) {
         console.error(msgPrefix + ' failed: time misspelled [' + time + ': ' + data.dates["".concat(i)]["".concat(time)] + ']' + msgSuffix);
         return false;
       }
-
       if (timeParts[0] > 23) {
         console.error(msgPrefix + ' failed: time misspelled - hours number too high [' + time + ': ' + timeParts[0] + ']' + msgSuffix);
         return false;
       }
-
       if (timeParts[1] > 59) {
         console.error(msgPrefix + ' failed: time misspelled - minutes number too high [' + time + ': ' + timeParts[1] + ']' + msgSuffix);
         return false;
       }
-
       if (time == 'startTime') {
         newDate.startDate = new Date(newDate.startDate.getTime() + timeParts[0] * 3600000 + timeParts[1] * 60000);
       }
-
       if (time == 'endTime') {
         newDate.endDate = new Date(newDate.endDate.getTime() + timeParts[0] * 3600000 + timeParts[1] * 60000);
       }
     }
-
     return true;
   })) {
     return false;
   }
-
   if (data.dates["".concat(i)].startTime != null && data.dates["".concat(i)].endTime == null || data.dates["".concat(i)].startTime == null && data.dates["".concat(i)].endTime != null) {
     console.error(msgPrefix + ' failed: if you set a starting time, you also need to define an end time' + msgSuffix);
     return false;
   }
-
   if (newDate.endDate < newDate.startDate) {
     console.error(msgPrefix + ' failed: end date before start date' + msgSuffix);
     return false;
   }
-
   return true;
 }
-
 function atcb_validate_rrule(data, msgPrefix) {
   if (data.recurrence != null && data.recurrence != '' && data.dates.length > 1) {
     console.error(msgPrefix + ' failed: RRULE and multi-date set at the same time');
     return false;
   }
-
   if (data.recurrence != null && data.recurrence != '' && !/^RRULE:[\w=;,:+-/\\]+$/i.test(data.recurrence)) {
     console.error(msgPrefix + ' failed: RRULE data misspelled');
     return false;
   }
-
   if (data.recurrence_interval != null && data.recurrence_interval != '' && !/^\d+$/.test(data.recurrence_interval)) {
     console.error(msgPrefix + ' failed: recurrence data (interval) misspelled');
     return false;
   }
-
   if (data.recurrence_until != null && data.recurrence_until != '' && !/^(\d|-|:)+$/i.test(data.recurrence_until)) {
     console.error(msgPrefix + ' failed: recurrence data (until) misspelled');
     return false;
   }
-
   if (data.recurrence_count != null && data.recurrence_count != '' && !/^\d+$/.test(data.recurrence_count)) {
     console.error(msgPrefix + ' failed: recurrence data (interval) misspelled');
     return false;
   }
-
   if (data.recurrence_byMonth != null && data.recurrence_byMonth != '' && !/^(\d|,)+$/.test(data.recurrence_byMonth)) {
     console.error(msgPrefix + ' failed: recurrence data (byMonth) misspelled');
     return false;
   }
-
   if (data.recurrence_byMonthDay != null && data.recurrence_byMonthDay != '' && !/^(\d|,)+$/.test(data.recurrence_byMonthDay)) {
     console.error(msgPrefix + ' failed: recurrence data (byMonthDay) misspelled');
     return false;
   }
-
   if (data.recurrence_byDay != null && data.recurrence_byDay != '' && !/^(\d|-|MO|TU|WE|TH|FR|SA|SU|,)+$/im.test(data.recurrence_byDay)) {
     console.error(msgPrefix + ' failed: recurrence data (byDay) misspelled');
     return false;
   }
-
   if (data.recurrence_weekstart != null && data.recurrence_weekstart != '' && !/^(MO|TU|WE|TH|FR|SA|SU)$/im.test(data.recurrence_weekstart)) {
     console.error(msgPrefix + ' failed: recurrence data (weekstart) misspelled');
     return false;
   }
-
   return true;
 }
-
 function atcb_toggle(action) {
   var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   var button = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   var keyboardTrigger = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
   var generatedButton = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
-
   if (action == 'open') {
     atcb_open(data, button, keyboardTrigger, generatedButton);
   } else if (action == 'close' || button.classList.contains('atcb-active') || document.querySelector('.atcb-active-modal')) {
@@ -1853,7 +1632,6 @@ function atcb_toggle(action) {
     atcb_open(data, button, keyboardTrigger, generatedButton);
   }
 }
-
 function atcb_open(data, button) {
   var keyboardTrigger = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var generatedButton = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
@@ -1861,43 +1639,34 @@ function atcb_open(data, button) {
   var list = atcb_generate_dropdown_list(data);
   var listWrapper = document.createElement('div');
   listWrapper.classList.add('atcb-list-wrapper');
-
   if (button) {
     button.classList.add('atcb-active');
-
     if (data.listStyle === 'modal') {
       button.classList.add('atcb-modal-style');
       list.classList.add('atcb-modal');
     } else {
       listWrapper.appendChild(list);
       listWrapper.classList.add('atcb-dropdown');
-
       if (data.listStyle === 'overlay') {
         listWrapper.classList.add('atcb-dropoverlay');
       }
-
       if (data.mindScrolling) {
         listWrapper.classList.add('atcb-mind-scrolling');
       }
     }
-
     if (generatedButton) {
       list.classList.add('atcb-generated-button');
     }
   } else {
     list.classList.add('atcb-modal');
   }
-
   var bgOverlay = atcb_generate_bg_overlay(data.listStyle, data.trigger, data.lightMode, data.background);
-
   if (data.listStyle === 'modal') {
     document.body.appendChild(bgOverlay);
     bgOverlay.appendChild(list);
-
     if (data.branding) {
       atcb_create_atcbl(false);
     }
-
     atcb_set_sizes(list, data.sizes);
     atcb_manage_body_scroll();
   } else {
@@ -1910,21 +1679,17 @@ function atcb_open(data, button) {
     document.body.appendChild(positionWrapper);
     positionWrapper.appendChild(listWrapper);
     listWrapper.appendChild(list);
-
     if (data.buttonStyle != '') {
       listWrapper.classList.add('atcb-style-' + data.buttonStyle);
     }
-
     if (data.branding) {
       atcb_create_atcbl();
     }
-
     document.body.appendChild(bgOverlay);
     atcb_set_sizes(list, data.sizes);
     listWrapper.style.display = 'none';
     setTimeout(function () {
       listWrapper.style.display = 'block';
-
       if (data.listStyle === 'dropdown-static') {
         atcb_position_list(button, listWrapper, true);
       } else {
@@ -1932,9 +1697,7 @@ function atcb_open(data, button) {
       }
     }, 5);
   }
-
   atcb_set_fullsize(bgOverlay);
-
   if (keyboardTrigger) {
     list.firstChild.focus();
   } else {
@@ -1942,43 +1705,34 @@ function atcb_open(data, button) {
       preventScroll: true
     });
   }
-
   list.firstChild.blur();
 }
-
 function atcb_close() {
   var keyboardTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
   var allModals = document.querySelectorAll('.atcb-modal[data-modal-nr]');
-
   if (allModals.length > 1) {
     document.querySelectorAll('.atcb-modal[data-modal-nr="' + allModals.length + '"]')[0].remove();
     var nextModal = document.querySelectorAll('.atcb-modal[data-modal-nr="' + (allModals.length - 1) + '"]')[0];
     nextModal.style.display = 'block';
     var focusEl = nextModal;
     var availableButtons = nextModal.getElementsByTagName('button');
-
     if (availableButtons.length > 0) {
       focusEl = availableButtons[0];
     }
-
     focusEl.focus();
-
     if (!keyboardTrigger) {
       focusEl.blur();
     }
   } else {
     var newFocusEl = document.querySelector('.atcb-active, .atcb-active-modal');
-
     if (newFocusEl) {
       newFocusEl.focus({
         preventScroll: true
       });
-
       if (!keyboardTrigger) {
         newFocusEl.blur();
       }
     }
-
     Array.from(document.querySelectorAll('.atcb-active')).forEach(function (button) {
       button.classList.remove('atcb-active');
     });
@@ -1991,17 +1745,14 @@ function atcb_close() {
     });
   }
 }
-
 function atcb_generate_label(data, parent, type) {
   var icon = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
   var text = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : '';
   var oneOption = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : false;
-
   switch (type) {
     case 'trigger':
     default:
       parent.id = data.identifier;
-
       if (data.trigger === 'click') {
         parent.addEventListener('click', function (event) {
           event.preventDefault();
@@ -2017,7 +1768,6 @@ function atcb_generate_label(data, parent, type) {
           atcb_toggle('open', data, parent, false, true);
         }));
       }
-
       parent.addEventListener('keyup', function (event) {
         if (event.key == 'Enter') {
           event.preventDefault();
@@ -2025,7 +1775,6 @@ function atcb_generate_label(data, parent, type) {
         }
       });
       break;
-
     case 'apple':
     case 'google':
     case 'ical':
@@ -2046,7 +1795,6 @@ function atcb_generate_label(data, parent, type) {
         }
       });
       break;
-
     case 'close':
       parent.id = data.identifier + '-close';
       parent.addEventListener('click', atcb_debounce(function () {
@@ -2060,112 +1808,86 @@ function atcb_generate_label(data, parent, type) {
       });
       break;
   }
-
   if (oneOption) {
     parent.id = data.identifier;
   }
-
   atcb_generate_label_text(data, parent, type, icon, text, oneOption);
 }
-
 function atcb_generate_label_text(data, parent, type, icon, text, oneOption) {
   var defaultTriggerText = atcb_translate_hook('Add to Calendar', data);
-
   if (oneOption && text == '') {
     text = defaultTriggerText;
   }
-
   switch (type) {
     case 'trigger':
     default:
       text = text || defaultTriggerText;
       break;
-
     case 'apple':
       text = text || 'Apple';
       break;
-
     case 'google':
       text = text || 'Google';
       break;
-
     case 'ical':
       text = text || atcb_translate_hook('iCal File', data);
       break;
-
     case 'msteams':
       text = text || 'Microsoft Teams';
       break;
-
     case 'ms365':
       text = text || 'Microsoft 365';
       break;
-
     case 'outlookcom':
       text = text || 'Outlook.com';
       break;
-
     case 'yahoo':
       text = text || 'Yahoo';
       break;
-
     case 'close':
       text = atcb_translate_hook('Close', data);
       break;
   }
-
   if (data.buttonStyle == 'date' && (type == 'trigger' || oneOption)) {
     return;
   }
-
   if (icon) {
     var iconEl = document.createElement('span');
     iconEl.classList.add('atcb-icon');
     iconEl.innerHTML = atcbIcon["".concat(type)];
     parent.appendChild(iconEl);
   }
-
   var textEl = document.createElement('span');
   textEl.classList.add('atcb-text');
   textEl.textContent = text;
   parent.appendChild(textEl);
 }
-
 function atcb_generate_button(button, data) {
   button.textContent = '';
-
   if (data.richData && data.name && data.dates[0].location && data.dates[0].startDate) {
     atcb_generate_rich_data(data, button);
   }
-
   var buttonTriggerWrapper = document.createElement('div');
   buttonTriggerWrapper.classList.add('atcb-button-wrapper');
   buttonTriggerWrapper.classList.add('atcb-' + data.lightMode);
-
   if (data.rtl) {
     buttonTriggerWrapper.classList.add('atcb-rtl');
   }
-
   button.appendChild(buttonTriggerWrapper);
   atcb_set_sizes(buttonTriggerWrapper, data.sizes);
   var buttonTrigger = document.createElement('button');
   buttonTrigger.classList.add('atcb-button');
-
   if (data.trigger === 'click') {
     buttonTrigger.classList.add('atcb-click');
   }
-
   if (data.listStyle === 'overlay') {
     buttonTrigger.classList.add('atcb-dropoverlay');
   }
-
   buttonTrigger.type = 'button';
   buttonTriggerWrapper.appendChild(buttonTrigger);
-
   if (data.buttonStyle == 'date') {
     atcb_generate_date_button(data, buttonTrigger);
   }
-
   if (data.options.length === 1) {
     buttonTrigger.classList.add('atcb-single');
     atcb_generate_label(data, buttonTrigger, data.options[0], true, data.label, true);
@@ -2175,31 +1897,25 @@ function atcb_generate_button(button, data) {
     buttonDropdownAnchor.classList.add('atcb-dropdown-anchor');
     buttonTrigger.appendChild(buttonDropdownAnchor);
   }
-
   if (data.checkmark) {
     var btnCheck = document.createElement('div');
     btnCheck.classList.add('atcb-checkmark');
     btnCheck.innerHTML = atcbIcon['checkmark'];
     buttonTrigger.appendChild(btnCheck);
   }
-
   button.classList.remove('atcb');
   button.classList.add('atcb-initialized');
-
   if (data.inline) {
     button.style.display = 'inline-block';
   } else {
     button.style.display = 'block';
   }
-
   console.log('Add to Calendar Button "' + data.identifier + '" created');
 }
-
 function atcb_generate_rich_data(data, button) {
   var schemaEl = document.createElement('script');
   schemaEl.type = 'application/ld+json';
   var schemaContentMulti = [];
-
   if (data.dates.length > 1) {
     var parts = [];
     parts.push('"@context":"https://schema.org"');
@@ -2208,50 +1924,37 @@ function atcb_generate_rich_data(data, button) {
     parts.push('"name":"' + data.name + '",');
     schemaContentMulti.push('{\r\n' + parts.join(',\r\n') + '\r\n');
   }
-
   var schemaContentFull = [];
-
   for (var i = 0; i < data.dates.length; i++) {
     var schemaContent = [];
     schemaContent.push('"@context":"https://schema.org"');
     schemaContent.push('"@type":"Event"');
-
     if (data.dates.length > 1) {
       schemaContent.push('"@id":"' + data.name.replace(/\s/g, '') + '-' + (i + 1) + '"');
     }
-
     if (data.dates["".concat(i)].status == 'CANCELLED') {
       schemaContent.push('"eventStatus":"https://schema.org/EventCancelled"');
     }
-
     schemaContent.push('"name":"' + data.dates["".concat(i)].name + '"');
-
     if (data.dates["".concat(i)].descriptionHtmlFree) {
       schemaContent.push('"description":"' + data.dates["".concat(i)].descriptionHtmlFree + '"');
     }
-
     var formattedDate = atcb_generate_time(data.dates["".concat(i)], 'delimiters', 'general', true);
     schemaContent.push('"startDate":"' + formattedDate.start + '"');
-
     if (formattedDate.duration != null) {
       schemaContent.push('"duration":"' + formattedDate.duration + '"');
     }
-
     schemaContent.push(data.dates["".concat(i)].location.startsWith('http') ? '"eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode",\r\n"location": {\r\n"@type":"VirtualLocation",\r\n"url":"' + data.dates["".concat(i)].location + '"\r\n}' : '"location":"' + data.dates["".concat(i)].location + '"');
-
     if (data.recurrence != null && data.recurrence != '') {
       schemaContent.push.apply(schemaContent, _toConsumableArray(atcb_generate_rich_data_recurrence(data, formattedDate)));
     } else {
       schemaContent.push('"endDate":"' + formattedDate.end + '"');
     }
-
     if (data.dates["".concat(i)].organizer != null && data.dates["".concat(i)].organizer != '') {
       var organizerParts = data.dates["".concat(i)].organizer.split('|');
       schemaContent.push('"organizer":{\r\n"@type":"Person",\r\n"name":"' + organizerParts[0] + '",\r\n"email":"' + organizerParts[1] + '"\r\n}');
     }
-
     var imageData = [];
-
     if (data.images != null) {
       if (Array.isArray(data.images)) {
         for (var _i5 = 0; _i5 < data.images.length; _i5++) {
@@ -2265,34 +1968,26 @@ function atcb_generate_rich_data(data, button) {
       imageData.push('"https://add-to-calendar-button.com/demo_assets/img/4x3.png"');
       imageData.push('"https://add-to-calendar-button.com/demo_assets/img/16x9.png"');
     }
-
     if (imageData.length > 0) {
       schemaContent.push('"image":[\r\n' + imageData.join(',\r\n') + ']');
     }
-
     schemaContentFull.push('{\r\n' + schemaContent.join(',\r\n') + '\r\n}');
   }
-
   if (data.dates.length > 1) {
     schemaEl.textContent = schemaContentMulti.join(',\r\n') + '"subEvents":[\r\n' + schemaContentFull.join(',\r\n') + '\r\n]\r\n}';
   } else {
     schemaEl.textContent = schemaContentFull[0];
   }
-
   button.appendChild(schemaEl);
 }
-
 function atcb_generate_rich_data_recurrence(data, formattedDate) {
   var schemaRecurrenceContent = [];
   schemaRecurrenceContent.push('"eventSchedule": { "@type": "Schedule"');
-
   if (data.dates[0].timeZone != null && data.dates[0].timeZone != '') {
     schemaRecurrenceContent.push('"scheduleTimezone":"' + data.dates[0].timeZone + '"');
   }
-
   var repeatFrequency = 'P' + data.recurrence_interval + data.recurrence_frequency.substr(0, 1);
   schemaRecurrenceContent.push('"repeatFrequency":"' + repeatFrequency + '"');
-
   if (data.recurrence_byDay != null && data.recurrence_byDay != '') {
     var byDayString = function () {
       if (/\d/.test(data.recurrence_byDay)) {
@@ -2309,55 +2004,43 @@ function atcb_generate_rich_data_recurrence(data, formattedDate) {
           SU: 'https://schema.org/Sunday'
         };
         var output = [];
-
         for (var i = 0; i < byDays.length; i++) {
           output.push('"' + helperMap[byDays["".concat(i)]] + '"');
         }
-
         return '[' + output.join(',') + ']';
       }
     }();
-
     schemaRecurrenceContent.push('"byDay":' + byDayString);
   }
-
   if (data.recurrence_byMonth != null && data.recurrence_byMonth != '') {
     var byMonthString = data.recurrence_byMonth.includes(',') ? '[' + data.recurrence_byMonth + ']' : data.recurrence_byMonth;
     schemaRecurrenceContent.push('"byMonth":"' + byMonthString + '"');
   }
-
   if (data.recurrence_byMonthDay != null && data.recurrence_byMonthDay != '') {
     var byMonthDayString = data.recurrence_byMonthDay.includes(',') ? '[' + data.recurrence_byMonthDay + ']' : data.recurrence_byMonthDay;
     schemaRecurrenceContent.push('"byMonthDay":"' + byMonthDayString + '"');
   }
-
   if (data.recurrence_count != null && data.recurrence_count != '') {
     schemaRecurrenceContent.push('"repeatCount":"' + data.recurrence_count + '"');
   }
-
   if (data.recurrence_until != null && data.recurrence_until != '') {
     schemaRecurrenceContent.push('"endDate":"' + data.recurrence_until + '"');
   }
-
   if (data.startTime != null && data.startTime != '' && data.endTime != null && data.endTime != '') {
     schemaRecurrenceContent.push('"startTime":"' + data.startTime + ':00"');
     schemaRecurrenceContent.push('"endTime":"' + data.endTime + ':00"');
     schemaRecurrenceContent.push('"duration":"' + formattedDate.duration + '"');
   }
-
   schemaRecurrenceContent.push('"startDate":"' + data.startDate + '" }');
   return schemaRecurrenceContent;
 }
-
 function atcb_generate_dropdown_list(data) {
   var optionsList = document.createElement('div');
   optionsList.classList.add('atcb-list');
   optionsList.classList.add('atcb-' + data.lightMode);
-
   if (data.rtl) {
     optionsList.classList.add('atcb-rtl');
   }
-
   var listCount = 0;
   data.options.forEach(function (option) {
     var optionItem = document.createElement('div');
@@ -2368,7 +2051,6 @@ function atcb_generate_dropdown_list(data) {
     optionsList.appendChild(optionItem);
     atcb_generate_label(data, optionItem, option, true, data.optionLabels[listCount - 1]);
   });
-
   if (data.listStyle === 'modal') {
     var optionItem = document.createElement('div');
     optionItem.classList.add('atcb-list-item', 'atcb-list-item-close');
@@ -2376,10 +2058,8 @@ function atcb_generate_dropdown_list(data) {
     optionsList.appendChild(optionItem);
     atcb_generate_label(data, optionItem, 'close', true);
   }
-
   return optionsList;
 }
-
 function atcb_generate_bg_overlay() {
   var listStyle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'dropdown';
   var trigger = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -2387,15 +2067,12 @@ function atcb_generate_bg_overlay() {
   var darken = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
   var bgOverlay = document.createElement('div');
   bgOverlay.id = 'atcb-bgoverlay';
-
   if (listStyle !== 'modal' && darken) {
     bgOverlay.classList.add('atcb-animate-bg');
   }
-
   if (!darken) {
     bgOverlay.classList.add('atcb-no-bg');
   }
-
   bgOverlay.classList.add('atcb-' + lightMode);
   bgOverlay.tabIndex = 0;
   bgOverlay.addEventListener('click', atcb_debounce(function (e) {
@@ -2423,7 +2100,6 @@ function atcb_generate_bg_overlay() {
     if (e.target !== e.currentTarget) return;
     atcb_toggle('close');
   }));
-
   if (trigger !== 'click') {
     bgOverlay.addEventListener('mousemove', atcb_debounce_leading(function (e) {
       if (e.target !== e.currentTarget) return;
@@ -2432,12 +2108,11 @@ function atcb_generate_bg_overlay() {
   } else {
     bgOverlay.classList.add('atcb-click');
   }
-
   return bgOverlay;
 }
-
 function atcb_create_atcbl() {
-  /*const atcbL = document.createElement('div');
+  var atList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+} /*const atcbL = document.createElement('div');
   atcbL.id = 'add-to-calendar-button-reference';
   atcbL.style.width = '150px';
   atcbL.style.padding = '10px 0';
@@ -2461,9 +2136,6 @@ function atcb_create_atcbl() {
     }
   }*/
 
-  var atList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-}
-
 function atcb_create_modal(data) {
   var icon = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   var headline = arguments.length > 2 ? arguments[2] : undefined;
@@ -2471,17 +2143,14 @@ function atcb_create_modal(data) {
   var buttons = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : [];
   var subEvents = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : [];
   var keyboardTrigger = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
-
   var bgOverlay = function () {
     var el = document.getElementById('atcb-bgoverlay');
-
     if (!el) {
       return atcb_generate_bg_overlay('modal', 'click', data.lightMode, data.background);
     } else {
       return el;
     }
   }();
-
   bgOverlay.classList.add('atcb-no-animation');
   document.body.appendChild(bgOverlay);
   var modalWrapper = document.createElement('div');
@@ -2495,68 +2164,54 @@ function atcb_create_modal(data) {
   });
   modalWrapper.blur();
   var parentButton = document.getElementById(data.identifier);
-
   if (parentButton != null) {
     parentButton.classList.add('atcb-active-modal');
   }
-
   var modal = document.createElement('div');
   modal.classList.add('atcb-modal-box');
   modal.classList.add('atcb-' + data.lightMode);
-
   if (data.rtl) {
     modal.classList.add('atcb-rtl');
   }
-
   modalWrapper.appendChild(modal);
   atcb_set_sizes(modal, data.sizes);
   atcb_set_fullsize(bgOverlay);
-
   if (icon != '') {
     var modalIcon = document.createElement('div');
     modalIcon.classList.add('atcb-modal-icon');
     modalIcon.innerHTML = atcbIcon["".concat(icon)];
     modal.appendChild(modalIcon);
   }
-
   var modalHeadline = document.createElement('div');
   modalHeadline.classList.add('atcb-modal-headline');
   modalHeadline.textContent = headline;
   modal.appendChild(modalHeadline);
-
   if (content != '') {
     var modalContent = document.createElement('div');
     modalContent.classList.add('atcb-modal-content');
     modalContent.innerHTML = content;
     modal.appendChild(modalContent);
   }
-
   if (subEvents.length > 1) {
     if (data.branding) {
       atcb_create_atcbl(false);
     }
-
     var modalsubEventsContent = document.createElement('div');
     modalsubEventsContent.classList.add('atcb-modal-content');
     modal.appendChild(modalsubEventsContent);
-
     var _loop3 = function _loop3(i) {
       var modalSubEventButton = document.createElement('button');
       modalSubEventButton.type = 'button';
       modalSubEventButton.id = data.identifier + '-' + subEvents[0] + '-' + i;
-
       if (atcbStates["".concat(data.identifier)]["".concat(subEvents[0])][i - 1] > 0) {
         modalSubEventButton.classList.add('atcb-saved');
       }
-
       modalSubEventButton.classList.add('atcb-subevent-btn');
       modalsubEventsContent.appendChild(modalSubEventButton);
       atcb_generate_date_button(data, modalSubEventButton, i);
-
       if (i == 1 && keyboardTrigger) {
         modalSubEventButton.focus();
       }
-
       switch (subEvents[0]) {
         case 'apple':
         case 'google':
@@ -2571,25 +2226,21 @@ function atcb_create_modal(data) {
           break;
       }
     };
-
     for (var i = 1; i < subEvents.length; i++) {
       _loop3(i);
     }
   }
-
   if (buttons.length == 0) {
     buttons.push({
       type: 'close',
       label: atcb_translate_hook('Close', data)
     });
   }
-
   var modalButtons = document.createElement('div');
   modalButtons.classList.add('atcb-modal-buttons');
   modal.appendChild(modalButtons);
   buttons.forEach(function (button, index) {
     var modalButton;
-
     if (button.href != null && button.href != '') {
       modalButton = document.createElement('a');
       modalButton.setAttribute('target', atcbDefaultTarget);
@@ -2599,24 +2250,18 @@ function atcb_create_modal(data) {
       modalButton = document.createElement('button');
       modalButton.type = 'button';
     }
-
     modalButton.classList.add('atcb-modal-btn');
-
     if (button.primary) {
       modalButton.classList.add('atcb-modal-btn-primary');
     }
-
     if (button.label == null || button.label == '') {
       button.label = atcb_translate_hook('Click me', data);
     }
-
     modalButton.textContent = button.label;
     modalButtons.appendChild(modalButton);
-
     if (index == 0 && subEvents.length < 2 && keyboardTrigger) {
       modalButton.focus();
     }
-
     switch (button.type) {
       default:
       case 'close':
@@ -2629,7 +2274,6 @@ function atcb_create_modal(data) {
           }
         });
         break;
-
       case 'yahoo2nd':
         modalButton.addEventListener('click', atcb_debounce(function () {
           atcb_close();
@@ -2642,37 +2286,29 @@ function atcb_create_modal(data) {
           }
         });
         break;
-
       case 'none':
         break;
     }
   });
-
   if (modalCount > 1) {
     var prevModal = document.querySelectorAll('.atcb-modal[data-modal-nr="' + (modalCount - 1) + '"]')[0];
     prevModal.style.display = 'none';
   }
-
   atcb_manage_body_scroll(modalWrapper);
 }
-
 function atcb_subscribe_yahoo_modal_switch(data, keyboardTrigger) {
   atcb_set_fully_successful(data.identifier);
   atcb_generate_links('yahoo2nd', data, 'all', keyboardTrigger);
 }
-
 function atcb_generate_date_button(data, parent) {
   var subEvent = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'all';
-
   if (subEvent != 'all') {
     subEvent = parseInt(subEvent) - 1;
   } else if (data.dates.length == 1) {
     subEvent = 0;
   }
-
   var fullTimeInfo = function () {
     var startDateInfo, endDateInfo, timeZoneInfo;
-
     if (subEvent == 'all') {
       startDateInfo = new Date(atcb_generate_time(data.dates[0])['start']);
       endDateInfo = new Date(atcb_generate_time(data.dates[data.dates.length - 1])['end']);
@@ -2683,7 +2319,6 @@ function atcb_generate_date_button(data, parent) {
       endDateInfo = new Date(formattedTime['end']);
       timeZoneInfo = data.dates["".concat(subEvent)].timeZone;
     }
-
     var timeString = '';
     var optionsDateTimeShort = {
       timeZone: timeZoneInfo,
@@ -2707,13 +2342,11 @@ function atcb_generate_date_button(data, parent) {
       hour: 'numeric',
       minute: '2-digit'
     };
-
     if (startDateInfo.getFullYear() === endDateInfo.getFullYear() && startDateInfo.getMonth() === endDateInfo.getMonth() && startDateInfo.getDate() === endDateInfo.getDate()) {
       timeString = startDateInfo.toLocaleString(data.language, optionsDateTimeShort) + ' - ' + endDateInfo.toLocaleTimeString(data.language, optionsTime);
     } else {
       timeString = startDateInfo.toLocaleString(data.language, optionsDateTimeShort) + ' - ' + endDateInfo.toLocaleString(data.language, optionsDateTimeLong);
     }
-
     if (timeZoneInfo != null) {
       if (Intl.DateTimeFormat().resolvedOptions().timeZone != timeZoneInfo) {
         timeString += '; ' + timeZoneInfo;
@@ -2721,30 +2354,23 @@ function atcb_generate_date_button(data, parent) {
     } else {
       timeString += '; UTC';
     }
-
     return timeString;
   }();
-
   var hoverText = function () {
     if (subEvent != 'all' && data.dates["".concat(subEvent)].status == 'CANCELLED') {
       return atcb_translate_hook('Cancelled Date', data) + '<br>' + atcb_translate_hook('Delete from Calendar', data);
     }
-
     return '+ ' + atcb_translate_hook('Add to Calendar', data);
   }();
-
   var cancelledInfo = function () {
     if (subEvent != 'all' && data.dates["".concat(subEvent)].status == 'CANCELLED') {
       return atcb_translate_hook('Cancelled Date', data);
     }
-
     return '';
   }();
-
   if (subEvent == 'all') {
     subEvent = 0;
   }
-
   var startDate = new Date(data.dates["".concat(subEvent)].startDate);
   var btnLeft = document.createElement('div');
   btnLeft.classList.add('atcb-date-btn-left');
@@ -2769,12 +2395,10 @@ function atcb_generate_date_button(data, parent) {
   btnHeadline.classList.add('atcb-date-btn-headline');
   btnHeadline.textContent = data.dates["".concat(subEvent)].name;
   btnDetails.appendChild(btnHeadline);
-
   if (data.location != null && data.location != '' || cancelledInfo == '') {
     var btnLocation = document.createElement('div');
     btnLocation.classList.add('atcb-date-btn-content');
     btnDetails.appendChild(btnLocation);
-
     if (cancelledInfo != '') {
       btnLocation.textContent = cancelledInfo;
       btnLocation.style.fontWeight = '600';
@@ -2790,7 +2414,6 @@ function atcb_generate_date_button(data, parent) {
       btnLocation.appendChild(btnLocationText);
     }
   }
-
   var btnDateTime = document.createElement('div');
   btnDateTime.classList.add('atcb-date-btn-content');
   btnDetails.appendChild(btnDateTime);
@@ -2801,19 +2424,16 @@ function atcb_generate_date_button(data, parent) {
   var btnDateTimeText = document.createElement('span');
   btnDateTimeText.textContent = fullTimeInfo;
   btnDateTime.appendChild(btnDateTimeText);
-
   if (data.recurrence != null && data.recurrence != '') {
     var recurSign = document.createElement('span');
     recurSign.classList.add('atcb-date-btn-content-recurr-icon');
     btnDateTime.appendChild(recurSign);
     recurSign.innerHTML = '&#x27F3;';
   }
-
   var btnHover = document.createElement('div');
   btnHover.classList.add('atcb-date-btn-hover');
   btnHover.innerHTML = hoverText;
   btnRight.appendChild(btnHover);
-
   if (data.checkmark) {
     var btnCheck = document.createElement('div');
     btnCheck.classList.add('atcb-checkmark');
@@ -2821,27 +2441,22 @@ function atcb_generate_date_button(data, parent) {
     parent.appendChild(btnCheck);
   }
 }
-
 function atcb_generate_links(type, data) {
   var subEvent = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'all';
   var keyboardTrigger = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
   var multiDateModal = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
-
   if (subEvent != 'all') {
     subEvent = parseInt(subEvent) - 1;
   } else if (data.dates.length == 1) {
     subEvent = 0;
   }
-
   if (data.subscribe) {
     atcb_generate_subscribe_links(type, data, keyboardTrigger);
     return;
   }
-
   if (isMobile() && (type == 'msteams' || type == 'ms365' || type == 'outlookcom')) {
     type = 'ical';
   }
-
   if (subEvent != 'all') {
     if (data.dates["".concat(subEvent)].status == 'CANCELLED' && type != 'apple' && type != 'ical') {
       atcb_create_modal(data, 'warning', atcb_translate_hook('Cancelled Date', data), atcb_translate_hook('Delete from Calendar', data), [], [], keyboardTrigger);
@@ -2851,100 +2466,76 @@ function atcb_generate_links(type, data) {
         case 'ical':
           atcb_generate_ical(data, subEvent, keyboardTrigger);
           break;
-
         case 'google':
           atcb_generate_google(data.dates["".concat(subEvent)]);
           break;
-
         case 'msteams':
           atcb_generate_msteams(data.dates["".concat(subEvent)]);
           break;
-
         case 'ms365':
           atcb_generate_microsoft(data.dates["".concat(subEvent)]);
           break;
-
         case 'outlookcom':
           atcb_generate_microsoft(data.dates["".concat(subEvent)], 'outlook');
           break;
-
         case 'yahoo':
           atcb_generate_yahoo(data.dates["".concat(subEvent)]);
           break;
       }
     }
-
     var subEventButton = document.getElementById(data.identifier + '-' + type + '-' + (subEvent + 1));
-
     if (subEventButton) {
       subEventButton.classList.add('atcb-saved');
     }
-
     atcbStates["".concat(data.identifier)]["".concat(type)]["".concat(subEvent)]++;
     var filteredStates = atcbStates["".concat(data.identifier)]["".concat(type)].filter(function (value) {
       return value < 1;
     });
-
     if (filteredStates.length == 0) {
       atcb_set_fully_successful(data.identifier, multiDateModal);
     }
-
     return;
   }
-
   atcb_generate_multidate_links(type, data, keyboardTrigger, multiDateModal);
 }
-
 function atcb_generate_multidate_links(type, data, keyboardTrigger, multiDateModal) {
   if ((type == 'ical' || type == 'apple') && data.dates.every(function (theSubEvent) {
     if (theSubEvent.status == 'CANCELLED' || theSubEvent.organizer != null && theSubEvent.organizer != '') {
       return false;
     }
-
     return true;
   })) {
     atcb_generate_ical(data, 'all', keyboardTrigger);
-
     for (var i = 0; i < atcbStates["".concat(data.identifier)]["".concat(type)].length; i++) {
       atcbStates["".concat(data.identifier)]["".concat(type)]["".concat(i)]++;
     }
-
     atcb_set_fully_successful(data.identifier, multiDateModal);
     return;
   }
-
   if (!multiDateModal) {
     var individualButtons = [type];
-
     for (var _i6 = 0; _i6 < data.dates.length; _i6++) {
       individualButtons.push(_i6 + 1);
     }
-
     atcb_create_modal(data, type, atcb_translate_hook('modal.multidate.h', data), atcb_translate_hook('modal.multidate.text', data), [], individualButtons, keyboardTrigger);
   }
 }
-
 function atcb_generate_subscribe_links(type, data, keyboardTrigger) {
   var adjustedFileUrl = data.icsFile.replace('https://', 'webcal://');
-
   switch (type) {
     case 'apple':
     case 'ical':
       atcb_subscribe_ical(adjustedFileUrl);
       break;
-
     case 'google':
       atcb_subscribe_google(data.icsFile);
       break;
-
     case 'ms365':
       atcb_subscribe_microsoft(data.icsFile, data.name);
       break;
-
     case 'outlookcom':
       atcb_subscribe_microsoft(data.icsFile, data.name, 'outlook');
       break;
-
     case 'yahoo':
       atcb_copy_to_clipboard(data.icsFile);
       atcb_create_modal(data, 'yahoo', atcb_translate_hook('modal.subscribe.yahoo.h', data), atcb_translate_hook('modal.clipboard.text', data) + '<br>' + atcb_translate_hook('modal.subscribe.yahoo.text', data), [{
@@ -2956,7 +2547,6 @@ function atcb_generate_subscribe_links(type, data, keyboardTrigger) {
         label: atcb_translate_hook('Cancel', data)
       }], [], keyboardTrigger);
       return;
-
     case 'yahoo2nd':
       atcb_copy_to_clipboard(data.icsFile);
       atcb_create_modal(data, 'yahoo', atcb_translate_hook('modal.subscribe.yahoo.h', data), atcb_translate_hook('modal.clipboard.text', data) + '<br>' + atcb_translate_hook('modal.subscribe.yahoo.text', data), [{
@@ -2968,32 +2558,25 @@ function atcb_generate_subscribe_links(type, data, keyboardTrigger) {
       }], [], keyboardTrigger);
       return;
   }
-
   atcb_set_fully_successful(data.identifier);
 }
-
 function atcb_set_fully_successful(id, multiDateModal) {
   document.getElementById(id).classList.add('atcb-saved');
   atcb_saved_hook();
-
   if (multiDateModal && document.querySelectorAll('.atcb-modal[data-modal-nr]').length < 2) {
     atcb_toggle('close');
   }
 }
-
 function atcb_subscribe_ical(fileUrl) {
   atcb_open_cal_url(fileUrl);
 }
-
 function atcb_subscribe_google(fileUrl) {
   var baseUrl = 'https://calendar.google.com/calendar/r?cid=';
   atcb_open_cal_url(baseUrl + fileUrl);
 }
-
 function atcb_subscribe_microsoft(fileUrl, calName) {
   var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '365';
   var urlParts = [];
-
   var baseUrl = function () {
     if (type == 'outlook') {
       return 'https://outlook.live.com/calendar/0/addfromweb/?';
@@ -3001,98 +2584,75 @@ function atcb_subscribe_microsoft(fileUrl, calName) {
       return 'https://outlook.office.com/calendar/0/addfromweb/?';
     }
   }();
-
   urlParts.push('url=' + encodeURIComponent(fileUrl));
   urlParts.push('name=' + encodeURIComponent(calName));
   atcb_open_cal_url(baseUrl + urlParts.join('&'));
 }
-
 function atcb_generate_google(data) {
   var urlParts = [];
   urlParts.push('https://calendar.google.com/calendar/render?action=TEMPLATE');
   var formattedDate = atcb_generate_time(data, 'clean', 'google');
   urlParts.push('dates=' + encodeURIComponent(formattedDate.start) + '%2F' + encodeURIComponent(formattedDate.end));
-
   if (data.timeZone != null && data.timeZone != '' && !/GMT[+|-]\d{1,2}/i.test(data.timeZone)) {
     urlParts.push('ctz=' + data.timeZone);
   }
-
   if (data.name != null && data.name != '') {
     urlParts.push('text=' + encodeURIComponent(data.name));
   }
-
   var tmpDataDescription = [];
-
   if (data.description != null && data.description != '') {
     tmpDataDescription.push(data.description);
   }
-
   if (data.location != null && data.location != '') {
     urlParts.push('location=' + encodeURIComponent(data.location));
-
     if (isiOS()) {
       if (tmpDataDescription.length > 0) {
         tmpDataDescription.push('<br><br>');
       }
-
       tmpDataDescription.push('&#128205;: ' + data.location);
     }
   }
-
   if (tmpDataDescription.length > 0) {
     urlParts.push('details=' + encodeURIComponent(tmpDataDescription.join()));
   }
-
   if (data.recurrence != null && data.recurrence != '') {
     urlParts.push('recur=' + encodeURIComponent(data.recurrence));
   }
-
   if (data.availability != null && data.availability != '') {
     var availabilityPart = function () {
       if (data.availability == 'free') {
         return 'crm=AVAILABLE&trp=false';
       }
-
       return 'crm=BUSY&trp=true';
     }();
-
     urlParts.push(availabilityPart);
   }
-
   urlParts.push('uid=' + encodeURIComponent(data.uid));
   atcb_open_cal_url(urlParts.join('&'));
 }
-
 function atcb_generate_yahoo(data) {
   var urlParts = [];
   urlParts.push('https://calendar.yahoo.com/?v=60');
   var formattedDate = atcb_generate_time(data, 'clean');
   urlParts.push('st=' + encodeURIComponent(formattedDate.start) + '&et=' + encodeURIComponent(formattedDate.end));
-
   if (formattedDate.allday) {
     urlParts.push('dur=allday');
   }
-
   if (data.name != null && data.name != '') {
     urlParts.push('title=' + encodeURIComponent(data.name));
   }
-
   if (data.location != null && data.location != '') {
     urlParts.push('in_loc=' + encodeURIComponent(data.location));
   }
-
   if (data.descriptionHtmlFree != null && data.descriptionHtmlFree != '') {
     urlParts.push('desc=' + encodeURIComponent(data.descriptionHtmlFree));
   }
-
   atcb_open_cal_url(urlParts.join('&'));
 }
-
 function atcb_generate_microsoft(data) {
   var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '365';
   var urlParts = [];
   var basePath = '/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent';
-
   var baseUrl = function () {
     if (type == 'outlook') {
       return 'https://outlook.live.com' + basePath;
@@ -3100,104 +2660,80 @@ function atcb_generate_microsoft(data) {
       return 'https://outlook.office.com' + basePath;
     }
   }();
-
   urlParts.push(baseUrl);
   var formattedDate = atcb_generate_time(data, 'delimiters', 'microsoft');
   urlParts.push('startdt=' + encodeURIComponent(formattedDate.start));
   urlParts.push('enddt=' + encodeURIComponent(formattedDate.end));
-
   if (formattedDate.allday) {
     urlParts.push('allday=true');
   }
-
   if (data.name != null && data.name != '') {
     urlParts.push('subject=' + encodeURIComponent(data.name));
   }
-
   if (data.location != null && data.location != '') {
     urlParts.push('location=' + encodeURIComponent(data.location));
   }
-
   if (data.description != null && data.description != '') {
     urlParts.push('body=' + encodeURIComponent(data.description.replace(/\n/g, '<br>')));
   }
-
   urlParts.push('uid=' + encodeURIComponent(data.uid));
   atcb_open_cal_url(urlParts.join('&'));
 }
-
 function atcb_generate_msteams(data) {
   var urlParts = [];
   var baseUrl = 'https://teams.microsoft.com/l/meeting/new?';
   var formattedDate = atcb_generate_time(data, 'delimiters', 'microsoft');
   urlParts.push('startTime=' + encodeURIComponent(formattedDate.start));
   urlParts.push('endTime=' + encodeURIComponent(formattedDate.end));
-
   if (data.name != null && data.name != '') {
     urlParts.push('subject=' + encodeURIComponent(data.name));
   }
-
   var locationString = '';
-
   if (data.location != null && data.location != '') {
     locationString = encodeURIComponent(data.location);
     urlParts.push('location=' + locationString);
     locationString += ' // ';
   }
-
   if (data.descriptionHtmlFree != null && data.descriptionHtmlFree != '') {
     urlParts.push('content=' + locationString + encodeURIComponent(data.descriptionHtmlFree));
   }
-
   urlParts.push('uid=' + encodeURIComponent(data.uid));
   atcb_open_cal_url(baseUrl + urlParts.join('&'));
 }
-
 function atcb_open_cal_url(url) {
   var target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
   if (target == '') {
     target = atcbDefaultTarget;
   }
-
   if (atcb_secure_url(url)) {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     window.open(url, target).focus();
   }
 }
-
 function atcb_generate_ical(data) {
   var subEvent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'all';
   var keyboardTrigger = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
   if (subEvent != 'all') {
     subEvent = parseInt(subEvent);
   }
-
   var filename = atcb_determine_ical_filename(data, subEvent);
-
   var givenIcsFile = function () {
     if (subEvent != 'all' && data.dates["".concat(subEvent)].icsFile != null && data.dates["".concat(subEvent)].icsFile != '') {
       return data.dates["".concat(subEvent)].icsFile;
     }
-
     if (data.icsFile != null && data.icsFile != '') {
       return data.icsFile;
     }
-
     return '';
   }();
-
   if (givenIcsFile != '' && (!isiOS() || !isWebView())) {
     atcb_save_file(givenIcsFile, filename);
     return;
   }
-
   var now = new Date();
   var ics_lines = ['BEGIN:VCALENDAR', 'VERSION:2.0'];
   ics_lines.push('PRODID:-// https://add-to-calendar-pro.com // button v' + atcbVersion + ' //EN');
   ics_lines.push('CALSCALE:GREGORIAN');
-
   if (subEvent == 'all') {
     ics_lines.push('METHOD:PUBLISH');
   } else {
@@ -3211,52 +2747,40 @@ function atcb_generate_ical(data) {
       }
     }
   }
-
   var usedTimeZones = [];
-
   var loopStart = function () {
     if (subEvent != 'all') {
       return subEvent;
     }
-
     return 0;
   }();
-
   var loopEnd = function () {
     if (subEvent != 'all') {
       return subEvent;
     }
-
     return data.dates.length - 1;
   }();
-
   var _loop4 = function _loop4(i) {
     var formattedDate = atcb_generate_time(data.dates["".concat(i)], 'clean', 'ical');
-
     var timeAddon = function () {
       if (formattedDate.allday) {
         return ';VALUE=DATE';
       }
-
       if (data.dates["".concat(i)].timeZone != null && data.dates["".concat(i)].timeZone != '') {
         var timeZoneBlock = tzlib_get_ical_block(data.dates["".concat(i)].timeZone);
-
         if (!usedTimeZones.includes(data.dates["".concat(i)].timeZone)) {
           ics_lines.push(timeZoneBlock[0]);
         }
-
         usedTimeZones.push(data.dates["".concat(i)].timeZone);
         return ';' + timeZoneBlock[1];
       }
     }();
-
     ics_lines.push('BEGIN:VEVENT');
     ics_lines.push('UID:' + data.dates["".concat(i)].uid);
     ics_lines.push('DTSTAMP:' + atcb_format_datetime(now, 'clean', true));
     ics_lines.push('DTSTART' + timeAddon + ':' + formattedDate.start);
     ics_lines.push('DTEND' + timeAddon + ':' + formattedDate.end);
     ics_lines.push('SUMMARY:' + data.dates["".concat(i)].name.replace(/.{65}/g, '$&' + '\r\n '));
-
     if (data.dates["".concat(i)].descriptionHtmlFree != null && data.dates["".concat(i)].descriptionHtmlFree != '') {
       ics_lines.push('DESCRIPTION:' + data.dates["".concat(i)].descriptionHtmlFree.replace(/\n/g, '\\n').replace(/.{60}/g, '$&' + '\r\n ') // adjusting for intended line breaks + making sure it does not exceed 75 characters per line
       );
@@ -3265,112 +2789,86 @@ function atcb_generate_ical(data) {
     if (data.dates["".concat(i)].description != null && data.dates["".concat(i)].description != '') {
       ics_lines.push('X-ALT-DESC;FMTTYPE=text/html:\r\n <!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 3.2//EN"">\r\n <HTML><BODY>\r\n ' + data.dates["".concat(i)].description.replace(/\n/g, '<br>').replace(/.{60}/g, '$&' + '\r\n ') + '\r\n </BODY></HTML>');
     }
-
     if (data.dates["".concat(i)].location != null && data.dates["".concat(i)].location != '') {
       ics_lines.push('LOCATION:' + data.dates["".concat(i)].location);
     }
-
     if (data.dates["".concat(i)].organizer != null && data.dates["".concat(i)].organizer != '') {
       var organizerParts = data.dates["".concat(i)].organizer.split('|');
       ics_lines.push('ORGANIZER;CN=' + organizerParts[0] + ':MAILTO:' + organizerParts[1]);
     }
-
     if (data.recurrence != null && data.recurrence != '') {
       ics_lines.push(data.recurrence);
     }
-
     if (data.dates["".concat(i)].availability != null && data.dates["".concat(i)].availability != '') {
       var transpVal = function () {
         if (data.dates["".concat(i)].availability == 'free') {
           return 'TRANSPARENT';
         }
-
         return 'OPAQUE';
       }();
-
       ics_lines.push('TRANSP:' + transpVal);
     }
-
     ics_lines.push('SEQUENCE:' + data.dates["".concat(i)].sequence);
     ics_lines.push('STATUS:' + data.dates["".concat(i)].status);
     ics_lines.push('CREATED:' + data.created);
     ics_lines.push('LAST-MODIFIED:' + data.updated);
     ics_lines.push('END:VEVENT');
   };
-
   for (var i = loopStart; i <= loopEnd; i++) {
     _loop4(i);
   }
-
   ics_lines.push('END:VCALENDAR');
-
   var dataUrl = function () {
     if (givenIcsFile != '') {
       return givenIcsFile;
     }
-
     return 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics_lines.join('\r\n'));
   }();
-
   if (isiOS() && isChrome() || isWebView() && (isiOS() || isAndroid() && isProblematicWebView())) {
     atcb_ical_copy_note(dataUrl, data, keyboardTrigger);
     return;
   }
-
   atcb_save_file(dataUrl, filename);
 }
-
 function atcb_determine_ical_filename(data, subEvent) {
   var filenameSuffix = function () {
     if (subEvent != 'all' && subEvent != 0) {
       return '-' + parseInt(subEvent) + 1;
     }
-
     return '';
   }();
-
   if (data.iCalFileName != null && data.iCalFileName != '') {
     return data.iCalFileName + filenameSuffix;
   }
-
   if (data.icsFile != null && data.icsFile != '') {
     var filenamePart = data.icsFile.split('/').pop().split('.')[0];
-
     if (filenamePart != '') {
       return filenamePart + filenameSuffix;
     }
   }
-
   return 'event-to-save-in-my-calendar' + filenameSuffix;
 }
-
 function atcb_ical_copy_note(dataUrl, data, keyboardTrigger) {
   atcb_copy_to_clipboard(dataUrl);
-
   if (isiOS() && isChrome()) {
     atcb_create_modal(data, 'warning', atcb_translate_hook('modal.crios.ical.h', data), atcb_translate_hook('modal.crios.ical.text', data) + '<br>' + atcb_translate_hook('modal.clipboard.text', data) + '<br>' + atcb_translate_hook('modal.crios.ical.steps', data), [], [], keyboardTrigger);
     return;
   }
-
   atcb_create_modal(data, 'warning', atcb_translate_hook('modal.webview.ical.h', data), atcb_translate_hook('modal.webview.ical.text', data) + '<br>' + atcb_translate_hook('modal.clipboard.text', data) + '<br>' + atcb_translate_hook('modal.webview.ical.steps', data), [], [], keyboardTrigger);
 }
-
 function atcb_saved_hook() {
   console.log('Event saved. Looking forward to it!');
 }
-
 function atcb_save_file(file, filename) {
   try {
     var save = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
     save.rel = 'noopener';
     save.href = file;
-
     if (isMobile()) {
       save.target = '_self';
     } else {
       save.target = '_blank';
     }
-
     save.download = filename + '.ics';
     var evt = new MouseEvent('click', {
       view: window,
@@ -3384,29 +2882,24 @@ function atcb_save_file(file, filename) {
     console.error(e);
   }
 }
-
 function atcb_generate_time(data) {
   var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'delimiters';
   var targetCal = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'general';
   var addTimeZoneOffset = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
   var startDate = data.startDate.split('-');
   var endDate = data.endDate.split('-');
-
   if (data.startTime != null && data.startTime != '' && data.endTime != null && data.endTime != '') {
     var newStartDate = new Date(startDate[0] + '-' + startDate[1] + '-' + startDate[2] + 'T' + data.startTime + ':00.000+00:00');
     var newEndDate = new Date(endDate[0] + '-' + endDate[1] + '-' + endDate[2] + 'T' + data.endTime + ':00.000+00:00');
     var durationMS = newEndDate - newStartDate;
     var durationHours = Math.floor(durationMS / 1000 / 60 / 60);
     var durationMinutes = Math.floor((durationMS - durationHours * 60 * 60 * 1000) / 1000 / 60 % 60);
-
     var durationString = function () {
       if (durationHours < 10) {
         return '0' + durationHours + ':' + ('0' + durationMinutes).slice(-2);
       }
-
       return durationHours + ':' + ('0' + durationMinutes).slice(-2);
     }();
-
     if ((data.timeZone == null || data.timeZone != null && data.timeZone == '') && addTimeZoneOffset) {
       return {
         start: newStartDate.toISOString().replace('.000Z', '+00:00'),
@@ -3415,7 +2908,6 @@ function atcb_generate_time(data) {
         allday: false
       };
     }
-
     if (data.timeZone != null && data.timeZone != '') {
       if (targetCal == 'ical' || targetCal == 'google' && !/GMT[+|-]\d{1,2}/i.test(data.timeZone)) {
         return {
@@ -3425,10 +2917,8 @@ function atcb_generate_time(data) {
           allday: false
         };
       }
-
       var offsetStart = tzlib_get_offset(data.timeZone, data.startDate, data.startTime);
       var offsetEnd = tzlib_get_offset(data.timeZone, data.endDate, data.endTime);
-
       if (addTimeZoneOffset) {
         var formattedOffsetStart = offsetStart.slice(0, 3) + ':' + offsetStart.slice(3);
         var formattedOffsetEnd = offsetEnd.slice(0, 3) + ':' + offsetEnd.slice(3);
@@ -3439,13 +2929,11 @@ function atcb_generate_time(data) {
           allday: false
         };
       }
-
       var calcOffsetStart = parseInt(offsetStart[0] + 1) * -1 * ((parseInt(offsetStart.substr(1, 2)) * 60 + parseInt(offsetStart.substr(3, 2))) * 60 * 1000);
       var calcOffsetEnd = parseInt(offsetEnd[0] + 1) * -1 * ((parseInt(offsetEnd.substr(1, 2)) * 60 + parseInt(offsetEnd.substr(3, 2))) * 60 * 1000);
       newStartDate.setTime(newStartDate.getTime() + calcOffsetStart);
       newEndDate.setTime(newEndDate.getTime() + calcOffsetEnd);
     }
-
     return {
       start: atcb_format_datetime(newStartDate, style),
       end: atcb_format_datetime(newEndDate, style),
@@ -3454,13 +2942,10 @@ function atcb_generate_time(data) {
     };
   } else {
     var _newStartDate = new Date(Date.UTC(startDate[0], startDate[1] - 1, startDate[2]));
-
     var _newEndDate = new Date(Date.UTC(endDate[0], endDate[1] - 1, endDate[2]));
-
     if (targetCal == 'google' || targetCal == 'microsoft' || targetCal == 'ical') {
       _newEndDate.setDate(_newEndDate.getDate() + 1);
     }
-
     return {
       start: atcb_format_datetime(_newStartDate, style, false),
       end: atcb_format_datetime(_newEndDate, style, false),
@@ -3468,83 +2953,65 @@ function atcb_generate_time(data) {
     };
   }
 }
-
 function atcb_format_datetime(datetime) {
   var style = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'delimiters';
   var includeTime = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
   var removeZ = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
   var regex = function () {
     if (includeTime) {
       if (style == 'clean') {
         return /(-|:|(\.\d{3}))/g;
       }
-
       return /(\.\d{3})/g;
     }
-
     if (style == 'clean') {
       return /(-|T(\d{2}:\d{2}:\d{2}\.\d{3})Z)/g;
     }
-
     return /T(\d{2}:\d{2}:\d{2}\.\d{3})Z/g;
   }();
-
   var output = removeZ ? datetime.toISOString().replace(regex, '').replace('Z', '') : datetime.toISOString().replace(regex, '');
   return output;
 }
-
 function atcb_secure_content(data) {
   var isJSON = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
   var toClean = isJSON ? JSON.stringify(data) : data;
   var cleanedUp = toClean.replace(/(<(?!br)([^>]+)>)/gi, '');
-
   if (isJSON) {
     return JSON.parse(cleanedUp);
   } else {
     return cleanedUp;
   }
 }
-
 function atcb_secure_url(url) {
   var throwError = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
   if (url.match(/((\.\.\/)|(\.\.\\)|(%2e%2e%2f)|(%252e%252e%252f)|(%2e%2e\/)|(%252e%252e\/)|(\.\.%2f)|(\.\.%252f)|(%2e%2e%5c)|(%252e%252e%255c)|(%2e%2e\\)|(%252e%252e\\)|(\.\.%5c)|(\.\.%255c)|(\.\.%c0%af)|(\.\.%25c0%25af)|(\.\.%c1%9c)|(\.\.%25c1%259c))/gi)) {
     if (throwError) {
       console.error('Seems like the generated URL includes at least one security issue and got blocked. Please check the calendar button parameters!');
     }
-
     return false;
   } else {
     return true;
   }
 }
-
 function atcb_validEmail(email) {
   var mx = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
   if (!/^.{0,70}@.{1,30}\.[\w.]{2,9}$/.test(email)) {
     return false;
   }
-
   if (mx) {
     console.log('Testing for MX records not yet available');
   }
-
   return true;
 }
-
 function atcb_rewrite_html_elements(content) {
   var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   content = content.replace(/<br\s*\/?>/gi, '\n');
-
   if (clear) {
     content = content.replace(/\[(|\/)(url|br|hr|p|b|strong|u|i|em|li|ul|ol|h\d)\]|((\|.*)\[\/url\])/gi, '');
   } else {
     content = content.replace(/\[(\/|)(br|hr|p|b|strong|u|i|em|li|ul|ol|h\d)\]/gi, '<$1$2>');
     content = content.replace(/\[url\]([\w&$+.,:;=~!*'?@^%#|\s\-()/]*)\[\/url\]/gi, function (match, p1) {
       var urlText = p1.split('|');
-
       var text = function () {
         if (urlText.length > 1 && urlText[1] != '') {
           return urlText[1];
@@ -3552,57 +3019,45 @@ function atcb_rewrite_html_elements(content) {
           return urlText[0];
         }
       }();
-
       return '<a href="' + urlText[0] + '" target="' + atcbDefaultTarget + '" rel="noopener">' + text + '</a>';
     });
   }
-
   return content;
 }
-
 function atcb_position_list(trigger, list) {
   var blockUpwards = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var resize = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
   var anchorSet = false;
   var originalTrigger = trigger;
-
   if (trigger.querySelector('.atcb-dropdown-anchor') !== null) {
     trigger = trigger.querySelector('.atcb-dropdown-anchor');
     anchorSet = true;
   }
-
   var triggerDim = trigger.getBoundingClientRect();
   var listDim = list.getBoundingClientRect();
   var btnDim = originalTrigger.getBoundingClientRect();
-
   if (anchorSet === true && !list.classList.contains('atcb-dropoverlay')) {
     var viewportHeight = document.documentElement.clientHeight;
     var posWrapper = document.getElementById('atcb-pos-wrapper');
-
     if (posWrapper !== null) {
       posWrapper.style.height = viewportHeight + 'px';
     }
-
     if (list.classList.contains('atcb-dropup') && resize || !blockUpwards && triggerDim.top + listDim.height > viewportHeight - 20 && 2 * btnDim.top + btnDim.height - triggerDim.top - listDim.height > 20) {
       originalTrigger.classList.add('atcb-dropup');
       list.classList.add('atcb-dropup');
       list.style.bottom = 2 * viewportHeight - (viewportHeight + (btnDim.top + (btnDim.top + btnDim.height - triggerDim.top))) - window.scrollY + 'px';
     } else {
       list.style.top = window.scrollY + triggerDim.top + 'px';
-
       if (originalTrigger.classList.contains('atcb-dropup')) {
         originalTrigger.classList.remove('atcb-dropup');
       }
     }
-
     triggerDim = trigger.getBoundingClientRect();
-
     if (list.classList.contains('atcb-style-bubble') || list.classList.contains('atcb-style-text')) {
       list.style.minWidth = triggerDim.width + 'px';
     } else {
       list.style.width = triggerDim.width + 'px';
     }
-
     listDim = list.getBoundingClientRect();
     list.style.left = triggerDim.left - (listDim.width - triggerDim.width) / 2 + 'px';
   } else {
@@ -3611,74 +3066,59 @@ function atcb_position_list(trigger, list) {
     list.style.top = window.scrollY + btnDim.top + btnDim.height / 2 - listDim.height / 2 + 'px';
     list.style.left = btnDim.left - (listDim.width - btnDim.width) / 2 + 'px';
   }
-
   var atcbL = document.getElementById('add-to-calendar-button-reference');
-
   if (atcbL) {
     if (originalTrigger.classList.contains('atcb-dropup')) {
       atcbL.style.top = window.scrollY + btnDim.top + btnDim.height + 'px';
       atcbL.style.left = btnDim.left + (btnDim.width - 150) / 2 + 'px';
     } else {
       listDim = list.getBoundingClientRect();
-
       if (originalTrigger.classList.contains('atcb-dropoverlay') || !anchorSet) {
         atcbL.style.top = window.scrollY + listDim.top + listDim.height + 'px';
       } else {
         atcbL.style.top = window.scrollY + triggerDim.top + listDim.height + 'px';
       }
-
       atcbL.style.left = listDim.left + (listDim.width - 150) / 2 + 'px';
     }
   }
 }
-
 function atcb_manage_body_scroll() {
   var modalObj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-
   var modal = function () {
     if (modalObj != null) {
       return modalObj;
     } else {
       var allModals = document.querySelectorAll('.atcb-modal');
-
       if (allModals.length == 0) {
         return null;
       }
-
       return allModals[allModals.length - 1];
     }
   }();
-
   if (modal == null) {
     return;
   }
-
   var modalDim = modal.getBoundingClientRect();
-
   if (modalDim.height + 100 > window.innerHeight) {
     document.body.classList.add('atcb-modal-no-scroll');
   } else {
     document.body.classList.remove('atcb-modal-no-scroll');
   }
 }
-
 function atcb_set_fullsize(el) {
   el.style.width = window.innerWidth + 'px';
   el.style.height = window.innerHeight + 100 + 'px';
 }
-
 function atcb_set_sizes(el, size) {
   el.style.setProperty('--base-font-size-l', size.l + 'px');
   el.style.setProperty('--base-font-size-m', size.m + 'px');
   el.style.setProperty('--base-font-size-s', size.s + 'px');
 }
-
 function atcb_generate_uuid() {
   return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function (c) {
     return (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16);
   });
 }
-
 function atcb_copy_to_clipboard(dataString) {
   var tmpInput = document.createElement('input');
   document.body.appendChild(tmpInput);
@@ -3687,7 +3127,6 @@ function atcb_copy_to_clipboard(dataString) {
   tmpInput.value = dataString;
   tmpInput.contentEditable = true;
   tmpInput.readOnly = false;
-
   if (isiOS()) {
     var range = document.createRange();
     range.selectNodeContents(tmpInput);
@@ -3699,33 +3138,27 @@ function atcb_copy_to_clipboard(dataString) {
     navigator.clipboard.writeText(dataString);
     tmpInput.select();
   }
-
   tmpInput.contentEditable = editable;
   tmpInput.readOnly = readOnly;
   document.execCommand('copy');
   tmpInput.remove();
 }
-
 function atcb_debounce(func) {
   var _this = this;
-
   var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
   var timer;
   return function () {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-
     clearTimeout(timer);
     timer = setTimeout(function () {
       func.apply(_this, args);
     }, timeout);
   };
 }
-
 function atcb_debounce_leading(func) {
   var _this2 = this;
-
   var timeout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 300;
   var timer;
   return function () {
@@ -3733,61 +3166,47 @@ function atcb_debounce_leading(func) {
       for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
-
       func.apply(_this2, args);
     }
-
     clearTimeout(timer);
     timer = setTimeout(function () {
       timer = undefined;
     }, timeout);
   };
 }
-
 function atcb_throttle(func) {
   var _this3 = this;
-
   var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
   var result;
   var timeout = null;
   var previous = 0;
-
   var later = function later() {
     previous = Date.now();
     timeout = null;
-
     for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
       args[_key3] = arguments[_key3];
     }
-
     result = func.apply(_this3, args);
   };
-
   return function () {
     var now = Date.now();
     var remaining = delay - (now - previous);
-
     if (remaining <= 0 || remaining > delay) {
       if (timeout) {
         clearTimeout(timeout);
         timeout = null;
       }
-
       previous = now;
-
       for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
         args[_key4] = arguments[_key4];
       }
-
       result = func.apply(_this3, args);
     } else if (!timeout) {
       timeout = setTimeout(later, remaining);
     }
-
     return result;
   };
 }
-
 var i18nStrings = {
   en: {
     'Add to Calendar': 'Add to Calendar',
@@ -4230,54 +3649,41 @@ var i18nStrings = {
     Cancel: 'Hủy bỏ'
   }
 };
-
 function atcb_translate_hook(identifier, data) {
   var searchKey = identifier.replace(/\s+/g, '').toLowerCase();
-
   if (data.customLabels != null && data.customLabels["".concat(searchKey)] != null && data.customLabels["".concat(searchKey)] != '') {
     return atcb_rewrite_html_elements(data.customLabels["".concat(searchKey)]);
   } else {
     return atcb_translate(identifier, data.language);
   }
 }
-
 function atcb_translate(identifier, language) {
   if (!language) {
     language = 'en';
   }
-
   if (i18nStrings["".concat(language)]["".concat(identifier)]) {
     return i18nStrings["".concat(language)]["".concat(identifier)];
   }
-
   return identifier;
 }
-
 var atcbInitialInit = false;
-
 function atcb_init() {
   if (!atcbInitialInit) {
     atcb_set_global_event_listener();
   }
-
   atcb_init_log_msg();
-
   if (!isBrowser()) {
     console.error('no further initialization due to wrong environment (no browser)');
     return;
   }
-
   var atcButtons = document.querySelectorAll('.atcb');
   var btnIDs = [];
-
   if (atcButtons.length > 0) {
     var atcButtonsInitialized = document.querySelectorAll('.atcb-initialized');
-
     var _loop5 = function _loop5(i) {
       if (atcButtons[parseInt(i)].classList.contains('atcb-initialized')) {
         return "continue";
       }
-
       var atcbJsonInput = function () {
         try {
           return JSON.parse(atcb_secure_content(atcButtons[parseInt(i)].innerHTML.replace(/(\r\n|\n|\r)/g, ''), false));
@@ -4286,21 +3692,16 @@ function atcb_init() {
           return '';
         }
       }();
-
       var atcbJsonInputPatched = atcb_patch_config(atcbJsonInput);
       var atcbInputData = atcb_get_pro_data(atcbJsonInputPatched);
-
       if (atcbInputData.length == 0) {
         return "continue";
       }
-
       if (atcb_check_required(atcbInputData)) {
         var data = atcb_decorate_data(atcbInputData);
-
         if (data.identifier == null || data.identifier == '') {
           data.identifier = 'atcb-btn-' + (i + atcButtonsInitialized.length + 1);
         }
-
         if (atcb_validate(data)) {
           atcb_generate_button(atcButtons[parseInt(i)], data);
           atcb_update_state_management(data);
@@ -4308,35 +3709,26 @@ function atcb_init() {
         }
       }
     };
-
     for (var i = 0; i < atcButtons.length; i++) {
       var _ret3 = _loop5(i);
-
       if (_ret3 === "continue") continue;
     }
   }
-
   return btnIDs;
-} // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function atcb_action(data, triggerElement) {
   var keyboardTrigger = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
   if (!atcbInitialInit) {
     atcb_set_global_event_listener();
   }
-
   atcb_init_log_msg();
   data = atcb_secure_content(data);
   data = atcb_get_pro_data(data);
-
   if (!atcb_check_required(data)) {
     throw new Error('Add to Calendar Button generation failed: required data missing; see console logs');
   }
-
   data = atcb_decorate_data(data);
-
   if (triggerElement) {
     if (triggerElement.id != null && triggerElement.id != '') {
       data.identifier = triggerElement.id;
@@ -4347,7 +3739,6 @@ function atcb_action(data, triggerElement) {
         data.identifier = 'atcb-btn-custom';
       }
     }
-
     if (data.listStyle == 'dropdown') {
       data.listStyle = 'overlay';
     }
@@ -4356,53 +3747,41 @@ function atcb_action(data, triggerElement) {
     data.listStyle = 'modal';
     data.trigger = 'click';
   }
-
   if (!atcb_validate(data)) {
     throw new Error('Add to Calendar Button generation (' + data.identifier + ') failed: invalid data; see console logs');
   }
-
   atcb_update_state_management(data);
   atcb_toggle('open', data, triggerElement, keyboardTrigger);
   console.log('Add to Calendar Button "' + data.identifier + '" triggered');
   return [data.identifier];
-} // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function atcb_destroy(id) {
   atcb_close();
   var el = document.getElementById(id);
-
   if (atcbStates["".concat(id)] == null || !el) {
     console.error('Add to Calendar Button could not be destroyed! ID unknown.');
     return false;
   }
-
   delete atcbStates["".concat(id)];
-
   if (el.parentElement.parentElement.classList.contains('atcb-initialized')) {
     el.parentElement.parentElement.remove();
   } else {
     el.remove();
   }
-
   console.log('Add to Calendar Button "' + id + '" destroyed');
   return true;
 }
-
 function atcb_update_state_management(data) {
   var singleDates = [];
-
   for (var i = 0; i < data.options.length; i++) {
     singleDates[data.options["".concat(i)]] = [];
-
     for (var id = 1; id <= data.dates.length; id++) {
       singleDates[data.options["".concat(i)]].push(0);
     }
   }
-
   atcbStates[data.identifier] = singleDates;
 }
-
 function atcb_init_log_msg() {
   if (!atcbInitialInit) {
     console.log('Add to Calendar Button Script initialized (version ' + atcbVersion + ')');
@@ -4410,21 +3789,17 @@ function atcb_init_log_msg() {
     atcbInitialInit = true;
   }
 }
-
 function atcb_get_pro_data(data) {
   if (data.proKey != null && data.proKey != '') {
     console.error('Add to Calendar Button generation failed: proKey invalid!');
     return [];
   }
-
   return data;
 }
-
 function atcb_set_global_event_listener() {
   if (!isBrowser()) {
     return;
   }
-
   document.addEventListener('keyup', function (event) {
     if (event.key === 'Escape') {
       atcb_toggle('close', '', '', true);
@@ -4435,7 +3810,6 @@ function atcb_set_global_event_listener() {
       var targetFocus = 0;
       var currFocusOption = document.activeElement;
       var optionListCount = document.querySelectorAll('.atcb-list-item').length;
-
       if (currFocusOption.classList.contains('atcb-list-item')) {
         if (event.key === 'ArrowDown' && currFocusOption.dataset.optionNumber < optionListCount) {
           event.preventDefault();
@@ -4444,22 +3818,18 @@ function atcb_set_global_event_listener() {
           event.preventDefault();
           targetFocus = parseInt(currFocusOption.dataset.optionNumber) - 1;
         }
-
         if (targetFocus > 0) {
           document.querySelector('.atcb-list-item[data-option-number="' + targetFocus + '"]').focus();
         }
       } else {
         event.preventDefault();
-
         switch (event.key) {
           case 'ArrowDown':
             document.querySelector('.atcb-list-item[data-option-number="1"]').focus();
             break;
-
           case 'ArrowUp':
             document.querySelector('.atcb-list-item[data-option-number="' + optionListCount + '"]').focus();
             break;
-
           default:
             document.querySelector('.atcb-list-item[data-option-number="1"]').focus();
             break;
@@ -4469,17 +3839,13 @@ function atcb_set_global_event_listener() {
   });
   window.addEventListener('resize', atcb_throttle(function () {
     var activeOverlay = document.getElementById('atcb-bgoverlay');
-
     if (activeOverlay != null) {
       atcb_set_fullsize(activeOverlay);
       atcb_manage_body_scroll();
     }
-
     var activeButton = document.querySelector('.atcb-active');
-
     if (activeButton != null) {
       var activeList = document.querySelector('.atcb-dropdown');
-
       if (activeList != null) {
         atcb_position_list(activeButton, activeList, false, true);
       }
@@ -4487,10 +3853,8 @@ function atcb_set_global_event_listener() {
   }));
   window.addEventListener('scroll', atcb_throttle(function () {
     var activeButton = document.querySelector('.atcb-active');
-
     if (activeButton != null) {
       var activeList = document.querySelector('.atcb-dropdown');
-
       if (activeList != null) {
         if (activeList.classList.contains('atcb-mind-scrolling')) {
           atcb_position_list(activeButton, activeList, false, true);
@@ -4499,9 +3863,8 @@ function atcb_set_global_event_listener() {
     }
   }, 20));
 }
+
 /*! START INIT */
-
-
 if (isBrowser()) {
   if (document.readyState !== 'loading') {
     atcb_init();
