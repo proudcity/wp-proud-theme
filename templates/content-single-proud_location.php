@@ -18,16 +18,15 @@
             <?php if( $media && !empty($media->post_excerpt) ): ?><div class="media-byline"><span><?php echo $media->post_excerpt ?></span></div><?php endif; ?>
           </div>
         <?php endif; ?>
-        <?php
-          // @todo add the address here
-        ?>
-        <div class="proud-location-information">
+
+        <div class="proud-location-information row">
 
           <div itemscope itemtype="https://schema.org/Person">
 
-            <div><!-- this should be a left column-->
+            <div class="col-sm-6 proud-location-address"><!-- this should be a left column-->
               <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                 <span itemprop="streetAddresss">
+                    <p><strong>Address:</strong></p>
                     <p><?php echo esc_attr( get_post_meta( get_the_ID(), 'address', true ) ); ?></p>
                     <p><?php echo esc_attr( get_post_meta( get_the_ID(), 'address2', true ) ); ?></p>
                 </span><!-- /streetAddress -->
@@ -47,8 +46,28 @@
             </div><!-- / PostalAddress -->
           </div><!-- / left column -->
 
-          <div><!-- this should be a right column -->
-            <p class="proud-location-email"><strong>Email:</strong> <?php echo sanitize_email( get_post_meta( get_the_ID(), 'email', true ) ); ?></p>
+          <div class="col-sm-6"><!-- this should be a right column -->
+
+            <?php $email = get_post_meta( get_the_ID(), 'email', true );
+              if ( isset( $email ) && ! empty( $email ) ){ ?>
+              <p class="proud-location-email"><strong>Email:</strong> <a href="<?php echo sanitize_email( $email ); ?>" itemprop="email"><?php echo sanitize_email( $email ); ?></a></p>
+            <?php } ?>
+
+            <?php $phone = get_post_meta( get_the_ID(), 'phone', true );
+              if ( isset( $phone ) && ! empty( $phone ) ){ ?>
+            <p class="proud-location-phone" itemprop="telephone"><strong>Phone:</strong> <?php echo esc_attr( $phone ); ?></p>
+            <?php } ?>
+
+            <?php $website = get_post_meta( get_the_ID(), 'website', true );
+              if ( isset( $website ) && ! empty( $website ) ){ ?>
+            <p class="proud-location-website"><strong>Website:</strong> <a href="<?php esc_url( $website ); ?>" itemprop="url"><?php echo esc_url( $website ); ?></a></p>
+            <?php } ?>
+
+            <?php $hours = get_post_meta( get_the_ID(), 'hours', true );
+              if ( isset( $hours ) && ! empty( $hours ) ){ ?>
+            <p class="proud-location-hours" itemprop="openingHours" content="<?php echo esc_attr( $hours ); ?>"><strong>Hours:</strong> <?php echo esc_attr( $hours ); ?></p>
+            <?php } ?>
+
           </div><!-- / right column -->
 
           </div><!-- /itemscope Person -->
