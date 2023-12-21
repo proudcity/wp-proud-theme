@@ -77,7 +77,7 @@
         <?php the_content(); ?>
 
         <div class="proud-location-map">
-          map goes here
+          <!-- map goes here if we want that -->
         </div><!-- /.proud-location-map -->
 
       </div>
