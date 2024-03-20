@@ -15,14 +15,9 @@
  *
  */
 
-.atcb {
-  display: none;
-}
-
 /******************************
  * Global colors and shadows
  */
-
 :root {
   --base-font-size: 14px;
   --atcb-keyboard-focus: #1e90ff;
@@ -54,7 +49,6 @@
   --icon-yahoo-color: #5f01d1;
   --icon-filter: none;
 }
-
 /* Dark mode */
 
 .atcb-button-wrapper.atcb-dark,
