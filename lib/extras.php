@@ -143,13 +143,13 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         $timezone = get_option( 'timezone_string' );
     }
 
-    if ( 'event' === get_post_type( $event->ID ) ){
+    if ( 'event' === get_post_type( absint( $event->ID ) ) ){
         $start_date = get_post_meta( absint( $event->ID ), '_event_start_date', true );
         $end_date = get_post_meta( absint( $event->ID ), '_event_end_date', true );
         $start_time = get_post_meta( absint( $event->ID ), '_event_start_time', true );
         $end_time = get_post_meta( absint( $event->ID ), '_event_end_time', true );
 
-        $description = get_permalink( $event->ID );
+        $description = get_permalink( absint( $event->ID ) );
     } else {
         // meetings
         $start_date = date( 'Y-m-d', strtotime( get_post_meta( absint( $event->ID ), 'datetime', true ) ) );
@@ -161,33 +161,20 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
 
         $location = proud_get_meeting_location( get_post_meta( absint( $event->ID ), 'location', true ) );
     }
-
-    $formatted_event = '{
-        "name":"' . esc_attr( $event->post_title ) .'",
-        "description":' . json_encode( sanitize_text_field( $description ) ).',
-        "startDate":"' . sanitize_text_field( $start_date ) .'",
-        "endDate":"'. sanitize_text_field( $end_date ) .'",
-        "startTime":"' . sanitize_text_field( $start_time ) .'",
-        "endTime":"' . sanitize_text_field( $end_time ) .'",
-        "location":"'. sanitize_text_field( $location ) .'",
-        "label":"Add to Calendar",
-        "options":[
-            "Apple",
-            "Google",
-            "iCal",
-            "Microsoft365",
-            "MicrosoftTeams",
-            "Outlook.com",
-            "Yahoo"
-        ],
-        "timeZone":"' . sanitize_text_field( $timezone ) .'",
-        "trigger":"click",
-        "inline":true,
-        "listStyle":"overlay",
-        "iCalFileName":"' . sanitize_title( $event->post_title ) .'"
-    }';
-
-    return $formatted_event;
+?>
+    <add-to-calendar-button
+      name="<?php echo esc_attr( $event->post_title ); ?>"
+      description="<?php echo esc_url( $description ); ?>"
+      startDate="<?php echo sanitize_text_field( $start_date ); ?>"
+      startTime="<?php echo sanitize_text_field( $start_time ); ?>"
+      endTime="<?php echo sanitize_text_field( $end_time ); ?>"
+      timeZone="<?php echo sanitize_text_field( $timezone ); ?>"
+      location="<?php echo sanitize_text_field( $location ); ?>"
+      iCalFileName="<?php echo sanitize_title( $event->post_title ); ?>"
+      options="'Apple','Google','iCal','Outlook.com','Yahoo'"
+      buttonStyle="none"
+    ></add-to-calendar-button>
+<?php
 
 } // build_atcb_json
 
@@ -203,13 +190,8 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
  * @uses    string          $timezone           optional                        Set if you want a different timezone than the site default
  */
 function get_atcb_button( $event, $location, $datetime, $timezone = null ){ ?>
-
           <span class="addtocalendar" data-title="<?php print sanitize_title( $event->post_title ); ?>" data-slug="<?php print esc_attr( get_post_field('post_name') ); ?>">
-            <div class="atcb">
-              <script type="application/json">
                 <?php echo build_atcb_json( $event, $location, $datetime ); ?>
-              </script>
-            </div><!-- /.atcb -->
           </span>
 <?php
 

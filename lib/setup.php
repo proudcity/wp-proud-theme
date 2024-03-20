@@ -176,7 +176,8 @@ function assets() {
     wp_enqueue_script( 'bootstrap', Assets\asset_path( 'scripts/bootstrap.js' ), ['jquery'], esc_attr( $version ), true );
 
     // add to calendar, we use wp_enqueue_script on the widgets that need the scriptw
-    wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb.min.js'), '', '1.18.3', true );
+    //wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb/atcb-init.js'), '', '2.6.8', true );
+    wp_register_script( 'atcb',  'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2', '', '', true );
 
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100 );
