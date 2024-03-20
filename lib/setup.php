@@ -152,6 +152,10 @@ function assets() {
 
     $version = wp_get_theme('wp-proud-theme')->get('Version');
 
+    if ( wp_get_environment_type() == 'local' ){
+      $version = time();
+    }
+
     // enqueue for all env_types
     wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, esc_attr( $version ) );
     wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, esc_attr( $version ) );
