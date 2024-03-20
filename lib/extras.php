@@ -172,7 +172,17 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
       location="<?php echo sanitize_text_field( $location ); ?>"
       iCalFileName="<?php echo sanitize_title( $event->post_title ); ?>"
       options="'Apple','Google','iCal','Outlook.com','Yahoo'"
-      buttonStyle="none"
+      styleLight="
+        --btn-background:#fff;
+        --font: Roboto, sans-serif;
+        --btn-hover-background:#e6e6e6;
+        --btn-padding-x:1px; --btn-padding-y:5px;
+        --btn-border-radius:2px; --list-border-radius:2px;
+        --btn-border:#ccc;
+        --btn-font-weight:400;
+        --base-font-size:12px; --base-font-size-l:.8em; --base-font-size-m:12px; --base-font-size-s: 12px;
+        --btn-shadow:0 none transparent; --btn-hover-shadow:0 none transparent; --btn-active-shadow:0 none transparent;
+      "
     ></add-to-calendar-button>
 <?php
 
