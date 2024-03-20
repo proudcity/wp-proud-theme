@@ -56,7 +56,7 @@
           ?>
         </li>
         <?php if ( !empty($location) ) { ?>
-          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default  btn-block"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
+          <li><a href="https://maps.google.com?daddr=<?php echo urlencode($location) ?>" target="_blank" class="btn btn-xs btn-default btn-block btn-directions"><i aria-hidden="true" class="fa fa-map-marker"></i> Directions</a></li>
         <?php } //endif ?>
       </ul>
       <?php do_action( 'teaser_search_matching', $post ); ?>
