@@ -52,7 +52,7 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
     .js( 'assets/scripts/main.js', 'dist/scripts')
     .js( 'assets/scripts/modernizr.js', 'dist/scripts')
     .js( 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js', 'dist/scripts')
-    .js( 'assets/scripts/atcb.js', 'dist/scripts')
+    .copy( 'assets/fonts', 'dist/fonts' )
     .eslint({
         fix: true,
         extensions: ['js'],
@@ -63,7 +63,6 @@ mix.sass('assets/styles/proud.scss','dist/styles', {
             'dist/scripts/customizer.js',
             'dist/scripts/main.js',
             'dist/scripts/modernizr.js',
-            'dist/scripts/atcb.js',
             'dist/scripts/bootstrap.js'
         ]
     )
