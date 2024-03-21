@@ -1,7 +1,12 @@
 .btn.btn-directions{
-    font-size:21px;
-    padding:1px 20px;
+    font-size:1em;
+    padding:.3em 1em;
     font-family:Roboto, sans-serif;
 
     i{padding-right:2px;}
+
+    .fa.fa-map-marker:before{
+      content:"\f3c5";
+      margin-right:.8rem;
+    }
 }
