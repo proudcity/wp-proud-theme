@@ -161,6 +161,8 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
 
         $location = proud_get_meeting_location( get_post_meta( absint( $event->ID ), 'location', true ) );
     }
+
+    $font_default = get_theme_mod( 'proud_fonts_default', 'Lato' );
 ?>
     <add-to-calendar-button
       id="pc-atcb-button"
@@ -175,7 +177,7 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
       options="'Apple','Google','iCal','Outlook.com','Yahoo'"
       styleLight="
         --btn-background:#fff;
-        --font: Roboto, sans-serif;
+        --font: <?php echo esc_attr( $font_default ) ?>, sans-serif;
         --btn-hover-background:#e6e6e6;
         --btn-padding-x:1px; --btn-padding-y:5px;
         --btn-border-radius:2px; --list-border-radius:2px;
