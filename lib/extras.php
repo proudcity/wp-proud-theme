@@ -163,6 +163,7 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
     }
 ?>
     <add-to-calendar-button
+      id="pc-atcb-button"
       name="<?php echo esc_attr( $event->post_title ); ?>"
       description="<?php echo esc_url( $description ); ?>"
       startDate="<?php echo sanitize_text_field( $start_date ); ?>"
@@ -180,7 +181,7 @@ function build_atcb_json( $event, $location, $datetime, $timezone = null  ){
         --btn-border-radius:2px; --list-border-radius:2px;
         --btn-border:#ccc;
         --btn-font-weight:400;
-        --base-font-size:12px; --base-font-size-l:.8em; --base-font-size-m:12px; --base-font-size-s: 12px;
+        --base-font-size:.8em; --base-font-size-l:.8em; --base-font-size-m:12px; --base-font-size-s: 12px;
         --btn-shadow:0 none transparent; --btn-hover-shadow:0 none transparent; --btn-active-shadow:0 none transparent;
       "
     ></add-to-calendar-button>
