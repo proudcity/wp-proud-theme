@@ -11,6 +11,7 @@
   }
   &.part-time {
     @include label-variant($label-success-bg);
+    color:white;
   }
   &.temporary {
     @include label-variant($label-warning-bg);
