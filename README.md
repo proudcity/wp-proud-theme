@@ -14,6 +14,8 @@ nvm use 12
 npm run-script projectsetup
 # build project
 npx mix
+# watch and rebuild as changes happen
+npx mix watch
 ```
 
 To update ProudCity Patterns run the following NPM command to delete the old repository and download the latest master branch.
