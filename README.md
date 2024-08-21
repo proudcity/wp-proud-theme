@@ -6,10 +6,16 @@ All bug reports, feature requests and other issues should be added to the [wp-pr
 
 ### Building notes
 You should install [Node Version Manager](https://github.com/nvm-sh/nvm) to run
-the commands below and work on Node v12 for this build.
+the commands below and work on Node v18 for this build.
+
+You should also intall [bower](https://bower.io/).
+
+If you're using the [Nix Package](https://nixos.org/) manager there is a `shell.nix` file that will install all the requirements above in your shell by running `nix-shell`. It **will not** install NVM as you don't need it with Nix. The advantage of Nix is that it install nothing globally so you don't have version conflicts. The current shell you're using is the only one that has Node 18 or Bower.
+
+## Setup Build Process
 
 ```
-nvm use 12
+nvm use 18 (skip if you're using nix)
 # clones our proudcity-patterns repository and sets it up as the theme expects
 npm run-script projectsetup
 # build project
