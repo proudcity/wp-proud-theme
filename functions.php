@@ -2,30 +2,6 @@
 
 use Proud\Theme\Customizer;
 
-function empty_widget_area($sidebar_id = 'sidebar-job')
-{
-
-    $empty_sidebar = get_transient('empty_sidebar');
-
-    if (! $empty_sidebar) {
-        $sidebars_widgets = get_option('sidebars_widgets');
-
-        $sidebars_widgets['sidebar-job'] = [];
-
-        update_option('sidebars_widgets', $sidebars_widgets);
-
-        set_transient('empty_sidebar', true, DAY_IN_SECONDS);
-    }
-    /*
-        echo '<pre>after sidebar-widgets';
-        print_r($sidebars_widgets);
-        echo '</pre>';
-    */
-}
-
-add_action('wp_loaded', 'empty_widget_area');
-// Call the function with the widget area ID
-//empty_widget_area('sidebar-job');
 /**
 * Proud includes
 *
