@@ -2,16 +2,40 @@
 
 use Proud\Theme\Customizer;
 
+function empty_widget_area($sidebar_id = 'sidebar-job')
+{
+
+    $empty_sidebar = get_transient('empty_sidebar');
+
+    if (! $empty_sidebar) {
+        $sidebars_widgets = get_option('sidebars_widgets');
+
+        $sidebars_widgets['sidebar-job'] = [];
+
+        update_option('sidebars_widgets', $sidebars_widgets);
+
+        set_transient('empty_sidebar', true, DAY_IN_SECONDS);
+    }
+    /*
+        echo '<pre>after sidebar-widgets';
+        print_r($sidebars_widgets);
+        echo '</pre>';
+    */
+}
+
+add_action('wp_loaded', 'empty_widget_area');
+// Call the function with the widget area ID
+//empty_widget_area('sidebar-job');
 /**
- * Proud includes
- *
- * The $lib_includes array determines the code library included in your theme.
- * Add or remove files to the array as needed. Supports child theme overrides.
- *
- * Please note that missing files will produce a fatal error.
- *
- * @link https://github.com/roots/lib/pull/1042
- */
+* Proud includes
+*
+* The $lib_includes array determines the code library included in your theme.
+* Add or remove files to the array as needed. Supports child theme overrides.
+*
+* Please note that missing files will produce a fatal error.
+*
+* @link https://github.com/roots/lib/pull/1042
+*/
 $proud_includes = [
     'lib/assets.php',    // Scripts and stylesheets
     'lib/extras.php',    // Custom functions
@@ -30,7 +54,8 @@ foreach ($proud_includes as $file) {
 }
 unset($file, $filepath);
 
-function proud_customize_register($wp_customize) {
+function proud_customize_register($wp_customize)
+{
     // Settings
     $wp_customize->add_setting('color_topnav', array(
         'default' => '#000000',
@@ -68,12 +93,12 @@ function proud_customize_register($wp_customize) {
         'settings' => 'color_topnav',
     )));
     // Don't show topbar setting unless enabled
-    if (get_theme_mod( 'proud_topbar_enable', false )) {
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'color_nav_topbar', array(
-            'label'    => __( 'Topbar color', 'proud' ),
+    if (get_theme_mod('proud_topbar_enable', false)) {
+        $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_nav_topbar', array(
+            'label'    => __('Topbar color', 'proud'),
             'section'  => 'colors',
             'settings' => 'color_nav_topbar',
-        ) ) );
+        )));
     }
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_link', array(
         'label' => __('Link color', 'proud'),
@@ -152,32 +177,32 @@ function proud_customize_register($wp_customize) {
      * @author Curtis
      * @since 2023.006.26
      */
-		$wp_customize->add_control(
-			new \WP_Customize_Site_Icon_Control(
-				$wp_customize,
-				'site_icon',
-				array(
-					'label'       => __( 'Site Icon' ),
-					'description' => sprintf(
-						'<p>' . __( 'Site Icons, or <a href="https://help.proudcity.com/favicons-and-local-government-websites/" target="_blank">favicons</a>, are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps.' ) . '</p>' .
-						/* translators: %s: Site icon size in pixels. */
-						'<p>' . __( 'Site Icons should be square and at least %s pixels.' ) . '</p>',
-						'<strong>512 &times; 512</strong>'
-					),
-					'section'     => 'title_tagline',
-					'priority'    => 60,
-					'height'      => 512,
-					'width'       => 512,
-				)
-			)
-		);
+    $wp_customize->add_control(
+        new \WP_Customize_Site_Icon_Control(
+            $wp_customize,
+            'site_icon',
+            array(
+                'label'       => __('Site Icon'),
+                'description' => sprintf(
+                    '<p>' . __('Site Icons, or <a href="https://help.proudcity.com/favicons-and-local-government-websites/" target="_blank">favicons</a>, are what you see in browser tabs, bookmark bars, and within the WordPress mobile apps.') . '</p>' .
+                    /* translators: %s: Site icon size in pixels. */
+                    '<p>' . __('Site Icons should be square and at least %s pixels.') . '</p>',
+                    '<strong>512 &times; 512</strong>'
+                ),
+                'section'     => 'title_tagline',
+                'priority'    => 60,
+                'height'      => 512,
+                'width'       => 512,
+            )
+        )
+    );
 
 
     // Top bar
     $wp_customize->add_section(
         'proud_topbar',
         array(
-          'title'       => __( 'Top bar', 'proud' ),
+          'title'       => __('Top bar', 'proud'),
           //'description' => __( 'Enable the optional ProudCity Top Bar', 'proud' ),
           'priority'    => 20, //Determines what order this appears in
           'capability'  => 'edit_theme_options', //Capability needed to tweak
@@ -185,24 +210,24 @@ function proud_customize_register($wp_customize) {
     );
 
     // Fonts default lowercase for select keys
-    $wp_customize->add_setting( 'proud_topbar_enable' , array(
+    $wp_customize->add_setting('proud_topbar_enable', array(
         'default' => false,
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting( 'proud_topbar_logo' , array());
-    $wp_customize->add_setting( 'proud_topbar_title' , array(
+    $wp_customize->add_setting('proud_topbar_logo', array());
+    $wp_customize->add_setting('proud_topbar_title', array(
         'default' => '',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting( 'proud_topbar_link' , array(
+    $wp_customize->add_setting('proud_topbar_link', array(
         'default' => '',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting( 'proud_topbar_title_attr' , array(
+    $wp_customize->add_setting('proud_topbar_title_attr', array(
         'default' => 'Home',
         'transport' => 'refresh',
     ));
-    $wp_customize->add_setting( 'proud_topbar_action_icons' , array(
+    $wp_customize->add_setting('proud_topbar_action_icons', array(
         'default' => false,
         'transport' => 'refresh',
     ));
@@ -250,10 +275,10 @@ function proud_customize_register($wp_customize) {
         //'std' => '1'
     ));
 
-  // If we're customizing and in preview, alter some stuff
-  if ( $wp_customize->is_preview() && ! is_admin() ) {
-    add_action( 'wp_footer', 'proud_customize_preview', 21 );
-  }
+    // If we're customizing and in preview, alter some stuff
+    if ($wp_customize->is_preview() && ! is_admin()) {
+        add_action('wp_footer', 'proud_customize_preview', 21);
+    }
 
 
 
@@ -264,19 +289,19 @@ function proud_customize_register($wp_customize) {
     $wp_customize->add_section(
         'proud_fonts',
         array(
-            'title'       => __( 'Fonts', 'proud' ),
-            'description' => __( 'Controls fonts for the ProudCity themes.', 'proud' ),
+            'title'       => __('Fonts', 'proud'),
+            'description' => __('Controls fonts for the ProudCity themes.', 'proud'),
             'priority'    => 20, //Determines what order this appears in
             'capability'  => 'edit_theme_options', //Capability needed to tweak
         )
     );
 
     // Fonts default lowercase for select keys
-    $wp_customize->add_setting( 'proud_fonts_default' , array(
+    $wp_customize->add_setting('proud_fonts_default', array(
         'default' => 'Lato',
         'sanitize_callback' => 'Proud\Theme\Customizer\customize_sanitize_select',
     ));
-    $wp_customize->add_setting( 'proud_fonts_headings' , array(
+    $wp_customize->add_setting('proud_fonts_headings', array(
         'default' => 'Lato',
         'sanitize_callback' => 'Proud\Theme\Customizer\customize_sanitize_select',
     ));
@@ -289,7 +314,7 @@ function proud_customize_register($wp_customize) {
         'type' => 'select',
         'choices' => Customizer\customize_font_select(),
         'description' => __('Controls default font sitewide.', 'proud'),
-    ) );
+    ));
     // Heading font
     $wp_customize->add_control('proud_fonts_headings', array(
         'label' => __('Headings font', 'proud'),
@@ -298,21 +323,22 @@ function proud_customize_register($wp_customize) {
         'type' => 'select',
         'choices' => Customizer\customize_font_select(),
         'description' => __('Controls heading font (h1, h2, h3, h4, h5, h6) sitewide.', 'proud'),
-    ) );
+    ));
 
     // If we're customizing and in preview, alter some stuff
-    if ( $wp_customize->is_preview() && ! is_admin() ) {
-        add_action( 'wp_footer', 'proud_customize_preview', 21 );
+    if ($wp_customize->is_preview() && ! is_admin()) {
+        add_action('wp_footer', 'proud_customize_preview', 21);
     }
 
-//    var_dump($wp_customize->get_section('proud_fonts'));
+    //    var_dump($wp_customize->get_section('proud_fonts'));
 
 }
 
 add_action('customize_register', 'proud_customize_register');
 
 // Strip menus of all their css classes and change the active class to `active`
-function wp_nav_menu_attributes_filter($classes) {
+function wp_nav_menu_attributes_filter($classes)
+{
     $classes = is_array($classes) ? array_intersect($classes, array('current-menu-item')) : '';
     return count($classes) ? array('active') : array();
 }
@@ -322,7 +348,8 @@ add_filter('nav_menu_css_class', 'wp_nav_menu_attributes_filter', 100, 1);
 /**
  * Enqueue Goverment font styles
  */
-function proud_theme_add_gov_icon_styles() {
+function proud_theme_add_gov_icon_styles()
+{
     // Enqueue our css
     wp_register_style(
         'gov-icons/css',
@@ -337,7 +364,8 @@ add_action('admin_enqueue_scripts', 'proud_theme_add_gov_icon_styles');
 /**
  *  Adds additional goverment custom icons
  */
-function proud_theme_icon_picker_options($options) {
+function proud_theme_icon_picker_options($options)
+{
     $options['icons'] = [
         'gi-barcode',
         'gi-ruler',
@@ -471,20 +499,24 @@ add_filter('proud_form_icon_picker_options', 'proud_theme_icon_picker_options', 
  *  );
  * @todo: should this be in proud_core?
  */
-function submenu_limit($items, $args) {
-    if (empty($args->submenu))
+function submenu_limit($items, $args)
+{
+    if (empty($args->submenu)) {
         return $items;
+    }
     $parent_id = is_numeric($args->submenu) ? $args->submenu : array_pop(wp_filter_object_list($items, array('title' => $args->submenu), 'and', 'ID'));
     $children = submenu_get_children_ids($parent_id, $items);
     foreach ($items as $key => $item) {
 
-        if (!in_array($item->ID, $children))
+        if (!in_array($item->ID, $children)) {
             unset($items[$key]);
+        }
     }
     return $items;
 }
 
-function submenu_get_children_ids($id, $items) {
+function submenu_get_children_ids($id, $items)
+{
     $ids = wp_filter_object_list($items, array('menu_item_parent' => $id), 'and', 'ID');
 
     foreach ($ids as $id) {
@@ -504,7 +536,8 @@ add_filter('wp_nav_menu_objects', 'submenu_limit', 10, 2);
  *
  * @return  string
  */
-function adjust_brightness($hex, $adjustPercent) {
+function adjust_brightness($hex, $adjustPercent)
+{
     $hex = ltrim($hex, '#');
 
     if (strlen($hex) == 3) {
@@ -530,7 +563,8 @@ function adjust_brightness($hex, $adjustPercent) {
  *
  * @return array|null
  */
-function hex_to_rgb($hex) {
+function hex_to_rgb($hex)
+{
     preg_match('/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i', $hex, $result);
     return $result ? [
         'r' => intval($result[1], 16),
@@ -547,15 +581,16 @@ function hex_to_rgb($hex) {
  *
  * @return boolean
  */
-function get_color_lightness($hex, $rgb = []) {
+function get_color_lightness($hex, $rgb = [])
+{
 
     if (!$rgb) {
         $rgb = hex_to_rgb($hex);
     }
 
-    if ( empty( $rgb['r']) || empty( $rgb['g'] ) || empty( $rgb['b'] ) ){
+    if (empty($rgb['r']) || empty($rgb['g']) || empty($rgb['b'])) {
         $lightness = true;
-    } else{
+    } else {
         $lightness = round(((intval($rgb['r']) * 299) + (intval($rgb['g']) * 587) + (intval($rgb['b']) * 114)) / 1000);
     }
 
@@ -570,7 +605,8 @@ function get_color_lightness($hex, $rgb = []) {
  *
  * @return boolean
  */
-function is_light_color($hex, $rgb = []) {
+function is_light_color($hex, $rgb = [])
+{
     $o = get_color_lightness($hex, $rgb);
 
     return ($o > 135) ? true : false;
@@ -584,7 +620,8 @@ function is_light_color($hex, $rgb = []) {
  *
  * @return boolean
  */
-function is_extra_light_color($hex, $rgb = []) {
+function is_extra_light_color($hex, $rgb = [])
+{
     $o = get_color_lightness($hex, $rgb);
 
     return ($o > 190) ? true : false;
@@ -597,7 +634,8 @@ function is_extra_light_color($hex, $rgb = []) {
  *
  * @return string
  */
-function get_color_if_not_white($theme_mod) {
+function get_color_if_not_white($theme_mod)
+{
     // Get our background color.
     $color = get_theme_mod($theme_mod, '');
     if ($color) {
@@ -610,68 +648,69 @@ function get_color_if_not_white($theme_mod) {
     return $color;
 }
 
-function proud_customize_css() {
+function proud_customize_css()
+{
     // Set up navbar background, allow transparent alter
-    $navbar_background = get_theme_mod( 'color_topnav', '#000000' );
+    $navbar_background = get_theme_mod('color_topnav', '#000000');
 
     // See below
-    $header_rgb = hex_to_rgb( $navbar_background );
+    $header_rgb = hex_to_rgb($navbar_background);
     if (proud_navbar_transparent()) {
         $navbar_background_rga = implode(',', $header_rgb);
     }
 
     // Set up navbar topbar
-    $topbar_background = get_theme_mod( 'color_nav_topbar', get_theme_mod( 'color_topnav', '#000000' ) );
+    $topbar_background = get_theme_mod('color_nav_topbar', get_theme_mod('color_topnav', '#000000'));
 
-    $color_background = get_color_if_not_white( 'color_background' );
-    $background_image = get_theme_mod( 'background_image', '' );
+    $color_background = get_color_if_not_white('color_background');
+    $background_image = get_theme_mod('background_image', '');
 
     // Deal with links
-    $link_color = get_theme_mod( 'color_link', '#0071bc' );
-    if ( is_light_color( $link_color ) ) {
-        $link_color_hover = adjust_brightness( $link_color, -0.20 );
+    $link_color = get_theme_mod('color_link', '#0071bc');
+    if (is_light_color($link_color)) {
+        $link_color_hover = adjust_brightness($link_color, -0.20);
     } else {
-        $link_color_hover = adjust_brightness( $link_color, 0.20 );
+        $link_color_hover = adjust_brightness($link_color, 0.20);
     }
 
     // Primary/highlight
-    $color_primary = get_theme_mod( 'color_highlight', '#000000' );
-    $is_primary_light = is_light_color( $color_primary );
-    $is_primary_extra_light = is_extra_light_color( $color_primary );
-    if ( $is_primary_light ) {
-        $color_primary_hover = adjust_brightness(  $color_primary, -0.15 );
+    $color_primary = get_theme_mod('color_highlight', '#000000');
+    $is_primary_light = is_light_color($color_primary);
+    $is_primary_extra_light = is_extra_light_color($color_primary);
+    if ($is_primary_light) {
+        $color_primary_hover = adjust_brightness($color_primary, -0.15);
     } else {
-        $color_primary_hover = adjust_brightness(  $color_primary, 0.15 );
+        $color_primary_hover = adjust_brightness($color_primary, 0.15);
     }
-    $color_primary_rgb = hex_to_rgb(  $color_primary );
+    $color_primary_rgb = hex_to_rgb($color_primary);
 
     // Secondary links
-    $color_secondary = get_theme_mod('color_secondary', get_theme_mod( 'color_topnav', '#000000' ) );
-    $is_secondary_light = is_light_color( $color_secondary );
-    $is_secondary_extra_light = is_extra_light_color( $color_secondary );
-    if ( is_light_color( $is_secondary_light ) ) {
-        $color_secondary_hover = adjust_brightness( $color_secondary, -0.15 );
+    $color_secondary = get_theme_mod('color_secondary', get_theme_mod('color_topnav', '#000000'));
+    $is_secondary_light = is_light_color($color_secondary);
+    $is_secondary_extra_light = is_extra_light_color($color_secondary);
+    if (is_light_color($is_secondary_light)) {
+        $color_secondary_hover = adjust_brightness($color_secondary, -0.15);
     } else {
-        $color_secondary_hover = adjust_brightness( $color_secondary, 0.15 );
+        $color_secondary_hover = adjust_brightness($color_secondary, 0.15);
     }
-    $color_secondary_rgb = hex_to_rgb( $color_secondary );
+    $color_secondary_rgb = hex_to_rgb($color_secondary);
 
     // Get PROUD json scss variables
 
-    $manifestFile = dirname( __FILE__ ) . '/assets/' . 'manifest.json';
+    $manifestFile = dirname(__FILE__) . '/assets/' . 'manifest.json';
     $subManifestFile = get_template_directory() . '/assets/' . 'manifest.json';
 
-    $manifestHelper = new \Proud\Theme\Assets\JsonManifest( $manifestFile );
+    $manifestHelper = new \Proud\Theme\Assets\JsonManifest($manifestFile);
 
     $proudSCSS = $manifestHelper->get()['config']['proudSCSS'];
 
     // Have a child theme
-    if ( $manifestFile !== $subManifestFile ) {
-        $subManifestHelper = new \Proud\Theme\Assets\JsonManifest( $subManifestFile );
+    if ($manifestFile !== $subManifestFile) {
+        $subManifestHelper = new \Proud\Theme\Assets\JsonManifest($subManifestFile);
         $subManifest = $subManifestHelper->get();
 
         // Have child css settings, so add them
-        if ( !empty( $subManifest['config']['proudSCSS']['nav-fixed-top-min'] ) ) {
+        if (!empty($subManifest['config']['proudSCSS']['nav-fixed-top-min'])) {
             $proudSCSS = $subManifest['config']['proudSCSS'];
         }
     }
@@ -723,7 +762,7 @@ function proud_customize_css() {
             border-color: <?php echo $topbar_background ?> !important;
         }
 
-        <?php if( proud_navbar_transparent() ): ?>
+        <?php if(proud_navbar_transparent()): ?>
         .jumbotron-inverse .jumbotron-bg {
             background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
             border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
@@ -744,14 +783,14 @@ function proud_customize_css() {
             }
         }
 
-        <?php elseif ( $navbar_background == '#FFFFFF' || $navbar_background == '#ffffff' ): ?>
+        <?php elseif ($navbar_background == '#FFFFFF' || $navbar_background == '#ffffff'): ?>
         .navbar.navbar-external {
             border-bottom: 1px solid #eeeeee !important;
         }
         <?php endif; ?>
 
         /** Active navbar items **/
-        <?php // @TODO switch to scss? ?>
+        <?php // @TODO switch to scss??>
         @media screen and (min-width: <?php echo $proudSCSS['nav-fixed-bottom-min'] ?>) {
           .navbar-external .below .navbar-nav > .active > a,
           .navbar-external .below .navbar-nav > .active > a:hover,
@@ -864,11 +903,11 @@ function proud_customize_css() {
         }
 
         .footer-actions {
-            background-color: <?php echo get_theme_mod( 'color_footer_actions', '#FFFFFF' ); ?>;
+            background-color: <?php echo get_theme_mod('color_footer_actions', '#FFFFFF'); ?>;
         }
 
         .page-footer, .powered-by-footer {
-            background-color: <?php echo get_theme_mod( 'color_footer', '#333333' ); ?>;
+            background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
         }
 
         <?php Customizer\customize_font_default_css(); ?>
@@ -884,15 +923,16 @@ add_action('wp_head', 'proud_customize_css');
 /**
  * Called by preview
  */
-function proud_customize_preview() {
-  ?>
+function proud_customize_preview()
+{
+    ?>
   <script>
     jQuery("#external-fonts-css, #public-sans-font-css").remove();
-    <?php Customizer\customize_font_uris( function ( $uri, $handle ) {
-      echo "jQuery('head').append(";
-      echo "  \"<link id='$handle-css' href='$uri' rel='stylesheet' type='text/css' media='all' />\"";
-      echo ");";
-    } ); ?>
+    <?php Customizer\customize_font_uris(function ($uri, $handle) {
+        echo "jQuery('head').append(";
+        echo "  \"<link id='$handle-css' href='$uri' rel='stylesheet' type='text/css' media='all' />\"";
+        echo ");";
+    }); ?>
   </script>
   <?php
 }
