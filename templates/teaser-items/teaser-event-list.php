@@ -1,6 +1,7 @@
 <div <?php post_class("teaser"); ?>><!-- template-file: teaser-event-list.php -->
 <?php
-global $EM_Event;
+  global $EM_Event;
+
 // Date formats
 $datebox_format = 'M \<\s\p\a\n \c\l\a\s\s=\"\d\a\t\e\-\b\i\g\"\>j\<\/\s\p\a\n\> Y';
 $atc_format = 'Y-m-d H:i:s';
@@ -32,6 +33,7 @@ $EM_end = new \EM_DateTime($end);
 $datetime = new DateTime();
 
 $time = __("All day", 'proud-core');
+
 if ($start && !empty($meta['_event_start_time']) && $meta['_event_start_time'][0] != "00:00:00") {
     $time = $EM_start->i18n('g:ia');
 }
@@ -39,6 +41,7 @@ if ($end && $start !== $end && !empty($meta['_event_end_time']) && $meta['_event
     $time .= ' - ' . $EM_end->i18n('g:ia');
 }
 ?>
+
 <div class="row">
   <?php the_title(sprintf('<h3 class="h4 entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h3>'); ?>
   <div class="col-xs-3 col-md-2">

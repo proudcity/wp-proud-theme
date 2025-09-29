@@ -27,7 +27,8 @@ use Proud\Core;
                 ),
                 true
             );
-        ?>
+?>
+
         <div class="row"><!-- template-file: templates/teasers.php -->
             <div class="col-md-3 padding-md-right">
                 <div class="views-exposed-form">
