@@ -64,86 +64,97 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 /**
 * Register sidebars
 */
-function widgets_init() {
+function widgets_init()
+{
 
-register_sidebar([
-'name'          => __('Footer actions', 'proud'),
-'id'            => 'footer-actions',
-'before_widget' => '<li class="dropdown %1$s %2$s">',
-'after_widget'  => '</li>',
-'before_title'  => '<h2 class="h4">',
-'after_title'   => '</h2>',
-'description'   => __('Widgets placed in this are displayed in a nav bar', 'proud')
-]);
+    register_sidebar(
+        [
+            'name'          => __('Footer actions', 'proud'),
+            'id'            => 'footer-actions',
+            'before_widget' => '<li class="dropdown %1$s %2$s">',
+            'after_widget'  => '</li>',
+            'before_title'  => '<h2 class="h4">',
+            'after_title'   => '</h2>',
+            'description'   => __('Widgets placed in this are displayed in a nav bar', 'proud')
+        ]
+    );
 
-register_sidebar([
-'name'          => __('Footer', 'proud'),
-'id'            => 'sidebar-footer',
-'before_widget' => '<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-both-half %1$s %2$s">',
-'after_widget'  => '</div>',
-'before_title'  => '<h2 class="h4 pane-tile">',
-'after_title'   => '</h2>'
-]);
+    register_sidebar(
+        [
+          'name'          => __('Footer', 'proud'),
+          'id'            => 'sidebar-footer',
+          'before_widget' => '<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-both-half %1$s %2$s">',
+          'after_widget'  => '</div>',
+          'before_title'  => '<h2 class="h4 pane-tile">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
-register_sidebar([
-'name'          => __('Standard sidebar', 'proud'),
-'id'            => 'sidebar-primary',
-'before_widget' => '<section class="widget %1$s %2$s">',
-'after_widget'  => '</section>',
-'before_title'  => '<h2 class="h3">',
-'after_title'   => '</h2>'
-]);
+    register_sidebar(
+        [
+          'name'          => __('Standard sidebar', 'proud'),
+          'id'            => 'sidebar-primary',
+          'before_widget' => '<section class="widget %1$s %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="h3">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
-register_sidebar([
-'name'          => __('News sidebar', 'proud'),
-'id'            => 'sidebar-news',
-'before_widget' => '<section class="widget %1$s %2$s">',
-'after_widget'  => '</section>',
-'before_title'  => '<h2 class="h3">',
-'after_title'   => '</h2>'
-]);
+    register_sidebar(
+        [
+          'name'          => __('News sidebar', 'proud'),
+          'id'            => 'sidebar-news',
+          'before_widget' => '<section class="widget %1$s %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="h3">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
-register_sidebar([
-'name'          => __('Location sidebar', 'proud'),
-'id'            => 'sidebar-location',
-'before_widget' => '<section class="widget %1$s %2$s">',
-'after_widget'  => '</section>',
-'before_title'  => '<h2 class="h3">',
-'after_title'   => '</h2>'
-]);
+    register_sidebar(
+        [
+          'name'          => __('Location sidebar', 'proud'),
+          'id'            => 'sidebar-location',
+          'before_widget' => '<section class="widget %1$s %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="h3">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
-//@todo: if (is_plugin_active( 'wp-agency' )) {die();
-register_sidebar([
-'name'          => __('Agency sidebar', 'proud'),
-'id'            => 'sidebar-agency',
-'before_widget' => '<section class="widget %1$s %2$s">',
-'after_widget'  => '</section>',
-'before_title'  => '<h2 class="h3">',
-'after_title'   => '</h2>'
-]);
-//}
+    register_sidebar(
+        [
+          'name'          => __('Agency sidebar', 'proud'),
+          'id'            => 'sidebar-agency',
+          'before_widget' => '<section class="widget %1$s %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="h3">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
-//@todo: if (post_type_exists( 'event' )) {
-register_sidebar([
-'name'          => __('Event sidebar', 'proud'),
-'id'            => 'sidebar-event',
-'before_widget' => '<section class="widget %1$s %2$s">',
-'after_widget'  => '</section>',
-'before_title'  => '<h2 class="h3">',
-'after_title'   => '</h2>'
-]);
-//}
+    register_sidebar(
+        [
+          'name'          => __('Event sidebar', 'proud'),
+          'id'            => 'sidebar-event',
+          'before_widget' => '<section class="widget %1$s %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="h3">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
-//@todo: if (post_type_exists( 'job_listing' )) {
-register_sidebar([
-'name'          => __('Job sidebar', 'proud'),
-'id'            => 'sidebar-job',
-'before_widget' => '<section class="widget %1$s %2$s">',
-'after_widget'  => '</section>',
-'before_title'  => '<h2 class="h3">',
-'after_title'   => '</h2>'
-]);
-//}
+    register_sidebar(
+        [
+          'name'          => __('Job sidebar', 'proud'),
+          'id'            => 'sidebar-job',
+          'before_widget' => '<section class="widget %1$s %2$s">',
+          'after_widget'  => '</section>',
+          'before_title'  => '<h2 class="h3">',
+          'after_title'   => '</h2>'
+        ]
+    );
 
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
