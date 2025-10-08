@@ -152,36 +152,67 @@ function assets() {
 
     $version = wp_get_theme('wp-proud-theme')->get('Version');
 
-    if ( wp_get_environment_type() == 'local' ){
+    // load regular scripts and styles if local or debug is on
+    if (wp_get_environment_type() == 'local' || (defined(WP_DEBUG) && WP_DEBUG === true)) {
       $version = time();
-    }
 
-    // enqueue for all env_types
-    wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, esc_attr( $version ) );
-    wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, esc_attr( $version ) );
+      // enqueue for all env_types
+      wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, esc_attr( $version ) );
+      wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, esc_attr( $version ) );
 
-    //IE9
-    wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'], esc_attr( $version ) );
-    $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
-    if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
-      wp_enqueue_script( 'comment-reply' );
-    }
-    // Icons
-    proud_theme_add_gov_icon_styles();
+      //IE9
+      wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'], esc_attr( $version ) );
+      $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
+      if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+      }
+      // Icons
+      proud_theme_add_gov_icon_styles();
 
-    // Add moderizer support
-    wp_enqueue_script( 'proud/js/modernizr',
-      Assets\asset_path( 'scripts/modernizr.js' ),
-      array(),
-      esc_attr( $version )
-    );
+      // Add moderizer support
+      wp_enqueue_script( 'proud/js/modernizr',
+        Assets\asset_path( 'scripts/modernizr.js' ),
+        array(),
+        esc_attr( $version )
+      );
 
-    wp_enqueue_script( 'proud/js', Assets\asset_path( 'scripts/main.js' ), ['jquery'], esc_attr( $version ), true );
-    wp_enqueue_script( 'bootstrap', Assets\asset_path( 'scripts/bootstrap.js' ), ['jquery'], esc_attr( $version ), true );
+      wp_enqueue_script( 'proud/js', Assets\asset_path( 'scripts/main.js' ), ['jquery'], esc_attr( $version ), true );
+      wp_enqueue_script( 'bootstrap', Assets\asset_path( 'scripts/bootstrap.js' ), ['jquery'], esc_attr( $version ), true );
 
-    // add to calendar, we use wp_enqueue_script on the widgets that need the scriptw
-    //wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb/atcb-init.js'), '', '2.6.8', true );
-    wp_register_script( 'atcb',  'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2', '', '', true );
+      // add to calendar, we use wp_enqueue_script on the widgets that need the scriptw
+      //wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb/atcb-init.js'), '', '2.6.8', true );
+      wp_register_script('atcb',  'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2', '', '', true);
+
+    } else {
+
+      // enqueue for all env_types
+      wp_enqueue_style( 'proud-vendor/css', Assets\asset_path( 'styles/proud-vendor.css' ), false, esc_attr( $version ) );
+      wp_enqueue_style( 'proud/css', Assets\asset_path( 'styles/proud.css' ), false, esc_attr( $version ) );
+
+      //IE9
+      wp_enqueue_style( 'proud/ie9-and-below', Assets\asset_path( 'styles/ie9-and-below.css' ), ['proud/css'], esc_attr( $version ) );
+      $wp_styles->add_data( 'proud/ie9-and-below', 'conditional', 'lte IE 9' );
+      if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+      }
+      // Icons
+      proud_theme_add_gov_icon_styles();
+
+      // Add moderizer support
+      wp_enqueue_script( 'proud/js/modernizr',
+        Assets\asset_path( 'scripts/modernizr.min.js' ),
+        array(),
+        esc_attr( $version )
+      );
+
+      wp_enqueue_script( 'proud/js', Assets\asset_path( 'scripts/main.min.js' ), ['jquery'], esc_attr( $version ), true );
+      wp_enqueue_script( 'bootstrap', Assets\asset_path( 'scripts/bootstrap.min.js' ), ['jquery'], esc_attr( $version ), true );
+
+      // add to calendar, we use wp_enqueue_script on the widgets that need the scriptw
+      //wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb/atcb-init.js'), '', '2.6.8', true );
+      wp_register_script( 'atcb',  'https://cdn.jsdelivr.net/npm/add-to-calendar-button@2', '', '', true );
+
+ } // if env local
 
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100 );
