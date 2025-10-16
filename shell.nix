@@ -6,7 +6,6 @@ in
 pkgs.mkShellNoCC {
 	packages = with pkgs; [
     nodePackages_latest.bower
-    nodePackages_latest.npm
     nodejs_18
 ];
 }
