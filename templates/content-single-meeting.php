@@ -193,11 +193,14 @@ function printDocumentInfo($params){
 
     </div>
   </div>
-  <?php
-    if (isset(get_option('meetings_time_display')) && 'on' === get_option('meetings_settings_group')){
-      echo 'time display';
-    }
-  ?>
+
+  <?php if ('on' === get_option('meetings_time_display')) { ?>
+    <div class="meeting-published-modified-date">
+      <p class="text-muted" id="published-date">Published on: <?php echo the_time('M d g:ia'); ?></p>
+      <p class="text-muted" id="published-date">Modified on: <?php echo the_modified_date('M d g:ia'); ?></p>
+    </div>
+  <?php } ?>
+
 <?php $hasActive = false; ?>
 <ul class="nav nav-tabs" style="margin-top:10px;">
     <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li><?php endif; ?>
