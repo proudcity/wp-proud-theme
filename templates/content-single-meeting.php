@@ -11,7 +11,7 @@ $timezone = get_option('timezone_string');
 $id = get_the_ID();
 $datetime = new DateTime(get_post_meta($id, 'datetime', true));
 $is_upcoming = $datetime > new DateTime();
-$location_id = get_post_meta( absint( $id ) , 'location', true);
+$location_id = get_post_meta(absint($id), 'location', true);
 if (!empty($location_id)) {
   $obj_location = get_post( absint( $location_id ));
   $location_meta = get_post_meta( absint( $location_id ) );
@@ -192,8 +192,12 @@ function printDocumentInfo($params){
         </ul>
 
     </div>
-</div>
-
+  </div>
+  <?php
+    if (isset(get_option('meetings_time_display')) && 'on' === get_option('meetings_settings_group')){
+      echo 'time display';
+    }
+  ?>
 <?php $hasActive = false; ?>
 <ul class="nav nav-tabs" style="margin-top:10px;">
     <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if(!$hasActive) { echo 'class="active"'; $hasActive = true; } ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li><?php endif; ?>
