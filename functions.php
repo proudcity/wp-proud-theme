@@ -736,7 +736,10 @@ function proud_customize_css()
 
         .navbar-topbar.navbar.navbar-default {
             border-color: <?php echo $topbar_background ?> !important;
-        }
+      }
+
+      .main .text-card a h2{color:<?php echo $link_color; ?>;}
+      .main .text-card a:hover .card{background-color:<?php echo $link_color; ?>;}
 
         <?php if(proud_navbar_transparent()): ?>
         .jumbotron-inverse .jumbotron-bg {
