@@ -6,6 +6,7 @@
     "/dist/styles/ie9-and-below.css": "/dist/styles/ie9-and-below.css",
     "/dist/styles/editor.css": "/dist/styles/editor.css",
     "/dist/styles/proud-vendor.css": "/dist/styles/proud-vendor.css",
+    "/dist/styles/proud.css": "/dist/styles/proud.css",
     "/dist/fonts/govicons-master/README.md": "/dist/fonts/govicons-master/README.md",
     "/dist/fonts/govicons-master/bower.json": "/dist/fonts/govicons-master/bower.json",
     "/dist/fonts/govicons-master/css/govicons.css": "/dist/fonts/govicons-master/css/govicons.css",
@@ -127,6 +128,5 @@
     "/dist/scripts/customizer.min.js": "/dist/scripts/customizer.min.js",
     "/dist/scripts/main.min.js": "/dist/scripts/main.min.js",
     "/dist/scripts/modernizr.min.js": "/dist/scripts/modernizr.min.js",
-    "/dist/scripts/bootstrap.min.js": "/dist/scripts/bootstrap.min.js",
-    "/dist/styles/proud.css": "/dist/styles/proud.css"
+    "/dist/scripts/bootstrap.min.js": "/dist/scripts/bootstrap.min.js"
 }
