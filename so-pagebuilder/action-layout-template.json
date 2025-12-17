@@ -1,0 +1,345 @@
+{
+  "widgets": [
+    {
+      "so_sidebar_emulator_id": "pagetitle-519710000",
+      "option_name": "widget_pagetitle",
+      "panels_info": {
+        "class": "PageTitle",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 0,
+        "widget_id": "3c7e29c1-fd9a-4283-8a2f-aaf464e61bcd",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "",
+      "text": "<p>Start with a sentence or 2 about what they will do or get. This should help people determine if this is what they need. 155 characters (including spaces) max.</p>\n<p>This will be used:</p>\n<ul>\n<li>Top of the page</li>\n<li>Text card description</li>\n<li>Meta description</li>\n</ul>\n<p>Include different keywords from the page title, if possible. You also may want to use the program name, if that makes sense.</p>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "6970855346811f94655141647196365",
+      "_sow_form_timestamp": 1762257159225,
+      "so_sidebar_emulator_id": "sow-editor-519710001",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 1,
+        "widget_id": "d67e7293-8786-41e4-a0a8-db3f3e69a479",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "Need to know",
+      "text": "<p>Use bullets and keep them concise.</p>\n<p>Highlight key information people should know upfront, like:</p>\n<ul>\n<li>Cost</li>\n<li>How long it takes to do</li>\n<li>Key eligibility criteria</li>\n<li>Penalties</li>\n</ul>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "19728063386811f9586699c264448973",
+      "_sow_form_timestamp": 1746008612952,
+      "so_sidebar_emulator_id": "sow-editor-519710002",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 2,
+        "widget_id": "e3388c9e-8231-4eab-86c7-b96bda77a30f",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "Before you start",
+      "text": "<p>Use this section to describe what they should know or do before they start the action.</p>\n<p>This can include:</p>\n<ul>\n<li>Reading another page with background information</li>\n<li>Complete another action in advance</li>\n<li>Gathering information</li>\n</ul>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "99527536811f94ce632c940798056",
+      "_sow_form_timestamp": 1746008535892,
+      "so_sidebar_emulator_id": "sow-editor-519710003",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 3,
+        "widget_id": "734657d7-bcee-412f-8b33-8c6488faa7c4",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "Steps",
+      "text": "<p>Break the action into clear, numbered steps so it’s easy to follow. If there are different ways of completing a task (online, in person, by phone) break them into separate sections.</p>\n<p>You might use a button or a link in this section to take them to a specific form.</p>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "3845937036811f94a54229991598588",
+      "_sow_form_timestamp": 1746008578287,
+      "so_sidebar_emulator_id": "sow-editor-519710004",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 4,
+        "widget_id": "81949f13-5dd2-423a-87a7-64f8fd03a6b4",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "",
+      "text": "<h3>1. Do the first thing</h3>\n<p>Describe how to do the first thing.</p>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "214027791168f12009f31ae056324387",
+      "_sow_form_timestamp": 1760633014030,
+      "so_sidebar_emulator_id": "sow-editor-519710005",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 5,
+        "widget_id": "88e21b59-e831-4fc6-b67c-df5a48c48809",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "",
+      "classname": "card-inverse",
+      "iconset": [
+        {
+          "link_title": "Call to action [optional]",
+          "link_url": "#",
+          "fa_icon": "",
+          "external": 0,
+          "weight": 0
+        }
+      ],
+      "so_sidebar_emulator_id": "proud_icon_set-519710006",
+      "option_name": "widget_proud_icon_set",
+      "panels_info": {
+        "class": "IconSet",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 6,
+        "widget_id": "35c8a8fc-9611-4ab8-9420-9dd006491972",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "",
+      "text": "<h3>2. Do the next thing</h3>\n<p>Describe how to do the next thing.</p>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "67901425668f12048d5c7c226161290",
+      "_sow_form_timestamp": 1760633027111,
+      "so_sidebar_emulator_id": "sow-editor-519710007",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 7,
+        "widget_id": "ee5f5fb9-f0b9-4231-ac08-647bcc7cf670",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "",
+      "text": "<h3>3. Do the next thing</h3>\n<p>Describe how to do the next thing.</p>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "178416730168f12063c7490755185711",
+      "_sow_form_timestamp": 1760633040709,
+      "so_sidebar_emulator_id": "sow-editor-519710008",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 8,
+        "widget_id": "49caa358-237f-43fe-a220-a7c1efa98bd6",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "What's next",
+      "text": "<p>Let people know what will happen after they complete this action. This helps set expectations and answer questions people usually have after they do something. The goal is to increase their confidence in the overall process and reduce follow-up questions.</p>\n<p>Key information to include:</p>\n<ul>\n<li>What you will do</li>\n<li>How long it will take</li>\n<li>What they should do next</li>\n</ul>",
+      "text_selected_editor": "tinymce",
+      "autop": 1,
+      "_sow_form_id": "18422131766811f9e24495d947976628",
+      "_sow_form_timestamp": 1746008729165,
+      "so_sidebar_emulator_id": "sow-editor-519710009",
+      "option_name": "widget_sow-editor",
+      "panels_info": {
+        "class": "SiteOrigin_Widget_Editor_Widget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 9,
+        "widget_id": "dfbf5bf9-c7a1-4c41-b3f4-abe8ac07c3ac",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "Get help",
+      "name": "",
+      "name_title": "",
+      "name_link": "",
+      "email": "email",
+      "phone": "phone",
+      "fax": "",
+      "sms": "",
+      "address": "",
+      "hours": "",
+      "social_facebook": "",
+      "social_twitter": "",
+      "social_x": "",
+      "social_instagram": "",
+      "social_youtube": "",
+      "social_rss": "",
+      "social_ical": "",
+      "social_nextdoor": "",
+      "social_tiktok": "",
+      "social_snapchat": "",
+      "so_sidebar_emulator_id": "custom_contact-519710010",
+      "option_name": "widget_custom_contact",
+      "panels_info": {
+        "class": "CustomContact",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 10,
+        "widget_id": "7c52004a-70a4-490d-b3b6-8b4fff7b7b03",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    },
+    {
+      "title": "Related (optional)",
+      "across": 2,
+      "textset": [
+        {
+          "text_title": "Page title",
+          "link_url": "#",
+          "text": "Description",
+          "weight": 0
+        },
+        {
+          "text_title": "Page title",
+          "link_url": "#",
+          "text": "Description",
+          "weight": 1
+        }
+      ],
+      "so_sidebar_emulator_id": "proud_text_card_widget-519710011",
+      "option_name": "widget_proud_text_card_widget",
+      "panels_info": {
+        "class": "TextCardWidget",
+        "raw": "",
+        "grid": 0,
+        "cell": 0,
+        "id": 11,
+        "widget_id": "af5f2853-9e19-488a-b9f2-1aa4122c99f2",
+        "style": {
+          "background_image_attachment": "",
+          "background_display": "tile",
+          "background_image_size": "full",
+          "background_image_opacity": 100,
+          "border_thickness": "1px"
+        }
+      }
+    }
+  ],
+  "grids": [
+    {
+      "cells": 1,
+      "style": {}
+    }
+  ],
+  "grid_cells": [
+    {
+      "grid": 0,
+      "index": 0,
+      "weight": 1,
+      "style": {}
+    }
+  ],
+  "name": "Action layout template",
+  "description": "Page template that helps someone do something with steps",
+  "screenshot": "/wp-content/themes/wp-proud-theme/so-pagebuilder/action-layout-template.png",
+  "id": "action-layout-template"
+}
