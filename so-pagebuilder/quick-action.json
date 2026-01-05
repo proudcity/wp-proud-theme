@@ -1,3 +1,4 @@
+
 {
   "widgets": [
     {
@@ -6,7 +7,7 @@
       "panels_info": {
         "class": "PageTitle",
         "raw": false,
-        "grid": 1,
+        "grid": 0,
         "cell": 0,
         "id": 0,
         "widget_id": "2adfb0e3-4d90-4a72-8b5f-00d6ccc3cdd1",
@@ -242,7 +243,8 @@
     }
   ],
   "name": "Quick action",
-  "description": "Page template that helps someone do something",
+  "description": "Page template that helps someone do something with steps",
   "screenshot": "/wp-content/themes/wp-proud-theme/so-pagebuilder/quick-action.png",
   "id": "quick-action"
 }
+
