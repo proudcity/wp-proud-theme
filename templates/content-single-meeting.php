@@ -202,7 +202,7 @@ function printDocumentInfo($params)
 if ('on' === get_option('meetings_time_display')) { ?>
   <div class="meeting-published-modified-date">
     <p class="text-muted" id="published-date">Published on: <?php echo esc_html(get_the_time('F d, Y \a\t g:ia')); ?></p>
-    <p class="text-muted" id="published-date">Last modified: <?php echo esc_html(get_the_modified_date('F d, Y \a\t g:ia')); ?></p>
+    <p class="text-muted" id="modified-date">Last modified: <?php echo esc_html(get_the_modified_date('F d, Y \a\t g:ia')); ?></p>
   </div>
 <?php } ?>
 
@@ -213,37 +213,54 @@ if ('on' === get_option('advanced_meetings_time_display')) {
 ?>
   <div class="meeting-published-modified-date">
     <p class="text-muted" id="published-date">Published on: <?php echo esc_html(get_the_time('F d, Y \a\t g:ia')); ?></p>
-    <p class="text-muted" id="published-date">Last modified: <?php echo esc_html(wp_date('F d, Y \a\t g:ia', $modified_time)); ?></p>
+    <p class="text-muted" id="modified-date">Last modified: <?php echo esc_html(wp_date('F d, Y \a\t g:ia', $modified_time)); ?></p>
   </div>
 <?php } ?>
 
 <?php $hasActive = false; ?>
 <ul class="nav nav-tabs" style="margin-top:10px;">
-  <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?><li <?php if (!$hasActive) {
-                                                                        echo 'class="active"';
-                                                                        $hasActive = true;
-                                                                      } ?>><a data-toggle="tab" href="#tab-agenda">Agenda</a></li><?php endif; ?>
-  <?php if (!empty($agenda_packet) || !empty($attachments['agenda_packet'])): ?><li <?php if (!$hasActive) {
-                                                                                      echo 'class="active"';
-                                                                                      $hasActive = true;
-                                                                                    } ?>><a data-toggle="tab" href="#tab-agenda-packet">Agenda Packet</a></li><?php endif; ?>
-  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?><li <?php if (!$hasActive) {
-                                                                                              echo 'class="active"';
-                                                                                              $hasActive = true;
-                                                                                            } ?>><a data-toggle="tab" href="#tab-minutes">Minutes</a></li><?php endif; ?>
-  <?php if (empty($videoStyle) && !empty($video)): ?><li <?php if (!$hasActive) {
-                                                            echo 'class="active"';
-                                                            $hasActive = true;
-                                                          } ?>><a data-toggle="tab" href="#tab-video">Video</a></li><?php endif; ?>
-  <?php if ($videoStyle === 'external' && !empty($externalVideo)): ?><li><a href="<?php echo $externalVideo ?>" target="_blank" title="View video on external website">Video <i aria-hidden="true" class="fa fa-external-link"></i></a></li><?php endif; ?>
-  <?php if (!empty($audio)): ?><li <?php if (!$hasActive) {
-                                      echo 'class="active"';
-                                      $hasActive = true;
-                                    } ?>><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
-  <?php if (!empty($agency)): ?><li <?php if (!$hasActive) {
-                                      echo 'class="active"';
-                                      $hasActive = true;
-                                    } ?>><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
+  <?php if (!empty($agenda) || !empty($attachments['agenda'])): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>>
+      <a data-toggle="tab" href="#tab-agenda">Agenda</a>
+    </li><?php endif; ?>
+  <?php if (!empty($agenda_packet) || !empty($attachments['agenda_packet'])): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>>
+      <a data-toggle="tab" href="#tab-agenda-packet">Agenda Packet</a>
+    </li><?php endif; ?>
+  <?php if (!$is_upcoming && (!empty($minutes) || !empty($attachments['minutes']))): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>>
+      <a data-toggle="tab" href="#tab-minutes">Minutes</a>
+    </li><?php endif; ?>
+  <?php if (empty($videoStyle) && !empty($video)): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>>
+      <a data-toggle="tab" href="#tab-video">Video</a>
+    </li><?php endif; ?>
+  <?php if ($videoStyle === 'external' && !empty($externalVideo)): ?>
+    <li>
+      <a href="<?php echo $externalVideo ?>" target="_blank" title="View video on external website">Video <i aria-hidden="true" class="fa fa-external-link"></i></a>
+    </li><?php endif; ?>
+  <?php if (!empty($audio)): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>><a data-toggle="tab" href="#tab-audio">Audio</a></li><?php endif; ?>
+  <?php if (!empty($agency)): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
 </ul>
 
 <?php $hasActive = false; ?>
