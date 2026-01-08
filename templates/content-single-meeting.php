@@ -210,6 +210,9 @@ if ('on' === get_option('meetings_time_display')) { ?>
 // this will count a new modified date if the Agenda, Agenda Packet, or Meeting Minutes is updated
 if ('on' === get_option('advanced_meetings_time_display')) {
   $modified_time = (int) get_post_meta(get_the_ID(), '_proud_meeting_modified', true);
+  if ($modified_time == 0) {
+    $modified_time = get_the_modified_date('U', get_the_ID());
+  }
 ?>
   <div class="meeting-published-modified-date">
     <p class="text-muted" id="published-date">Published on: <?php echo esc_html(get_the_time('F d, Y \a\t g:ia')); ?></p>
