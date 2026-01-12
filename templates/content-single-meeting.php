@@ -276,6 +276,17 @@ if ('on' === get_option('advanced_meetings_time_display')) {
                                               } ?>">
 
       <div class="row">
+        <div class="col-md-9" style="padding-top:10px;">
+          <?php
+          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+            echo \Proud\Meeting\proud_meeting_advanced_updates(
+              get_the_ID(),
+              '_proud_meeting_agenda_modified'
+            );
+          }
+          ?>
+        </div>
+
         <div class="col-md-9" style="padding-top:10px;"><?php echo apply_filters('the_content', $agenda); ?></div>
         <?php if (isset($attachments['agenda']) && ! empty($attachments['agenda'])) { ?>
           <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if (strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
@@ -299,10 +310,22 @@ if ('on' === get_option('advanced_meetings_time_display')) {
                                                       } ?>">
 
       <div class="row">
+        <div class="col-md-9" style="padding-top:10px;">
+          <?php
+          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+            echo \Proud\Meeting\proud_meeting_advanced_updates(
+              get_the_ID(),
+              '_proud_meeting_agenda_packet_modified'
+            );
+          }
+          ?>
+        </div>
         <div class="col-md-9" style="padding-top:10px;"><?php echo apply_filters('the_content', $agenda_packet); ?></div>
 
         <?php if (isset($attachments['agenda_packet']) && ! empty($attachments['agenda_packet'])) { ?>
-          <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if (strlen($agenda_packet > 1000)): ?><?php echo printDocumentInfo($attachments['agenda_packet']); ?><?php endif; ?></div>
+          <div class="col-md-3 col-sm-hidden" style="padding-top:10px;">
+            <?php if (strlen($agenda_packet > 1000)): ?><?php echo printDocumentInfo($attachments['agenda_packet']); ?><?php endif; ?>
+          </div>
         <?php } // isset $attachments['agenda_packet']
         ?>
       </div>
@@ -324,6 +347,17 @@ if ('on' === get_option('advanced_meetings_time_display')) {
                                                 } ?>">
       <?php if (!empty($minutes)): ?>
         <div class="row">
+          <div class="col-md-9" style="padding-top:10px;">
+            <?php
+            if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+              echo \Proud\Meeting\proud_meeting_advanced_updates(
+                get_the_ID(),
+                '_proud_meeting_minutes_modified'
+              );
+            }
+            ?>
+          </div>
+
           <div class="col-md-9" style="padding-top:10px;"><?php echo apply_filters('the_content', $minutes); ?></div>
           <?php if (isset($attachments['minutes']) && ! empty($attachments['minutes'])) { ?>
             <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
