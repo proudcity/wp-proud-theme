@@ -422,43 +422,45 @@ if ('on' === get_option('meetings_time_display')) { ?>
           ?>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>Agenda Packet Modification Logs</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <?php
+          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+            echo \Proud\Meeting\proud_meeting_advanced_updates(
+              get_the_ID(),
+              '_proud_meeting_agenda_packet_modified'
+            );
+          }
+          ?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>Meeting Minutes Modification Logs</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <?php
+          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+            echo \Proud\Meeting\proud_meeting_advanced_updates(
+              get_the_ID(),
+              '_proud_meeting_minutes_modified'
+            );
+          }
+          ?>
+        </div>
+      </div>
+
     </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Agenda Packet Modification Logs</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <?php
-        if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
-          echo \Proud\Meeting\proud_meeting_advanced_updates(
-            get_the_ID(),
-            '_proud_meeting_agenda_packet_modified'
-          );
-        }
-        ?>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Meeting Minutes Modification Logs</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <?php
-        if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
-          echo \Proud\Meeting\proud_meeting_advanced_updates(
-            get_the_ID(),
-            '_proud_meeting_minutes_modified'
-          );
-        }
-        ?>
-      </div>
-    </div>
 </div>
 <?php endif;
 ?>
