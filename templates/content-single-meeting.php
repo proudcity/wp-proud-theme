@@ -250,6 +250,13 @@ if ('on' === get_option('meetings_time_display')) { ?>
           echo 'class="active"';
           $hasActive = true;
         } ?>><a data-toggle="tab" href="#tab-contact">Contact Information</a></li><?php endif; ?>
+
+  <?php if (\Proud\Meeting\proud_meeting_display_advanced_meeting_modified_logs()): ?>
+    <li <?php if (!$hasActive) {
+          echo 'class="active"';
+          $hasActive = true;
+        } ?>><a data-toggle="tab" href="#tab-modified-logs">Meeting Modified Logs</a></li>
+  <?php endif; ?>
 </ul>
 
 <?php $hasActive = false; ?>
@@ -262,17 +269,6 @@ if ('on' === get_option('meetings_time_display')) { ?>
                                               } ?>">
 
       <div class="row">
-        <div class="col-md-9" style="padding-top:10px;">
-          <?php
-          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
-            echo \Proud\Meeting\proud_meeting_advanced_updates(
-              get_the_ID(),
-              '_proud_meeting_agenda_modified'
-            );
-          }
-          ?>
-        </div>
-
         <div class="col-md-9" style="padding-top:10px;"><?php echo apply_filters('the_content', $agenda); ?></div>
         <?php if (isset($attachments['agenda']) && ! empty($attachments['agenda'])) { ?>
           <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php if (strlen($agenda > 1000)): ?><?php echo printDocumentInfo($attachments['agenda']); ?><?php endif; ?></div>
@@ -296,16 +292,6 @@ if ('on' === get_option('meetings_time_display')) { ?>
                                                       } ?>">
 
       <div class="row">
-        <div class="col-md-9" style="padding-top:10px;">
-          <?php
-          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
-            echo \Proud\Meeting\proud_meeting_advanced_updates(
-              get_the_ID(),
-              '_proud_meeting_agenda_packet_modified'
-            );
-          }
-          ?>
-        </div>
         <div class="col-md-9" style="padding-top:10px;"><?php echo apply_filters('the_content', $agenda_packet); ?></div>
 
         <?php if (isset($attachments['agenda_packet']) && ! empty($attachments['agenda_packet'])) { ?>
@@ -333,17 +319,6 @@ if ('on' === get_option('meetings_time_display')) { ?>
                                                 } ?>">
       <?php if (!empty($minutes)): ?>
         <div class="row">
-          <div class="col-md-9" style="padding-top:10px;">
-            <?php
-            if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
-              echo \Proud\Meeting\proud_meeting_advanced_updates(
-                get_the_ID(),
-                '_proud_meeting_minutes_modified'
-              );
-            }
-            ?>
-          </div>
-
           <div class="col-md-9" style="padding-top:10px;"><?php echo apply_filters('the_content', $minutes); ?></div>
           <?php if (isset($attachments['minutes']) && ! empty($attachments['minutes'])) { ?>
             <div class="col-md-3 col-sm-hidden" style="padding-top:10px;"><?php echo printDocumentInfo($attachments['minutes']); ?></div>
@@ -423,6 +398,70 @@ if ('on' === get_option('meetings_time_display')) { ?>
       </div>
     </div>
   <?php endif; ?>
+
+  <?php if (\Proud\Meeting\proud_meeting_display_advanced_meeting_modified_logs()):
+  ?>
+    <div id="tab-modified-logs" class="tab-pane fade <?php if (!$hasActive) {
+                                                        echo 'in active';
+                                                        $hasActive = true;
+                                                      } ?>">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>Agenda Modification Logs</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <?php
+          if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+            echo \Proud\Meeting\proud_meeting_advanced_updates(
+              get_the_ID(),
+              '_proud_meeting_agenda_modified'
+            );
+          }
+          ?>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Agenda Packet Modification Logs</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <?php
+        if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+          echo \Proud\Meeting\proud_meeting_advanced_updates(
+            get_the_ID(),
+            '_proud_meeting_agenda_packet_modified'
+          );
+        }
+        ?>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Meeting Minutes Modification Logs</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <?php
+        if (function_exists('\Proud\Meeting\proud_meeting_advanced_updates')) {
+          echo \Proud\Meeting\proud_meeting_advanced_updates(
+            get_the_ID(),
+            '_proud_meeting_minutes_modified'
+          );
+        }
+        ?>
+      </div>
+    </div>
+</div>
+<?php endif;
+?>
 </div>
 
 
