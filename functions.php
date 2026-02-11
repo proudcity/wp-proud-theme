@@ -831,7 +831,6 @@ function proud_customize_css()
 
     .gform_wrapper .button,
     .gform_button,
-    .gform_wrapper .button:hover,
     .gform_button:hover {
       <?php if ($is_primary_light): ?><?php if ($is_primary_extra_light): ?>color: #434343;
       <?php else: ?>color: #101010;
@@ -840,15 +839,36 @@ function proud_customize_css()
     }
 
     .gform_wrapper .button,
+    .gform-theme.gform-theme--framework.gform_wrapper .button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+    .gform-theme.gform-theme--framework.gform_wrapper .gform-theme-button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+    .gform-theme.gform-theme--framework.gform_wrapper :where(:not(.mce-splitbtn))>button:not([id*="mceu_"]):not(.mce-open):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+    .gform-theme.gform-theme--framework.gform_wrapper button.button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+    .gform-theme.gform-theme--framework.gform_wrapper input:is([type="submit"], [type="button"], [type="reset"]).button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
+    .gform-theme.gform-theme--framework.gform_wrapper input:is([type="submit"], [type="button"], [type="reset"]):where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)),
     .gform_button {
-      background-color: <?php echo  $color_primary ?>;
-      border-color: <?php echo  $color_primary ?>;
+      background-color: <?php echo  $color_primary ?> !important;
+      border-color: <?php echo  $color_primary ?> !important;
     }
 
     .gform_wrapper .button:hover,
+    .gform-theme--framework .gfield:where(.gfield--type-multiselect, .gfield--input-type-multiselect) .chosen-container-multi:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework .gfield:where(.gfield--type-select, .gfield--input-type-select) .chosen-search input[type="text"]:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework .gfield:where(.gfield--type-select, .gfield--input-type-select) .chosen-single:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework .gform-theme-field-control:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework input[type]:where(:not(.gform-text-input-reset):not([type="hidden"])):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework select:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework select[multiple]:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework textarea:where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper .button:where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper .gform-theme-button:where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper :where(:not(.mce-splitbtn))>button:not([id*="mceu_"]):not(.mce-open):where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper button.button:where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper input:is([type="submit"], [type="button"], [type="reset"]).button:where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper input:is([type="submit"], [type="button"], [type="reset"]):where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover,
+    .gform-theme--framework.gform-theme.gform_wrapper input[type="submit"].button.gform_button:where(:not(.gform-theme-no-framework)):where(:not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)):hover .gform-theme.gform-theme--framework.gform_wrapper input[type="submit"].button.gform_button:where(:not(.gform-theme-no-framework):not(.gform-theme__disable):not(.gform-theme__disable *):not(.gform-theme__disable-framework):not(.gform-theme__disable-framework *)) .gform_wrapper .button:hover,
     .gform_button:hover {
-      background-color: <?php echo  $color_primary_hover ?>;
-      border-color: <?php echo  $color_primary_hover ?>;
+      background-color: <?php echo  $color_primary_hover ?> !important;
+      border-color: <?php echo  $color_primary_hover ?> !important;
     }
 
     a.card-btn,
