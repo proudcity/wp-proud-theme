@@ -1,15 +1,18 @@
 {
   "name": "wp-proud-theme",
   "version": "1.0.0",
+  "type": "module",
   "description": "The ProudCity Wordpress theme built on top of [Bootstrap](http://getbootstrap.com) and [Sage](https://roots.io/sage/). [ProudCity](http://proudcity.com) is a Wordpress platform for modern, standards-compliant municipal websites.",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "projectsetup": "bower install && rm -rf bower_components/proudcity-patterns && git clone git@github.com:proudcity/proudcity-patterns.git bower_components/proudcity-patterns",
-    "projectupdate": "rm -rf bower_components/proudcity-patterns && git clone git@github.com:proudcity/proudcity-patterns.git bower_components/proudcity-patterns"
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "projectsetup": "npm install && rm -rf node_modules/proudcity-patterns && git clone git@github.com:proudcity/proudcity-patterns.git node_modules/proudcity-patterns && npm run patch-patterns",
+    "projectupdate": "rm -rf node_modules/proudcity-patterns && git clone git@github.com:proudcity/proudcity-patterns.git node_modules/proudcity-patterns && npm run patch-patterns",
+    "patch-patterns": "sed -i 's|bower_components/font-awesome/scss|node_modules/@fortawesome/fontawesome-free/scss|g' node_modules/proudcity-patterns/app/pattern-scss/mixins/_font-awesome.scss node_modules/proudcity-patterns/app/pattern-scss/loaders/_font-awesome-loader.scss"
   },
   "repository": {
     "type": "git",
@@ -23,13 +26,12 @@
   },
   "homepage": "https://github.com/proudcity/wp-proud-theme#readme",
   "devDependencies": {
-    "eslint": "^8.23.0",
-    "eslint-plugin-vue": "^9.4.0",
-    "eslint-webpack-plugin": "^3.2.0",
-    "laravel-mix": "^6.0.49",
-    "laravel-mix-eslint": "^0.2.0",
-    "resolve-url-loader": "^5.0.0",
-    "sass": "^1.54.7",
-    "sass-loader": "^12.6.0"
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "bootstrap-sass": "^3.4.3",
+    "bourbon": "^4.3.4",
+    "sass": "^1.56.0",
+    "terser": "^5.36.0",
+    "vite": "^6.0.0",
+    "vite-plugin-static-copy": "^2.2.0"
   }
 }
