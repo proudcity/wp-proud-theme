@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UniqueID is passed through a bunch of files so that accordions can have a unique
  * parent id and then target the expected parent.
@@ -8,11 +9,11 @@
 ?>
 <div class="panel panel-default accordion"><!-- template-file: teaser-question-accordian.php -->
   <div class="panel-heading">
-    <h4 class="panel-title">
-      <a data-toggle="collapse" data-parent="#accordion<?php echo esc_attr( $uniqueID ); ?>" href="#collapse<?php echo the_id(); ?>">
+    <h3 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion<?php echo esc_attr($uniqueID); ?>" href="#collapse<?php echo the_id(); ?>">
         <?php echo the_title(); ?>
       </a>
-    </h4>
+    </h3>
   </div>
   <div id="collapse<?php echo the_id(); ?>" class="panel-collapse collapse">
     <div class="panel-body">
