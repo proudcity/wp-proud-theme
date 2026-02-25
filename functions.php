@@ -64,6 +64,10 @@ function proud_customize_register($wp_customize)
     'default' => '#FFFFFF',
     'transport' => 'refresh',
   ));
+  $wp_customize->add_setting('color_action_button', array(
+    'default' => '#e49c11',
+    'transport' => 'refresh',
+  ));
 
   // Controls
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_topnav', array(
@@ -103,6 +107,11 @@ function proud_customize_register($wp_customize)
     'label' => __('Footer color', 'proud'),
     'section' => 'colors',
     'settings' => 'color_footer',
+  )));
+  $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_action_button', array(
+    'label' => __('Action Button Color', 'proud'),
+    'section' => 'colors',
+    'settings' => 'color_action_button',
   )));
 
   // Background modifications
