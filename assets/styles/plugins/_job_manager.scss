@@ -1,23 +1,26 @@
 
+@use 'loaders/load-local' as *;
+@use 'loaders/bootstrap-mixins-bridge' as bs;
+
 .job-type{
-  @include label-variant($gray);
+  @include bs.label-variant($gray);
 
   &.label {
     font-size: 85%;
   }
 
   &.full-time {
-    @include label-variant($label-primary-bg);
+    @include bs.label-variant($label-primary-bg);
   }
   &.part-time {
-    @include label-variant($label-success-bg);
+    @include bs.label-variant($label-success-bg);
     color:white;
     background-color:#aeb0b5;
   }
   &.temporary {
-    @include label-variant($label-warning-bg);
+    @include bs.label-variant($label-warning-bg);
   }
   &.internship {
-    @include label-variant($label-info-bg);
+    @include bs.label-variant($label-info-bg);
   }
 }

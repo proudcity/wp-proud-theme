@@ -1,7 +1,7 @@
 // Init styles
 // ---------------------------
 
-@import "loaders/load-local";
+@use "loaders/load-local" as *;
 
 .ie {
   font-weight: 999;

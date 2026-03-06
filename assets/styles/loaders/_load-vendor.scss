@@ -1,7 +1,9 @@
 // Loads Bootstrap, font-awesome, Proud-Patterns ect
 // subtheme will exclude these
 // ---------------------------------------------------
-
+// NOTE: Vendor files intentionally use @import (silenced via silenceDeprecations).
+// Using @use for these surfaced hundreds of [global-builtin] warnings from
+// bootstrap-sass/_variables.scss that we cannot patch. This matches wp-proud-admin.
 
 // Bootstrap variables
 // ---------------------------------
@@ -13,7 +15,7 @@
 // ---------------------------------
 
 @import "pattern-scss/loaders/bootstrap-loader";
-@import "../../../node_modules/bourbon/app/assets/stylesheets/bourbon";
+@import "loaders/bourbon-replacement";
 
 
 // Proudcity pattern library

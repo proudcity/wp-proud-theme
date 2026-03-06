@@ -1,4 +1,6 @@
 
+@use 'loaders/load-local' as *;
+
 .full-width-container ~ .footer-actions {
   margin-top: 0;
 }

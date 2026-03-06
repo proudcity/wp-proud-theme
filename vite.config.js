@@ -16,16 +16,16 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'legacy',
-        silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api', 'slash-div', 'if-function'],
-        quietDeps: true,
-        logger: {
-          warn: () => {} // Suppress Bourbon deprecation warnings
-        },
-        includePaths: [
+        api: 'modern-compiler',
+        // 'import' + 'if-function': bootstrap-sass and FA v6 use legacy syntax we cannot patch
+        // 'global-builtin' + 'color-functions': bootstrap-sass/_variables.scss has 29+ lighten/darken/ceil/floor calls
+        // 'slash-div': proudcity-patterns/vendor/_card.scss has slash-division — third-party, maintenance-mode libs
+        silenceDeprecations: ['import', 'if-function', 'global-builtin', 'color-functions', 'slash-div'],
+        loadPaths: [
           'node_modules/bootstrap-sass/assets/stylesheets',
-          'node_modules/bourbon/app/assets/stylesheets',
-          'node_modules/proudcity-patterns/app'
+          'node_modules/proudcity-patterns/app',
+          'node_modules',
+          'assets/styles'
         ]
       }
     }

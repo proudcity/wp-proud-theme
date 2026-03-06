@@ -1,6 +1,6 @@
 
-// Local overrides
-@import "../variables-override";
+// Proudcity-patterns (hide variables that variables-override takes ownership of)
+@forward "pattern-scss/local-variables" hide $page-section-spacing;
 
-// Proudcity-patterns
-@import "pattern-scss/local-variables";
+// Local overrides — these win over pattern defaults
+@forward "../variables-override";

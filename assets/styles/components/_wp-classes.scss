@@ -1,3 +1,5 @@
+@use 'loaders/load-local' as *;
+
 // WordPress Generated Classes
 // http://codex.wordpress.org/CSS#WordPress_Generated_Classes
 
@@ -10,12 +12,12 @@
 }
 .aligncenter {
   display: block;
-  margin: ($line-height-computed / 2) auto;
+  margin: calc($line-height-computed / 2) auto;
   height: auto;
 }
 .alignleft,
 .alignright {
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: calc($line-height-computed / 2);
   height: auto;
 }
 
@@ -23,10 +25,10 @@
   // Only float if not on an extra small device
   .alignleft {
     float: left;
-    margin-right: ($line-height-computed / 2);
+    margin-right: calc($line-height-computed / 2);
   }
   .alignright {
     float: right;
-    margin-left: ($line-height-computed / 2);
+    margin-left: calc($line-height-computed / 2);
   }
 }

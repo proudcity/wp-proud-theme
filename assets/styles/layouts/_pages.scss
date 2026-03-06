@@ -1,4 +1,6 @@
 
+@use 'loaders/load-local' as *;
+
 .main {
   min-height: 500px;
 

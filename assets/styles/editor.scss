@@ -4,7 +4,7 @@
 // Init styles
 // ---------------------------
 
-@import "loaders/load-vendor";
+@use "loaders/load-vendor";
 
 // Proudcity-patterns ckeditor
-@import "pattern-scss/vendor/ckeditor";
+@use "pattern-scss/vendor/ckeditor";

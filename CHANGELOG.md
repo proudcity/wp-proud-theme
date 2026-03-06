@@ -1,3 +1,37 @@
+## 2026-03-05
+
+### Build system modernisation
+- Upgraded `sass` from `^1.56.0` to `^1.97.0`
+- Upgraded `@fortawesome/fontawesome-free` from `^5.15.4` to `^6.7.2`
+- Removed `bourbon ^4.3.4` dependency (replaced with custom `_bourbon-replacement.scss`)
+- Added `patch-package ^8.0.1` for patching node_modules (bootstrap-sass, fontawesome)
+- Added `postinstall` script to run `patch-package` automatically on `npm install`
+- Updated `projectsetup` and `projectupdate` scripts to use HTTPS clone URL for proudcity-patterns
+- Updated `patch-patterns` script for FontAwesome v6 compatibility:
+  - Adds `functions.scss` import before `variables.scss` in proudcity-patterns `_font-awesome.scss`
+  - Strips `node_modules/` prefix from FA paths in `_font-awesome-loader.scss`
+  - Updates CDN font path from `v5.13.0` to `v6.7.0`
+  - Patches proudcity-patterns `_card.scss` to remove bourbon-dependent mixins (`border-radius`, `transition`, `hover-focus`)
+  - Patches proudcity-patterns `_form.scss` to add bourbon-replacement and bootstrap-mixins-bridge modules
+  - Patches proudcity-patterns `_font-awesome.scss` to replace placeholder `@extend` with direct mixin/property calls (module-boundary compatibility)
+  - Patches proudcity-patterns `_datepicker.scss` to inline FA icon CSS (module-boundary compatibility)
+  - Removes `core.scss` import from proudcity-patterns `_font-awesome.scss` to prevent our CSS overriding FA plugin CDN icon content values
+- Changed Vite SCSS API from `legacy` to `modern-compiler` with `loadPaths` (replaces `includePaths`)
+- Replaced broad `silenceDeprecations` with targeted list: `['import', 'if-function', 'global-builtin', 'color-functions', 'slash-div']`
+
+### SCSS module migration
+- Created `assets/styles/loaders/_bourbon-replacement.scss` with 8 bourbon mixin replacements
+- Created `assets/styles/loaders/_bootstrap-mixins-bridge.scss` for namespaced bootstrap mixin access
+- Migrated `_load-variables.scss` to `@forward` with conflict resolution for `$page-section-spacing`
+- Migrated `_load-local.scss` to `@forward` chain (variables, bourbon, proudcity-mixins)
+- Migrated `_load-vendor.scss` to use `@import` chain (bootstrap, bourbon, proudcity-patterns, proudcity-wp)
+- Migrated all SCSS entry points (`proud.scss`, `proud-vendor.scss`, `editor.scss`, `ie9-and-below.scss`) from `@import` to `@use`
+- Added `@use 'loaders/load-local' as *` to all component/layout files that reference variables or mixins
+- Added `@use 'loaders/bootstrap-mixins-bridge' as bs` to files using bootstrap mixins (`_grid.scss`, `_gravity-forms.scss`, `_job_manager.scss`)
+- Fixed slash-division deprecations in `_wp-classes.scss` and `_gravity-forms.scss` with `calc()`
+
+---
+
 ### 8.4.0: December 1st, 2015
 * Update to Bootstrap 3.3.6 ([#1578](https://github.com/roots/sage/pull/1578))
 * Remove unnecessary underscore ([#1577](https://github.com/roots/sage/pull/1577))

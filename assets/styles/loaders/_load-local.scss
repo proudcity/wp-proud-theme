@@ -6,11 +6,10 @@
 // Bootstrap variables
 // ---------------------------------
 
-@import "load-variables";
-@import "bootstrap/mixins";
+@forward "load-variables";
 
 // Load Proudcity vendor scss
 // ---------------------------------
 
-@import "../../../node_modules/bourbon/app/assets/stylesheets/bourbon";
-@import "pattern-scss/proudcity-mixins";
+@forward "loaders/bourbon-replacement";
+@forward "pattern-scss/proudcity-mixins";

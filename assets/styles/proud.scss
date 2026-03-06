@@ -1,32 +1,32 @@
 // Init styles
 // ---------------------------
 
-@import "loaders/load-local";
+@use "loaders/load-local" as *;
 
 // Local Styles
 // ---------------------------
 
-@import "common/global";
-@import "components/buttons";
-@import "components/atcb";
-@import "components/comments";
-@import "components/forms";
-@import "components/grid";
-@import "components/pagination";
-@import "components/type";
-@import "components/wp-classes";
-@import "layouts/header";
-@import "layouts/sidebar";
-@import "layouts/footer";
-@import "layouts/pages";
-@import "layouts/posts";
-@import "layouts/tinymce";
+@use "common/global";
+@use "components/buttons";
+@use "components/atcb";
+@use "components/comments";
+@use "components/forms";
+@use "components/grid";
+@use "components/pagination";
+@use "components/type";
+@use "components/wp-classes";
+@use "layouts/header";
+@use "layouts/sidebar";
+@use "layouts/footer";
+@use "layouts/pages";
+@use "layouts/posts";
+@use "layouts/tinymce";
 
-@import "plugins/events-manager";
-@import "plugins/job_manager";
-@import "plugins/gravity-forms";
-@import "plugins/proud-location";
-@import "plugins/proud-meetings";
+@use "plugins/events-manager";
+@use "plugins/job_manager";
+@use "plugins/gravity-forms";
+@use "plugins/proud-location";
+@use "plugins/proud-meetings";
 
 // @import "modules/wr-pagebuilder";
 
