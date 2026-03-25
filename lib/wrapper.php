@@ -30,6 +30,10 @@ function sidebar_agency_path() {
   return new ProudWrapping('templates/sidebar-agency.php');
 }
 
+function sidebar_proudtopic_path() {
+  return new ProudWrapping('templates/sidebar-proud-topic.php');
+}
+
 function parent_title() {
   global $pageInfo;
   $url = get_permalink( $pageInfo['parent_post'] );

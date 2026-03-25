@@ -1,3 +1,13 @@
+## 2026-03-25
+
+### Topic subpage sidebar/breadcrumb support
+References: https://github.com/proudcity/wp-proudcity/issues/2665
+
+- `lib/setup.php` — registered new `sidebar-proud-topic` widget area
+- `lib/wrapper.php` — added `sidebar_proudtopic_path()` helper function
+- `templates/sidebar-proud-topic.php` — new template that renders the `sidebar-proud-topic` widget area
+- `base.php` — added `page_parent_info('proud-topic')` condition to display topic sidebar on subpages
+
 ## 2026-03-05
 
 ### Build system modernisation

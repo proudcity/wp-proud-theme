@@ -45,6 +45,12 @@ if (!$proudcore) {
           </aside><!-- /.sidebar -->
         <?php endif; ?>
 
+        <?php if ($proudcore::$layout->page_parent_info('proud-topic')) : ?>
+          <aside class="sidebar">
+            <?php include Wrapper\sidebar_proudtopic_path(); ?>
+          </aside><!-- /.sidebar -->
+                <?php endif; ?>
+
         <main class="main"><!--PAGEWATCH-->
           <?php include Wrapper\template_path(); ?>
         <!--PAGEWATCH--></main><!-- /.main -->

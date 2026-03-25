@@ -140,6 +140,17 @@ function widgets_init()
 
   register_sidebar(
     [
+      'name'          => __('Topic sidebar', 'proud'),
+      'id'            => 'sidebar-proud-topic',
+      'before_widget' => '<section class="widget %1$s %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h2 class="h3">',
+      'after_title'   => '</h2>'
+    ]
+  );
+
+  register_sidebar(
+    [
       'name'          => __('Event sidebar', 'proud'),
       'id'            => 'sidebar-event',
       'before_widget' => '<section class="widget %1$s %2$s">',
