@@ -46,7 +46,6 @@ if (!$proudcore) {
         <?php endif; ?>
 
         <?php if ($proudcore::$layout->page_parent_info('proud-topic')) : ?>
-        inside proudtopic
           <aside class="sidebar">
             <?php include Wrapper\sidebar_proudtopic_path(); ?>
           </aside><!-- /.sidebar -->
