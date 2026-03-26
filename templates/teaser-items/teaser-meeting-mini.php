@@ -1,6 +1,6 @@
 <?php
 // Date formats (same as Events)
-$date_format = 'F d, Y';
+$date_format = 'F d, Y g:i a';
 ?>
 <li <?php post_class( "teaser-mini" ); ?>><!-- template-file: teaser-meeting-mini.php -->
     <<?php echo $header_tag; ?> class="<?php echo $header_class; ?> entry-title"><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></<?php echo $header_tag; ?>>
