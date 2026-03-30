@@ -208,13 +208,13 @@ function assets()
     // Add moderizer support
     wp_enqueue_script(
       'proud/js/modernizr',
-      Assets\asset_path('scripts/modernizr.js'),
+      Assets\asset_path('scripts/modernizr.min.js'),
       array(),
       esc_attr($version)
     );
 
-    wp_enqueue_script('proud/js', Assets\asset_path('scripts/main.js'), ['jquery'], esc_attr($version), true);
-    wp_enqueue_script('bootstrap', Assets\asset_path('scripts/bootstrap.js'), ['jquery'], esc_attr($version), true);
+    wp_enqueue_script('proud/js', Assets\asset_path('scripts/main.min.js'), ['jquery'], esc_attr($version), true);
+    wp_enqueue_script('bootstrap', Assets\asset_path('scripts/bootstrap.min.js'), ['jquery'], esc_attr($version), true);
 
     // add to calendar, we use wp_enqueue_script on the widgets that need the scriptw
     //wp_register_script( 'atcb', Assets\asset_path( 'scripts/atcb/atcb-init.js'), '', '2.6.8', true );
