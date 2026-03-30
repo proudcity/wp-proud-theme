@@ -1,3 +1,11 @@
+## 2026-03-30
+
+### Hero colors and local script fixes
+References: https://github.com/proudcity/wp-proudcity/issues/2779
+
+- `dist/styles/editor.css`, `dist/styles/proud-vendor.css` — fixed hero universal colors
+- `lib/setup.php` — fixed links to minified scripts for local environments
+
 ## 2026-03-25
 
 ### Topic subpage sidebar/breadcrumb support
