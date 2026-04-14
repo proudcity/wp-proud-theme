@@ -34,19 +34,19 @@ if (!$proudcore) {
       <div id="content-main" class="content row">
 
         <?php if ($proudcore::$layout->page_parent_info('noagency')) : ?>
-          <aside class="sidebar">
+          <aside class="sidebar"><!-- no agency sidebar -->
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
 
         <?php if ($proudcore::$layout->page_parent_info('agency')) : ?>
-          <aside class="sidebar">
+          <aside class="sidebar"><!-- agency sidebar -->
             <?php include Wrapper\sidebar_agency_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
 
         <?php if ($proudcore::$layout->page_parent_info('proud-topic')) : ?>
-          <aside class="sidebar">
+          <aside class="sidebar"><!-- topic sidebar -->
             <?php include Wrapper\sidebar_proudtopic_path(); ?>
           </aside><!-- /.sidebar -->
                 <?php endif; ?>
