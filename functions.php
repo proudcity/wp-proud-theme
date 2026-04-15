@@ -888,7 +888,17 @@ function proud_customize_css()
     a.card-btn:hover,
     .widget-proud-social-app .nav-pills>li>a:hover {
       color: <?php echo  $color_primary_hover ?>;
+  }
+
+    a.card-btn:focus,
+    a.card-btn:hover{
+      background-color:<?php echo esc_html($color_primary); ?>;
     }
+
+  a.card-btn:focus .h4,
+  a.card-btn:hover .h4{
+    color:#FFF;
+  }
 
     a.card-btn.card-inverse:focus,
     a.card-btn.card-inverse:hover {
