@@ -1,3 +1,9 @@
+## 2026-04-20
+
+- Removed deprecated `$wp_styles->add_data(..., 'conditional', 'lte IE 9')` calls and the now-unused `global $wp_styles` declaration from `lib/setup.php`. WordPress 6.9 deprecated the `conditional` argument; IE conditional comments are ignored by all supported browsers.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2808
+
 ## 2026-03-30
 
 ### Hero colors and local script fixes

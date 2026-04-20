@@ -180,8 +180,6 @@ add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
  */
 function assets()
 {
-  global $wp_styles;
-
   $version = wp_get_theme('wp-proud-theme')->get('Version');
 
   if ('local' === wp_get_environment_type()) {
@@ -198,7 +196,6 @@ function assets()
 
     //IE9
     wp_enqueue_style('proud/ie9-and-below', Assets\asset_path('styles/ie9-and-below.css'), ['proud/css'], esc_attr($version));
-    $wp_styles->add_data('proud/ie9-and-below', 'conditional', 'lte IE 9');
     if (is_single() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');
     }
@@ -227,7 +224,6 @@ function assets()
 
     //IE9
     wp_enqueue_style('proud/ie9-and-below', Assets\asset_path('styles/ie9-and-below.css'), ['proud/css'], esc_attr($version));
-    $wp_styles->add_data('proud/ie9-and-below', 'conditional', 'lte IE 9');
     if (is_single() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');
     }
