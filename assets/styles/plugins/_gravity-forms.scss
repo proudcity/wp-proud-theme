@@ -64,7 +64,7 @@ $gform-container-margin: 20px;
     margin-bottom: 0.35em;
   }
 
-  input {
+  input[type="radio"] {
     height: 1.5em;
     width:1.5em;
     margin-left: 0.15em;
@@ -73,6 +73,11 @@ $gform-container-margin: 20px;
     &[value="gf_other_choice"] {
       margin-top: 15px;
     }
+  }
+
+  .gchoice_other_control {
+    width: auto;
+    height: auto;
   }
 }
 
