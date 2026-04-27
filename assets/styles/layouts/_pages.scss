@@ -7,6 +7,29 @@
   .card-wrap a{text-decoration:none;}
 }
 
+// Remove inner glow on card-btn link cards and match icon color to text
+a.card.card-btn {
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
+
+  .fa,
+  .fas,
+  .far,
+  .fab,
+  .fal {
+    color: inherit;
+  }
+}
+
+// Remove drop-shadow on hover within the text card widget
+.widget_proud_text_card_widget .text-card a:hover .card {
+  box-shadow: none;
+}
+
 #tab-agenda-packet{
   li{
     a,
