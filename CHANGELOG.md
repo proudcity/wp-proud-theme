@@ -1,3 +1,11 @@
+## 2026-04-27
+
+### Remove hover drop-shadow, inner glow, and fix icon colors on card-btn links
+References: https://github.com/proudcity/wp-proudcity/issues/2811
+
+- `assets/styles/layouts/_pages.scss` — removed `box-shadow` inset glow from `a.card.card-btn` (default and hover/focus states); set FA icon `color: inherit` so icons match surrounding text; added override to suppress the `0 5px 15px` drop-shadow on hover within `.widget_proud_text_card_widget .text-card`
+- `dist/styles/proud.css` — compiled output
+
 ## 2026-04-20
 
 - Removed deprecated `$wp_styles->add_data(..., 'conditional', 'lte IE 9')` calls and the now-unused `global $wp_styles` declaration from `lib/setup.php`. WordPress 6.9 deprecated the `conditional` argument; IE conditional comments are ignored by all supported browsers.

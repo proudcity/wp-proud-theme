@@ -30,6 +30,11 @@ a.card.card-btn {
   box-shadow: none;
 }
 
+// Remove top margin on h3 inside card-block to center content
+.card-block h3 {
+  margin-top: 0;
+}
+
 #tab-agenda-packet{
   li{
     a,
