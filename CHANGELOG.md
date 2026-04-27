@@ -1,5 +1,11 @@
 ## 2026-04-27
 
+### Remove h3 margin-top inside card-block to center content
+References: https://github.com/proudcity/wp-proudcity/issues/2812
+
+- `assets/styles/layouts/_pages.scss` — added `.card-block h3 { margin-top: 0; }` to remove top spacing on headings inside card blocks
+- `dist/styles/proud.css` — compiled output
+
 ### Remove hover drop-shadow, inner glow, and fix icon colors on card-btn links
 References: https://github.com/proudcity/wp-proudcity/issues/2811
 
