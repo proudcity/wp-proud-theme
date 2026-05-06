@@ -1,3 +1,9 @@
+## 2026-05-06
+
+- Added five boolean Customizer checkboxes under the Headings font control to apply the headings font to specific UI regions: top navigation, side menu, breadcrumbs, alert bar, and action toolbar (Translate + Search). All default to false — no behavior change on existing sites unless an admin opts in.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2793
+
 ## 2026-04-27
 
 ### Remove h3 margin-top inside card-block to center content

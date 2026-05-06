@@ -240,6 +240,41 @@ function customize_font_headings_css()
 }
 
 /**
+ * Echos out css applying the headings font to opted-in UI regions
+ */
+function customize_font_regions_css()
+{
+  $fonts = customize_font_families();
+  $font_headings = get_theme_mod('proud_fonts_headings', 'Lato');
+
+  $regions = [
+    'proud_fonts_headings_apply_topnav'     => '#navbar-external .nav-pills li a, #navbar-topbar .nav-pills li a, #navbar-external .navbar-brand, #navbar-topbar .navbar-brand',
+    'proud_fonts_headings_apply_sidemenu'   => '.menu-slider, .menu-slider .list-group-item',
+    'proud_fonts_headings_apply_breadcrumb' => '.breadcrumb, .breadcrumb li, .breadcrumb a',
+    'proud_fonts_headings_apply_alertbar'   => '.proud-alert-banner, .proud-alert-banner a',
+    'proud_fonts_headings_apply_toolbar'    => '.btn-toolbar .navbar-btn, .btn-toolbar #navbar_translate, .btn-toolbar .translate-button',
+  ];
+
+  foreach ($regions as $mod => $selectors) {
+    if (get_theme_mod($mod, false)) {
+?>
+  <?php echo $selectors; ?> {
+  font-family: <?php echo $fonts[$font_headings]['value']; ?>;
+  <?php if ($font_headings === 'Public Sans'): ?>
+    text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+    -webkit-font-variant-ligatures: common-ligatures;
+    -webkit-font-feature-settings: "kern";
+    font-feature-settings: "kern";
+    font-kerning: normal;
+  <?php endif; ?>
+  }
+<?php
+    }
+  }
+}
+
+/**
  * Sanitizes a wp_customizer select input
  *
  * @param string $input

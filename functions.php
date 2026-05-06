@@ -313,6 +313,43 @@ function proud_customize_register($wp_customize)
     'description' => __('Controls heading font (h1, h2, h3, h4, h5, h6) sitewide.', 'proud'),
   ));
 
+  $wp_customize->add_setting('proud_fonts_headings_apply_topnav',     ['default' => false, 'sanitize_callback' => 'rest_sanitize_boolean']);
+  $wp_customize->add_setting('proud_fonts_headings_apply_sidemenu',   ['default' => false, 'sanitize_callback' => 'rest_sanitize_boolean']);
+  $wp_customize->add_setting('proud_fonts_headings_apply_breadcrumb', ['default' => false, 'sanitize_callback' => 'rest_sanitize_boolean']);
+  $wp_customize->add_setting('proud_fonts_headings_apply_alertbar',   ['default' => false, 'sanitize_callback' => 'rest_sanitize_boolean']);
+  $wp_customize->add_setting('proud_fonts_headings_apply_toolbar',    ['default' => false, 'sanitize_callback' => 'rest_sanitize_boolean']);
+
+  $wp_customize->add_control('proud_fonts_headings_apply_topnav', array(
+    'label'    => __('Apply headings font to top navigation', 'proud'),
+    'section'  => 'proud_fonts',
+    'settings' => 'proud_fonts_headings_apply_topnav',
+    'type'     => 'checkbox',
+  ));
+  $wp_customize->add_control('proud_fonts_headings_apply_sidemenu', array(
+    'label'    => __('Apply headings font to side menu', 'proud'),
+    'section'  => 'proud_fonts',
+    'settings' => 'proud_fonts_headings_apply_sidemenu',
+    'type'     => 'checkbox',
+  ));
+  $wp_customize->add_control('proud_fonts_headings_apply_breadcrumb', array(
+    'label'    => __('Apply headings font to breadcrumbs', 'proud'),
+    'section'  => 'proud_fonts',
+    'settings' => 'proud_fonts_headings_apply_breadcrumb',
+    'type'     => 'checkbox',
+  ));
+  $wp_customize->add_control('proud_fonts_headings_apply_alertbar', array(
+    'label'    => __('Apply headings font to alert bar', 'proud'),
+    'section'  => 'proud_fonts',
+    'settings' => 'proud_fonts_headings_apply_alertbar',
+    'type'     => 'checkbox',
+  ));
+  $wp_customize->add_control('proud_fonts_headings_apply_toolbar', array(
+    'label'    => __('Apply headings font to action toolbar (Translate, Search)', 'proud'),
+    'section'  => 'proud_fonts',
+    'settings' => 'proud_fonts_headings_apply_toolbar',
+    'type'     => 'checkbox',
+  ));
+
   // If we're customizing and in preview, alter some stuff
   if ($wp_customize->is_preview() && ! is_admin()) {
     add_action('wp_footer', 'proud_customize_preview', 21);
@@ -935,7 +972,7 @@ function proud_customize_css()
       background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
     }
 
-    <?php Customizer\customize_font_default_css(); ?><?php Customizer\customize_font_headings_css(); ?>
+    <?php Customizer\customize_font_default_css(); ?><?php Customizer\customize_font_headings_css(); ?><?php Customizer\customize_font_regions_css(); ?>
   </style>
   <meta name="theme-color" content="<?php echo $navbar_background; ?>" />
 <?php
