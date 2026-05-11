@@ -1,3 +1,9 @@
+## 2026-05-11
+
+- Fixed top navigation font selector in `customize_font_regions_css()`: changed `.nav-pills` (action-box pattern) to `.navbar-nav`, and moved `.navbar-brand` to `.navbar-header-region` where it actually renders. The previous selectors matched zero elements, so the "Apply headings font to top navigation" checkbox had no effect.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2793
+
 ## 2026-05-06
 
 - Added five boolean Customizer checkboxes under the Headings font control to apply the headings font to specific UI regions: top navigation, side menu, breadcrumbs, alert bar, and action toolbar (Translate + Search). All default to false — no behavior change on existing sites unless an admin opts in.

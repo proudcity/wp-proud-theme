@@ -248,7 +248,7 @@ function customize_font_regions_css()
   $font_headings = get_theme_mod('proud_fonts_headings', 'Lato');
 
   $regions = [
-    'proud_fonts_headings_apply_topnav'     => '#navbar-external .nav-pills li a, #navbar-topbar .nav-pills li a, #navbar-external .navbar-brand, #navbar-topbar .navbar-brand',
+    'proud_fonts_headings_apply_topnav'     => '#navbar-external .navbar-nav li a, #navbar-topbar .navbar-nav li a, .navbar-header-region .navbar-brand',
     'proud_fonts_headings_apply_sidemenu'   => '.menu-slider, .menu-slider .list-group-item',
     'proud_fonts_headings_apply_breadcrumb' => '.breadcrumb, .breadcrumb li, .breadcrumb a',
     'proud_fonts_headings_apply_alertbar'   => '.proud-alert-banner, .proud-alert-banner a',
