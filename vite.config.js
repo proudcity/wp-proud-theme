@@ -1,9 +1,31 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
+import { resolve, join } from 'path';
+import { readdirSync, statSync } from 'fs';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+
+// Tell rollup to watch every .scss file in proudcity-patterns so edits
+// trigger a rebuild. Rollup's watcher does not pick up SCSS @imports from
+// node_modules on its own.
+function watchProudcityPatterns() {
+  return {
+    name: 'watch-proudcity-patterns',
+    buildStart() {
+      const root = resolve(__dirname, 'node_modules/proudcity-patterns/app/pattern-scss');
+      const walk = (dir) => {
+        for (const name of readdirSync(dir)) {
+          const full = join(dir, name);
+          if (statSync(full).isDirectory()) walk(full);
+          else if (full.endsWith('.scss')) this.addWatchFile(full);
+        }
+      };
+      walk(root);
+    }
+  };
+}
 
 export default defineConfig({
   plugins: [
+    watchProudcityPatterns(),
     viteStaticCopy({
       targets: [
         {
@@ -32,6 +54,15 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    watch: {
+      chokidar: {
+        ignored: (filePath) => {
+          if (filePath.includes('/.git/')) return true;
+          if (filePath.includes('/node_modules/') && !filePath.includes('/node_modules/proudcity-patterns/')) return true;
+          return false;
+        }
+      }
+    },
     rollupOptions: {
       input: {
         // SCSS entry points
