@@ -791,6 +791,27 @@ function proud_customize_css()
       background-color: <?php echo $link_color; ?>;
     }
 
+    .menu-button {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #menu-button:hover,
+    #menu-button:focus {
+      background-color: <?php echo $link_color; ?>;
+      border-color: <?php echo $link_color; ?>;
+    }
+
+    <?php $menu_btn_fg = is_light_color($link_color) ? '#000' : '#fff'; ?>
+    #menu-button:hover .hamburger-bars,
+    #menu-button:hover .hamburger-bars:before,
+    #menu-button:hover .hamburger-bars:after,
+    #menu-button:focus .hamburger-bars,
+    #menu-button:focus .hamburger-bars:before,
+    #menu-button:focus .hamburger-bars:after {
+      background: <?php echo $menu_btn_fg; ?>;
+      background-color: <?php echo $menu_btn_fg; ?>;
+    }
+
     <?php if (proud_navbar_transparent()): ?>.jumbotron-inverse .jumbotron-bg {
       background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
       border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
