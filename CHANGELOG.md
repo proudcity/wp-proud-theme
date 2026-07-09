@@ -1,3 +1,9 @@
+## 2026-07-09
+
+- Changed contact/staff email link text from the static word "Email" to the actual email address, escaped with `esc_html()`, in `teaser-staff-member-table.php` and `teaser-agency-table.php`. Prevents Cloudflare Email Address Obfuscation from leaving users with an unclickable link they cannot read or copy.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2851
+
 ## 2026-05-11
 
 - Fixed top navigation font selector in `customize_font_regions_css()`: changed `.nav-pills` (action-box pattern) to `.navbar-nav`, and moved `.navbar-brand` to `.navbar-header-region` where it actually renders. The previous selectors matched zero elements, so the "Apply headings font to top navigation" checkbox had no effect.

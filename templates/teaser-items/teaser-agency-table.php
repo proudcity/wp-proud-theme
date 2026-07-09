@@ -10,7 +10,7 @@
 
   <td><?php if( !empty( $meta['email'][0] ) && empty( $this->hide['email'] ) ): ?>
     <?php if(filter_var( $meta['email'][0], FILTER_VALIDATE_EMAIL ) ): ?>
-      <?php echo sprintf( '<a href="%s"><i aria-hidden="true" class="fa fa-fw fa-envelope-o"></i>%s</a>', esc_url( 'mailto:' . $meta['email'][0] ) , __('Email', 'proud-agency') ); ?>
+      <?php echo sprintf( '<a href="%s"><i aria-hidden="true" class="fa fa-fw fa-envelope-o"></i>%s</a>', esc_url( 'mailto:' . $meta['email'][0] ) , esc_html( $meta['email'][0] ) ); ?>
     <?php else: ?>
       <?php echo sprintf( '<a href="%s"><i aria-hidden="true" class="fa fa-fw fa-external-link"></i>%s</a>', esc_url( $meta['email'][0] ) , __('Contact', 'proud-agency') ); ?>
     <?php endif; ?>

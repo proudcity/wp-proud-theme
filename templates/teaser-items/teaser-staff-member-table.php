@@ -28,7 +28,7 @@ $meta['_staff_member_tw'][0] = strpos($meta['_staff_member_tw'][0], 'http') === 
 
   <td><?php if( !empty( $meta['_staff_member_email'][0] ) && empty($hide['email']) ): ?>
     <?php if(filter_var( $meta['_staff_member_email'][0], FILTER_VALIDATE_EMAIL ) ): ?>
-      <?php echo sprintf( '<a href="%s"><i aria-hidden="true" class="fa fa-fw fa-envelope-o"></i>%s</a>', esc_url( 'mailto:' . $meta['_staff_member_email'][0] ) , __('Email', 'proud-agency') ); ?>
+      <?php echo sprintf( '<a href="%s"><i aria-hidden="true" class="fa fa-fw fa-envelope-o"></i>%s</a>', esc_url( 'mailto:' . $meta['_staff_member_email'][0] ) , esc_html( $meta['_staff_member_email'][0] ) ); ?>
     <?php else: ?>
       <?php echo sprintf( '<a href="%s"><i aria-hidden="true" class="fa fa-fw fa-external-link"></i>%s</a>', esc_url( $meta['_staff_member_email'][0] ) , __('Contact', 'proud-agency') ); ?>
     <?php endif; ?>
