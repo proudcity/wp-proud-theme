@@ -1,3 +1,9 @@
+## 2026-07-20
+
+- Updated Proud Document and Meeting templates to use Proud Core's provider-neutral durable HTML preview URL when available. Durable PDF HTML previews are independent of Google Viewer's 20 MB limit. Original PDF Download buttons remain unchanged; Office documents, disabled previews, invalid records, and unavailable artifacts retain the existing fallback behavior. HTML preview iframes are titled, lazy-loaded, same-origin sandboxed, and use a no-referrer policy.
+
+References: https://github.com/FileToWeb/filetoweb-integration/issues/12
+
 ## 2026-07-09
 
 - Changed contact/staff email link text from the static word "Email" to the actual email address, escaped with `esc_html()`, in `teaser-staff-member-table.php` and `teaser-agency-table.php`. Prevents Cloudflare Email Address Obfuscation from leaving users with an unclickable link they cannot read or copy.

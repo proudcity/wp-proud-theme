@@ -56,10 +56,18 @@ foreach (['agenda', 'agenda_packet', 'minutes'] as $field) {
 
     $item['filetype'] = pathinfo($item['url'], PATHINFO_EXTENSION);
     $item['filename'] = pathinfo($item['url'], PATHINFO_FILENAME);
-    $item['show_preview'] = get_post_meta($id, $field . '_attachment_preview', true);
-    $show_preview =  ($item['show_preview'] === '0') ? false : true;
+    $preview_setting = get_post_meta($id, $field . '_attachment_preview', true);
+    $item['show_preview'] = false;
+    $item['html_preview_url'] = '';
+    $show_preview = ($preview_setting === '0') ? false : true;
 
-    if (
+    if ($show_preview && 'pdf' === strtolower($item['filetype']) && function_exists('\\Proud\\Core\\proud_html_preview_url')) {
+      $item['html_preview_url'] = \Proud\Core\proud_html_preview_url($item['id'], $item['url']);
+    }
+
+    if (!empty($item['html_preview_url'])) {
+      $item['show_preview'] = 'html';
+    } elseif (
       $show_preview == '1' &&
       in_array($item['filetype'], array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'))
       && (
@@ -111,7 +119,9 @@ function printDocument($params)
     <div class="col-md-9">
       <?php //echo the_content()
       ?>
-      <?php if ($show_preview === 'office'): ?>
+      <?php if (!empty($html_preview_url)): ?>
+        <iframe src="<?php echo esc_url($html_preview_url); ?>" title="<?php echo esc_attr(sprintf(__('HTML preview of %s'), $filename)); ?>" id="doc-preview" style="width:100%; height:900px;<?php if ($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" sandbox="allow-same-origin" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      <?php elseif ($show_preview === 'office'): ?>
         <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?php echo $src; ?>" style="width:100%; height:900px;<?php if ($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>
       <?php elseif ($show_preview): ?>
         <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" id="doc-preview" style="width:100%; height:900px;<?php if ($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>

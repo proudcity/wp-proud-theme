@@ -8,12 +8,23 @@ $filename = get_post_meta( $id, 'document_filename', true );
 $meta = json_decode(get_post_meta( $id, 'document_meta', true ));
 $terms = wp_get_post_terms( $id, 'document_taxonomy', array("fields" => "all"));
 $filetype = Document\get_document_type();
+$show_preview = false;
+$html_preview_url = '';
+$preview_filetypes = array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx');
+$office_filetypes = array('doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx');
+$within_remote_preview_limit = empty($meta->size)
+  || strpos(strtoupper($meta->size), 'KB') !== FALSE
+  || (strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) <= 20);
 
-if (in_array($filetype, array('pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') ) && (
-  empty($meta->size)
-  || ( strpos(strtoupper($meta->size), 'KB') !== FALSE || ( strpos($meta->size, 'MB') !== FALSE && (int)str_replace(' MB', '', $meta->size) <= 20 ) )
-)) {
-  if (in_array($filetype, array('doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx') )) {
+if ('pdf' === $filetype && function_exists('\\Proud\\Core\\proud_html_preview_url')) {
+  $preview_source_id = !empty($meta->fid) ? absint($meta->fid) : $id;
+  $html_preview_url = \Proud\Core\proud_html_preview_url($preview_source_id, $src);
+}
+
+if ($html_preview_url) {
+  $show_preview = 'html';
+} elseif (in_array($filetype, $preview_filetypes) && $within_remote_preview_limit) {
+  if (in_array($filetype, $office_filetypes)) {
     $show_preview = 'office';
   }
   else {
@@ -72,7 +83,9 @@ if ( !empty($form_id) ) {
   </div>
   <div class="col-md-9">
     <?php echo the_content() ?>
-    <?php if ($show_preview === 'office'): ?>
+    <?php if ($html_preview_url): ?>
+      <iframe src="<?php echo esc_url($html_preview_url); ?>" title="<?php echo esc_attr(sprintf(__('HTML preview of %s'), get_the_title())); ?>" id="doc-preview" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" sandbox="allow-same-origin" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    <?php elseif ($show_preview === 'office'): ?>
       <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?php echo $src; ?>" title="<?php the_title(); ?>" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>
     <?php elseif ($show_preview): ?>
       <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" title="<?php the_title(); ?>" id="doc-preview" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" ></iframe>
