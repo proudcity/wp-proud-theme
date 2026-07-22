@@ -796,7 +796,7 @@ function proud_customize_css()
     }
 
     #menu-button:hover,
-    #menu-button:focus {
+    #menu-button:focus-visible {
       background-color: <?php echo $link_color; ?>;
       border-color: <?php echo $link_color; ?>;
     }
@@ -805,9 +805,9 @@ function proud_customize_css()
     #menu-button:hover .hamburger-bars,
     #menu-button:hover .hamburger-bars:before,
     #menu-button:hover .hamburger-bars:after,
-    #menu-button:focus .hamburger-bars,
-    #menu-button:focus .hamburger-bars:before,
-    #menu-button:focus .hamburger-bars:after {
+    #menu-button:focus-visible .hamburger-bars,
+    #menu-button:focus-visible .hamburger-bars:before,
+    #menu-button:focus-visible .hamburger-bars:after {
       background: <?php echo $menu_btn_fg; ?>;
       background-color: <?php echo $menu_btn_fg; ?>;
     }
