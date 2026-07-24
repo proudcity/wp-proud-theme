@@ -69,9 +69,9 @@ if ( !empty($form_id) ) {
     <?php if (!empty($src)): ?>
       <p>
         <?php if ($src): ?>
-            <a href="<?php echo $src; ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i aria-hidden="true" class="fa fa-fw fa-download"></i>Download</a>
+            <a href="<?php echo esc_url($src); ?>" class="btn btn-primary btn-sm" download="<?php echo $filename; ?>"><i aria-hidden="true" class="fa fa-fw fa-download"></i>Download</a>
             <?php if (!$show_preview): ?>
-                <a href="<?php echo $src; ?>" class="btn btn-default btn-sm"><i aria-hidden="true" class="fa fa-fw fa-external-link"></i>Popout</a>
+                <a href="<?php echo esc_url($src); ?>" class="btn btn-default btn-sm"><i aria-hidden="true" class="fa fa-fw fa-external-link"></i>Popout</a>
             <?php endif; ?>
         <?php endif; ?>
         <?php if ($show_preview === 2): ?>
@@ -86,9 +86,9 @@ if ( !empty($form_id) ) {
     <?php if ($html_preview_url): ?>
       <iframe src="<?php echo esc_url($html_preview_url); ?>" title="<?php echo esc_attr(sprintf(__('HTML preview of %s'), get_the_title())); ?>" id="doc-preview" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" sandbox="allow-same-origin" loading="lazy" referrerpolicy="no-referrer"></iframe>
     <?php elseif ($show_preview === 'office'): ?>
-      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?php echo $src; ?>" title="<?php the_title(); ?>" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>
+      <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=<?php echo esc_url($src); ?>" title="<?php the_title(); ?>" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0"></iframe>
     <?php elseif ($show_preview): ?>
-      <iframe src="//docs.google.com/gview?url=<?php echo $src; ?>&embedded=true" title="<?php the_title(); ?>" id="doc-preview" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" ></iframe>
+      <iframe src="//docs.google.com/gview?url=<?php echo esc_url($src); ?>&embedded=true" title="<?php the_title(); ?>" id="doc-preview" style="width:100%; height:900px;<?php if($show_preview === 2): ?>display:none<?php endif; ?>;" frameborder="0" ></iframe>
     <?php endif; ?>
     <?php if( !empty($form_id) ): ?>
       <?php print $form; ?>
