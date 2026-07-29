@@ -812,6 +812,18 @@ function proud_customize_css()
       background-color: <?php echo $menu_btn_fg; ?>;
     }
 
+    <?php // Mobile-only top-bar sites: the compiled `body.proud-navbar-active.admin-bar`
+    // rule reserves only the admin bar's height (47px) with !important, so the
+    // position:fixed mobile-only action toolbar (52px) overlaps the logo row and
+    // the JS-centered hamburger. Reserve space for both (47 + 52 = 99px) so the
+    // logo clears the toolbar; the higher-specificity selector + !important beats
+    // the compiled rule. Scoped to the hamburger range and mobile-only sites. ?>
+    @media screen and (max-width: <?php echo $proudSCSS['nav-fixed-bottom-max'] ?>) {
+      body.proud-navbar-active.proud-navbar-topbar-mobile-only-active.admin-bar {
+        padding-top: 99px !important;
+      }
+    }
+
     <?php if (proud_navbar_transparent()): ?>.jumbotron-inverse .jumbotron-bg {
       background-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;
       border-color: rgba(<?php echo $navbar_background_rga ?>, 0.8) !important;

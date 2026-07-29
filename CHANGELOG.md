@@ -1,3 +1,9 @@
+## 2026-07-29
+
+- Fixed logo and hamburger hiding behind the fixed mobile-only action toolbar on sites using `proud-navbar-topbar-mobile-only-active` (e.g. Wendell, Carnation, Holyoke, Vigo) when the WordPress admin bar is present. The compiled `body.proud-navbar-active.admin-bar { padding-top: 47px !important }` rule beat the non-important mobile-only override because `!important` wins over specificity alone. Added a higher-specificity `!important` rule in `functions.php` (tracked; survives `npm run projectupdate`) that reserves 99px (47px admin bar + 52px mobile-only toolbar) so the logo row clears the fixed toolbar.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2757
+
 ## 2026-07-20
 
 - Updated Proud Document and Meeting templates to use Proud Core's provider-neutral durable HTML preview URL when available. Durable PDF HTML previews are independent of Google Viewer's 20 MB limit. Original PDF Download buttons remain unchanged; Office documents, disabled previews, invalid records, and unavailable artifacts retain the existing fallback behavior. HTML preview iframes are titled, lazy-loaded, same-origin sandboxed, and use a no-referrer policy.
