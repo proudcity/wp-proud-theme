@@ -1,3 +1,9 @@
+## 2026.08.18.1309
+
+- Fixed the Gravity Forms date picker toggle rendering with the site primary color as its background instead of the expected transparent/white. Gravity Forms 3.0 renders the date picker trigger as a real `<button>` carrying `gform-theme-button gform-theme-button--simple`, and two selectors in `functions.php` — `.gform-theme-button` and the generic `:where(:not(.mce-splitbtn))>button:not([id*="mceu_"]):not(.mce-open)` — matched it and forced `background-color: <primary> !important`. In Gravity Forms 2.x the submit button was an `<input type="submit">` and nothing carried `gform-theme-button`, so these selectors only ever hit the submit button. Added `:not(.gform-theme-button--simple)` to both selectors and their `:hover` counterparts, using Gravity Forms' own modifier for unfilled icon buttons. Excludes the date picker toggle and the calendar popup prev/next arrows; filled buttons including the form submit button are unchanged.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2884
+
 ## 2026-07-29
 
 - Fixed logo and hamburger hiding behind the fixed mobile-only action toolbar on sites using `proud-navbar-topbar-mobile-only-active` (e.g. Wendell, Carnation, Holyoke, Vigo) when the WordPress admin bar is present. The compiled `body.proud-navbar-active.admin-bar { padding-top: 47px !important }` rule beat the non-important mobile-only override because `!important` wins over specificity alone. Added a higher-specificity `!important` rule in `functions.php` (tracked; survives `npm run projectupdate`) that reserves 99px (47px admin bar + 52px mobile-only toolbar) so the logo row clears the fixed toolbar.
