@@ -39,34 +39,46 @@ function proud_customize_register($wp_customize)
   $wp_customize->add_setting('color_topnav', array(
     'default' => '#000000',
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_nav_topbar', array(
     'default' => get_theme_mod('color_topnav', '#000000'),
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_link', array(
     'default' => '#0071bc',
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_highlight', array(
     'default' => '#000000',
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_secondary', array(
     'default' => get_theme_mod('color_topnav', '#000000'),
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_footer', array(
     'default' => '#333333',
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_footer_actions', array(
     'default' => '#FFFFFF',
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_setting('color_action_button', array(
     'default' => '#e49c11',
     'transport' => 'refresh',
+    // WP_Customize_Color_Control is a JS picker only. Without a
+    // sanitize_callback the POSTed value is stored verbatim, and it is
+    // interpolated into <style> blocks by the icon-link and cta-button
+    // widgets and the Gravity Forms submit button override.
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
 
   // Controls
@@ -118,13 +130,16 @@ function proud_customize_register($wp_customize)
   $wp_customize->add_setting('color_background', array(
     'default' => '#FFFFFF',
     'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color',
   ));
   $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'color_background', array(
     'label' => __('Background color', 'proud'),
     'section' => 'colors',
     'settings' => 'color_background',
   )));
-  $wp_customize->add_setting('background_image');
+  $wp_customize->add_setting('background_image', array(
+    'sanitize_callback' => 'esc_url_raw',
+  ));
   $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'background_image', array(
     'label' => __('Background Image', 'proud'),
     'section' => 'colors',
@@ -582,6 +597,73 @@ function adjust_brightness($hex, $adjustPercent)
 }
 
 /**
+ * A Customizer colour setting, guaranteed to be a hex colour.
+ *
+ * None of the colour settings registered in proud_customize_register() had a
+ * sanitize_callback, and WP_Customize_Color_Control is a JS picker that
+ * validates nothing server side, so the stored value was whatever was POSTed.
+ * Those values are interpolated raw into the <style> block emitted by
+ * proud_customize_css() and into the theme-color <meta> attribute, which made
+ * an edit_theme_options user able to inject CSS or break out of the attribute.
+ *
+ * sanitize_callback has since been added to every colour setting, which closes
+ * the save path. This is the read-side half: values already stored before that
+ * fix, or written through the theme_mod_* filter, still have to be made safe on
+ * the way out. get_theme_mod() applies theme_mod_{$name} before returning, so
+ * sanitising here covers the filter too.
+ *
+ * Deliberately does NOT call into wp-proud-core. functions.php runs on every
+ * request, and a hard dependency on a plugin would white-screen the site if the
+ * plugin were ever deactivated. sanitize_hex_color() is WordPress core.
+ *
+ * @param string $name    Theme mod name.
+ * @param string $default Hex colour to fall back to.
+ * @return string A hex colour.
+ */
+function proud_hex_theme_mod($name, $default)
+{
+  $stored = get_theme_mod($name, $default);
+
+  // Core's sanitize_hex_color() hands its argument straight to preg_match(),
+  // which is a TypeError on PHP 8 for an array and a deprecation for null.
+  $color = is_string($stored) ? sanitize_hex_color($stored) : null;
+
+  if (empty($color)) {
+    // Sanitise the fallback too, so the return contract holds even if a
+    // future caller passes something unvalidated as $default.
+    $color = is_string($default) ? sanitize_hex_color($default) : null;
+    $color = empty($color) ? '#000000' : $color;
+  }
+
+  return proud_expand_hex_shorthand($color);
+}
+
+/**
+ * Expands #abc to #aabbcc.
+ *
+ * sanitize_hex_color() accepts 3-digit shorthand, but hex_to_rgb() matches
+ * three 2-digit groups and returns null for it. That null then reaches
+ * implode(',', $header_rgb) in proud_customize_css(), which is an uncaught
+ * TypeError on PHP 8 -- a white screen on every page, since that function runs
+ * on wp_head. It is reachable whenever proud_navbar_transparent() is on and a
+ * shorthand colour is stored, which the Customizer will happily accept.
+ *
+ * Normalising here rather than widening hex_to_rgb() also fixes
+ * get_color_if_not_white(), whose white check misses #FFF for the same reason.
+ *
+ * @param string $color A sanitised hex colour.
+ * @return string The same colour, always 6 digits.
+ */
+function proud_expand_hex_shorthand($color)
+{
+  if (is_string($color) && strlen($color) === 4 && $color[0] === '#') {
+    return '#' . $color[1] . $color[1] . $color[2] . $color[2] . $color[3] . $color[3];
+  }
+
+  return $color;
+}
+
+/**
  * Gets RGB array from hex
  *
  * @param string $hex Supported formats: `#FFF`, `#FFFFFF`, `FFF`, `FFFFFF`
@@ -661,8 +743,13 @@ function is_extra_light_color($hex, $rgb = [])
  */
 function get_color_if_not_white($theme_mod)
 {
-  // Get our background color.
+  // Get our background color. Sanitised because the return value is echoed
+  // straight into a background-color declaration.
   $color = get_theme_mod($theme_mod, '');
+  $color = is_string($color) ? (string) sanitize_hex_color($color) : '';
+  // Expand shorthand so the #FFF white check below matches, and so the
+  // returned value is safe for hex_to_rgb().
+  $color = proud_expand_hex_shorthand($color);
   if ($color) {
     $c_hex = hex_to_rgb($color);
 
@@ -676,7 +763,7 @@ function get_color_if_not_white($theme_mod)
 function proud_customize_css()
 {
   // Set up navbar background, allow transparent alter
-  $navbar_background = get_theme_mod('color_topnav', '#000000');
+  $navbar_background = proud_hex_theme_mod('color_topnav', '#000000');
 
   // See below
   $header_rgb = hex_to_rgb($navbar_background);
@@ -685,13 +772,13 @@ function proud_customize_css()
   }
 
   // Set up navbar topbar
-  $topbar_background = get_theme_mod('color_nav_topbar', get_theme_mod('color_topnav', '#000000'));
+  $topbar_background = proud_hex_theme_mod('color_nav_topbar', $navbar_background);
 
   $color_background = get_color_if_not_white('color_background');
   $background_image = get_theme_mod('background_image', '');
 
   // Deal with links
-  $link_color = get_theme_mod('color_link', '#0071bc');
+  $link_color = proud_hex_theme_mod('color_link', '#0071bc');
   if (is_light_color($link_color)) {
     $link_color_hover = adjust_brightness($link_color, -0.20);
   } else {
@@ -699,7 +786,7 @@ function proud_customize_css()
   }
 
   // Primary/highlight
-  $color_primary = get_theme_mod('color_highlight', '#000000');
+  $color_primary = proud_hex_theme_mod('color_highlight', '#000000');
   $is_primary_light = is_light_color($color_primary);
   $is_primary_extra_light = is_extra_light_color($color_primary);
   if ($is_primary_light) {
@@ -710,7 +797,7 @@ function proud_customize_css()
   $color_primary_rgb = hex_to_rgb($color_primary);
 
   // Secondary links
-  $color_secondary = get_theme_mod('color_secondary', get_theme_mod('color_topnav', '#000000'));
+  $color_secondary = proud_hex_theme_mod('color_secondary', $navbar_background);
   $is_secondary_light = is_light_color($color_secondary);
   $is_secondary_extra_light = is_extra_light_color($color_secondary);
   if (is_light_color($is_secondary_light)) {
@@ -761,7 +848,7 @@ function proud_customize_css()
     }
 
     <?php endif; ?><?php if ($background_image): ?>body {
-      background-image: url("<?php echo $background_image ?>");
+      background-image: url("<?php echo esc_url_raw($background_image) ?>");
       background-repeat: repeat;
     }
 
@@ -997,12 +1084,12 @@ function proud_customize_css()
     }
 
     .footer-actions {
-      background-color: <?php echo get_theme_mod('color_footer_actions', '#FFFFFF'); ?>;
+      background-color: <?php echo proud_hex_theme_mod('color_footer_actions', '#FFFFFF'); ?>;
     }
 
     .page-footer,
     .powered-by-footer {
-      background-color: <?php echo get_theme_mod('color_footer', '#333333'); ?>;
+      background-color: <?php echo proud_hex_theme_mod('color_footer', '#333333'); ?>;
     }
 
     <?php Customizer\customize_font_default_css(); ?><?php Customizer\customize_font_headings_css(); ?><?php Customizer\customize_font_regions_css(); ?>
