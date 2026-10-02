@@ -1,0 +1,78 @@
+@use 'sass:math';
+@use 'loaders/load-local' as *;
+
+// Image set cards (#2934)
+// ---------------------------
+//
+// The ImageSet widget's "cards" display renders through
+// wp-proud-core/modules/proud-widget/widgets/image-set/templates/image-cards.php,
+// which tags its grid wrapper with .image-set-cards.
+//
+// Out of the box those cards inherit the shared card() mixin from
+// proudcity-patterns: a 1px border, a rounded corner, an inset white
+// box-shadow, and a .card-img-top wrapper whose min-width: 100% sits on the
+// wrapper rather than the <img>. The image itself renders at its intrinsic
+// 300px (card-thumb) inside a wider card and is centred by .text-center, so it
+// floats with a strip of white on each side.
+//
+// The patterns rules cannot be edited for this: every card on the site shares
+// them, and proudcity-patterns is an untracked clone that npm run projectupdate
+// wipes. Everything here is scoped to .image-set-cards instead. Two classes of
+// specificity also means these rules still win in the child themes, which load
+// their own patterns copy after the parent stylesheet.
+
+// card-thumb is registered at 300x170 (wp-proud-core.php, addImageSizes).
+// Keep these in step with that registration -- they define the box the image
+// is cropped into, and a mismatch shows up as a jump on load.
+$image-set-thumb-width: 300 !default;
+$image-set-thumb-height: 170 !default;
+
+.image-set-cards {
+
+  // Strip the card chrome. font-size, margin-bottom, position and min-width
+  // from the card() mixin are all still wanted, so this undoes only the
+  // visible box.
+  .card {
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  // A fixed-ratio box so every card in a row is the same height regardless of
+  // what was uploaded. This matters more than it looks: alongside the expected
+  // landscape photos, real sites store logo-shaped images (147x55, 321x90,
+  // 330x100) and a few attachments with no card-thumb at all, which fall back
+  // to the full-size file. Sizing the <img> directly would let those render at
+  // wildly different heights inside an equalised row.
+  .card-img-top {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: percentage(math.div($image-set-thumb-height, $image-set-thumb-width));
+    overflow: hidden;
+    border-radius: 0;
+
+    // The template wraps the image in the same link as the title. Stretch it
+    // over the ratio box so the whole image stays clickable.
+    > a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      // cover, not contain: photos are the common case and must fill the card
+      // edge to edge, which is what the issue asks for. The logo-shaped
+      // minority gets cropped top and bottom rather than letterboxed.
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
