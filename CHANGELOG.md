@@ -1,10 +1,17 @@
-<<<<<<< HEAD
+## 2026.10.07.1023
+
+- Fixed the mobile hamburger covering the search overlay's close X. #2757 moved `#menu-button` (`.navbar-external .menu-button`, `position: fixed`) from the bottom-left to the top-right (`top: 62px; right: 15px`). It kept `z-index: 1052` (`$nav-user-overlay-z + 2`), which is above the overlay backdrop (1050) and the promoted search box (1051). With the overlay open, the button now sat on top of the close X in the same corner. Seen in the Firefox iPhone 14 emulator on the SR mini beta homepage, and the deployed `proud-vendor.css` on the beta has the same rules. Added a rule to `node_modules/proudcity-patterns/app/pattern-scss/_overlay.scss` that drops the button to `z-index: $nav-user-overlay-z - 1` (1049) under `.search-active` and `.active-311`, so it sits behind both the search and the 311/answers overlays. I lowered the `z-index` rather than hiding the button. `positionMenuButton()` in wp-proud-core's `proud-navbar.js` clears its inline `top` when the button reads `display: none`, so a resize while the overlay was open would have lost its position. Rebuilt with `npm run build`, which updates `dist/styles/proud-vendor.css` and `dist/styles/editor.css`; both import `_overlay.scss`. The SCSS source is in the untracked proudcity-patterns clone and is lost on the next `npm run projectupdate` unless it also goes into proudcity-patterns. Not yet checked in a browser. If the button still shows over the X, an ancestor stacking context is the likely cause, and `visibility: hidden` is the fallback.
+
+- Related, shipped in wp-proud-search: on iOS Safari the hero search field opened above the visible area when the page was scrolled. That fix is a `scrollTo(0, 0)` reset on the in-content focus path.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2948
+
 ## 2026.10.02.1318
 
 - Fixed Gravity Forms dropdowns turning the site's primary hover color on hover, which on Windows Chrome made the open option list the same color with dark option text (a WCAG contrast failure, reported on San Rafael's contact form). The `:hover` rule in `functions.php` that sets `background-color: <primary hover> !important` on Gravity Forms buttons also listed the field controls: native `select`, `select[multiple]`, the chosen single/multi selects, and `.gform-theme-field-control` (text inputs and textareas). Windows Chrome paints the native option list with the `<select>` element's background, so the colour carried into the dropdown. On macOS and iOS the OS draws the list, so it only showed on the closed control behind it. Moved those selectors into their own `:hover` rule that sets only `border-color` to the primary hover colour. Controls now keep the Gravity Forms default white background and the browser/OS option highlight. Buttons are unchanged. Also fixed a malformed selector in the same button hover rule where three selectors had been joined without commas, so it never matched. Kept the submit button `:hover` selector, and dropped a non-hover selector that did not belong in the rule and a repeat of `.gform_wrapper .button:hover`. No visible change, since `.gform_button:hover` already applied the same colour.
 
 References: https://github.com/proudcity/wp-proudcity/issues/2949
-=======
+
 ## 2026.09.18.1211
 
 - Added `assets/styles/components/_cards.scss` and wired it into `proud.scss`, the styling half of the ImageSet "cards" full-bleed change (#2934). The request came from SR mini beta: its front page achieves the desired look by hand-building three SiteOrigin image widgets each followed by an editor widget, and the ask was for the ImageSet widget to produce that out of the box. Everything is scoped under `.image-set-cards`, the class wp-proud-core now puts on that widget's grid wrapper. `.card` loses `border`, `border-radius`, `background-color` and `box-shadow` — only the visible box, since `font-size`, `margin-bottom`, `position` and `min-width` from the `card()` mixin are all still wanted. `.card-img-top` becomes a fixed-ratio box (`padding-top: 56.6667%`, derived with `math.div()` from variables documented as tracking the `card-thumb` registration in wp-proud-core, so a mismatch is visible at the source rather than as a jump on load), its `border-radius` zeroed, with the template's existing anchor absolutely positioned to fill it so the whole image stays clickable, and the `<img>` at `width/height: 100%` with `object-fit: cover`. **`.card-block` padding is deliberately left at `1.25rem`** — the image goes edge to edge, the text stays inset; that is Curtis's call, not an oversight.
@@ -15,7 +22,6 @@ References: https://github.com/proudcity/wp-proudcity/issues/2949
 - **Not visually verified.** No browser was available in the environment this was built in, so the compiled output is confirmed correct — the four rules are present and the ratio resolved to `56.6666666667%` — but nobody has looked at the rendered cards, and it has only been exercised on the standard theme, not in either child theme. Needs an eye before it goes near a real site.
 
 References: https://github.com/proudcity/wp-proudcity/issues/2934
->>>>>>> refs/remotes/origin/master
 
 ## 2026.09.03.1410
 
