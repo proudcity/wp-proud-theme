@@ -1,3 +1,15 @@
+## 2026.10.26.1425
+
+- Fixed PHP 8 warnings that started showing in Cloud Logging once PHP errors were routed to stderr (wp-proudcity#2997). Missing values now default to empty instead of warning; rendered output is unchanged.
+  - `templates/teaser-items/teaser-meeting-table.php`: meetings with no `video_style` meta (about 1,000 warnings an hour fleet-wide, the largest single source).
+  - `templates/content-single-document.php`: documents with no `document_meta` (null `$meta`). Removed a commented-out `<img>` line that still ran `echo $meta->icon` inside the HTML comment.
+  - `templates/teaser-items/teaser-document-table.php`: missing `size` on document meta.
+  - `templates/content-single-meeting.php`: attachments whose `sm_cloud` meta has no `filesize` (still computes 0, as before).
+  - `sslp-templates/single-staff-member.php`: staff members missing any of the custom fields.
+  - `lib/wrapper.php`: `parent_title()` when `$pageInfo` is not set.
+
+References: https://github.com/proudcity/wp-proudcity/issues/3006
+
 ## 2026.10.09.1240
 
 - Fixed single location pages showing the featured image twice. `templates/content-single-location.php` already prints `the_post_thumbnail()` above `the_content()`, and Events Manager 7.4.5's own `templates/formats/single_location_format.php` (which filters `the_content` for location pages) also prints `#_LOCATIONIMAGE{medium}` in its own `em-item-image` block. Added `plugins/events-manager/formats/single_location_format.php` as a theme override — EM's `em_locate_template()` checks the theme before falling back to its own file — with the `{has_loc_image}`/`#_LOCATIONIMAGE{medium}` block and the `{no_loc_image}`/`{/no_loc_image}` wrappers removed, so the meta section is always two columns and the image renders only once, from the theme template. Two behavior changes follow from this: locations with the `hide_featured_image` post meta set now show no image at all, since EM's copy was the one ignoring that toggle; and locations with a hidden title now show no image either, since the theme only prints the thumbnail when the title isn't hidden. Re-sync this override against the upstream EM file on EM updates.

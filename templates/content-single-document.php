@@ -53,7 +53,6 @@ if ( !empty($form_id) ) {
 
 <div class="row">
   <div class="col-md-3">
-    <!--<p><img src="<?php echo $meta->icon; ?>" /></p>-->
     <p>
       <?php foreach ($terms as $term): ?>
         <a class="label label-default" href="?filter_categories[]=<?php echo $term->term_id ?>"><?php echo $term->name ?></a>
@@ -63,7 +62,7 @@ if ( !empty($form_id) ) {
       <?php if(get_option('proud_document_show_date', '1') !== '0'): ?><div><?php the_date('F j, Y'); ?></div><?php endif; ?>
       <ul class="list-inline list-inline-middot icon-list">
         <li><?php echo strtoupper($filetype); ?></li>
-        <?php if ($meta->size): ?><li><?php echo $meta->size; ?></li><?php endif; ?>
+        <?php if (!empty($meta->size)): ?><li><?php echo $meta->size; ?></li><?php endif; ?>
       </ul>
     </p>
     <?php if (!empty($src)): ?>

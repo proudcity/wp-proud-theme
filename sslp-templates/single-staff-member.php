@@ -1,15 +1,15 @@
 <?php while (have_posts()) : the_post();
 
   $custom       = get_post_custom();
-  $title        = $custom["_staff_member_title"][0];
-  $email        = $custom["_staff_member_email"][0];
-  $contact_link = $custom["_proud_contact_link"][0];
-  $phone        = $custom["_staff_member_phone"][0];
-  $address      = $custom["_proud_address"][0];
-  $bio          = $custom["_staff_member_bio"][0];
-  $fb_url       = $custom["_staff_member_fb"][0];
-  $tw_url       = $custom["_staff_member_tw"][0] ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
-  $linkedin_url = $custom["_proud_linkedin_link"][0];
+  $title        = $custom["_staff_member_title"][0] ?? '';
+  $email        = $custom["_staff_member_email"][0] ?? '';
+  $contact_link = $custom["_proud_contact_link"][0] ?? '';
+  $phone        = $custom["_staff_member_phone"][0] ?? '';
+  $address      = $custom["_proud_address"][0] ?? '';
+  $bio          = $custom["_staff_member_bio"][0] ?? '';
+  $fb_url       = $custom["_staff_member_fb"][0] ?? '';
+  $tw_url       = ! empty( $custom["_staff_member_tw"][0] ) ? 'http://www.twitter.com/' . $custom["_staff_member_tw"][0] : false;
+  $linkedin_url = $custom["_proud_linkedin_link"][0] ?? '';
   $terms        = wp_get_post_terms( absint( $post->ID ), 'staff-member-group', array("fields" => "all"));
 ?>
   <article <?php post_class(); ?>>

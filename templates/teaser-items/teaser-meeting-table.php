@@ -55,7 +55,7 @@ if (empty($meta['video_style'][0]) && !empty($meta['video'][0])) {
   $item = "<i aria-hidden='true' class='fa fa-fw fa-youtube'></i> Video";
   $content .= "<td><a class='label label-primary' href='$url#tab-video'>$item</a></td>";
 }
-elseif ($meta['video_style'][0] === 'external' && !empty($meta['external_video'][0])) {
+elseif (($meta['video_style'][0] ?? '') === 'external' && !empty($meta['external_video'][0])) {
     $item = "Video <i aria-hidden='true' class='fa fa-fw fa-external-link'></i>";
     $videoUrl = $meta['external_video'][0];
     $content .= "<td><a class='label label-primary' href='$videoUrl' target='_blank' title='Open video on external website'>$item</a></td>";

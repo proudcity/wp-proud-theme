@@ -16,7 +16,7 @@ $filetype = Document\get_document_type();
   <td><?php if(empty($hide['date'])): ?><?php echo get_the_date(); ?><?php endif; ?></td>
   <td>
     <?php if(empty($hide['download']) && !empty($src)): ?><a href="<?php echo esc_url(get_permalink()) ?>" aria-labelledby="<?php the_ID(); ?>">
-      <i aria-hidden="true" class="fa fa-fw text-muted filetype-icon <?php echo sanitize_html_class($icon); ?>"></i> <?php echo strtoupper($filetype); ?> (<?php echo esc_attr($meta->size); ?>)
+      <i aria-hidden="true" class="fa fa-fw text-muted filetype-icon <?php echo sanitize_html_class($icon); ?>"></i> <?php echo strtoupper($filetype); ?> (<?php echo esc_attr($meta->size ?? ''); ?>)
     </a><?php endif; ?>
   </td>
 </tr>

@@ -36,8 +36,9 @@ function sidebar_proudtopic_path() {
 
 function parent_title() {
   global $pageInfo;
-  $url = get_permalink( $pageInfo['parent_post'] );
-  $title = get_the_title( $pageInfo['parent_post'] );
+  $parent_post = $pageInfo['parent_post'] ?? null;
+  $url = get_permalink( $parent_post );
+  $title = get_the_title( $parent_post );
   return "<a href='$url' title='$title'>$title</a>";
 }
 

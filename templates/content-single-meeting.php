@@ -49,7 +49,7 @@ foreach (['agenda', 'agenda_packet', 'minutes'] as $field) {
     $attachment_meta = get_post_meta($item['id'], 'sm_cloud', true);
 
     if (! empty($attachment_meta)) {
-      $item['filesize'] = round($attachment_meta['filesize'] / 1024 / 1024, 1);
+      $item['filesize'] = round(($attachment_meta['filesize'] ?? 0) / 1024 / 1024, 1);
     } else {
       $item['filesize'] = 'null';
     }
