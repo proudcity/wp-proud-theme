@@ -1,0 +1,15 @@
+// SiteOrigin Panels
+// ---------------------------------------------------
+
+// Search Box widget inside a parallax row (saintra#60).
+// SiteOrigin gives every child of a parallax row `position: relative;
+// z-index: 1` (front-flex.css: `.panel-grid .so-parallax > :not(.simpleParallax)`).
+// That makes the cell a stacking context, so the search form's
+// `.search-active #wrapper-search { position: fixed; z-index: 1051 }` only
+// applies inside the cell, and the whole cell paints under
+// `#overlay-search` (z-index 1050): the search overlay opens blank.
+// Drop the cell's z-index only while search is open, and only for the cell
+// that holds the search box, so the parallax layering is unchanged otherwise.
+.search-active .panel-grid .so-parallax > :not(.simpleParallax):has(#wrapper-search) {
+  z-index: auto;
+}
