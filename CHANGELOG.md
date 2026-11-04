@@ -1,3 +1,10 @@
+## 2026.11.04.1540
+
+- Fixed the search overlay opening blank on pages where the Search Box widget sits in a SiteOrigin row with a parallax background (Santa Ana intranet homepage, saintra#60). SiteOrigin Panels gives every child of a parallax row `position: relative; z-index: 1` (`front-flex.css`: `.panel-grid .so-parallax > :not(.simpleParallax)`), which makes the cell a stacking context. The search form's `.search-active #wrapper-search { position: fixed; z-index: 1051 }` then only applies inside that cell, and the whole cell paints under `#overlay-search` (`z-index: 1050`), so both the toolbar Search button and the hero search box showed an empty white panel. New `assets/styles/plugins/_siteorigin.scss` sets `z-index: auto` on the parallax cell that holds `#wrapper-search` while `.search-active` is set. Parallax layering is unchanged when search is closed. This complements the existing `.search-active *:has(#wrapper-search)` rule, which clears `transform`, `filter` and similar on the form's ancestors but not `z-index`.
+- Only `dist/styles/proud.css` was rebuilt. `proud-vendor.css` and `editor.css` are unchanged: a local `npm run build` regenerates them without patches that aren't in the `proudcity-patterns` package (for example the 2026.10.07.1023 `menu-button` `z-index: 1049`), so commit only `proud.css` for theme-only SCSS changes.
+
+References: https://github.com/proudcity/saintra/issues/60
+
 ## 2026.11.04.1107
 
 - Meeting Calendar widget (new in wp-proud-core 2026.11.04.1056) now uses the site's default font (wp-proudcity#2768). Added `.widget-meeting-calendar .wpfc-calendar-wrapper *` to the customizer default-font selectors in `lib/customizer.php`. No `section` qualifier so it also matches SiteOrigin's `<div>` widget wrapper. The Events Calendar selectors are unchanged.
