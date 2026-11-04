@@ -1,3 +1,9 @@
+## 2026.11.04.1107
+
+- Meeting Calendar widget (new in wp-proud-core 2026.11.04.1056) now uses the site's default font (wp-proudcity#2768). Added `.widget-meeting-calendar .wpfc-calendar-wrapper *` to the customizer default-font selectors in `lib/customizer.php`. No `section` qualifier so it also matches SiteOrigin's `<div>` widget wrapper. The Events Calendar selectors are unchanged.
+
+References: https://github.com/proudcity/wp-proudcity/issues/2768
+
 ## 2026.10.26.1425
 
 - Fixed PHP 8 warnings that started showing in Cloud Logging once PHP errors were routed to stderr (wp-proudcity#2997). Missing values now default to empty instead of warning; rendered output is unchanged.
