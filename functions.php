@@ -1024,6 +1024,18 @@ function proud_customize_css()
       max-width: 100%;
     }
 
+    /* Category color swatch, sized like wp-fullcalendar's .wpfc-cat-icon. The
+       menu is appended to <body>, so this can't be scoped to the calendar.
+       Categories without a color show the same default the calendar uses. */
+    .proud-meeting-calendar-swatch {
+      display: inline-block;
+      width: 0.8em;
+      height: 0.8em;
+      margin: 0 0.6em 0 0;
+      border: 1px solid #cdcdcd;
+      background-color: <?php echo $color_primary ?>;
+    }
+
     .gform_wrapper .button,
     .gform_button,
     .gform_button:hover {
