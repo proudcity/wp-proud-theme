@@ -1,3 +1,15 @@
+## 2026.11.05.0939
+
+- Fixed printing on pages with a sidebar menu (wp-proudcity#3009, San Rafael job descriptions). The theme had no print styles of its own, only Bootstrap 3's, so the `make-sm-column()` layout (768px and up) collapsed at Letter print width and the `<aside class="sidebar">` printed full width above `<main>`. wp-proud-core's `proud-menu.js` also sets `.menu-slider` to the menu's on-screen height (8,319px for San Rafael's job titles) with `overflow: hidden`, which printed as about 7 blank pages before the content. New `assets/styles/layouts/_print.scss` (one `@media print` block, loaded from `proud.scss`):
+  - Hides the header, top/external navbars, language switcher, alert banner, `#offcanvas-toggle`, the sidebar (`#content-main > .sidebar`, including any contact widgets under the menu), `.menu-slider`, footer actions, footer and overlays. Navbar rules use classes, not IDs, because the San Rafael child theme's navbar template has no `#navbar-*` IDs.
+  - Resets `.wrap` and `#content-main` width, margins, padding and overflow, and makes `#content-main > .main` full width with no float.
+  - Stops Bootstrap printing link URLs after every link (`a[href]:after`, `abbr[title]:after`).
+- `base.php` adds a print-only `Printed from: <url>` line after `</main>` (`visible-print-block`, hidden on screen). The URL is `home_url( $wp->request )` (path only, no query string), escaped with `esc_url()` / `esc_html()`.
+- Screen layout is unchanged; every rule is inside `@media print`. A local print of the job descriptions page went from 24 pages (10 blank) to 11 (none blank).
+- Only `dist/styles/proud.css` was rebuilt (see the 2026.11.04.1540 note on `proud-vendor.css` / `editor.css`).
+
+References: https://github.com/proudcity/wp-proudcity/issues/3009
+
 ## 2026.11.04.1540
 
 - Fixed the search overlay opening blank on pages where the Search Box widget sits in a SiteOrigin row with a parallax background (Santa Ana intranet homepage, saintra#60). SiteOrigin Panels gives every child of a parallax row `position: relative; z-index: 1` (`front-flex.css`: `.panel-grid .so-parallax > :not(.simpleParallax)`), which makes the cell a stacking context. The search form's `.search-active #wrapper-search { position: fixed; z-index: 1051 }` then only applies inside that cell, and the whole cell paints under `#overlay-search` (`z-index: 1050`), so both the toolbar Search button and the hero search box showed an empty white panel. New `assets/styles/plugins/_siteorigin.scss` sets `z-index: auto` on the parallax cell that holds `#wrapper-search` while `.search-active` is set. Parallax layering is unchanged when search is closed. This complements the existing `.search-active *:has(#wrapper-search)` rule, which clears `transform`, `filter` and similar on the form's ancestors but not `z-index`.
