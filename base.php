@@ -55,6 +55,9 @@ if (!$proudcore) {
           <?php include Wrapper\template_path(); ?>
         <!--PAGEWATCH--></main><!-- /.main -->
 
+        <?php $print_url = home_url( $GLOBALS['wp']->request ); ?>
+        <p class="visible-print-block print-url"><?php esc_html_e( 'Printed from:', 'proud' ); ?> <a href="<?php echo esc_url( $print_url ); ?>"><?php echo esc_html( $print_url ); ?></a></p>
+
       </div><!-- /.content -->
     </div><!-- /.wrap -->
     <?php

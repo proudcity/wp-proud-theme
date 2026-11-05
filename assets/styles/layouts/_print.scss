@@ -1,0 +1,50 @@
+// Print styles (wp-proudcity#3009)
+// ---------------------------------------------------
+// The grid breakpoints are screen-only and a Letter page is ~740px wide, so the
+// `sm` two-column layout collapses in print and the sidebar stacks above
+// `.main`. The agency menu's `.menu-slider` also gets a fixed pixel height from
+// proud-menu.js (thousands of px on long menus), which prints as blank pages.
+// Hide the page chrome and sidebar and let the content use the full width.
+// Target classes, not IDs: child themes drop the #navbar-* IDs.
+@media print {
+  header[role="banner"],
+  .navbar-topbar,
+  .navbar-external,
+  .navbar-header-region,
+  .pct-language-switcher,
+  .widget_pct_language_switcher,
+  .proud-alert-banner,
+  #offcanvas-toggle,
+  #content-main > .sidebar,
+  .menu-slider,
+  .footer-actions,
+  footer.content-info,
+  .proud-overlay {
+    display: none !important;
+  }
+
+  .wrap,
+  #content-main {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: 0 !important;
+    overflow: visible !important;
+  }
+
+  #content-main > .main {
+    float: none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    left: 0 !important;
+  }
+
+  // Don't print URLs after links or abbreviations anywhere.
+  a[href]:after,
+  abbr[title]:after {
+    content: none !important;
+  }
+}
