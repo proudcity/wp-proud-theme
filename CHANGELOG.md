@@ -1,3 +1,7 @@
+## 2026.11.05.1505
+
+- Meeting Calendar widget (wp-proudcity#2768): styles for the category color swatch in the meeting calendar filter (`.proud-meeting-calendar-swatch`), sized like wp-fullcalendar's `.wpfc-cat-icon`. Categories without a color show the Primary color, the same default the calendar uses.
+
 ## 2026.11.05.1045
 
 - Meeting Calendar widget (wp-proudcity#2768): meetings without a category color use the Primary color, with dark text on light Primary colors. Category colors still take priority.
