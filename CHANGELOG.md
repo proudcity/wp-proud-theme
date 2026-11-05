@@ -1,3 +1,9 @@
+## 2026.11.05.1045
+
+- Meeting Calendar widget (wp-proudcity#2768): meetings without a category color use the Primary color, with dark text on light Primary colors. Category colors still take priority.
+- The meeting calendar's category filter matches the Events calendar dropdown in size and spacing.
+- Fixed the site-font selector for the meeting calendar, which targeted a class the widget never prints.
+
 ## 2026.11.05.0939
 
 - Fixed printing on pages with a sidebar menu (wp-proudcity#3009, San Rafael job descriptions). The theme had no print styles of its own, only Bootstrap 3's, so the `make-sm-column()` layout (768px and up) collapsed at Letter print width and the `<aside class="sidebar">` printed full width above `<main>`. wp-proud-core's `proud-menu.js` also sets `.menu-slider` to the menu's on-screen height (8,319px for San Rafael's job titles) with `overflow: hidden`, which printed as about 7 blank pages before the content. New `assets/styles/layouts/_print.scss` (one `@media print` block, loaded from `proud.scss`):
