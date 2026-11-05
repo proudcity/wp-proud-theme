@@ -1005,9 +1005,23 @@ function proud_customize_css()
       <?php endif; ?>
     }
 
+    /* Same spacing as wp-fullcalendar's .wpfc-calendar-search. */
+    .proud-meeting-calendar-search {
+      margin: 0 0 10px;
+    }
+
     .proud-meeting-calendar-filter-label {
-      display: block;
-      margin-bottom: 1em;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    /* The Events calendar renders inside a jQuery UI .ui-widget (12px); match it. */
+    .proud-meeting-calendar-search .ui-selectmenu-button {
+      font-size: 0.75em;
+      /* jQuery UI fixes 14em, which cuts off "All meeting categories" and longer names. */
+      width: auto;
+      min-width: 14em;
+      max-width: 100%;
     }
 
     .gform_wrapper .button,
