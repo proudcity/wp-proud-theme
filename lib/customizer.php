@@ -182,7 +182,7 @@ function customize_font_default_css()
     '.nav-contain .nav-pills li a', // this is slightly overpowered due to media query
     'section.widget-fullcalendar .ui-selectmenu-menu',
     'section.widget-fullcalendar .wpfc-calendar-wrapper *',
-    '.widget-meeting-calendar .wpfc-calendar-wrapper *', // no section qualifier so SiteOrigin's div wrapper matches too
+    '.widget-meeting-calendar .proud-meeting-calendar-wrapper *', // no section qualifier so SiteOrigin's div wrapper matches too
   ];
 
   // Print out css

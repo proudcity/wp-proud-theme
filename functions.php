@@ -995,6 +995,21 @@ function proud_customize_css()
       border-color: <?php echo  $color_primary ?> !important;
     }
 
+    /* Meeting calendar default; no !important so a per-category inline color wins. */
+    .proud-meeting-calendar .fc-event {
+      background-color: <?php echo $color_primary ?>;
+      border-color: <?php echo $color_primary ?>;
+      <?php if ($is_primary_light): ?><?php if ($is_primary_extra_light): ?>color: #434343;
+      <?php else: ?>color: #101010;
+      <?php endif; ?><?php else: ?>color: #fff;
+      <?php endif; ?>
+    }
+
+    .proud-meeting-calendar-filter-label {
+      display: block;
+      margin-bottom: 1em;
+    }
+
     .gform_wrapper .button,
     .gform_button,
     .gform_button:hover {
